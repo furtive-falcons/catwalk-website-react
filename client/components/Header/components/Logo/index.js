@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Logo = (props) => {
-    return (
+  return (
     <div>
             Logo
     </div>
