@@ -8,7 +8,7 @@
     "dev": "webpack --watch --mode development --progress",
     "build": "webpack --mode production --progress",
     "lint" : "eslint --cache .",
-    "lint:fix" : "eslint --fix",
+    "lint:fix" : "eslint --fix"
   },
   "repository": {
     "type": "git",
