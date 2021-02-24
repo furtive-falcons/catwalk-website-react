@@ -1,0 +1,8 @@
+**/node_modules
+**/bower_components
+**/lib
+**/vendor
+**/*.min.js
+**/dist
+**/public
+*.config.js

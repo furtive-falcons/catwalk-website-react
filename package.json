@@ -6,11 +6,20 @@
     "start": "nodemon",
     "start:client": "webpack serve --mode development --compress --open",
     "dev": "webpack --watch --mode development --progress",
-    "build": "webpack --mode production --progress"
+    "build": "webpack --mode production --progress",
+    "lint" : "eslint --cache .",
+    "lint:fix" : "eslint --fix",
+    "precomit" : "lint-staged"
   },
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,scss,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -32,7 +41,11 @@
     "@babel/core": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
     "babel-loader": "^8.2.2",
+    "eslint": "^7.20.0",
     "html-loader": "^2.0.0",
+    "husky": "^5.1.1",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"

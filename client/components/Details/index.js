@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Jack = () => {
-    return (
-        <div>
+  return (
+    <div>
             Jack
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Jack;

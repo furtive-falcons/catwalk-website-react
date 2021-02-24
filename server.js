@@ -5,7 +5,7 @@ const app = express();
 
 // middlewares
 app.use(express.json());
-app.use('/', express.static(__dirname + '/dist'))
+app.use('/', express.static(__dirname + '/dist'));
 
 const PORT = 3001;
 
@@ -14,5 +14,5 @@ const PORT = 3001;
 // })
 
 app.listen(PORT, () => {
-  console.log(`Port: ${PORT}`)
+  console.log(`Port: ${PORT}`);
 })

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Shay = () => {
-    return (
-        <div>
+  return (
+    <div>
             Shay
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Shay;
