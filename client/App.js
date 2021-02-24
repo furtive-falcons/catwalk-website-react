@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
-import Jack from './components/Jack';
-import Kevin from './components/Kevin';
-import Mike from './components/Mike';
-import Shay from './components/Shay';
+import Details from './components/Details';
+import Compare from './components/Compare';
+import QnA from './components/QnA';
+import Reviews from './components/Reviews';
 
 const App = () => {
   return (
     <Fragment>
-      <Jack />
-      <Kevin />
-      <Mike />
-      <Shay />
+      <Details />
+      <Compare />
+      <QnA />
+      <Reviews />
     </Fragment>
   );
 };
