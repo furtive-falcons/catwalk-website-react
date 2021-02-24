@@ -9,7 +9,7 @@
     "build": "webpack --mode production --progress",
     "lint" : "eslint --cache .",
     "lint:fix" : "eslint --fix",
-    "precomit" : "lint-staged"
+    "precommit" : "lint-staged"
   },
   "repository": {
     "type": "git",
