@@ -9,11 +9,15 @@
     "build": "webpack --mode production --progress",
     "lint" : "eslint --cache .",
     "lint:fix" : "eslint --fix",
-    "precommit" : "lint-staged"
   },
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,css,scss,json,md}": [
