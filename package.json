@@ -21,8 +21,8 @@
     "@babel/preset-react": "^7.12.13",
     "axios": "^0.21.1",
     "express": "^4.17.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
