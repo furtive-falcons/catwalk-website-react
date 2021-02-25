@@ -1,11 +1,9 @@
 import React from 'react';
 
-class Slide extends React.Components {
-
-
-  render() {
+const Slider = () => {
     return (
-
+      <div>slider</div>
     )
-  }
 }
+
+export default Slider;

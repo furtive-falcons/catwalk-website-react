@@ -1,25 +1,26 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+var path = require('path');
+var SRC_DIR = path.join(__dirname, '/client');
+var DIST_DIR = path.join(__dirname, '/dist');
+
 
 module.exports = {
-  entry: ['./client/'],
+  entry: SRC_DIR,
   devtool :'cheap-module-source-map',
+  output: {
+    filename: 'bundle.js',
+    path: DIST_DIR
+  },
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.jsx?/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
+        options: {
+          'presets': ['@babel/preset-env', '@babel/preset-react']
+        }
       },
-      {
-        test : /\.html$/,
-        loader : 'html-loader'
-      }
+
     ]
   },
-  plugins : [
-    new HtmlWebPackPlugin({
-      template : './public/index.html',
-      filename : './index.html'
-    })
-  ]
 }
