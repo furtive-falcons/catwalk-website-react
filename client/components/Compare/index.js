@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Kevin = () => {
+const Compare = () => {
     return (
         <div>
-            Kevin
+            <Slider />
+            <Slider />
         </div>
     )
 }
 
-export default Kevin;
+export default Compare;
