@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill','./client/'],
+  entry: ['./client/'],
   devtool :'cheap-module-source-map',
   module: {
     rules: [
