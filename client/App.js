@@ -3,10 +3,12 @@ import Details from './components/Details';
 import Compare from './components/Compare';
 import QnA from './components/QnA';
 import Reviews from './components/Reviews';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <Fragment>
+      <Header />
       <Details />
       <Compare />
       <QnA />
