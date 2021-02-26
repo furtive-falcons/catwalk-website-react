@@ -2,142 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./client/App.js":
-/*!***********************!*\
-  !*** ./client/App.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Details__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Details */ "./client/components/Details/index.js");
-/* harmony import */ var _components_Compare__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Compare */ "./client/components/Compare/index.js");
-/* harmony import */ var _components_QnA__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/QnA */ "./client/components/QnA/index.js");
-/* harmony import */ var _components_Reviews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Reviews */ "./client/components/Reviews/index.js");
-
-
-
-
-
-
-var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Details__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Compare__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_QnA__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Reviews__WEBPACK_IMPORTED_MODULE_4__.default, null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-/***/ }),
-
-/***/ "./client/components/Compare/components/Slider/index.js":
-/*!**************************************************************!*\
-  !*** ./client/components/Compare/components/Slider/index.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Slider = function Slider() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "slider");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slider);
-
-/***/ }),
-
-/***/ "./client/components/Compare/index.js":
-/*!********************************************!*\
-  !*** ./client/components/Compare/index.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Slider_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Slider/index.js */ "./client/components/Compare/components/Slider/index.js");
-
-
-
-var Compare = function Compare() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Slider_index_js__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Slider_index_js__WEBPACK_IMPORTED_MODULE_1__.default, null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Compare);
-
-/***/ }),
-
-/***/ "./client/components/Details/index.js":
-/*!********************************************!*\
-  !*** ./client/components/Details/index.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Jack = function Jack() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Jack");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Jack);
-
-/***/ }),
-
-/***/ "./client/components/QnA/index.js":
-/*!****************************************!*\
-  !*** ./client/components/QnA/index.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Mike = function Mike() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Mike");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Mike);
-
-/***/ }),
-
-/***/ "./client/components/Reviews/index.js":
-/*!********************************************!*\
-  !*** ./client/components/Reviews/index.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Shay = function Shay() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Shay");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shay);
-
-/***/ }),
-
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -28657,23 +28521,6 @@ if (false) {} else {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -28695,11 +28542,11 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./client/App.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById('root'));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module './App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null), document.getElementById('root'));
 })();
 
 /******/ })()

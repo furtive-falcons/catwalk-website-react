@@ -4,15 +4,14 @@ import Compare from './components/Compare';
 import QnA from './components/QnA';
 import Reviews from './components/Reviews';
 
-const App = () => {
-  return (
-    <Fragment>
-      <Details />
-      <Compare />
-      <QnA />
-      <Reviews />
-    </Fragment>
-  );
-};
+const App = () => (
+  <>
+    <Details />
+    <Compare />
+    <QnA />
+    <Reviews />
+  </>
+
+);
 
 export default App;
