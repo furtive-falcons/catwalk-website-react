@@ -12,7 +12,7 @@ test('renders without problems', () => {
   const appComponent = wrapper.find("[data-test='component-app']");
   console.log(wrapper.debug());
   expect(wrapper).toBeTruthy();
-//   expect(appComponent.length).toBe(0);
+  //   expect(appComponent.length).toBe(0);
   expect(appComponent.length).toBe(1);
 //   expect(wrapper).toBeFalsy();
   // test behavior not implementation - most of the time

@@ -5,16 +5,14 @@ import QnA from './components/QnA';
 import Reviews from './components/Reviews';
 import Header from './components/Header';
 
-const App = () => {
-  return (
-    <Fragment>
-      <Header />
-      <Details />
-      <Compare />
-      <QnA />
-      <Reviews />
-    </Fragment>
-  );
-};
+const App = () => (
+  <>
+    <Header />
+    <Details />
+    <Compare />
+    <QnA />
+    <Reviews />
+  </>
+);
 
 export default App;
