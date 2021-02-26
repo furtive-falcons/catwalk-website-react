@@ -1,4 +1,4 @@
 node_modules/
-# dist/
+dist/
 # db/index.js
 package-lock.json
