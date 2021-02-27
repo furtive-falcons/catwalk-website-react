@@ -1,10 +1,14 @@
 import React from 'react'
+import SearchStyles from './styles'
+
+
 
 const Search = () => {
     return (
-        <div>
-            Search
-        </div>
+        <>
+        <SearchStyles data-test="component-search"/>
+        <i className="fab fa-searchengin"></i>
+        </>
     )
 }
 
