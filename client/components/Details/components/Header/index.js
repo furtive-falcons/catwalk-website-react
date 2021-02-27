@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Logo from './components/Logo';
 import Search from './components/Search';
 import { HeaderWrapper } from './styles';
