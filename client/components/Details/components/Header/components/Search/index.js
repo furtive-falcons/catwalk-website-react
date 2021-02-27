@@ -5,8 +5,10 @@ import SearchStyles from './styles'
 
 const Search = () => {
     return (
-        <SearchStyles />
-
+        <>
+        <SearchStyles data-test="component-search"/>
+        <i className="fab fa-searchengin"></i>
+        </>
     )
 }
 
