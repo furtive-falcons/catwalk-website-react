@@ -1,10 +1,12 @@
 import React from 'react'
+import SearchStyles from './styles'
+
+
 
 const Search = () => {
     return (
-        <div>
-            Search
-        </div>
+        <SearchStyles />
+
     )
 }
 
