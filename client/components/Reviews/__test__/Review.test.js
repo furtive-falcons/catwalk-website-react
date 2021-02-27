@@ -9,19 +9,6 @@ import ReviewsAndRatings from '../index.js';
 // set up enzyme's react adapter
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-/*
-test('Review Component Exists', () => {
-  const wrapper = shallow(<App />);
-  const appComponent = wrapper.find("[data-test='component-app']");
-  console.log(wrapper.debug());
-  expect(wrapper).toBeTruthy();
-  //   expect(appComponent.length).toBe(0);
-  expect(appComponent.length).toBe(1);
-//   expect(wrapper).toBeFalsy();
-  // test behavior not implementation - most of the time
-});
-*/
-
 // Expect Reviews and Ratings main wrapper component exist
 test('Reviews and Ratings main wrapper component exists', () => {
   const wrapper = shallow(<ReviewsAndRatings/>);
