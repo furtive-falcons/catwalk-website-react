@@ -1,9 +1,13 @@
 import React from 'react';
+import Banner from './components/Banner';
+import Header from './components/Header';
 
-const Jack = () => (
-  <div>
-    Jack
-  </div>
+const Details = () => (
+  <>
+    <Header />
+    <Banner />
+  </>
+
 );
 
-export default Jack;
+export default Details;
