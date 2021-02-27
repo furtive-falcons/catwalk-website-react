@@ -4,6 +4,7 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use('/', express.static(__dirname + '/dist'))
+app.use('/', express.static(__dirname + '/public'))
 
 const PORT = 3001;
 
