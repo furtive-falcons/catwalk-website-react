@@ -12,6 +12,7 @@ const App = () => (
     <Compare />
     <QnA />
     <Reviews />
+    {/* test */}
   </div>
 );
 
