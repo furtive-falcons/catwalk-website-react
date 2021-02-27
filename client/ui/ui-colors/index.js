@@ -1,0 +1,1 @@
+export const silverChalice = "#A3A3A3"
