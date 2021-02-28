@@ -2,8 +2,9 @@ import React from 'react';
 import Button from '../../components/Button';
 import Banner from './components/Banner';
 import Header from './components/Header';
+import Details from './components/Details';
 
-const Details = () => {
+const DetailPage = () => {
   const handleOnClick = () => {
     console.log('click');
   };
@@ -12,9 +13,10 @@ const Details = () => {
     <>
       <Header />
       <Banner />
+      <Details />
       <Button handleOnClick={handleOnClick} name="Hello" />
     </>
   );
 };
 
-export default Details;
+export default DetailPage;
