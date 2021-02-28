@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from './components/SearchBar.jsx';
+import Title from './components/Title.jsx';
+import QAEntry from './components/QAEntry/QAEntry.jsx';
+import MoreQuestion from './components/MoreQuestion.jsx';
+import AddQuestion from './components/AddQuestion.jsx';
+import {Container} from './styles.js';
 
-const Mike = () => {
+
+const QnA = () => {
     return (
-        <div>
-            Mike
-        </div>
+        <Container>
+            <Title />
+            <SearchBar />
+            <QAEntry />
+            <MoreQuestion />
+            <AddQuestion />
+        </Container>
     )
 }
 
-export default Mike;
+export default QnA;
