@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Price = () => {
+const Price = ({price}) => {
     return (
-        <div>
-            Price
+        <div data-test='component-price'>
+            ${price}
         </div>
     )
 }
