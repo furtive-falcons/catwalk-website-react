@@ -1,9 +1,9 @@
 import React from 'react';
-import Details from './components/Details';
 import Compare from './components/Compare';
 import QnA from './components/QnA';
 import Reviews from './components/Reviews';
 import GlobalStyles from './GlobalStyles';
+import Details from './modules/Details';
 
 const App = () => (
   <div data-test="component-app">

@@ -9,7 +9,6 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 test('renders without problems', () => {
   const wrapper = shallow(<Search />);
   const appComponent = wrapper.find("[data-test='component-search']");
-  console.log(wrapper.debug());
   expect(wrapper).toBeTruthy();
   expect(appComponent.length).toBe(1);
 });
