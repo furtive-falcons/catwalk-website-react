@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SectionTitle = () => (
+const Section = () => (
   <h3> Section Title </h3>
 );
 
-export default SectionTitle;
+export default Section;
