@@ -1,11 +1,12 @@
 import React from 'react'
-import Slider from './components/Slider/index.js';
+import Carousel from './components/Carousel/Carousel.js';
 
 const Compare = () => {
     return (
         <div>
-            <Slider />
-            <Slider />
+            Related Products
+            {/* <Carousel /> */}
+            {/* <Carousel /> */}
         </div>
     )
 }

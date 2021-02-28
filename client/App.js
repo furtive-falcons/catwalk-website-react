@@ -1,5 +1,5 @@
 import React from 'react';
-import Compare from './components/Compare';
+import Compare from './modules/Compare';
 import QnA from './components/QnA';
 import Reviews from './components/Reviews';
 import GlobalStyles from './GlobalStyles';
