@@ -5,7 +5,7 @@ import {CarouselContainer} from './components/Carousel/styles.js'
 
 const Compare = () => {
     return (
-        <div>
+        <div data-test="component-compare">
             Related Products
             <CarouselContainer>
                 <Carousel />
