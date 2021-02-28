@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Paragraph = ({Paragraph}) => {
+const Paragraph = ({paragraph}) => {
     return (
         <p id="Paragraph">
-            {Paragraph}
+            {paragraph}
         </p>
     )
 }
