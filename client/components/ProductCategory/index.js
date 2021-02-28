@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProductCategory = () => {
+const ProductCategory = ({category}) => {
     return (
-        <div>
-            ProductCategory
+        <div data-test='component-category'>
+            {category}
         </div>
     )
 }
