@@ -8,3 +8,5 @@ export const fontSizeBaseLow = 1.3;
 export const fontSizeSmall = 1.2;
 export const fontSizeSmaller = 1.1;
 export const fontSizeExtraSmall = 1.0;
+
+export const fontPrimary = 'Roboto';

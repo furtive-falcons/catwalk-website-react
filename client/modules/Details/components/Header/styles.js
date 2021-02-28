@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { silverChalice } from '../../../../ui/ui-colors';
+import { colorGreyLight1 } from '../../../../ui/ui-colors';
 
 export const HeaderWrapper = styled.div`
-    background-color: ${silverChalice};
+    background-color: ${colorGreyLight1};
     display: flex;
     padding: 10px;
     justify-content: space-between;
