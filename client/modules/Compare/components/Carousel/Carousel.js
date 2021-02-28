@@ -6,7 +6,7 @@ import RightButton from './components/RightButton/RightButton.js';
 
 const Carousel = () => {
     return (
-      <div>
+      <div data-test="component-carousel">
         <Section />
         <LeftButton />
         <Card />
