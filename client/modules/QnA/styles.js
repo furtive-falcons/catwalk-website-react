@@ -1,16 +1,55 @@
+/* eslint-disable import/extensions */
 import styled from 'styled-components';
+import { colorGreyLight2 } from '../../ui/ui-colors/index.js';
 
 export const Container = styled.div`
   font-size: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  margin: 2rem auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr auto 1fr;
   border: 1px solid red;
-  width: 90%;
-`
+  grid-gap: .5rem;
+  width: 1400px;
+
+  .title {
+    grid-column: span 3;
+    grid-row: 1 / 2;
+    align-self: center;
+  }
+
+  .search{
+    grid-column: span 3;
+    grid-row: 2 / 3;
+  }
+
+  .entry {
+    grid-column: span 3;
+    grid-row: 3 / 4;
+  }
+
+  .more-questions {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    align-self: center;
+  }
+
+  .add-question {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    align-self: center;
+  }
+`;
 export const StyledSearch = styled.input`
-  width: 95%;
-  height: 3rem;
   border: 1px solid black;
   font-size: 1.2rem;
-`
+  padding: 1.4rem 1rem;
+  color: ${colorGreyLight2};
+`;
 
+export const StyledTitle = styled.div`
+  font-size: 1.2rem;
+  color: ${colorGreyLight2};
+  font-weight: 500;
+  margin-top: 10px;
+`;

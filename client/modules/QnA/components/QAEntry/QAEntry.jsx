@@ -10,7 +10,7 @@ import AddAnswer from './AddAnswer.jsx';
 import Entry from './styles.js';
 
 const QAEntry = () => (
-  <Entry className="container">
+  <Entry className="container entry">
     <Question />
     <Answer paragraph="Answer" />
     <NameDate />

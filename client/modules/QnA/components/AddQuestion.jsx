@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddQuestion = () => (
-  <div>
+  <div className="add-question">
     Add a Question
   </div>
 );

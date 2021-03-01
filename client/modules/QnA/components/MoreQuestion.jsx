@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MoreQuestion = () => (
-  <div>
+  <div className="more-questions">
     More Answered Questions
   </div>
 );

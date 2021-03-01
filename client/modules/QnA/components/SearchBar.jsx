@@ -12,10 +12,11 @@ const SearchBar = () => {
 
   return (
     <StyledSearch
+      className="search"
       data-test="component-searchBar"
       type="text"
       value={input}
-      placeholder="Have a question? Search for answers..."
+      placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
       onChange={(event) => handleChange(event)}
     />
   );
