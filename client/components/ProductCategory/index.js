@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ProductCategoryStyles from './styles';
 
-const ProductCategory = ({category}) => {
-    return (
-        <div data-test='component-category'>
-            {category}
-        </div>
-    )
-}
+const ProductCategory = ({ children }) => (
+  <ProductCategoryStyles data-test="component-category">
+    {children}
+  </ProductCategoryStyles>
+);
 
-export default ProductCategory
+export default ProductCategory;

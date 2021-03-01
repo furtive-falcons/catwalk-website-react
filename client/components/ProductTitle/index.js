@@ -1,11 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const ProductTitle = () => {
-    return (
-        <div>
-            ProductTitle
-        </div>
-    )
-}
+const ProductTitle = ({ children }) => <h3>{children}</h3>;
 
-export default ProductTitle
+export default ProductTitle;
