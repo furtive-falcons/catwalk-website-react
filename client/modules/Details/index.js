@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../components/Button';
 import Banner from './components/Banner';
-import Header from './components/Header';
+import Header from '../../components/Header';
 import Details from './components/Details';
 
 const DetailPage = () => {
@@ -14,7 +14,6 @@ const DetailPage = () => {
       <Header />
       <Banner />
       <Details />
-      <Button handleOnClick={handleOnClick} name="Hello" />
     </>
   );
 };
