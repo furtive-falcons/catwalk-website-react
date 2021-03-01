@@ -1,10 +1,11 @@
 import React from 'react';
+import { ParagraphStyles } from './styles';
 
-const Paragraph = ({ paragraph }) => {
+const Paragraph = ({ children }) => {
     return (
-        <p id="Paragraph">
-            {paragraph}
-        </p>
+        <ParagraphStyles id="Paragraph">
+            {children}
+        </ParagraphStyles>
     )
 }
 
