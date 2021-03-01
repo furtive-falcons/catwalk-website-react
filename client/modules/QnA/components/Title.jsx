@@ -1,9 +1,11 @@
+/* eslint-disable import/no-cycle */
 import React from 'react';
+import { StyledTitle } from '../styles.js';
 
 const Title = ({ title }) => (
-  <div>
+  <StyledTitle className="title">
     {title}
-  </div>
+  </StyledTitle>
 );
 
 export default Title;
