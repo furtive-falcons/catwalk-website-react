@@ -1,10 +1,10 @@
 import React from 'react'
 import {ButtonsContainer} from './styles.js';
 
-const Buttons = () => {
+const Buttons = ({expand}) => {
   return (
-    <ButtonsContainer>
-      <button>More Reviews</button>
+    <ButtonsContainer id = 'buttons'>
+      <button onClick = {expand}>More Reviews</button>
       <button>Add Review</button>
     </ButtonsContainer>
   )
