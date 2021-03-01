@@ -7,7 +7,7 @@ export const Container = styled.div`
   border: 1px solid red;
   width: 90%;
 `
-export const Search = styled.input`
+export const StyledSearch = styled.input`
   width: 95%;
   height: 3rem;
   border: 1px solid black;
