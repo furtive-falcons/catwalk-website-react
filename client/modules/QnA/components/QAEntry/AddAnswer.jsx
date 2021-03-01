@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddAnswer = () => {
   return (
-    <div>
+    <div className='add-answer'>
       Add Answer Button
     </div>
   )
