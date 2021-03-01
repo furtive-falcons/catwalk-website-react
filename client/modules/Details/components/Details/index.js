@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCart from '../../../../components/AddToCart';
 import DivStyles from './styles';
 
 const Details = () => {
@@ -8,7 +9,9 @@ const Details = () => {
         <div className="gallery">Image Gallery</div>
         <div className="info">Product Information</div>
         <div className="selector">Style Selector</div>
-        <div className="cart">Add to Cart</div>
+        <div className="cart">
+          <AddToCart />
+        </div>
         <div className="footer">Footer</div>
       </div>
     </DivStyles>
