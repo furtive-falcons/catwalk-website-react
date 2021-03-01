@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Paragraph = ({paragraph}) => {
+const Paragraph = ({ paragraph }) => {
     return (
         <p id="Paragraph">
             {paragraph}
