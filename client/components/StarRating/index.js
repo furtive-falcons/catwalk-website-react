@@ -2,9 +2,13 @@ import React from 'react'
 
 const StarRating = () => {
     return (
-        <div>
-            StarRating
-        </div>
+        <>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </>
     )
 }
 

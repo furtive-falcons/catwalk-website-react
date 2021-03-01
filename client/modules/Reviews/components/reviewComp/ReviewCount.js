@@ -3,7 +3,7 @@ import {ReviewCountContainer} from './styles.js';
 
 const ReivewCount= () => {
   return (
-    <ReviewCountContainer>
+    <ReviewCountContainer id = 'reviewCount'>
       review count
     </ReviewCountContainer>
   )
