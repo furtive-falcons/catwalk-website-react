@@ -6,9 +6,8 @@ import Container from './styles.js';
 const ReviewAndRatings = () => {
     return (
         <Container id = 'mainWrapper'>
-            Reivew and Rating Wrapper
-            <Reviews id = 'reviews'/>
             <Ratings id = 'ratings'/>
+            <Reviews id = 'reviews'/>
         </Container>
     )
 }
