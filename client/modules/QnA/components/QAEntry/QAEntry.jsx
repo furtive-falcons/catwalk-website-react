@@ -6,7 +6,7 @@ import Report from './Report.jsx';
 import Answer from './Answer.jsx';
 import LoadMoreAnswers from './LoadMoreAnswers.jsx';
 import AddAnswer from './AddAnswer.jsx';
-import {Entry, StyledQuestion} from './styles.js';
+import {Entry} from './styles.js';
 import Paragraph from '../../../../components/Paragraph/index.js';
 
 

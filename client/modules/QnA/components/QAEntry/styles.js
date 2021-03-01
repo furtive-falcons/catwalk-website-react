@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 import Paragraph from '../../../../components/Paragraph/index.js'
 import {colorGreyLight2} from '../../../../ui/ui-colors/index.js';
-import Question from './Question.jsx';
-import NameDate from './NameDate.jsx';
-import Helpful from './Helpful.jsx';
-import Report from './Report.jsx';
-import Answer from './Answer.jsx';
-import LoadMoreAnswers from './LoadMoreAnswers.jsx';
-import ImageThumbnail from './ImageThumbnail.jsx';
-import AddAnswer from './AddAnswer.jsx';
 
 export const Entry = styled.div`
 
