@@ -1,10 +1,15 @@
 import React from 'react';
+import Button from '../../../../../../components/Button';
 
 const RightButton = () => {
+  const handleOnClick = () => {
+    console.log('Right button was clicked')
+  }
+
     return (
-      <div>
-        <button>Right Button</button>
-      </div>
+      <>
+        <Button handleOnClick={handleOnClick} name='Right Button'/>
+    </>
     )
 }
 
