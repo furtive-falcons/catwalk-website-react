@@ -1,12 +1,10 @@
 import React from 'react';
-import {ScoreDiv} from './styles.js';
+import { ScoreDiv } from './styles.js';
 
-const Score = () => {
-    return (
-        <ScoreDiv>
-          Average score and stars
-        </ScoreDiv >
-    )
-}
+const Score = () => (
+  <ScoreDiv id="score">
+    Average score and stars
+  </ScoreDiv>
+);
 
 export default Score;

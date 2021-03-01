@@ -1,12 +1,10 @@
 import React from 'react';
-import {FilterDiv} from './styles.js';
+import { FilterDiv } from './styles.js';
 
-const Filter = () => {
-    return (
-        <FilterDiv>
-          Filter
-        </FilterDiv>
-    )
-}
+const Filter = () => (
+  <FilterDiv id="filter">
+    Filter
+  </FilterDiv>
+);
 
-export default Filter ;
+export default Filter;
