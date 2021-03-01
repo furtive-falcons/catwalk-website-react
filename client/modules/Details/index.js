@@ -14,7 +14,6 @@ const DetailPage = () => {
       <Header />
       <Banner />
       <Details />
-      <Button handleOnClick={handleOnClick} name="Hello" />
     </>
   );
 };
