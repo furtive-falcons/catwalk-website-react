@@ -3,7 +3,6 @@ import {
   colorGreyLight1,
   colorGreyLight2,
   colorPrimary,
-  colorPrimaryDark,
   colorSecondary,
   colorWhite,
 } from '../../../../../ui/ui-colors';
