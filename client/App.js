@@ -1,6 +1,6 @@
 import React from 'react';
 import Compare from './modules/Compare';
-import QnA from './components/QnA';
+import QnA from './modules/QnA';
 import Reviews from './components/Reviews';
 import GlobalStyles from './GlobalStyles';
 import Details from './modules/Details';
