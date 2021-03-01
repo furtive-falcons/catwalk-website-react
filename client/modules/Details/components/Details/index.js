@@ -1,4 +1,5 @@
 import React from 'react';
+import StyleSelector from '../../../../components/StyleSelector';
 import AddToCart from '../../../../components/AddToCart';
 import DivStyles from './styles';
 
@@ -8,7 +9,9 @@ const Details = () => {
       <div className="container">
         <div className="gallery">Image Gallery</div>
         <div className="info">Product Information</div>
-        <div className="selector">Style Selector</div>
+        <div className="selector">
+          <StyleSelector />
+        </div>
         <div className="cart">
           <AddToCart />
         </div>
