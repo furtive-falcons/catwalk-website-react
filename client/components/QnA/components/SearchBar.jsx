@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Search} from '../styles.js';
+import {StyledSearch} from '../styles.js';
 
 const SearchBar = () => {
   const [input, setInput] = useState('');
@@ -10,12 +10,13 @@ const SearchBar = () => {
   }
 
   return (
-      <Search
+      <StyledSearch
+        data-test='component-searchBar'
         type='text'
         value={input}
         placeholder='Have a question? Search for answers...'
         onChange={(event)=>handleChange(event)}>
-      </Search>
+      </StyledSearch>
   )
 }
 
