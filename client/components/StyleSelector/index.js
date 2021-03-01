@@ -3,12 +3,12 @@ import Paragraph from '../Paragraph';
 import Button from '../Button';
 
 const StyleSelector = () => {
-  const paragraph = `Style > Selected Style`;
+  const paragraph = 'Style > Selected Style';
   return (
     <>
-      <Paragraph paragraph={paragraph} />
+      <Paragraph>{paragraph}</Paragraph>
       <Button name="circle" />
-      <i className="fas fa-check"></i>
+      <i className="fas fa-check" />
     </>
   );
 };
