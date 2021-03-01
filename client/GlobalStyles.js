@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import { fontPrimary, fontSizeBase } from "./ui/ui-fonts";
+import { fontPrimary, fontSizeBase } from './ui/ui-fonts';
 
 const GlobalStyles = createGlobalStyle`
-    
     body {
         margin: 0;
         padding: 0;
