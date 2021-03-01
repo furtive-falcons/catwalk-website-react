@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Subtitle = () => {
-  return (
-    <div>
-      Subtitle
-    </div>
-  )
-}
+const Subtitle = () => (
+  <div>
+    Subtitle
+  </div>
+);
 
 export default Subtitle;
