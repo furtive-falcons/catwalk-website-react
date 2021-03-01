@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Helpful = () => {
-  return (
-    <div>
-      Helpful? Yes count
-    </div>
-  )
-}
+const Helpful = () => (
+  <div>
+    Helpful? Yes count
+  </div>
+);
 export default Helpful;

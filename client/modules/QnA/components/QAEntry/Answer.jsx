@@ -1,9 +1,11 @@
 import React from 'react';
+import ImageThumbnail from './ImageThumbnail.jsx';
 
 const Answer = () => {
   return (
-    <div>
+    <div className='answer'>
       Answer
+      <ImageThumbnail />
     </div>
   )
 }
