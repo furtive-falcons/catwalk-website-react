@@ -6,11 +6,11 @@ const InputField = () => {
   const handleChange = (event) => {
     event.preventDefault();
     setInput(event.target.value);
-  }
+  };
 
   return (
-    <input type='text' value={input} onChange={(event)=>handleChange(event)}></input>
-  )
-}
+    <input type="text" value={input} onChange={(event) => handleChange(event)} />
+  );
+};
 
 export default InputField;
