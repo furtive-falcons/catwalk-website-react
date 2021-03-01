@@ -2,9 +2,8 @@ import React from 'react';
 
 const NameDate = () => {
   return (
-    <div>
-      Username<br/>
-      Date
+    <div className='name-date'>
+      Username Date
     </div>
   )
 }
