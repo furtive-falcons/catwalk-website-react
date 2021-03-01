@@ -1,16 +1,17 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React from 'react';
 import Title from '../Title.jsx';
 import Subtitle from '../Subtitle.jsx';
 import Nickname from '../Nickname.jsx';
 import Email from '../Email.jsx';
 import InputField from '../InputField.jsx';
-import Button from '../../Button/index.js'
+import Button from '../../Button/index.js';
 
 const QuestionForm = () => {
-
   const handleClick = () => {
-    console.log('Question form submited')
-  }
+    console.log('Question form submited');
+  };
 
   return (
     <React.Fragments>
@@ -19,9 +20,9 @@ const QuestionForm = () => {
       <Nickname />
       <Email />
       <InputField />
-      <Button name={Submit} handleClick={handleClick}/>
+      <Button name="Submit" handleClick={handleClick} />
     </React.Fragments>
-  )
-}
+  );
+};
 
 export default QuestionForm;
