@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Paragraph from '../../../../components/Paragraph/index.js'
 import {colorGreyLight2} from '../../../../ui/ui-colors/index.js';
 
-export const Entry = styled.div`
+export const Entry =   styled.div`
 
     display: grid;
     grid-template-columns: 2rem auto 8rem 8rem;

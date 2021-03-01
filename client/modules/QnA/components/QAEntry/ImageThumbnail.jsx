@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImageThumbnail = () => {
   return (
-    <div className='imaage'>
+    <div className='image'>
       Thumbnails
     </div>
   )
