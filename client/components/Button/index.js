@@ -1,12 +1,10 @@
 import React from 'react';
-import ButtonStyles from "./styles";
+import ButtonStyles from './styles';
 
-const Button = ({ name, handleOnClick }) => {
-  return (
-    <ButtonStyles data-test="component-button" onClick={handleOnClick}>
-      {name}
-    </ButtonStyles>
-  );
-};
+const Button = ({ name, handleOnClick }) => (
+  <ButtonStyles data-test="component-button" onClick={handleOnClick}>
+    {name}
+  </ButtonStyles>
+);
 
 export default Button;
