@@ -1,18 +1,16 @@
 import React from 'react';
-import Category from './components/Category/Category.js'
-import ProductName from './components/ProductName/ProductName.js'
-import Price from './components/Price/Price.js'
-import AvgRating from './components/AvgRating/AvgRating.js'
+import Category from './components/Category/Category';
+import ProductName from './components/ProductName/ProductName';
+import Price from './components/Price/Price';
+import AvgRating from './components/AvgRating/AvgRating';
 
-const CardDetails = () => {
-    return (
-      <div>
-        <Category />
-        <ProductName />
-        <Price />
-        <AvgRating />
-      </div>
-    )
-}
+const CardDetails = () => (
+  <div>
+    <Category />
+    <ProductName />
+    <Price />
+    <AvgRating />
+  </div>
+);
 
 export default CardDetails;
