@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const RatingsContainer = styled.div`
   flex: 3.5;
@@ -8,7 +8,7 @@ const RatingsContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-`
+`;
 const ReviewsContainer = styled.div`
   flex: 7;
   display: flex;
@@ -16,8 +16,6 @@ const ReviewsContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center
-`
+`;
 
-
-
-export {RatingsContainer,ReviewsContainer};
+export { RatingsContainer, ReviewsContainer };
