@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Price = ({price}) => {
-    return (
-        <div data-test='component-price'>
-            ${price}
-        </div>
-    )
-}
+const Price = ({ children }) => {
+  return <div data-test="component-price">{children}</div>;
+};
 
-export default Price
+export default Price;
