@@ -1,7 +1,13 @@
 import React from 'react';
 
 const AvgRating = () => (
-  <h3> Avg Rating goes here</h3>
+  <>
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+  </>
 );
 
 export default AvgRating;
