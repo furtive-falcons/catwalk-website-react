@@ -1,7 +1,10 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
-const ProductName = () => (
-  <h3> Product Name goes here</h3>
-);
+const ProductName = ({ card }) => <div data-test="component-name">{card}</div>;
+
+// ProductName.propTypes = {
+//   card: PropTypes.string.isRequired,
+// };
 
 export default ProductName;
