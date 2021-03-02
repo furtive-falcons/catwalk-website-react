@@ -11,11 +11,13 @@ const Entry = styled.div`
   .question {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    align-self: center;
   }
 
   .answer {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    align-self: center;
   }
 
   .helpful-1 {
@@ -48,6 +50,20 @@ const Entry = styled.div`
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     justify-self: center;
+  }
+
+  .q {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .a {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-self: center;
+    align-self: center;
   }
 `;
 

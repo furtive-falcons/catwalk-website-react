@@ -8,9 +8,12 @@ import Answer from './Answer.jsx';
 import LoadMoreAnswers from './LoadMoreAnswers.jsx';
 import AddAnswer from './AddAnswer.jsx';
 import Entry from './styles.js';
+import Title from '../Title.jsx';
 
 const QAEntry = () => (
   <Entry className="container entry">
+    <div className="q"><Title title="Q:" /></div>
+    <div className="a"><Title title="A:" /></div>
     <Question />
     <Answer paragraph="Answer" />
     <NameDate />
