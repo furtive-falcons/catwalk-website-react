@@ -9,7 +9,11 @@ const StyleSelector = () => {
   const paragraph = 'Selected Style';
   return (
     <>
-      <Paragraph size={fontSizeBase}><strong>Style ></strong> {paragraph}</Paragraph>
+      <Paragraph size={fontSizeBase}>
+        <strong>Style &gt;</strong>
+        {' '}
+        {paragraph}
+      </Paragraph>
       {styles.map((index) => (
         <span key={index}>
           <Button />
