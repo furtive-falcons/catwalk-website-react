@@ -1,12 +1,12 @@
 import React from 'react';
-import AddToCart from '../../../../components/AddToCart';
-import ImageGallery from '../../../../components/ImageGallery';
-import ProducInformation from '../../../../components/ProductDetails/components/ProductInformation';
-import StyleSelector from '../../../../components/StyleSelector';
+import AddToCart from '../AddToCart';
+import ImageGallery from '../ImageGallery';
+import ProducInformation from './components/ProductInformation';
+import StyleSelector from '../StyleSelector';
 
 import DivStyles from './styles';
 
-const Details = () => (
+const ProductDetails = () => (
   <DivStyles data-test="component-details">
     <div className="container">
       <div className="gallery">
@@ -26,4 +26,4 @@ const Details = () => (
   </DivStyles>
 );
 
-export default Details;
+export default ProductDetails;
