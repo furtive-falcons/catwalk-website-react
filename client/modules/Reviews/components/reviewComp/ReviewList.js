@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
-import {ReviewListContainer} from './styles.js';
+import React from 'react';
+import { ReviewListContainer } from './styles.js';
 import Tile from './Tile.js';
 
-const ReviewList = () => {
+const ReviewList = ({ data }) => (
+  <ReviewListContainer id="reviewList">
+    {/* render tiles two at a time */}
+    {/* define a handleclick event to trigger show two more tiles */}
+    {
+       data
+        && data.map((product) => (
+          <Tile key={product.product_id} id={product.product_id} />
+        ))
 
-  return (
-    <ReviewListContainer id = 'reviewList'>
-      {/* render tiles two at a time */}
-      {/* define a handleclick event to trigger show two more tiles */}
-      <Tile/>
-      <Tile/>
-    </ReviewListContainer>
-  )
-}
+    }
+  </ReviewListContainer>
+);
 
 export default ReviewList;
