@@ -1,11 +1,10 @@
 import React from 'react'
-import {ReviewCountContainer} from './styles.js';
 
 const ReivewCount= ({count}) => {
   return (
-    <ReviewCountContainer id = 'reviewCount'>
+    <div id = 'reviewCount'>
       {count} reviews
-    </ReviewCountContainer>
+    </div>
   )
 }
 

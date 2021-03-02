@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 
 test('It render price', () => {
-  const wrapper = shallow(<Price />);
+  const wrapper = shallow(<Price price={500}/>);
   const appComponent = wrapper.find("[data-test='component-price']");
   expect(wrapper).toBeTruthy();
   expect(appComponent.length).toBe(1);

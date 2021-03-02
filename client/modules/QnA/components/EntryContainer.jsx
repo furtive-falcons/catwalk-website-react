@@ -2,10 +2,9 @@
 import React from 'react';
 import QAEntry from './QAEntry/QAEntry.jsx';
 
-const EntryContainer = () => (
+const EntryContainer = ({questions}) => (
   <div className="entry-container">
-    <QAEntry />
-    <QAEntry />
+    <QAEntry question={questions[0]} />
   </div>
 );
 
