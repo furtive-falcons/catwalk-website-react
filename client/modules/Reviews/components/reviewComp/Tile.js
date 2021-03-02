@@ -1,12 +1,10 @@
 import React from 'react';
-import {TileContainer} from './styles.js';
+import { TileContainer } from './styles.js';
 
-const Tile = () => {
-  return (
-    <TileContainer id = 'tile'>
-      Comment
-    </TileContainer>
-  )
-}
+const Tile = ({ id }) => (
+  <TileContainer id="tile">
+    {id}
+  </TileContainer>
+);
 
-export default Tile ;
+export default Tile;

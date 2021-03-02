@@ -1,13 +1,18 @@
-import React from 'react'
-import {ButtonsContainer} from './styles.js';
+import React from 'react';
+import { ButtonsContainer } from './styles.js';
 
-const Buttons = ({expand}) => {
-  return (
-    <ButtonsContainer id = 'buttons'>
-      <button onClick = {expand}>More Reviews</button>
-      <button>Add Review</button>
-    </ButtonsContainer>
-  )
-}
+const Buttons = ({ expand, reviewCount, dataIndex }) => (
+  <ButtonsContainer id="buttons">
+    {
+    reviewCount > 2 && dataIndex < reviewCount ? (
+      <button id="moreReviews" type="button" onClick={expand}>
+        More Reviews
+      </button>
+    )
+      : null
+    }
+    <button type="button">Add Review</button>
+  </ButtonsContainer>
+);
 
-export default Buttons ;
+export default Buttons;
