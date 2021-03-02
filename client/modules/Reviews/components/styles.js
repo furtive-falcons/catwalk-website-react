@@ -18,4 +18,13 @@ const ReviewsContainer = styled.div`
   align-items: center
 `;
 
-export { RatingsContainer, ReviewsContainer };
+const TopContainer = styled.div`
+  flex: 1;
+  width: 95%;
+  border: 1px solid black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+`;
+
+export { TopContainer,RatingsContainer, ReviewsContainer };
