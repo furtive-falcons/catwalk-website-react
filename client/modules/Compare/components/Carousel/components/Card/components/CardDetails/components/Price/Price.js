@@ -1,7 +1,10 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
-const Price = () => (
-  <h3> Price goes here</h3>
-);
+const Price = ({ card }) => <div data-test="component-price">{card}</div>;
+
+// Price.propTypes = {
+//   card: PropTypes.string.isRequired,
+// };
 
 export default Price;
