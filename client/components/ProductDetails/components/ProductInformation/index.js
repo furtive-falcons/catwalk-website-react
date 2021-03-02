@@ -1,18 +1,20 @@
 import React from 'react';
+import { fontSizeSmaller } from '../../../../ui/ui-fonts';
 import LinkTag from '../../../LinkTag';
 import Price from '../../../Price';
 import ProductCategory from '../../../ProductCategory';
 import ProductTitle from '../../../ProductTitle';
 import StarRating from '../../../StarRating';
+import InformationWrapper from './styles';
 
 const ProducInformation = () => (
-  <div>
+  <InformationWrapper>
     <StarRating />
-    <LinkTag>Read all reviews</LinkTag>
+    <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
     <ProductCategory>category</ProductCategory>
     <ProductTitle>Expanded Product Name</ProductTitle>
     <Price>$369</Price>
-  </div>
+  </InformationWrapper>
 );
 
 export default ProducInformation;

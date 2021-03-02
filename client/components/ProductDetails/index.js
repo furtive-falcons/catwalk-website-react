@@ -1,14 +1,22 @@
 import React from 'react';
-import AddToCart from '../../../../components/AddToCart';
-import ImageGallery from '../../../../components/ImageGallery';
-import ProducInformation from '../../../../components/ProductDetails/components/ProductInformation';
-import StyleSelector from '../../../../components/StyleSelector';
+import AddToCart from '../AddToCart';
+import ImageGallery from '../ImageGallery';
+import ProducInformation from './components/ProductInformation';
+import StyleSelector from '../StyleSelector';
 
 import DivStyles from './styles';
+import Banner from './components/Banner';
+import Header from '../Header';
 
-const Details = () => (
+const ProductDetails = () => (
   <DivStyles data-test="component-details">
     <div className="container">
+      <div className="header">
+        <Header />
+      </div>
+      <div className="banner">
+        <Banner />
+      </div>
       <div className="gallery">
         <ImageGallery />
       </div>
@@ -26,4 +34,4 @@ const Details = () => (
   </DivStyles>
 );
 
-export default Details;
+export default ProductDetails;
