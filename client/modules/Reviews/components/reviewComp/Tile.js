@@ -1,4 +1,4 @@
-import React, { Fragment, useState} from 'react';
+import React, { Fragment, useState } from 'react';
 import { TileContainer } from './styles.js';
 import {
   ResponseContainer, ReviewContainer,
@@ -19,17 +19,15 @@ const Tile = ({ id, body, summary }) => {
           Summary
         </Summary>
         <Body>
-          {
-            body.length > 250 && !more
-              ? (
-                <>
-                  {body.slice(0, 250)}
-                  <span onClick = {()=>showMore(true)} className="showMore">Show More</span>
-                </>
-              )
-              :
-              body
-          }
+          {body
+            && body.length > 250 && !more
+            ? (
+              <>
+                {body.slice(0, 250)}
+                <span onClick={() => showMore(true)} className="showMore">Show More</span>
+              </>
+            )
+            : body}
         </Body>
         <Recommend>
           I recommend this product
@@ -42,7 +40,7 @@ const Tile = ({ id, body, summary }) => {
         <Helpful>Was this helpful? Yes No</Helpful>
       </ReviewContainer>
     </TileContainer>
-  )
+  );
 };
 
 export default Tile;
