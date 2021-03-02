@@ -1,17 +1,18 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Image from './components/Image/Image';
+// import Image from './components/Image/Image';
 import FavIcon from './components/FavIcon/FavIcon';
+import ImageContainer from './components/styles';
 
 const CardAssets = ({ card }) => (
-  <div>
+  <ImageContainer>
     <img
       className="default-thumbnail"
       src={card.thumbnail_url}
       alt={card.name}
     />
-    <FavIcon card={card.rating} />
-  </div>
+    <FavIcon className="fav-icon" card={card.rating} />
+  </ImageContainer>
 );
 
 // CardAssets.propTypes = {
