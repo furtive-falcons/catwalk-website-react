@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+import { fontSizeSmall } from '../../../../ui/ui-fonts';
+import Paragraph from '../../../Paragraph';
 
-const InformationWrapper = styled.div`
-
+const ProductCategoryStyles = styled(Paragraph)`
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: ${fontSizeSmall}rem;
 `;
 
-export default InformationWrapper;
+export default ProductCategoryStyles;

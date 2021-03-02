@@ -7,8 +7,8 @@ const AddToCart = () => {
   const quantityOptions = [1, 2, 3];
   return (
     <>
-      <DropDown width={15} options={sizeOptions} />
-      <DropDown width={7.5} options={quantityOptions} />
+      <DropDown size={20} options={sizeOptions} />
+      <DropDown size={10} options={quantityOptions} />
       <br />
       <Button name="Add To Bag" />
       <Button name="Star Icon" />

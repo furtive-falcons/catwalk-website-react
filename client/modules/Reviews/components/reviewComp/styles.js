@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
-const ReviewCountContainer = styled.div`
-  flex: 1;
-  width: 95%;
-  border: 1px solid black;
-  font-weight: bold;
+const DropdownContainer = styled.div`
+  select {
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    font-size: 14px;
+  }
+  margin-left: 5px;
 `;
 
 const ReviewListContainer = styled.div`
@@ -35,4 +38,4 @@ const TileContainer = styled.div`
   flex-direction: column;
 `;
 
-export { ReviewCountContainer, ReviewListContainer, ButtonsContainer, TileContainer };
+export {DropdownContainer, ReviewListContainer, ButtonsContainer, TileContainer };

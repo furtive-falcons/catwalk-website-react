@@ -1,5 +1,5 @@
-export const fontSizeBig = 2.6;
 export const fontSizeBigger = 3.3;
+export const fontSizeBig = 2.6;
 export const fontSizeLarger = 2.0;
 export const fontSizeLargePlus = 1.8;
 export const fontSizeLarge = 1.6;

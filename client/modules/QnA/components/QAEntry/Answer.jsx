@@ -1,10 +1,11 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import ImageThumbnail from './ImageThumbnail.jsx';
+import Paragraph from '../../../../components/Paragraph';
 
-const Answer = () => (
+const Answer = ({body}) => (
   <div className="answer">
-    Answer
+    <Paragraph children={body} />
     <ImageThumbnail />
   </div>
 );
