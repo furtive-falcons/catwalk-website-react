@@ -4,19 +4,21 @@ import {
   ResponseContainer, ReviewContainer,
   TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful,
 } from './tileStyles.js';
+import StarRating from '../../../../components/StarRating';
 
-const Tile = ({ id, body, summary }) => {
+
+const Tile = ({body, summary, response, user, date }) => {
   const [more, showMore] = useState(false);
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
       <TopRow>
-        <Stars>Stars</Stars>
-        <UserAndDate>User, MM/DD/YYYY</UserAndDate>
+        <Stars><StarRating/></Stars>
+        <UserAndDate>{user}, {date}</UserAndDate>
       </TopRow>
       <ReviewContainer>
         <Summary>
-          Summary
+          {summary}
         </Summary>
         <Body>
           {body
@@ -35,7 +37,7 @@ const Tile = ({ id, body, summary }) => {
         </Recommend>
         <ResponseContainer>
           <span>Response: </span>
-          <p>Response is here</p>
+          <p>{response}</p>
         </ResponseContainer>
         <Helpful>Was this helpful? Yes No</Helpful>
       </ReviewContainer>

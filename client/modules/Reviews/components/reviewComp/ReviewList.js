@@ -9,7 +9,7 @@ const ReviewList = ({ data }) => (
     {
        data
         && data.map((product) => (
-          <Tile body = {product.body} key={product.product_id} id={product.product_id} />
+          <Tile date={product.date} user={product['reviewer_name']} response={product.response} summary={product.summary} body={product.body} key={product['review_id']} />
         ))
 
     }
