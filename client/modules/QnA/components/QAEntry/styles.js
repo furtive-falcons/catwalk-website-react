@@ -3,21 +3,19 @@ import styled from 'styled-components';
 const Entry = styled.div`
 
     display: grid;
-    grid-template-columns: 2rem auto 8rem 8rem;
+    grid-template-columns: 2rem auto 10rem 10rem;
     grid-template-rows: repeat(4, minmax(min-content, 3rem));
     grid-auto-rows: minmax(min-content, 3rem);
-
+    align-items: center;
 
   .question {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    align-self: center;
   }
 
   .answer {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    align-self: center;
   }
 
   .helpful-1 {
@@ -30,41 +28,46 @@ const Entry = styled.div`
     grid-row: 1 / 2;
   }
 
-  .name-date {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-  }
-
-  .report {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-    justify-self: end;
-  }
-
   .load-more-answer {
     grid-column: 2 / 3;
     grid-row: 4/ 5;
   }
 
-  .helpful-2 {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-    justify-self: center;
-  }
-
   .q {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    justify-self: center;
-    align-self: center;
   }
 
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    justify-self: center;
-    align-self: center;
+    align-self: start;
+    margin-top: .6rem;
+  }
+
+  .info {
+    display:flex;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  .name-date, .report, .helpful-2 {
+    margin-right: 1rem;
   }
 `;
 
 export default Entry;
+
+// .name-date {
+//   grid-column: 2 / 3;
+//   grid-row: 3 / 4;
+// }
+
+// .report {
+//   grid-column: 2 / 3;
+//   grid-row: 3 / 4;
+// }
+
+// .helpful-2 {
+//   grid-column: 2 / 3;
+//   grid-row: 3 / 4;
+// }
