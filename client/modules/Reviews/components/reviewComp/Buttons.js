@@ -1,17 +1,16 @@
 import React from 'react';
-import { ButtonsContainer } from './styles.js';
+import { ButtonsContainer} from './styles.js';
+import Button from '../../../../components/Button';
 
 const Buttons = ({ expand, reviewCount, dataIndex }) => (
   <ButtonsContainer id="buttons">
     {
     reviewCount > 2 && dataIndex < reviewCount ? (
-      <button id="moreReviews" type="button" onClick={expand}>
-        More Reviews
-      </button>
+      <Button handleOnClick={expand} name="More Reviews"/>
     )
       : null
     }
-    <button type="button">Add Review</button>
+    <Button name="Add Review"/>
   </ButtonsContainer>
 );
 

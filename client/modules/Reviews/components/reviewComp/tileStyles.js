@@ -19,9 +19,26 @@ const ReviewContainer = styled.div`
 
 const ResponseContainer = styled.div`
   background-color: #D3D3D3;
-  height: 50px;
   width: 100%;
-  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  span {
+    font-weight: bold;
+    margin:0px;
+    font-size: 13px;
+  }
+
+  p {
+    margin-top: 5px;
+    margin:0px;
+    border: 1px solid black;
+    font-size: 12px;
+    margin: 0px;
+  }
 
 `;
 
@@ -33,10 +50,10 @@ const Stars = styled.div`
 const UserAndDate = styled.div`
   border: 1px solid black;
   font-size: 12px;
-
+  color: #808080;
 `;
 
-const Summary = styled.h3`
+const Summary = styled.h4`
   border: 1px solid black;
   margin:0px;
 
@@ -47,23 +64,28 @@ const Body = styled.p`
   border: 1px solid black;
   font-size: 12px;
   margin: 0px;
+  padding: 5px;
+
+  .showMore: hover {
+    cursor: pointer;
+  }
+  .showMore {
+    color: blue;
+    text-decoration: underline;
+  }
 
 `;
-
 
 const Recommend = styled.span`
   margin-top: 5px;
   border: 1px solid black;
   font-size: 12px;
   margin: 0px;
+  padding: 3px;
 
-`;
-
-const Response = styled.p`
-  margin-top: 5px;
-  border: 1px solid black;
-  font-size: 12px;
-  margin: 0px;
+  .fa-check {
+    margin-left: 5px;
+  }
 
 `;
 
@@ -72,7 +94,8 @@ const Helpful = styled.span`
   border: 1px solid black;
   font-size: 12px;
   margin: 0px;
+  color: #808080;
 
 `;
 
-export {ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Response, Helpful };
+export {ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful };
