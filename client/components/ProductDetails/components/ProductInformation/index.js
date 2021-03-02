@@ -1,10 +1,10 @@
 import React from 'react';
 import WithMargins from '../../../../hoc/with-margins';
-import { fontSizeSmaller } from '../../../../ui/ui-fonts';
+import { fontSizeBigger, fontSizeSmaller } from '../../../../ui/ui-fonts';
 import LinkTag from '../../../LinkTag';
 import Price from '../../../Price';
 import ProductCategory from '../../../ProductCategory';
-import ProductTitle from '../../../ProductTitle';
+import ProductTitle from '../../../Title';
 import StarRating from '../../../StarRating';
 
 
@@ -15,7 +15,7 @@ const ProducInformation = () => (
       <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
     </WithMargins>
     <ProductCategory>category</ProductCategory>
-    <ProductTitle>Expanded Product Name</ProductTitle>
+    <ProductTitle size={fontSizeBigger}>Expanded Product Name</ProductTitle>
     <Price>$369</Price>
   </>
 );
