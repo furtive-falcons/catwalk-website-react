@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../../Button';
 import Paragraph from '../../../Paragraph';
 import DivStyles from './styles';
 

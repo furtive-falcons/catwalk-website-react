@@ -1,21 +1,10 @@
 import React from 'react';
-import Button from '../../components/Button';
-import Header from '../../components/Header';
-import Details from './components/Details';
-import Banner from '../../components/ProductDetails/components/Banner';
+import ProductDetails from '../../components/ProductDetails';
 
-const DetailPage = () => {
-  const handleOnClick = () => {
-    console.log('click');
-  };
-
-  return (
-    <>
-      <Header />
-      <Banner />
-      <Details />
-    </>
-  );
-};
+const DetailPage = () => (
+  <>
+    <ProductDetails />
+  </>
+);
 
 export default DetailPage;
