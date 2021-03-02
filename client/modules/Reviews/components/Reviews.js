@@ -25,7 +25,7 @@ const Reviews = ({ data }) => {
   return (
     <ReviewsContainer>
       {/* review count + sort container */}
-      <ReviewCount />
+      <ReviewCount count={data.length}/>
       {/* review list container */}
       {data.length !== 0 &&
       <ReviewList data={filterData(numTiles, data)} />
