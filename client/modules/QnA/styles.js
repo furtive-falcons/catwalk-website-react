@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/extensions */
 import styled from 'styled-components';
 import { colorGreyLight2 } from '../../ui/ui-colors/index.js';
@@ -53,8 +54,8 @@ export const StyledSearch = styled.input`
   color: ${colorGreyLight2};
 `;
 
-export const StyledTitle = styled.div`
-  font-size: 1.2rem;
+export const StyledTitle = styled.h3`
+  font-size: ${(props) => props.fontSize};
   color: ${colorGreyLight2};
   font-weight: 500;
   margin-top: 10px;

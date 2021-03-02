@@ -1,20 +1,22 @@
 import React from 'react';
+import WithMargins from '../../../../hoc/with-margins';
 import { fontSizeSmaller } from '../../../../ui/ui-fonts';
 import LinkTag from '../../../LinkTag';
 import Price from '../../../Price';
-import ProductCategory from '../../../ProductCategory';
 import ProductTitle from '../../../ProductTitle';
 import StarRating from '../../../StarRating';
-import InformationWrapper from './styles';
+import ProductCategoryStyles from './styles';
 
 const ProducInformation = () => (
-  <InformationWrapper>
+  <>
     <StarRating />
-    <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
-    <ProductCategory>category</ProductCategory>
+    <WithMargins margin="1rem">
+      <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
+    </WithMargins>
+    <ProductCategoryStyles>category</ProductCategoryStyles>
     <ProductTitle>Expanded Product Name</ProductTitle>
-    <Price>$369</Price>
-  </InformationWrapper>
+    <Price price={369} />
+  </>
 );
 
 export default ProducInformation;

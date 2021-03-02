@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Helpful = () => (
+const Helpful = ({helpfulness}) => (
   <div>
-    Helpful? Yes count
+    Helpful? Yes {helpfulness}
   </div>
 );
 export default Helpful;

@@ -1,8 +1,9 @@
 import React from 'react';
+import Paragraph from '../../../../components/Paragraph';
 
-const Question = () => (
+const Question = ({body}) => (
   <div className="question">
-    Question
+    <Paragraph children={body} />
   </div>
 );
 

@@ -6,12 +6,13 @@ import EntryContainer from './components/EntryContainer.jsx';
 import MoreQuestion from './components/MoreQuestion.jsx';
 import AddQuestion from './components/AddQuestion.jsx';
 import { Container } from './styles.js';
+import data from './data.js';
 
 const QnA = () => (
   <Container>
-    <Title title="QUESTIONS & ANSWERS" />
+    <Title fontSize="1.6rem" title="QUESTIONS & ANSWERS" />
     <SearchBar />
-    <EntryContainer />
+    <EntryContainer questions={data.results} />
     <MoreQuestion />
     <AddQuestion />
   </Container>
