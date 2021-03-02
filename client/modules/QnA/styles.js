@@ -12,6 +12,12 @@ export const Container = styled.div`
   grid-gap: .5rem;
   width: 1400px;
 
+  .entry-container {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 3;
+  }
+
   .title {
     grid-column: span 3;
     grid-row: 1 / 2;
