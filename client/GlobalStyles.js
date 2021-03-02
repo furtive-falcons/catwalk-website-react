@@ -1,14 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
-import { fontPrimary, fontSizeBase } from './ui/ui-fonts';
+import { colorGreyLight2 } from './ui/ui-colors';
+import { fontPrimary } from './ui/ui-fonts';
 
 const GlobalStyles = createGlobalStyle`
-    body {
+    *,
+    *::before,
+    *::after {
         margin: 0;
         padding: 0;
+        box-sizing: inherit;
+    }
+    html {
         box-sizing: border-box;
         font-size: 62.5%;
-        font-size: ${fontSizeBase}rem;
+    }
+    body {
         font-family: ${fontPrimary};
+        color: ${colorGreyLight2};
         font-weight: 300;
         line-height: 1.6;
     }
