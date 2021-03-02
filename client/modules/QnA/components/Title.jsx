@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable import/no-cycle */
 import React from 'react';
 import { StyledTitle } from '../styles.js';
 
-const Title = ({ title }) => (
-  <StyledTitle className="title">
+const Title = ({ fontSize, title }) => (
+  <StyledTitle fontSize={fontSize} className="title">
     {title}
   </StyledTitle>
 );
