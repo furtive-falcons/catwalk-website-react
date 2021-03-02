@@ -5,7 +5,7 @@ import {
   colorPrimary,
   colorSecondary,
   colorWhite,
-} from '../../../../ui/ui-colors';
+} from '../../ui/ui-colors';
 
 const DivStyles = styled.div`
   .container {
