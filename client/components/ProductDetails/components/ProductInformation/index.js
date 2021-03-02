@@ -15,7 +15,7 @@ const ProducInformation = () => (
     </WithMargins>
     <ProductCategoryStyles>category</ProductCategoryStyles>
     <ProductTitle>Expanded Product Name</ProductTitle>
-    <Price>$369</Price>
+    <Price price={369} />
   </>
 );
 
