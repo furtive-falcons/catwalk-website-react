@@ -1,16 +1,28 @@
+import { array, number } from 'prop-types';
 import React from 'react';
-import DivStyles from './styles';
+import StyledSelect from './styles';
 
-const DropDown = ({ size, value, options }) => (
-  <DivStyles size={size}>
-    <select>
+const DropDown = ({ size, options }) => (
+  
+
+    <StyledSelect selectSize={size}>
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
         </option>
       ))}
-    </select>
-  </DivStyles>
+    </StyledSelect>
+  
+ 
 );
 
+DropDown.propTypes = {
+  size : number,
+  options : array
+}
+
+DropDown.defaultProps = {
+  size : 20,
+  options: []
+}
 export default DropDown;
