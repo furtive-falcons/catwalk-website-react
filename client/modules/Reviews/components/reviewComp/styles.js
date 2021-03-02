@@ -4,6 +4,7 @@ const ReviewCountContainer = styled.div`
   flex: 1;
   width: 95%;
   border: 1px solid black;
+  font-weight: bold;
 `;
 
 const ReviewListContainer = styled.div`
@@ -26,6 +27,13 @@ const ButtonsContainer = styled.div`
   flex-direction: row;
 `;
 
+const Button = styled.button`
+  height: 50px;
+  wdith: 80px;
+  border: 1px solid black;
+  background: none;
+`;
+
 const TileContainer = styled.div`
   padding: 5px;
   height: 200px;
@@ -35,4 +43,4 @@ const TileContainer = styled.div`
   flex-direction: column;
 `;
 
-export {ReviewCountContainer, ReviewListContainer, ButtonsContainer, TileContainer };
+export {Button, ReviewCountContainer, ReviewListContainer, ButtonsContainer, TileContainer };
