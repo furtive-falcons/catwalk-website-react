@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const StarRating = () => {
-    return (
-        <>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </>
-    )
-}
+const StarRating = () => (
+  <>
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+    <i className="fas fa-star" />
+  </>
+);
 
-export default StarRating
+export default StarRating;
