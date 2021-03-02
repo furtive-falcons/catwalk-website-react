@@ -7,8 +7,8 @@ const imageGallery = () => (
       <i className="fas fa-expand"></i>
     </div>
     <div className="arrow">
-      <i class="fas fa-arrow-left"></i>
-      <i class="fas fa-arrow-right"></i>
+      <i className="fas fa-arrow-left"></i>
+      <i className="fas fa-arrow-right"></i>
     </div>
   </DivStyles>
 );
