@@ -6,15 +6,21 @@ import {
 } from './tileStyles.js';
 import StarRating from '../../../../components/StarRating';
 
-
-const Tile = ({body, summary, response, user, date }) => {
+const Tile = ({
+  body, summary, response, user, date,
+}) => {
   const [more, showMore] = useState(false);
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
       <TopRow>
-        <Stars><StarRating/></Stars>
-        <UserAndDate>{user}, {date}</UserAndDate>
+        <Stars><StarRating /></Stars>
+        <UserAndDate>
+          {user}
+          ,
+          {' '}
+          {date}
+        </UserAndDate>
       </TopRow>
       <ReviewContainer>
         <Summary>
