@@ -1,5 +1,6 @@
 import React from 'react';
 import AddToCart from '../../../../components/AddToCart';
+import ImageGallery from '../../../../components/ImageGallery';
 import ProducInformation from '../../../../components/ProductDetails/components/ProductInformation';
 import StyleSelector from '../../../../components/StyleSelector';
 
@@ -8,7 +9,9 @@ import DivStyles from './styles';
 const Details = () => (
   <DivStyles data-test="component-details">
     <div className="container">
-      <div className="gallery">Image Gallery</div>
+      <div className="gallery">
+        <ImageGallery />
+      </div>
       <div className="info">
         <ProducInformation />
       </div>
