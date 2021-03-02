@@ -27,20 +27,12 @@ const ButtonsContainer = styled.div`
   flex-direction: row;
 `;
 
-const Button = styled.button`
-  height: 50px;
-  wdith: 80px;
-  border: 1px solid black;
-  background: none;
-`;
-
 const TileContainer = styled.div`
   padding: 5px;
-  height: 200px;
   width: 95%;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
 `;
 
-export {Button, ReviewCountContainer, ReviewListContainer, ButtonsContainer, TileContainer };
+export { ReviewCountContainer, ReviewListContainer, ButtonsContainer, TileContainer };
