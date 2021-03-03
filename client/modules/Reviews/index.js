@@ -58,14 +58,14 @@ const ReviewAndRatings = () => {
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews?product_id=14932', {
       headers: {
-        Authorization: '052643839695a3650fc8030653a0cdb91c5b9b25',
+        Authorization: '',
       },
     })
       .then((result) => setData(result.data.results));
   }, []);
   return (
     <>
-    <Header>REVIEWS {'&'} RATINGS</Header>
+    {/* <Header>RATINGS {'&'} REVIEWS</Header> */}
     <Container id="mainWrapper">
       <Ratings id="ratings" />
       <Reviews data={addRelevance(data)} id="reviews" />

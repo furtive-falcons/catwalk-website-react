@@ -5,12 +5,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   // border: 1px solid black;
+  width: 1400px;
   margin: auto;
 `
 
 const Header = styled.span`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 export {Header, Container};
