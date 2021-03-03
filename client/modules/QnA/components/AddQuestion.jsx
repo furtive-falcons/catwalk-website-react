@@ -9,9 +9,10 @@ const AddQuestion = () => {
   return (
     <div className="add-question">
       <Button
-        name="Add A QUESTION"
+        name="Add A QUESTION "
         handleOnClick={handleOnClick}
         primary
+        icon="plus"
         size={20}
       />
     </div>

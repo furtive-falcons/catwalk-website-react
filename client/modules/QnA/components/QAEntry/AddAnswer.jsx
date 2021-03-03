@@ -9,12 +9,13 @@ const AddAnswer = () => {
     console.log('Answer form pop up');
   };
   return (
-    <LinkTag
-      className="add-answer"
-      children="Add Answer"
-      handleOnClick={handleOnClick}
-      size={1}
-    />
+    <div className="add-answer">
+      <LinkTag
+        children="Add Answer"
+        handleOnClick={handleOnClick}
+        size={1}
+      />
+    </div>
   );
 };
 // const AddAnswer = () => {
