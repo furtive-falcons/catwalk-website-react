@@ -1,14 +1,11 @@
 import React from 'react';
-import Button from '../../../../../../components/Button';
 
 const LeftButton = () => {
   const handleOnClick = () => {
     console.log('Left button was clicked');
   };
   return (
-    <>
-      <Button handleOnClick={handleOnClick} name="Left Button" />
-    </>
+    <button className="left-prev-button" type="button" label="left" onClick={handleOnClick}><i className="fas fa-chevron-left" /></button>
   );
 };
 
