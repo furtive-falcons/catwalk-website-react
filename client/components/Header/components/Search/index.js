@@ -1,15 +1,11 @@
-import React from 'react'
-import SearchStyles from './styles'
+import React from 'react';
+import { SearchStyles, SearchWrapper, StyledIcon } from './styles';
 
+const Search = () => (
+  <SearchWrapper data-test="component-search">
+    <SearchStyles />
+    <StyledIcon className="fas fa-search" />
+  </SearchWrapper>
+);
 
-
-const Search = () => {
-    return (
-        <>
-        <SearchStyles data-test="component-search"/>
-        <i className="fab fa-searchengin"></i>
-        </>
-    )
-}
-
-export default Search
+export default Search;
