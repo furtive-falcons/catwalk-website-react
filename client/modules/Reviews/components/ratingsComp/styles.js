@@ -25,6 +25,25 @@ const ScoreDiv = styled.div`
     font-size: 35px;
   }
 `
+const BarDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 10px;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+
+  .dark {
+    flex: ${props=>props.rating};
+    background-color: black;
+  }
+
+  .light {
+    flex: ${props=>props.total};
+  }
+`;
+
 const FilterDiv = styled.div`
   width: 85%;
   flex: 3;
@@ -37,4 +56,4 @@ const BreakdownDiv = styled.div`
   border: 1px solid black;
 `
 
-export {ScoreDiv,FilterDiv, BreakdownDiv};
+export {BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
