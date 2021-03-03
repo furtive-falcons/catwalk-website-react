@@ -10,7 +10,7 @@ import {
 const DivStyles = styled.div`
   .container {
     display: grid;
-    grid-template-rows: 1fr min-content 1fr repeat(10, min-content) 1fr;
+    grid-template-rows: 1fr min-content repeat(10, min-content) 1fr;
 
     grid-template-columns:
       [full-start] 1fr [center-start] repeat(

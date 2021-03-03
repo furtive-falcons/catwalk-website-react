@@ -5,6 +5,7 @@ export const ButtonStyles = styled.button`
   width: 4rem;
   height: 4rem;
   border-radius: 5rem;
+  cursor: pointer;
 `;
 
 export const Primary = styled(ButtonStyles)`
