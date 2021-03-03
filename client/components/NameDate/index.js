@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NameDate = ({ name, date }) => {
+const NameDate = ({ string, name, date }) => {
   const formatDate = (string) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(string).toLocaleDateString([], options);
@@ -8,7 +8,7 @@ const NameDate = ({ name, date }) => {
 
   return (
     <div className="name-date">
-      by
+      {string}
       {' '}
       {name}
       ,

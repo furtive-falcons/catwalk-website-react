@@ -41,8 +41,6 @@ const Entry = styled.div`
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    align-self: start;
-    margin-top: .6rem;
   }
 
   .info {
