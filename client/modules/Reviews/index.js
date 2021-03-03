@@ -64,7 +64,7 @@ const ReviewAndRatings = () => {
     <>
     <Header>REVIEWS {'&'} RATINGS</Header>
     <Container id="mainWrapper">
-      <Ratings id="ratings" />
+      <Ratings data={dummy.results} id="ratings" />
       <Reviews data={dummy.results} id="reviews" />
     </Container>
     </>
