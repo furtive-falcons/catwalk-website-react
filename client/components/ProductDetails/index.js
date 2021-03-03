@@ -5,7 +5,7 @@ import ProducInformation from './components/ProductInformation';
 import StyleSelector from '../StyleSelector';
 
 import DivStyles from './styles';
-import Banner from './components/Banner';
+import Banner from '../Banner';
 import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
