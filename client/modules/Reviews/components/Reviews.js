@@ -58,7 +58,7 @@ const Reviews = ({ data }) => {
       </TopContainer>
       {/* review list container */}
       {data.length !== 0
-      && <ReviewList data={filterData(numTiles, data)} />}
+      && <ReviewList  data={filterData(numTiles, data)} />}
       {/* buttons container */}
       <Buttons reviewCount={data.length} dataIndex={numTiles} expand={expand} />
     </ReviewsContainer>

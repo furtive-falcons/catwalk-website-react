@@ -65,7 +65,7 @@ const ReviewAndRatings = () => {
   }, []);
   return (
     <>
-    {/* <Header>RATINGS {'&'} REVIEWS</Header> */}
+    <Header>REVIEWS {'&'} RATINGS</Header>
     <Container id="mainWrapper">
       <Ratings id="ratings" />
       <Reviews data={addRelevance(data)} id="reviews" />

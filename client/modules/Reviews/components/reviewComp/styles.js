@@ -19,7 +19,7 @@ const ReviewListContainer = styled.div`
   // border: 1px solid black;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: scroll
 `;
 
 const ButtonsContainer = styled.div`
