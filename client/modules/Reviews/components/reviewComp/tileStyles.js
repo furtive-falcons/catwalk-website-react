@@ -6,7 +6,7 @@ const TopRow = styled.div`
   border: 1px solid black;
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
 `;
 
 const ReviewContainer = styled.div`
@@ -25,6 +25,8 @@ const ResponseContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   span {
     font-weight: bold;
@@ -56,6 +58,7 @@ const UserAndDate = styled.div`
 const Summary = styled.h4`
   border: 1px solid black;
   margin:0px;
+  font-size: 1.5rem;
 
 `;
 

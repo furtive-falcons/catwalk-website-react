@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReviewsContainer, TopContainer } from './styles.js';
 import ReviewCount from './reviewComp/ReviewCount.js';
 import ReviewList from './reviewComp/ReviewList.js';
@@ -11,35 +11,41 @@ const Reviews = ({ data }) => {
   // depends on number of reviews passed in
   const [numTiles, changeNumTiles] = useState(2);
 
+
   // keep track of type of sort
-  const [sortMethod, changeSortMethod] = useState('relevance');
+  const [sortValue, changeSortMethod] = useState('relevance');
 
   // Function to show only the first n comments, where n is numTiles
-  const filterData = (n, data) =>
+  const filterData = (n, data) =>{
+    sort(data,sortValue);
     // slice data to show only up to nth comments
-    data.slice(0, n)
-  ;
+    return data.slice(0, n)
+  };
 
   // Function to expand the number of comments
   const expand = () => {
     changeNumTiles(numTiles + 2);
-    console.log('expanded!');
   };
 
   // Function to sort the data based on selected sorting method
   // output: sorted list
-  const sort = (event, data) => {
+  const getSortMethod = (event) => {
     const method = event.target.value;
+    changeSortMethod(method);
+  };
+
+  const sort =(data, method)=>{
     data.sort((a, b) => {
-      if (a[method] < b[method]) {
+      if (a[method] > b[method]) {
         return -1;
       }
-      if (a[method] > b[method]) {
+      if (a[method] < b[method]) {
         return 1;
       }
       return 0;
     });
-  };
+  }
+
 
   return (
     <ReviewsContainer>
@@ -48,7 +54,7 @@ const Reviews = ({ data }) => {
         <ReviewCount count={data.length} />
         ,
         sorted by
-        <Sort method={sortMethod} sort={sort} />
+        <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
       </TopContainer>
       {/* review list container */}
       {data.length !== 0

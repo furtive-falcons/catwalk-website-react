@@ -5,8 +5,7 @@ const container = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid black;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: auto;
 `
 
 export default container;

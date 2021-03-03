@@ -32,7 +32,7 @@ const Tile = ({
             ? (
               <>
                 {body.slice(0, 250)}
-                <span onClick={() => showMore(true)} className="showMore">Show More</span>
+                <span onClick={() => showMore(true)} className="showMore"> Show More</span>
               </>
             )
             : body}
