@@ -1,8 +1,18 @@
 import React from 'react';
+import LinkTag from '../../../../components/LinkTag';
 
-const Helpful = ({helpfulness}) => (
+const Helpful = ({ helpfulness }) => (
   <div>
-    Helpful? Yes {helpfulness}
+    Helpful?
+    {' '}
+    <LinkTag
+      children="Yes"
+      size={1}
+    />
+    {' '}
+    (
+    {helpfulness}
+    )
   </div>
 );
 export default Helpful;
