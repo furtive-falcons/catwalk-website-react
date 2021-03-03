@@ -85,7 +85,7 @@ const dummy = {
     },
     {
       review_id: 147707,
-      rating: 2,
+      rating: 5,
       summary: 'Debitis est voluptates molestias voluptate enim.',
       recommend: true,
       response: null,
