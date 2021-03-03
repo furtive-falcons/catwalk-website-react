@@ -1,9 +1,11 @@
+/* eslint-disable import/extensions */
 import styled from 'styled-components';
+import { colorGreyLight2 } from '../../../../ui/ui-colors/index.js';
 
 const Entry = styled.div`
 
     display: grid;
-    grid-template-columns: 2rem auto 10rem 10rem;
+    grid-template-columns: 2rem auto 8rem 1rem 8rem;
     grid-template-rows: repeat(4, minmax(min-content, 3rem));
     grid-auto-rows: minmax(min-content, 3rem);
     align-items: center;
@@ -24,7 +26,7 @@ const Entry = styled.div`
   }
 
   .add-answer {
-    grid-column: 4 / 5;
+    grid-column: 5 / 6;
     grid-row: 1 / 2;
   }
 
@@ -53,19 +55,11 @@ const Entry = styled.div`
   }
 `;
 
-export default Entry;
+const StyledSeperator = styled.div`
+  width: 1px;
+  min-height: 1rem;
+  background: ${colorGreyLight2};
+  margin-right: 1rem;
+`;
 
-// .name-date {
-//   grid-column: 2 / 3;
-//   grid-row: 3 / 4;
-// }
-
-// .report {
-//   grid-column: 2 / 3;
-//   grid-row: 3 / 4;
-// }
-
-// .helpful-2 {
-//   grid-column: 2 / 3;
-//   grid-row: 3 / 4;
-// }
+export { Entry, StyledSeperator };
