@@ -1,11 +1,16 @@
 import styled from 'styled-components'
 
-const container = styled.div`
+const Container = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: auto;
 `
 
-export default container;
+const Header = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+`;
+
+export {Header, Container};

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Reviews from './components/Reviews.js';
 import Ratings from './components/Ratings.js';
-import Container from './styles.js';
+import {Header, Container} from './styles.js';
 
 const dummy = [
   { product_id: 1, body: 'Donut gummit bears gingerbread gummies chocolate, ice cream apple pie tiramisu fruitcake chupachups icing apple pie. lemon drops cake pudding pudding Donut gummit bears gingerbread gummies chocolate, ice cream apple pie tiramisu fruitcake chupachups icing apple pie. lemon drops cake pudding pudding' }, { product_id: 2, body: 'abc' },
@@ -64,10 +64,13 @@ const ReviewAndRatings = () => {
       .then((result) => setData(result.data.results));
   }, []);
   return (
+    <>
+    <Header>REVIEWS {'&'} RATINGS</Header>
     <Container id="mainWrapper">
       <Ratings id="ratings" />
       <Reviews data={addRelevance(data)} id="reviews" />
     </Container>
+    </>
   );
 };
 
