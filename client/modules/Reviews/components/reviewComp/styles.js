@@ -41,4 +41,24 @@ const TileContainer = styled.div`
   flex-direction: column;
 `;
 
-export {DropdownContainer, ReviewListContainer, ButtonsContainer, TileContainer };
+const ModalContainer = styled.div`
+  display: block;
+  position:fixed;
+  z-index:1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  left: 0;
+  top: 0;
+  padding-top: 200px;
+  padding-left: 300px;
+
+  .formDiv {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+  }
+`;
+
+export {ModalContainer, DropdownContainer, ReviewListContainer, ButtonsContainer, TileContainer };

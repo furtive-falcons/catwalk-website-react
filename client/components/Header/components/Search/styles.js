@@ -4,8 +4,8 @@ import { fontSizeLarge } from '../../../../ui/ui-fonts';
 
 export const SearchStyles = styled.input`
   background-color: transparent;
-  border-bottom: 1.5px solid white;
   border: none;
+  border-bottom: 1.5px solid white;
   caret-color: ${colorWhite};
   color: ${colorWhite};
   outline: none;
