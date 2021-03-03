@@ -52,6 +52,16 @@ const DivStyles = styled.div`
       position: absolute;
       top: 0;
     }
+    &__expand {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 1;
+    }
   }
 `;
 

@@ -103,8 +103,8 @@ const imageGallery = () => (
           <Button className="gallery-carousel__nav--btn" key={id} />
         ))}
     </div>
-    <div>
-      <Button icon="expand" />
+    <div className="gallery-carousel__expand">
+      <Button icon="expand">hello</Button>
     </div>
   </DivStyles>
 );
