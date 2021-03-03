@@ -7,7 +7,7 @@ export const Container = styled.div`
   font-size: 1rem;
   display: grid;
   margin: 2rem auto;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr auto 1fr;
   border: 1px solid red;
   grid-gap: .5rem;
@@ -16,23 +16,17 @@ export const Container = styled.div`
   .entry-container {
     display: flex;
     flex-direction: column;
-    grid-column: span 3;
+    grid-column: span 6;
   }
 
   .title {
-    grid-column: span 3;
+    grid-column: span 6;
     grid-row: 1 / 2;
-    align-self: center;
   }
 
   .search{
-    grid-column: span 3;
+    grid-column: span 6;
     grid-row: 2 / 3;
-  }
-
-  .entry {
-    grid-column: span 3;
-    grid-row: 3 / 4;
   }
 
   .more-questions {
@@ -58,5 +52,4 @@ export const StyledTitle = styled.h3`
   font-size: ${(props) => props.fontSize};
   color: ${colorGreyLight2};
   font-weight: 500;
-  margin-top: 10px;
 `;

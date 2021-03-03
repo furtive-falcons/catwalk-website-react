@@ -3,10 +3,10 @@ import React from 'react';
 import ImageThumbnail from './ImageThumbnail.jsx';
 import Paragraph from '../../../../components/Paragraph';
 
-const Answer = ({body}) => (
+const Answer = ({ answer }) => (
   <div className="answer">
-    <Paragraph children={body} />
-    <ImageThumbnail />
+    <Paragraph children={answer.body} />
+    {answer.photos.length > 0 ? <ImageThumbnail images={answer.photos} /> : null}
   </div>
 );
 

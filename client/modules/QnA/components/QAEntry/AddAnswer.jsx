@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import AddButton from './buttonStyle.js';
+// import Button from '../../../../components/Button';
+import LinkTag from '../../../../components/LinkTag';
 
 const AddAnswer = () => {
   const handleOnClick = (e) => {
@@ -8,13 +9,29 @@ const AddAnswer = () => {
     console.log('Answer form pop up');
   };
   return (
-    <AddButton className="add-answer" name="Add Answer" handleOnClick={handleOnClick} />
+    <div className="add-answer">
+      <LinkTag
+        children="Add Answer"
+        handleOnClick={handleOnClick}
+        size={1}
+      />
+    </div>
   );
 };
-// const AddAnswer = () => (
-//   <div className="add-answer">
-//     Add Answer Button
-//   </div>
-// );
+// const AddAnswer = () => {
+//   const handleOnClick = (e) => {
+//     e.preventDefault();
+//     console.log('Answer form pop up');
+//   };
+//   return (
+//     <Button
+//       className="add-answer"
+//       name="Add Answer"
+//       handleOnClick={handleOnClick}
+//       primary
+//       size={10}
+//     />
+//   );
+// };
 
 export default AddAnswer;

@@ -10,7 +10,7 @@ import {
 const DivStyles = styled.div`
   .container {
     display: grid;
-    grid-template-rows: 1fr min-content 1fr repeat(10, min-content) 1fr;
+    grid-template-rows: repeat(10, min-content) ;
 
     grid-template-columns:
       [full-start] 1fr [center-start] repeat(
@@ -48,10 +48,16 @@ const DivStyles = styled.div`
     grid-column: col-end 7 / center-end;
     grid-row: 7 / 9;
   }
-  .footer {
+  .slogan {
     background-color: ${colorGreyLight1};
     color: ${colorWhite};
-    grid-column: center-start / center-end;
+    grid-column: center-start / col-end 7;
+    grid-row: 9 / -1;
+  }
+  .checkList {
+    background-color: ${colorGreyLight1};
+    color: ${colorWhite};
+    grid-column: col-end 7 / full-end;
     grid-row: 9 / -1;
   }
 `;

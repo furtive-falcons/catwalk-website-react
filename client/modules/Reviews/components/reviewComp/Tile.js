@@ -5,9 +5,11 @@ import {
   TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful,
 } from './tileStyles.js';
 import StarRating from '../../../../components/StarRating';
+import NameDate from '../../../../components/NameDate';
+
 
 const Tile = ({
-  body, summary, response, user, date,
+  body, summary, response, user, date, helpfulness
 }) => {
   const [more, showMore] = useState(false);
   return (
@@ -16,10 +18,7 @@ const Tile = ({
       <TopRow>
         <Stars><StarRating /></Stars>
         <UserAndDate>
-          {user}
-          ,
-          {' '}
-          {date}
+          <NameDate name={user} date={date}/>
         </UserAndDate>
       </TopRow>
       <ReviewContainer>
@@ -32,7 +31,7 @@ const Tile = ({
             ? (
               <>
                 {body.slice(0, 250)}
-                <span onClick={() => showMore(true)} className="showMore">Show More</span>
+                <span onClick={() => showMore(true)} className="showMore"> Show More</span>
               </>
             )
             : body}
@@ -45,7 +44,7 @@ const Tile = ({
           <span>Response: </span>
           <p>{response}</p>
         </ResponseContainer>
-        <Helpful>Was this helpful? Yes No</Helpful>
+        <Helpful>Was this helpful? <span>Yes</span> ({helpfulness}) | <span>Report</span></Helpful>
       </ReviewContainer>
     </TileContainer>
   );

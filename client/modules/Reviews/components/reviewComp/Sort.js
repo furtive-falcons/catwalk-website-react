@@ -1,12 +1,12 @@
 import React from 'react';
 import { DropdownContainer } from './styles.js';
 
-const Sort = ({ sort, sortMethod }) => (
+const Sort = ({ getSortMethod, sortValue }) => (
   <DropdownContainer>
-    <select value={sortMethod} onChange={sort} name="sort" className="dropdown">
+    <select value={sortValue} onChange={getSortMethod} name="sort" className="dropdown">
       <option value="relevance">Relevance</option>
       <option value="helpfulness">Helpfulness</option>
-      <option value="newest">Newest</option>
+      <option value="date">Newest</option>
     </select>
   </DropdownContainer>
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageThumbnail = () => (
+const ImageThumbnail = ({images}) => (
   <div className="image">
     Thumbnails
   </div>

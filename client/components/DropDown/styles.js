@@ -1,13 +1,12 @@
 import styled from 'styled-components';
+import { colorWhite } from '../../ui/ui-colors';
 
-const DivStyles = styled.div`
-  width: ${(props) => props.width}rem;
-  & select {
-    margin: 0.5rem;
-    border: 0.5rem;
-    padding: 1rem;
-    background-color: purple;
-  }
+const StyledSelect = styled.select`
+  width: ${(props) => props.selectSize}rem;
+  margin: 0.5rem;
+  border: 0.5rem;
+  padding: 1rem;
+  background-color: ${colorWhite};
 `;
 
-export default DivStyles;
+export default StyledSelect;

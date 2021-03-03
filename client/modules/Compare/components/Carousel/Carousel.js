@@ -3,13 +3,16 @@ import Section from './components/Section/Section';
 import LeftButton from './components/LeftButton/LeftButton';
 import Card from './components/Card/Card';
 import RightButton from './components/RightButton/RightButton';
+import CarouselContainer from './styles';
 
 const Carousel = () => (
   <div data-test="component-carousel">
-    <Section />
-    <LeftButton />
-    <Card />
-    <RightButton />
+    <CarouselContainer>
+      <Section />
+      <LeftButton />
+      <Card />
+      <RightButton />
+    </CarouselContainer>
   </div>
 );
 
