@@ -7,6 +7,8 @@ import StyleSelector from '../StyleSelector';
 import DivStyles from './styles';
 import Banner from './components/Banner';
 import Header from '../Header';
+import Slogan from '../Slogan';
+import CheckList from '../CheckList';
 
 const ProductDetails = () => (
   <DivStyles data-test="component-details">
@@ -29,7 +31,12 @@ const ProductDetails = () => (
       <div className="cart">
         <AddToCart />
       </div>
-      <div className="footer">Footer</div>
+      <div className="slogan">
+        <Slogan />
+      </div>
+      <div className="checkList">
+        <CheckList />
+      </div>
     </div>
   </DivStyles>
 );
