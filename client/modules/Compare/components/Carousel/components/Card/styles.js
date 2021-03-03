@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const CardContainer = styled.div`
   flex: 7;
   display: inline-block;
-  border: 1px solid blue;
+  border: 1px solid black;
   width: auto;
-  margin: auto;
+  margin: 5px;
   padding: 10px;
   flex-direction: row;
   max-width: 250px;
@@ -13,3 +13,6 @@ const CardContainer = styled.div`
 `;
 
 export default CardContainer;
+
+// max-width: 250px;
+// max-height: 350px;
