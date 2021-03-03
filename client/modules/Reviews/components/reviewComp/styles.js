@@ -16,24 +16,27 @@ const ReviewListContainer = styled.div`
   // if more than 4, the list will become scrollable
   max-height: 825px;
   flex-direction: column;
-  border: 1px solid black;
+  // border: 1px solid black;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 const ButtonsContainer = styled.div`
   flex: 2;
+  margin-top: 40px;
   width: 95%;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-direction: row;
 `;
 
 const TileContainer = styled.div`
   padding: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 95%;
-  border: 1px solid black;
+  border-bottom: 0.5px solid grey;
   display: flex;
   flex-direction: column;
 `;
