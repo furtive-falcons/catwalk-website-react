@@ -3,16 +3,18 @@ import React from 'react';
 import { fontSizeBase } from '../../ui/ui-fonts';
 import StyledTitle from './styles';
 
-const ProductTitle = ({ children, size }) => <StyledTitle size={size}>{children}</StyledTitle>;
+const Title = ({ children, size }) => (
+  <StyledTitle size={size}>{children}</StyledTitle>
+);
 
-ProductTitle.propTypes = {
+Title.propTypes = {
   children: node,
   size: number,
 };
 
-ProductTitle.defaultProps = {
+Title.defaultProps = {
   children: null,
   size: fontSizeBase,
 };
 
-export default ProductTitle;
+export default Title;
