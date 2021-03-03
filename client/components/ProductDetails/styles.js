@@ -57,7 +57,7 @@ const DivStyles = styled.div`
   .checkList {
     background-color: ${colorGreyLight1};
     color: ${colorWhite};
-    grid-column: col-end 7 / full-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 9 / -1;
   }
 `;
