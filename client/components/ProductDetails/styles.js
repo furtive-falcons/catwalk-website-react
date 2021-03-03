@@ -10,17 +10,18 @@ import {
 const DivStyles = styled.div`
   .container {
     display: grid;
-    grid-template-rows: repeat(10, min-content) ;
+    grid-template-rows: repeat(10, min-content);
 
     grid-template-columns:
-      [full-start] 1fr [center-start] repeat(
+      [left-start] 1fr [left-end center-start] repeat(
         10,
         [col-start] minmax(min-content, 14rem) [col-end]
       )
-      [center-end] 1fr [full-end];
+      [center-end right-start]
+      1fr [right-end];
   }
   .header {
-    grid-column: center-start / center-end;
+    grid-column: center-start/ center-end;
     grid-row: 1 / 2;
   }
   .banner {
