@@ -99,6 +99,10 @@ const Helpful = styled.span`
   margin: 0px;
   color: #808080;
 
+  span {
+    text-decoration: underline;
+  }
+
 `;
 
 export {ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful };

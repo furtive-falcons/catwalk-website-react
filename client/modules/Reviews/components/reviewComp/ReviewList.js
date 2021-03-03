@@ -10,6 +10,7 @@ const ReviewList = ({ data }) => (
        data
         && data.map((product) => (
           <Tile
+            helpfulness = {product.helpfulness}
             date={product.date}
             user={product.reviewer_name}
             response={product.response}
