@@ -2,8 +2,8 @@ import React from 'react';
 import { SearchStyles, SearchWrapper, StyledIcon } from './styles';
 
 const Search = () => (
-  <SearchWrapper>
-    <SearchStyles data-test="component-search" />
+  <SearchWrapper data-test="component-search">
+    <SearchStyles />
     <StyledIcon className="fas fa-search" />
   </SearchWrapper>
 );
