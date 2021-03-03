@@ -10,7 +10,7 @@ import {
 const DivStyles = styled.div`
   .container {
     display: grid;
-    grid-template-rows: repeat(10, min-content) ;
+    grid-template-rows: repeat(10, min-content);
 
     grid-template-columns:
       [full-start] 1fr [center-start] repeat(
@@ -57,7 +57,7 @@ const DivStyles = styled.div`
   .checkList {
     background-color: ${colorGreyLight1};
     color: ${colorWhite};
-    grid-column: col-end 7 / full-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 9 / -1;
   }
 `;
