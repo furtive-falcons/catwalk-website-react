@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../../../../../components/Button';
 
 const RightButton = () => {
   const handleOnClick = () => {
@@ -7,9 +6,9 @@ const RightButton = () => {
   };
 
   return (
-    <>
-      <Button handleOnClick={handleOnClick} name="Right Button" />
-    </>
+    <button className="right-prev-button" type="button" lable="right" onClick={handleOnClick}>
+      <i className="fas fa-chevron-right" />
+    </button>
   );
 };
 
