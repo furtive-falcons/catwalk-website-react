@@ -3,8 +3,9 @@ import {RatingsContainer} from './styles.js';
 import Score from './ratingsComp/Score.js';
 import Filter from './ratingsComp/Filter.js';
 import Breakdown from './ratingsComp/Breakdown.js';
+import Recommend from './ratingsComp/Recommend.js';
 
-const Ratings = ({data}) => {
+const Ratings = ({data, metaData, getFilter}) => {
 
   // finds average rating
   const average = (data) => {
@@ -12,7 +13,7 @@ const Ratings = ({data}) => {
     for (var review of data) {
       score += review.rating;
     }
-    return score/data.length;
+    return (score/data.length).toFixed(1);
   }
 
   // sort data by ratings
@@ -37,19 +38,19 @@ const Ratings = ({data}) => {
 
   // finds number of comments per rating
   const reduceData = (data) => {
-    let obj = {1:0,2:0,3:0,4:0,5:0};
+    let obj = {5:0,4:0,3:0,2:0,1:0};
     for (var comment of data) {
       obj[comment.rating]+= 1;
     }
     return obj;
   }
-
     return (
         <RatingsContainer>
           {/* score */}
           <Score score={average(data)}/>
+          <Recommend recommend = {metaData.recommended}/>
           {/* filter */}
-          <Filter total={data.length} data={reduceData(data)}/>
+          <Filter getFilter={getFilter} total={data.length} data={reduceData(data)}/>
           {/* breakdown */}
           <Breakdown/>
         </RatingsContainer>

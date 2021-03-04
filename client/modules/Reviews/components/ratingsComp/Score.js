@@ -2,12 +2,12 @@ import React from 'react';
 import { ScoreDiv } from './styles.js';
 import Stars from '../../../../components/StarRating';
 
-const Score = ({score}) => (
+const Score = ({ score, recommend }) => (
   <ScoreDiv id="score">
-    <div className='innerContainer'>
+    <div className="innerContainer">
       <h1>{score}</h1>
-      <div className='stars'>
-        <Stars/>
+      <div className="stars">
+        <Stars />
       </div>
     </div>
   </ScoreDiv>
