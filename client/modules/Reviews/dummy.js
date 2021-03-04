@@ -87,7 +87,7 @@ const dummy = {
       review_id: 147707,
       rating: 5,
       summary: 'Debitis est voluptates molestias voluptate enim.',
-      recommend: true,
+      recommend: false,
       response: null,
       body: 'Ut excepturi sunt minus voluptates id quaerat dolore ad incidunt. Consectetur laboriosam sed voluptas nobis quas animi alias et. Ducimus natus facere aut vel voluptatum consectetur id deleniti quis. Veniam earum rerum ut omnis accusamus. Minus quidem vel maxime. Suscipit corporis ut eos odit eum accusantium quas voluptatibus laborum.',
       date: '2020-12-19T00:00:00.000Z',
