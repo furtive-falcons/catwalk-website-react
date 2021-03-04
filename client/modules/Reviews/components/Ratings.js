@@ -16,13 +16,7 @@ const Ratings = ({data, metaData, getFilter, filters, removeFilters}) => {
     return (score/data.length).toFixed(1);
   }
 
-  // show applied filters
-  const renderFilters =(filters) =>{
-    console.log(filters)
-    return Object.keys(filters).map((filter,id)=>
-      <span key ={id}>{filter}</span>
-    );
-  }
+
 
   // sort data by ratings
   const sortByRatings =(data)=>{
@@ -58,7 +52,10 @@ const Ratings = ({data, metaData, getFilter, filters, removeFilters}) => {
           <Score score={average(data)}/>
           <Recommend recommend = {metaData.recommended}/>
           {Object.keys(filters).length !== 0 ?
-          <div>Comments with: {renderFilters(filters)}{" "}<span onClick={removeFilters}>Remove Filters</span></div>
+          <div>
+            <div>Comments with: {Object.keys(filters).join(',')}{" "}stars{" "}</div>
+            <span onClick={removeFilters}>Remove Filters</span>
+          </div>
           :
           <span>No filters applied</span>
           }

@@ -18,7 +18,10 @@ const ReviewAndRatings = () => {
     // check if the filter already exist
     // if it already exist then toggle it on/off
     if (filters.hasOwnProperty(filter)) {
-      setFilter((filters)=>delete filters[filter]);
+      setFilter((filters)=>{
+        delete filters[filter];
+        return filters;
+      });
     } else {
     // if not then set the filter to true
       target[filter] = true;

@@ -1,13 +1,17 @@
 import React from 'react';
-import LinkTag from '../../../../components/LinkTag';
+import LinkTag from '../LinkTag';
 
-const Helpful = ({ helpfulness }) => (
+const Helpful = ({
+  string, helpfulness, size, handleOnClick
+}) => (
   <div>
+    {string}
     Helpful?
     {' '}
     <LinkTag
       children="Yes"
-      size={1}
+      size={size}
+      handleOnClick={handleOnClick}
     />
     {' '}
     (
