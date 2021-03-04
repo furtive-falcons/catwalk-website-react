@@ -9,14 +9,14 @@ import NameDate from '../../../../components/NameDate';
 
 
 const Tile = ({
-  body, summary, response, user, date, helpfulness
+  body, summary, response, user, date, helpfulness, rating
 }) => {
   const [more, showMore] = useState(false);
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
       <TopRow>
-        <Stars><StarRating /></Stars>
+        <Stars><StarRating rating={rating}/></Stars>
         <UserAndDate>
           <NameDate name={user} date={date}/>
         </UserAndDate>

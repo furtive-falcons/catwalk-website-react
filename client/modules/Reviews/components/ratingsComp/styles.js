@@ -54,6 +54,7 @@ const BreakdownDiv = styled.div`
   width: 85%;
   flex: 3;
   border: 1px solid black;
-`
+`;
+
 
 export {BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
