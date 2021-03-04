@@ -5,7 +5,7 @@ import PartialStar from './PartialStar.js';
 import StarContainer from './styles.js';
 
 // inputs: Number rating, Number size, String color
-const StarRating = ({ rating=100, size=17, color="black"}) => {
+const StarRating = ({ rating= 5, size=17, color="black"}) => {
 
   // convert the rating to the nearest lowest quarter precision with 2 decimal place
   const convertedRating = (Math.floor(rating / 0.25) * 0.25).toFixed(2);
