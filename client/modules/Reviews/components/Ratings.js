@@ -5,7 +5,7 @@ import Filter from './ratingsComp/Filter.js';
 import Breakdown from './ratingsComp/Breakdown.js';
 import Recommend from './ratingsComp/Recommend.js';
 
-const Ratings = ({data, metaData, getFilter}) => {
+const Ratings = ({data, metaData, getFilter, filters, removeFilters}) => {
 
   // finds average rating
   const average = (data) => {
@@ -14,6 +14,14 @@ const Ratings = ({data, metaData, getFilter}) => {
       score += review.rating;
     }
     return (score/data.length).toFixed(1);
+  }
+
+  // show applied filters
+  const renderFilters =(filters) =>{
+    console.log(filters)
+    return Object.keys(filters).map((filter,id)=>
+      <span key ={id}>{filter}</span>
+    );
   }
 
   // sort data by ratings
@@ -49,6 +57,12 @@ const Ratings = ({data, metaData, getFilter}) => {
           {/* score */}
           <Score score={average(data)}/>
           <Recommend recommend = {metaData.recommended}/>
+          {Object.keys(filters).length !== 0 ?
+          <div>Comments with: {renderFilters(filters)}{" "}<span onClick={removeFilters}>Remove Filters</span></div>
+          :
+          <span>No filters applied</span>
+          }
+
           {/* filter */}
           <Filter getFilter={getFilter} total={data.length} data={reduceData(data)}/>
           {/* breakdown */}
