@@ -10,14 +10,13 @@ import QuestionInfo from './QuestionInfo.jsx';
 
 const QAEntry = ({ question }) => {
   const answers = Object.values(question.answers);
-  const [ans, setAnswers] = useState(answers);
+  const [ans, setAnswers] = useState([]);
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
   };
 
   useEffect(() => {
-    // console.log(answers);
     sortAnswers(answers);
     setAnswers(answers);
   }, []);
@@ -31,15 +30,23 @@ const QAEntry = ({ question }) => {
       <div className="a">
         <Title fontSize="1rem" title="A:" />
       </div>
-      {ans.map((an, index) => (
-        <Answer
-          key={index}
-          answer={an}
-        />
-      ))}
+      <div className="answers">
+        {ans.map((an, index) => (
+          <div key={an.id}>
+            <Answer
+              key={index}
+              answer={an}
+            />
+            <AnswerInfo
+              answer={an}
+            />
+            <br />
+          </div>
+        ))}
+      </div>
       <QuestionInfo question={question} />
-      {/* <AnswerInfo question={question} /> */}
-      <LoadMoreAnswers />
+      {ans.length > 2 ? <LoadMoreAnswers /> : null}
+
     </Entry>
   );
 };

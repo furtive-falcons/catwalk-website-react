@@ -27,7 +27,7 @@ const AnswerInfo = ({ answer }) => {
       <div className="helpful-2">
         <Helpful
           helpfulness={yesCount}
-          size={2}
+          size={1}
           handleOnClick={handleOnClick}
         />
       </div>

@@ -6,8 +6,8 @@ const Entry = styled.div`
 
     display: grid;
     grid-template-columns: 2rem auto 8rem 1rem 8rem;
-    grid-template-rows: repeat(4, minmax(min-content, 3rem));
-    grid-auto-rows: minmax(min-content, 3rem);
+    grid-template-rows: minmax(min-content, 10rem) auto repeat(2 minmax(min-content, 10rem))
+    grid-auto-rows: minmax(min-content, 5rem);
     align-items: center;
 
   .question {
@@ -15,9 +15,11 @@ const Entry = styled.div`
     grid-row: 1 / 2;
   }
 
-  .answer {
+  .answers {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
   }
 
   .helpful-1 {
@@ -43,6 +45,7 @@ const Entry = styled.div`
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    align-self: start;
   }
 
   .info {
