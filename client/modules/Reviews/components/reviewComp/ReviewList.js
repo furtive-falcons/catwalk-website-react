@@ -17,6 +17,7 @@ const ReviewList = ({ data }) => (
             summary={product.summary}
             body={product.body}
             key={product.review_id}
+            rating={product.rating}
           />
         ))
 
