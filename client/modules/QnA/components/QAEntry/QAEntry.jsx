@@ -11,6 +11,7 @@ import QuestionInfo from './QuestionInfo.jsx';
 const QAEntry = ({ question }) => {
   const answers = Object.values(question.answers);
   const [ans, setAnswers] = useState([]);
+  const [display, setDisplay] = useState([]);
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
@@ -19,7 +20,12 @@ const QAEntry = ({ question }) => {
   useEffect(() => {
     sortAnswers(answers);
     setAnswers(answers);
+    setDisplay(answers.slice(0, 2));
   }, []);
+
+  const handleOnClick = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <Entry className="container">
@@ -31,7 +37,7 @@ const QAEntry = ({ question }) => {
         <Title fontSize="1rem" title="A:" />
       </div>
       <div className="answers">
-        {ans.map((an, index) => (
+        {display.map((an, index) => (
           <div key={an.id}>
             <Answer
               key={index}
@@ -45,7 +51,7 @@ const QAEntry = ({ question }) => {
         ))}
       </div>
       <QuestionInfo question={question} />
-      {ans.length > 2 ? <LoadMoreAnswers /> : null}
+      {ans.length !== display.length ? <LoadMoreAnswers handleOnClick={handleOnClick} /> : null}
 
     </Entry>
   );

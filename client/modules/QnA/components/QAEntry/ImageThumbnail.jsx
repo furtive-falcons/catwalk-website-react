@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ImageThumbnail = ({images}) => (
+const ImageThumbnail = ({ images }) => (
   <div className="image">
-    Thumbnails
+    {images.map((image, index) => <img key={index} src={image} width="75" height="75" />)}
   </div>
 );
 
