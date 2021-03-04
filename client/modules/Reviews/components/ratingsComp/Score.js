@@ -1,13 +1,13 @@
 import React from 'react';
 import { ScoreDiv } from './styles.js';
-import Stars from '../../../../components/StarRating';
+import StarRating from '../../../../components/StarRating';
 
-const Score = ({ score, recommend }) => (
+const Score = ({ score}) => (
   <ScoreDiv id="score">
     <div className="innerContainer">
       <h1>{score}</h1>
       <div className="stars">
-        <Stars />
+        <StarRating rating={score}/>
       </div>
     </div>
   </ScoreDiv>

@@ -5,10 +5,11 @@ import Reviews from './modules/Reviews';
 import GlobalStyles from './GlobalStyles';
 import Details from './modules/Details';
 
+const PRODUCT_ID = '14931';
 const App = () => (
   <div data-test="component-app">
     <GlobalStyles />
-    <Details />
+    <Details productId={PRODUCT_ID} />
     <Compare />
     <QnA />
     <Reviews />
