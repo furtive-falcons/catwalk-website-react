@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape } from 'prop-types';
 import AddToCart from '../AddToCart';
 import ImageGallery from '../ImageGallery';
 import ProducInformation from './components/ProductInformation';
@@ -10,7 +11,7 @@ import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
 
-const ProductDetails = () => (
+const ProductDetails = ({ product }) => (
   <DivStyles data-test="component-details">
     <div className="container">
       <div className="header">
@@ -23,7 +24,7 @@ const ProductDetails = () => (
         <ImageGallery />
       </div>
       <div className="info">
-        <ProducInformation />
+        <ProducInformation product={product} />
       </div>
       <div className="selector">
         <StyleSelector />
@@ -40,5 +41,13 @@ const ProductDetails = () => (
     </div>
   </DivStyles>
 );
+
+ProductDetails.propTypes = {
+  product: shape({}),
+};
+
+ProductDetails.defaultProps = {
+  product: null,
+};
 
 export default ProductDetails;

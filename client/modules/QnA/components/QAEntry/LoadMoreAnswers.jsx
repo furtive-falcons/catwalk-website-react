@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadMoreAnswers = () => (
+const LoadMoreAnswers = ({handleOnClick}) => (
   <div className="load-more-answer">
     Load More Answers Button
   </div>

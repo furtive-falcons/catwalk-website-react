@@ -16,7 +16,7 @@ const EntryContainer = ({ questions }) => {
 
   return (
     <div className="entry-container">
-      {qns.map((qn, index) => <QAEntry key={index} question={qn} />)}
+      {qns.map((qn) => <QAEntry key={qn.question_id} question={qn} />)}
     </div>
   );
 };
