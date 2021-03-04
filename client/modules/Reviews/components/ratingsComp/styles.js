@@ -73,7 +73,8 @@ const FilterDiv = styled.div`
 const BreakdownDiv = styled.div`
   width: 85%;
   flex: 3;
-  border: 1px solid black;
+  // border: 1px solid black;
+  margin-top: 10px;
 `;
 
 const FactorDiv = styled.div`
