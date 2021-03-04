@@ -17,7 +17,7 @@ const Reviews = ({ data, filters }) => {
     if (Object.keys(filters).length === 0) {
       return data;
     }
-    return data.filter((comment)=>filter[comment.rating]===true);
+    return data.filter((comment)=>filter[comment.rating]);
   };
 
 
