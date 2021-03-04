@@ -5,21 +5,31 @@ import ReviewList from './reviewComp/ReviewList.js';
 import Sort from './reviewComp/Sort.js';
 import Buttons from './reviewComp/Buttons.js';
 
-const Reviews = ({ data }) => {
+const Reviews = ({ data, filters }) => {
   // Keep track of number of tiles to show
   // default is 2
   // depends on number of reviews passed in
   const [numTiles, changeNumTiles] = useState(2);
 
+  // filter list based on filter passed in
+  const filterByFilter= (filter,data) => {
+    // if there're no filter, then just return the data
+    if (Object.keys(filters).length === 0) {
+      return data;
+    }
+    return data.filter((comment)=>filter[comment.rating]===true);
+  };
+
 
   // keep track of type of sort
-  const [sortValue, changeSortMethod] = useState('relevance');
+  const [sortValue, changeSortMethod] = useState('newest');
 
   // Function to show only the first n comments, where n is numTiles
   const filterData = (n, data) =>{
+    // sort the data
     sort(data,sortValue);
-    // slice data to show only up to nth comments
-    return data.slice(0, n)
+    // slice data to show only up to nth comments with filter applied
+    return filterByFilter(filters, data).slice(0, n)
   };
 
   // Function to expand the number of comments

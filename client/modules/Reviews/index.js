@@ -3,11 +3,21 @@ import axios from 'axios';
 import Reviews from './components/Reviews.js';
 import Ratings from './components/Ratings.js';
 import dummy from './dummy.js';
-import {Header, Container} from './styles.js';
-
+import dummy2 from './dummy2.js';
+import { Header, Container } from './styles.js';
 
 const ReviewAndRatings = () => {
   const [data, setData] = useState([]);
+
+  // filter to pass to list
+  const [filters, setFilter] = useState({});
+
+  // get filter from the ratings/filter component
+  const getFilter = (filter) => {
+    const target = {};
+    target[filter] = true;
+    setFilter((filters) => Object.assign(target, filters));
+  };
 
   // const dateScore = (data) => {
   //   const method = 'date';
@@ -26,7 +36,7 @@ const ReviewAndRatings = () => {
   //   });
   // };
 
-  const sortByHelpfulness = (data) => {
+  const sortBy = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => {
       if (a[method] < b[method]) {
@@ -40,16 +50,16 @@ const ReviewAndRatings = () => {
   };
 
   // add a relevance score to the data
-  const addRelevance = (data) => {
+  const addRelevance = (data) =>
     // sort the array from latest to highest
     // map out dataset with an addtional field for relevance score
-    return data.map((product, index) => {
+    data.map((product, index) => {
       const relevance = parseInt(product.helpfulness) + parseInt(index);
       return (
         { ...product, relevance }
       );
-    });
-  };
+    })
+  ;
 
   // useEffect(() => {
   //   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews?product_id=14932', {
@@ -62,11 +72,16 @@ const ReviewAndRatings = () => {
 
   return (
     <>
-    <Header>REVIEWS {'&'} RATINGS</Header>
-    <Container id="mainWrapper">
-      <Ratings data={dummy.results} id="ratings" />
-      <Reviews data={dummy.results} id="reviews" />
-    </Container>
+      <Header>
+        REVIEWS
+        &
+        {' '}
+        RATINGS
+      </Header>
+      <Container id="mainWrapper">
+        <Ratings getFilter={getFilter} metaData={dummy2} data={dummy.results} id="ratings" />
+        <Reviews filters={filters} data={dummy.results} id="reviews" />
+      </Container>
     </>
   );
 };
