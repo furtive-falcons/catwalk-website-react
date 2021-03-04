@@ -7,18 +7,17 @@ import {
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
 
-
 const Tile = ({
-  body, summary, response, user, date, helpfulness, rating
+  body, summary, response, user, date, helpfulness, rating, recommend,
 }) => {
   const [more, showMore] = useState(false);
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
       <TopRow>
-        <Stars><StarRating rating={rating}/></Stars>
+        <Stars><StarRating rating={rating} /></Stars>
         <UserAndDate>
-          <NameDate name={user} date={date}/>
+          <NameDate name={user} date={date} />
         </UserAndDate>
       </TopRow>
       <ReviewContainer>
@@ -36,15 +35,26 @@ const Tile = ({
             )
             : body}
         </Body>
+        {recommend
+        && (
         <Recommend>
-          I recommend this product
           <i className="fas fa-check" />
+          I recommend this product
         </Recommend>
+        )}
         <ResponseContainer>
           <span>Response: </span>
           <p>{response}</p>
         </ResponseContainer>
-        <Helpful>Was this helpful? <span>Yes</span> ({helpfulness}) | <span>Report</span></Helpful>
+        <Helpful>
+          Was this helpful?
+          <span>Yes</span>
+          {' '}
+          (
+          {helpfulness}
+          ) |
+          <span>Report</span>
+        </Helpful>
       </ReviewContainer>
     </TileContainer>
   );

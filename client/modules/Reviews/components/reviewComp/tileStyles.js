@@ -91,7 +91,7 @@ const Recommend = styled.span`
   padding-top: 10px;
 
   .fa-check {
-    margin-left: 5px;
+    margin-right: 5px;
   }
 
 `;
