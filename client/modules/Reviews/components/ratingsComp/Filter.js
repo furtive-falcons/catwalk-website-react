@@ -7,8 +7,8 @@ const Filter = ({ data, total, getFilter}) => (
     {
       data &&
       Object.entries(data).map((ratings, index) => (
-        <div onClick= {()=>getFilter(ratings[0])} key={index}>
-          {ratings[0]} stars
+        <div className='barContainer' onClick= {()=>getFilter(ratings[0])} key={index}>
+          <span>{ratings[0]} stars</span>
           <Bar rating={ratings[1]} total={total} />
         </div>
       ))
