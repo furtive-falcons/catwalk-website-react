@@ -4,7 +4,7 @@ import { ModalContainer } from './styles.js';
 const AddReview = ({ showModal, close }) => (showModal ? (
   <ModalContainer onClick={close}>
     <div onClick={(e) => e.stopPropagation()} className="formDiv">
-      form
+      form goes here
     </div>
   </ModalContainer>
 ) : null);
