@@ -51,5 +51,5 @@ export const StyledSearch = styled.input`
 export const StyledTitle = styled.h3`
   font-size: ${(props) => props.fontSize};
   color: ${colorGreyLight2};
-  font-weight: 500;
+  font-weight: 700;
 `;
