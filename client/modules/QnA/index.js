@@ -33,7 +33,7 @@ const QnA = () => {
     const result = {};
     questions.forEach((question) => {
       const questionId = question.question_id;
-      if (!result.questionId) {
+      if (!result[questionId]) {
         result[questionId] = question;
       }
     });
@@ -59,6 +59,7 @@ const QnA = () => {
       <SearchBar search={handleSearch} />
       <EntryContainer
         questions={filter.length > 0 ? filter : questions}
+        searched={search}
       />
       <MoreQuestion />
       <AddQuestion />
