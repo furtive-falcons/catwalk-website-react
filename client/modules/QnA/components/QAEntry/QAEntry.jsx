@@ -24,7 +24,7 @@ const QAEntry = ({ question, searched }) => {
   useEffect(() => {
     sortAnswers(answers);
     setAnswers(answers);
-    setDisplay(answers.slice(0, 2));
+    setDisplay(answers.slice(0, 6));
   }, []);
 
   const handleOnClick = (e) => {
