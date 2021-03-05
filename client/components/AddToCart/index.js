@@ -11,12 +11,11 @@ const AddToCart = ({ styles, selectedStyle }) => {
 
   const handleSizeChange = (e) => {
     const selected = Object.values(selectedSizes).find(
-      (el) => el.size === e.target.value
+      (el) => el.size === e.target.value,
     );
 
-
     setQuantityOptions(
-      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1)
+      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1),
     );
   };
 
