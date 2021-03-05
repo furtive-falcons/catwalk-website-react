@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkTag from '../../../../components/LinkTag';
 
-const LoadMoreAnswers = ({
+const LoadAndCollapse = ({
   children, handleOnClick, size, href,
 }) => (
   <div className="load-more-answer">
@@ -15,4 +15,4 @@ const LoadMoreAnswers = ({
   </div>
 );
 
-export default LoadMoreAnswers;
+export default LoadAndCollapse;

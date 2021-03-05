@@ -17,8 +17,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     grid-column: span 6;
-    // max-height: 100vh;
-    // overflow: scroll;
+    max-height: 100vh;
+    overflow: scroll;
   }
 
   .title {
