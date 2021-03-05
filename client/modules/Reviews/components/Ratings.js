@@ -63,7 +63,7 @@ const Ratings = ({data, metaData, getFilter, filters, removeFilters}) => {
           {/* filter */}
           <Filter getFilter={getFilter} total={data.length} data={reduceData(data)}/>
           {/* breakdown */}
-          <Breakdown/>
+          <Breakdown data={metaData.characteristics}/>
         </RatingsContainer>
     )
 }
