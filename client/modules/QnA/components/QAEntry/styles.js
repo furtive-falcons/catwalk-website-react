@@ -6,7 +6,7 @@ const Entry = styled.div`
 
     display: grid;
     grid-template-columns: 2rem auto 8rem 1rem 8rem;
-    grid-template-rows: minmax(min-content, 10rem) auto repeat(2 minmax(min-content, 10rem))
+    grid-template-rows: minmax(min-content, 10rem) minmax(min-content 100px) repeat(2 minmax(min-content, 10rem))
     grid-auto-rows: minmax(min-content, 5rem);
     align-items: center;
 
@@ -31,6 +31,8 @@ const Entry = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.1rem;
+    max-height: 50vh;
+    overflow: scroll;
   }
 
   .helpful-1 {
