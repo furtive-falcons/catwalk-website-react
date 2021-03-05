@@ -46,7 +46,7 @@ const Reviews = ({ data, filters }) => {
   // normalize helpfulness
   const normalizeHelpful = (data) => {
     // find max helpfulness
-    let total = 0
+    let total = 0;
     for (const comment of data) {
       total += comment.helpfulness;
     }
@@ -79,16 +79,16 @@ const Reviews = ({ data, filters }) => {
   const sort = (data, method) => {
     if (method === 'relevance') {
       createRelevance(data);
-    }; console.log(data);
-      data.sort((a, b) => {
-        if (a[method] > b[method]) {
-          return -1;
-        }
-        if (a[method] < b[method]) {
-          return 1;
-        }
-        return 0;
-      });
+    }
+    data.sort((a, b) => {
+      if (a[method] > b[method]) {
+        return -1;
+      }
+      if (a[method] < b[method]) {
+        return 1;
+      }
+      return 0;
+    });
   };
 
   return (

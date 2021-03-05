@@ -53,7 +53,12 @@ const Tile = ({
           {' '}
           (
           {helpfulness}
-          ){' '} |  {' '}
+          )
+          {' '}
+          {' '}
+          |
+          {' '}
+          {' '}
           <span>Report</span>
         </Helpful>
       </ReviewContainer>
