@@ -1,8 +1,9 @@
 import React from 'react';
+import LinkTag from '../../../../components/LinkTag';
 
-const LoadMoreAnswers = ({handleOnClick}) => (
+const LoadMoreAnswers = ({children, handleOnClick, size}) => (
   <div className="load-more-answer">
-    Load More Answers Button
+    <LinkTag children={children} handleOnClick={handleOnClick} size={size} />
   </div>
 );
 

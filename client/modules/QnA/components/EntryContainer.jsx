@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import QAEntry from './QAEntry/QAEntry.jsx';
 
-const EntryContainer = ({ questions }) => {
+const EntryContainer = ({ questions, searched }) => {
   const [qns, setQuestions] = useState([]);
   const sortQuestions = (data) => {
     const method = 'question_helpfulness';
@@ -16,7 +16,7 @@ const EntryContainer = ({ questions }) => {
 
   return (
     <div className="entry-container">
-      {qns.map((qn) => <QAEntry key={qn.question_id} question={qn} />)}
+      {qns.map((qn) => <QAEntry key={qn.question_id} question={qn} searched={searched} />)}
     </div>
   );
 };
