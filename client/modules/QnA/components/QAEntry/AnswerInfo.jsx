@@ -27,12 +27,15 @@ const AnswerInfo = ({ answer }) => {
       <div className="helpful-2">
         <Helpful
           helpfulness={yesCount}
-          size={1}
+          size={1.1}
           handleOnClick={handleOnClick}
         />
       </div>
       <StyledSeperator />
-      <Report />
+      <Report
+      children="Report"
+      size={1.1}
+      />
     </div>
   );
 };

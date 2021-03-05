@@ -72,6 +72,10 @@ const Entry = styled.div`
   .name-date, .report, .helpful-2 {
     margin-right: 1rem;
   }
+
+  .info .report {
+    cursor: pointer;
+  }
 `;
 
 const StyledSeperator = styled.div`
