@@ -55,7 +55,7 @@ const ModalContainer = styled.div`
   padding-left: 300px;
 
   .formDiv {
-    width: 500px;
+    width: 700px;
     height: 500px;
     background-color: white;
   }

@@ -1,14 +1,12 @@
-import React from 'react';
-import {ModalContainer} from './styles.js';
+import React, { useState, useEffect } from 'react';
+import { ModalContainer } from './styles.js';
 
-const AddReview = () => {
-  return (
-    <ModalContainer>
-      <div className='formDiv'>
-
-      </div>
-    </ModalContainer>
-  )
-}
+const AddReview = ({ showModal, close }) => (showModal ? (
+  <ModalContainer onClick={close}>
+    <div onClick={(e) => e.stopPropagation()} className="formDiv">
+      form
+    </div>
+  </ModalContainer>
+) : null);
 
 export default AddReview;

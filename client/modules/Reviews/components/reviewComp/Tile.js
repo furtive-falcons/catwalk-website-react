@@ -48,11 +48,12 @@ const Tile = ({
         </ResponseContainer>
         <Helpful>
           Was this helpful?
+          {' '}
           <span>Yes</span>
           {' '}
           (
           {helpfulness}
-          ) |
+          ){' '} |  {' '}
           <span>Report</span>
         </Helpful>
       </ReviewContainer>
