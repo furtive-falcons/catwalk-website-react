@@ -14,7 +14,7 @@ const DivStyles = styled.div`
       1fr [right-end];
   }
   .header {
-    grid-column: center-start/ center-end;
+    grid-column: left-start/ right-end;
     grid-row: 1 / 2;
   }
   .banner {

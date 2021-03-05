@@ -83,12 +83,12 @@ const imageGallery = ({ photos }) => (
     <div className="gallery-carousel__img-container">
       <ul className="gallery-carousel__img-container--list">
         {photos
-          && photos.map(({ url} ,index) => (
+          && photos.map(({ url }, index) => (
             <li
               key={index}
               className="gallery-carousel__img-container--list__item"
             >
-              <img src={url}  />
+              <img src={url} alt="test" />
             </li>
           ))}
       </ul>
@@ -100,7 +100,7 @@ const imageGallery = ({ photos }) => (
     {/* Carousel Nav */}
     <div className="gallery-carousel__nav">
       {photos
-        && photos.map(({ thumbnail_url } , index) => (
+        && photos.map(({ thumbnail_url }, index) => (
           <Button className="gallery-carousel__nav--btn" key={index} />
         ))}
     </div>
