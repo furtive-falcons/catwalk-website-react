@@ -4,7 +4,8 @@ import { colorGreyLight1 } from '../../ui/ui-colors';
 
 const HeaderWrapper = styled.div`
   align-items: center;
-  background-color: ${colorGreyLight1};
+  border-bottom: 1px solid ${colorGreyLight1};
+  color: ${colorGreyLight1};
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 3rem;

@@ -1,4 +1,5 @@
-import React from 'react';
+import { arrayOf, shape, string } from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Button from '../Button';
 import DivStyles from './styles';
 
@@ -71,7 +72,7 @@ const list = [
   },
 ];
 
-const imageGallery = () => (
+const imageGallery = ({ photos }) => (
   /* Maybe make it a section */
   <DivStyles className="gallery-carousel">
     {/* Button left */}
@@ -81,13 +82,13 @@ const imageGallery = () => (
     {/* Image Container */}
     <div className="gallery-carousel__img-container">
       <ul className="gallery-carousel__img-container--list">
-        {list
-          && list.map(({ id, src, alt }) => (
+        {photos
+          && photos.map(({ url }, index) => (
             <li
-              key={id}
+              key={index}
               className="gallery-carousel__img-container--list__item"
             >
-              <img src={src} alt={alt} />
+              <img src={url} alt="test" />
             </li>
           ))}
       </ul>
@@ -98,15 +99,23 @@ const imageGallery = () => (
     </div>
     {/* Carousel Nav */}
     <div className="gallery-carousel__nav">
-      {list
-        && list.map(({ id }) => (
-          <Button className="gallery-carousel__nav--btn" key={id} />
+      {photos
+        && photos.map(({ thumbnail_url }, index) => (
+          <Button className="gallery-carousel__nav--btn" key={index} />
         ))}
     </div>
     <div className="gallery-carousel__expand">
-      <Button icon="expand">hello</Button>
+      <Button icon="expand" />
     </div>
   </DivStyles>
 );
+
+imageGallery.propTypes = {
+  photos: arrayOf(shape({ url: string, thumbnail_url: string })),
+};
+
+imageGallery.defaultProps = {
+  photos: null,
+};
 
 export default imageGallery;
