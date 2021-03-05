@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReviewListContainer } from './styles.js';
 import Tile from './Tile.js';
+import AddReview from './AddReview.js';
 
-const ReviewList = ({ data }) => (
-  <ReviewListContainer id="reviewList">
-    {/* render tiles two at a time */}
-    {/* define a handleclick event to trigger show two more tiles */}
-    {
+const ReviewList = ({ data }) => {
+  const [showModal, setShow] = useState(false);
+  const close = () => {
+    setShow(false);
+  };
+  return (
+    <ReviewListContainer id="reviewList">
+      {showModal && <AddReview close={close} showModal={showModal} />}
+      {/* render tiles two at a time */}
+      {/* define a handleclick event to trigger show two more tiles */}
+      {
        data
         && data.map((product) => (
           <Tile
-            helpfulness = {product.helpfulness}
+            helpfulness={product.helpfulness}
             date={product.date}
             user={product.reviewer_name}
             response={product.response}
@@ -23,7 +30,8 @@ const ReviewList = ({ data }) => (
         ))
 
     }
-  </ReviewListContainer>
-);
+    </ReviewListContainer>
+  );
+};
 
 export default ReviewList;

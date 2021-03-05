@@ -5,7 +5,7 @@ import Reviews from './modules/Reviews';
 import GlobalStyles from './GlobalStyles';
 import Details from './modules/Details';
 
-const PRODUCT_ID = '14931';
+const PRODUCT_ID = '14034';
 const App = () => (
   <div data-test="component-app">
     <GlobalStyles />

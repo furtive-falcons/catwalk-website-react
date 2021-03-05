@@ -9,7 +9,33 @@ const RatingsContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  .remove {
+    text-decoration: underline;
+  }
+
+  .remove: hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+  }
+
+  .editFilter {
+    height:40px;
+  }
 `;
+
+const FilterBox = styled.span`
+  text-decoration: underline;
+  padding: 5px;
+
+  :hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+  }
+`;
+
 const ReviewsContainer = styled.div`
   font-size: 1.2rem;
   flex: 7;
@@ -31,4 +57,4 @@ const TopContainer = styled.div`
   font-size: 1.4rem;
 `;
 
-export { TopContainer,RatingsContainer, ReviewsContainer };
+export { FilterBox, TopContainer,RatingsContainer, ReviewsContainer };
