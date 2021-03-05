@@ -21,7 +21,7 @@ const ProductDetails = ({ product }) => (
         <Banner />
       </div>
       <div className="gallery">
-        <ImageGallery />
+        <ImageGallery photos={product && product.productStyles.results[0].photos}/>
       </div>
       <div className="info">
         <ProducInformation product={product} />
