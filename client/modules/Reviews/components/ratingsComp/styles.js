@@ -73,8 +73,24 @@ const FilterDiv = styled.div`
 const BreakdownDiv = styled.div`
   width: 85%;
   flex: 3;
-  border: 1px solid black;
+  // border: 1px solid black;
+  margin-top: 10px;
+`;
+
+const FactorDiv = styled.div`
+  margin-top: 5px;
+
+  .bar {
+    width: 250px;
+    height: 10px;
+    border: 1px solid black;
+  }
+
+  .mark {
+    margin-left: ${props=>props.margin-10}px;
+  }
+
 `;
 
 
-export {BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
+export {FactorDiv, BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
