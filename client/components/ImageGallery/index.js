@@ -81,8 +81,8 @@ const imageGallery = () => (
     {/* Image Container */}
     <div className="gallery-carousel__img-container">
       <ul className="gallery-carousel__img-container--list">
-        {list &&
-          list.map(({ id, src, alt }) => (
+        {list
+          && list.map(({ id, src, alt }) => (
             <li
               key={id}
               className="gallery-carousel__img-container--list__item"
@@ -98,8 +98,8 @@ const imageGallery = () => (
     </div>
     {/* Carousel Nav */}
     <div className="gallery-carousel__nav">
-      {list &&
-        list.map(({ id }) => (
+      {list
+        && list.map(({ id }) => (
           <Button className="gallery-carousel__nav--btn" key={id} />
         ))}
     </div>
