@@ -15,11 +15,22 @@ const Entry = styled.div`
     grid-row: 1 / 2;
   }
 
+  .question p {
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: ${colorGreyLight2};
+  }
+
+  .answers p {
+    font-size: 1.3rem;
+  }
+
   .answers {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: flex;
     flex-direction: column;
+    font-size: 1.1rem;
   }
 
   .helpful-1 {
@@ -35,6 +46,9 @@ const Entry = styled.div`
   .load-more-answer {
     grid-column: 2 / 3;
     grid-row: 4/ 5;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 1rem;
   }
 
   .q {
