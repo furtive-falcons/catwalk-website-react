@@ -20,20 +20,35 @@ const QnA = () => {
 
   const filterAnswers = (question) => {
     const ans = Object.values(question.answers);
-    const match = ans.filter((an) => an.body.includes(search));
-    if (match) {
+    const match = ans.filter((an) => {
+      const answerBody = an.body.toLowerCase();
+      return answerBody.includes(search);
+    });
+    if (match.length > 0) {
       return question;
     }
   };
 
+  const removeDuplicate = (questions) => {
+    const result = {};
+    questions.forEach((question) => {
+      const questionId = question.question_id;
+      if (!result.questionId) {
+        result[questionId] = question;
+      }
+    });
+    return Object.values(result);
+  };
+
   const handleSearch = (input) => {
-    setSearch(input.toLowerCase());
-    if (search.length >= 3) {
+    if (input.length > 2) {
+      setSearch(input.toLowerCase());
       const filterA = questions.filter(filterAnswers);
       const filterQ = questions.filter(filterQuestions);
-      const match = new Set([...filterQ, ...filterA]);
-      setFilter([...filterQ, ...filterA]);
+      const allMatch = [...filterQ, ...filterA];
+      setFilter(removeDuplicate(allMatch));
     } else {
+      setSearch('');
       setFilter([]);
     }
   };
