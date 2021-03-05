@@ -17,16 +17,17 @@ const QAEntry = ({ question, searched }) => {
     setDisplay(data.slice(0, 2));
     if (searched) {
       const match = data.filter((an) => an.body.includes(searched));
-      console.log(match);
-      setDisplay(match);
+      if (match.length > 0) {
+        setDisplay(match);
+      } else {
+        setDisplay(ans.slice(0, 2));
+      }
     }
   };
 
   useEffect(() => {
     sortAnswers(answers);
     setAnswers(answers);
-    // setDisplay(answers.slice(0, 2));
-    console.log('test');
   }, [searched]);
 
   const loadAnswers = (e) => {
@@ -69,7 +70,6 @@ const QAEntry = ({ question, searched }) => {
           href={null}
         />
       )}
-
     </Entry>
   );
 };
