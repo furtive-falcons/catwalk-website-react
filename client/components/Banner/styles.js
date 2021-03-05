@@ -9,21 +9,12 @@ const DivStyles = styled.div`
   text-transform: uppercase;
   font-weight: 400;
   font-style: italic;
-  padding: 1rem;
+  padding: .5rem;
   /* animation: slide-right 15s linear infinite; */
   // convert this to styled component 
   a, span, strong {
     color: inherit;
     font-style: normal;
-  }
-
-  @keyframes slide-right {
-    0% {
-      transform: translate(-100%, 0);
-    }
-    100% {
-      transform: translate(80%, 0);
-    }
   }
 `;
 
