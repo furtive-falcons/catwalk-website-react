@@ -50,7 +50,10 @@ const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
 
   const renderCart = () => (
     <div className="cart">
-      <AddToCart />
+      <AddToCart
+        styles={product.productStyles.results}
+        selectedStyle={selectedStyle}
+      />
     </div>
   );
 

@@ -2,10 +2,10 @@ import { array, number } from 'prop-types';
 import React from 'react';
 import StyledSelect from './styles';
 
-const DropDown = ({ size, options }) => (
+const DropDown = ({ size, options , handleOnChange}) => (
   
 
-    <StyledSelect selectSize={size}>
+    <StyledSelect onChange={handleOnChange} selectSize={size}>
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
