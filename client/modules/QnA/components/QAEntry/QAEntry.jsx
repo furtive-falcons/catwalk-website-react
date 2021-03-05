@@ -14,18 +14,20 @@ const QAEntry = ({ question, searched }) => {
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
-  };
-
-  const showSearched = (answers) => {
-    const match = answers.filter((an) => an.body.includes(searched));
-    return match;
+    setDisplay(data.slice(0, 2));
+    if (searched) {
+      const match = data.filter((an) => an.body.includes(searched));
+      console.log(match);
+      setDisplay(match);
+    }
   };
 
   useEffect(() => {
     sortAnswers(answers);
     setAnswers(answers);
-    setDisplay(answers.slice(0, 2));
-  }, []);
+    // setDisplay(answers.slice(0, 2));
+    console.log('test');
+  }, [searched]);
 
   const loadAnswers = (e) => {
     e.preventDefault();
@@ -40,14 +42,16 @@ const QAEntry = ({ question, searched }) => {
   return (
     <Entry className="container">
       <div className="q">
-        <Title className="q" fontSize="1.7rem" title="Q:" />
+        <Title fontSize="1.7rem" title="Q:" />
       </div>
       <Question body={question.question_body} />
       <div className="a">
         <Title fontSize="1.7rem" title="A:" />
       </div>
       <AnswerContainer
-        answers={searched ? display : display}
+        display={display}
+        answers={ans}
+        searched={searched}
       />
       <QuestionInfo question={question} />
       {ans.length !== display.length ? (
