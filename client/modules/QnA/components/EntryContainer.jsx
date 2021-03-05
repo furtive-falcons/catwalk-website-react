@@ -12,7 +12,7 @@ const EntryContainer = ({ questions }) => {
   useEffect(() => {
     sortQuestions(questions);
     setQuestions(questions);
-  }, []);
+  }, [questions]);
 
   return (
     <div className="entry-container">

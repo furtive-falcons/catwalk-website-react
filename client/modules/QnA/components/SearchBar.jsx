@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { StyledSearch } from '../styles.js';
 
-const SearchBar = () => {
+const SearchBar = ({search}) => {
   const [input, setInput] = useState('');
 
   const handleChange = (event) => {
-    event.preventDefault();
     setInput(event.target.value);
+    search(event.target.value);
   };
 
   return (
@@ -17,7 +17,7 @@ const SearchBar = () => {
       type="text"
       value={input}
       placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-      onChange={(event) => handleChange(event)}
+      onChange={handleChange}
     />
   );
 };
