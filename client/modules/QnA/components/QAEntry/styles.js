@@ -85,4 +85,29 @@ const StyledSeperator = styled.div`
   margin-right: 1rem;
 `;
 
-export { Entry, StyledSeperator };
+const StyledImage = styled.img`
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  :hover {
+    opacity: 0.6;
+  }
+`;
+
+const StyledImagePopUp = styled.div`
+  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+
+  .image-pop-up {
+    margin: auto;
+    width: 70%;
+    max-width: 500px;
+  }
+`;
+
+export {
+  Entry, StyledSeperator, StyledImage, StyledImagePopUp,
+};
