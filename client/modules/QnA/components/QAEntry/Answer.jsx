@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import ImageThumbnail from './ImageThumbnail.jsx';
+import ImageThumbnail from '../../../../components/ImagePopUp';
 import Paragraph from '../../../../components/Paragraph';
 
 const Answer = ({ answer }) => (

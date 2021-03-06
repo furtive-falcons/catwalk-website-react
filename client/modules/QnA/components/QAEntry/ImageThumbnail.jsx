@@ -1,24 +1,35 @@
-/* eslint-disable import/extensions */
-import React from 'react';
-import { StyledImage, StyledImagePopUp } from './styles.js';
-import ImagePopUp from './ImagePopUp.jsx';
+// /* eslint-disable import/extensions */
+// import React, { useState } from 'react';
+// import { Thumbnail } from './styles.js';
+// import ImageModal from './ImageModal.jsx';
 
-const ImageThumbnail = ({ images }) => {
-  const handleOnClick = () => {
-    console.log(StyledImagePopUp.componentStyle.rules);
-  };
-  return (
-    <div className="image">
-      {images.map((image, index) => (
-        <StyledImage
-          key={index}
-          src={image}
-          onClick={handleOnClick}
-        />
-      ))}
-      <ImagePopUp />
-    </div>
-  );
-};
+// const ImageThumbnail = ({ images }) => {
+//   const [showModal, setModal] = useState(false);
+//   const [current, setCurrent] = useState(0);
+//   const handleOnClick = (e) => {
+//     setModal(true);
+//     setCurrent(Number(e.target.getAttribute('data-index')));
+//   };
+//   return (
+//     <div className="image">
+//       {images.map((image, index) => (
+//         <Thumbnail
+//           key={index}
+//           src={image}
+//           onClick={handleOnClick}
+//           data-index={index}
+//         />
+//       ))}
+//       {showModal ? (
+//         <ImageModal
+//           images={images}
+//           showModal={showModal}
+//           imageIndex={current}
+//           setModal={setModal}
+//         />
+//       ) : null}
+//     </div>
+//   );
+// };
 
-export default ImageThumbnail;
+// export default ImageThumbnail;

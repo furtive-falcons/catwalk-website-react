@@ -84,7 +84,6 @@ const QnA = ({ productId }) => {
       setFilter([]);
     }
   };
-
   useEffect(() => {
     if (questions.length === 0) {
       getQA();
