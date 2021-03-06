@@ -5,6 +5,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   // border: 1px solid black;
+  max-width: 1400px;
   margin: auto;
 `
 
