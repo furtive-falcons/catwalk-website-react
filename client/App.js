@@ -10,8 +10,8 @@ const App = () => (
   <div data-test="component-app">
     <GlobalStyles />
     <Details productId={PRODUCT_ID} />
-    <Compare productId={PRODUCT_ID}/>
-    <QnA />
+    <Compare productId={PRODUCT_ID} />
+    <QnA productId={PRODUCT_ID} />
     <Reviews />
   </div>
 );

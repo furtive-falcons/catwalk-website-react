@@ -4,7 +4,7 @@ const relatedController = require('../controllers/relatedController')
 
 const router = express.Router();
 
-router.get('/:id' , productController.getProductInformation)
+router.get('/:id', productController.getProductInformation)
 
 router.get('/:id/related', relatedController.getRelatedProducts)
 
