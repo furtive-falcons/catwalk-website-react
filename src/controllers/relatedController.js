@@ -32,11 +32,13 @@ exports.getRelatedProducts = async (req, res) => {
         },
       });
       
-      // if(relatedStyles.results["default?"]) {
-      //   relatedProduct.defaultStyle = relatedStyles.results;
+      console.log('test', relatedStyles.results[0]["default?"])
+      // if(relatedStyles.results[0]["default?"]) {
+      // if(relatedStyles.results[0]) {
+      relatedProduct.defaultStyle = relatedStyles.results[0];
       // }
 
-      relatedProduct.defaultStyle = relatedStyles.results[0];
+      // relatedProduct.defaultStyle = relatedStyles.results[0];
 
       // ex: /reviews/meta?product_id=14034
       const allRelatedRating = `${process.env.API_URL}`;
@@ -47,10 +49,25 @@ exports.getRelatedProducts = async (req, res) => {
       });
   
       const { ratings } = relatedRatingAverage;
+      console.log('ratings', ratings)
   
-      const values = Object.values(ratings);
-  
-      const ratingAverage = values.reduce((acc, item) => item * 1 + acc, 0) / 5;
+      const numberOfPeopleGivingStars = Object.values(ratings);
+      console.log('values', numberOfPeopleGivingStars)
+      
+      const numberOfStarsGivenByPeople = Object.keys(ratings);
+      console.log('keys', numberOfStarsGivenByPeople)
+      
+      const totalNumberOfGivenStars = numberOfPeopleGivingStars.reduce((acc, num) => (num * 1) + acc, 0)
+      console.log('valueSum', totalNumberOfGivenStars)
+      
+      const sumOfAllStarsGiven = numberOfStarsGivenByPeople.reduce((acc, item, index) => (item * numberOfPeopleGivingStars[index]) + acc, 0)
+      console.log('sumOfAllStarsGiven', sumOfAllStarsGiven)
+
+      const ratingAverage =  sumOfAllStarsGiven / totalNumberOfGivenStars;
+      console.log('ratingAverage', ratingAverage)
+
+      // const ratingAverage = values.reduce((acc, item) => item * 1 + acc, 0) / valueSum;
+      // console.log('ratingAverage', ratingAverage)
 
       relatedProduct.ratingAverage = ratingAverage;
     }
