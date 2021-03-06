@@ -11,7 +11,6 @@ export const Container = styled.div`
   grid-template-rows: 1fr 1fr auto 1fr;
   grid-gap: .5rem;
   max-width: 1400px;
-  width: 90%;
 
   .entry-container {
     display: flex;
