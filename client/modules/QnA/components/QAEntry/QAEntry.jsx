@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import Question from './Question.jsx';
@@ -30,14 +31,12 @@ const QAEntry = ({ question, searched }) => {
     setAnswers(answers);
   }, [searched]);
 
-  const loadAnswers = (e) => {
-    e.preventDefault();
+  const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
   };
 
-  const collapseAnswers = (e) => {
-    e.preventDefault();
-    setDisplay(answers.slice(0, 2));
+  const collapseAnswers = () => {
+    setDisplay((preDisplay) => preDisplay.slice(0, 2));
   };
 
   return (
@@ -55,21 +54,22 @@ const QAEntry = ({ question, searched }) => {
         searched={searched}
       />
       <QuestionInfo question={question} />
-      {ans.length !== display.length ? (
-        <LoadAndCollapse
-          handleOnClick={loadAnswers}
-          children="See More Answers"
-          size={1.3}
-          href={null}
-        />
-      ) : (
-        <LoadAndCollapse
-          handleOnClick={collapseAnswers}
-          children="Collapse Answers"
-          size={1.3}
-          href={null}
-        />
-      )}
+      { ans.length === 2 ? null
+        : ans.length === display.length ? (
+          <LoadAndCollapse
+            handleOnClick={collapseAnswers}
+            children="Collapse Answers"
+            size={1.3}
+            href={null}
+          />
+        ) : (
+          <LoadAndCollapse
+            handleOnClick={loadAnswers}
+            children="See More Answers"
+            size={1.3}
+            href={null}
+          />
+        )}
     </Entry>
   );
 };

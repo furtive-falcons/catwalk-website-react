@@ -9,17 +9,9 @@ const EntryContainer = ({ questions, searched }) => {
     data.sort((a, b) => b[method] - a[method]);
   };
 
-  const removeQuestionWihoutAnswer = (data) => {
-    const validResult = data.filter((question) => {
-      const keys = Object.keys(question.answers);
-      return keys.length > 0;
-    });
-    setQuestions(validResult);
-  };
-
   useEffect(() => {
     sortQuestions(questions);
-    removeQuestionWihoutAnswer(questions);
+    setQuestions(questions);
   }, [questions]);
 
   return (

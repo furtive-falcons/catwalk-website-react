@@ -15,6 +15,14 @@ const QnA = ({ productId }) => {
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
 
+  const removeQuestionWihoutAnswer = (data) => {
+    const validResult = data.filter((question) => {
+      const keys = Object.keys(question.answers);
+      return keys.length > 0;
+    });
+    setQuestions(validResult);
+  };
+
   const getQA = () => {
     axios.get('/qa/questions', {
       params: {
@@ -22,16 +30,30 @@ const QnA = ({ productId }) => {
       },
     })
       .then((res) => {
-        setQuestions(res.data.results);
+        removeQuestionWihoutAnswer(res.data.results);
       })
       .catch((res) => {
         res.sendStatus(404);
       });
   };
 
-  const filterQuestions = (question) => {
-    const questionBody = question.question_body.toLowerCase();
-    return questionBody.includes(search);
+  const removeDuplicate = (data) => {
+    const result = {};
+    data.forEach((question) => {
+      const questionId = question.question_id;
+      if (!result[questionId]) {
+        result[questionId] = question;
+      }
+    });
+    return Object.values(result);
+  };
+
+  const loadMoreQuestions = () => {
+    setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
+  };
+
+  const collapseQuestions = () => {
+    setDisplay(questions.slice(0, 2));
   };
 
   const filterAnswers = (question) => {
@@ -45,15 +67,9 @@ const QnA = ({ productId }) => {
     }
   };
 
-  const removeDuplicate = (questions) => {
-    const result = {};
-    questions.forEach((question) => {
-      const questionId = question.question_id;
-      if (!result[questionId]) {
-        result[questionId] = question;
-      }
-    });
-    return Object.values(result);
+  const filterQuestions = (question) => {
+    const questionBody = question.question_body.toLowerCase();
+    return questionBody.includes(search);
   };
 
   const handleSearch = (input) => {
@@ -69,23 +85,13 @@ const QnA = ({ productId }) => {
     }
   };
 
-  const loadMoreQuestions = (e) => {
-    e.preventDefault();
-    setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
-  };
-
-  const collapseQuestions = (e) => {
-    e.preventDefault();
-    setDisplay(questions.slice(0, 2));
-  };
-
   useEffect(() => {
     if (questions.length === 0) {
       getQA();
     } else {
       setDisplay(questions.slice(0, 2));
     }
-  }, [questions]);
+  }, [questions, search]);
 
   return (
     <Container>
