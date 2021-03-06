@@ -15,7 +15,7 @@ const AnswerInfo = ({ answer }) => {
       setYesCount((preYesCount) => preYesCount + 1);
       setYes(true);
     }
-  }
+  };
   return (
     <div className="info">
       <NameDate

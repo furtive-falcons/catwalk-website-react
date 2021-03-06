@@ -70,7 +70,7 @@ const Entry = styled.div`
     grid-row: 3 / 4;
   }
   .name-date, .report, .helpful-2 {
-    margin-right: 1rem;
+    margin-right: 1.1rem;
   }
 
   .info .report {

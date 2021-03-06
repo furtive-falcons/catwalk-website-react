@@ -6,7 +6,7 @@ import { colorGreyLight2 } from '../../ui/ui-colors/index.js';
 export const Container = styled.div`
   font-size: 1rem;
   display: grid;
-  margin: 2rem auto;
+  margin: 5rem auto;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr auto 1fr;
   grid-gap: .5rem;
