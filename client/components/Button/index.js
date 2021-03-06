@@ -1,4 +1,6 @@
-import { bool, func, number, string } from 'prop-types';
+import {
+  bool, func, number, string,
+} from 'prop-types';
 import React from 'react';
 import { ButtonStyles, Primary } from './styles';
 
@@ -9,7 +11,9 @@ const renderButtonContent = (icon, name) => (
   </>
 );
 
-const Button = ({ size, name, primary, icon, handleOnClick }) => {
+const Button = ({
+  size, name, primary, icon, handleOnClick,
+}) => {
   if (primary) {
     return (
       <Primary size={size} data-test="component-button" onClick={handleOnClick}>
