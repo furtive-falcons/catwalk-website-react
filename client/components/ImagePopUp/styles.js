@@ -89,4 +89,6 @@ const ModalImage = styled.img`
   object-fit: fit;
 `;
 
-export { Thumbnail, ModalBackground, ModalWrapper, ModalImage }
+export {
+  Thumbnail, ModalBackground, ModalWrapper, ModalImage,
+};

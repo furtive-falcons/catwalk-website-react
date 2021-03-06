@@ -5,7 +5,7 @@ import { ModalBackground, ModalWrapper, ModalImage } from '../styles.js';
 const ImageModal = ({
   images, setModal, imageIndex, showModal
 }) => {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState();
   const length = images.length - 1;
 
   const nextSlide = () => {

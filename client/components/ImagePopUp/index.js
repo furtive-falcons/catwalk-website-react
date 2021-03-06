@@ -11,7 +11,7 @@ const ImageThumbnail = ({ images }) => {
     setCurrent(Number(e.target.getAttribute('data-index')));
   };
   return (
-    <div className="image">
+    <>
       {images.map((image, index) => (
         <Thumbnail
           key={index}
@@ -28,7 +28,7 @@ const ImageThumbnail = ({ images }) => {
           setModal={setModal}
         />
       ) : null}
-    </div>
+    </>
   );
 };
 
