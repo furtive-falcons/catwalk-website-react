@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+const RecDiv = styled.div`
+font-size: 1.5rem;
+span {
+  font-size: 4rem;
+  font-weight: 800;
+}
+`;
+
 const ScoreDiv = styled.div`
   width: 85%;
   flex: 1.5;
@@ -23,14 +31,19 @@ const ScoreDiv = styled.div`
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 4rem;
+  }
+
+  .total {
+    margin-top: 5px;
+    font-size: 1.5rem;
   }
 `
 const BarDiv = styled.div`
   display: flex;
   flex-direction: row;
   height: 10px;
-  width: 85%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   border: 1px solid black;
@@ -51,21 +64,31 @@ const FilterDiv = styled.div`
   flex: 3;
   // border: 1px solid black;
 
-  span:hover {
+  .clickable {
+    text-decoration: underline;
+    margin-right: 4px;
+    font-size: 15px;
+  }
+
+  .clickable: hover {
+    background-color: black;
+    color: white;
     cursor: pointer;
   }
 
-  span {
-    text-decoration: underline;
+  .notClickable {
     margin-right: 4px;
+    font-size: 15px;
+
+  }
+
+  .count {
+    margin-left: 4px;
   }
 
   .barContainer {
-    margin-top: 7px;
-    margin-bottom: 7px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items:center;
   }
 `
@@ -75,15 +98,24 @@ const BreakdownDiv = styled.div`
   flex: 3;
   // border: 1px solid black;
   margin-top: 10px;
+
+  .factors {
+    // border: 1px solid red;
+    width: 80%;
+  }
 `;
 
 const FactorDiv = styled.div`
   margin-top: 5px;
 
   .bar {
-    width: 250px;
+    width: ${props=>props.width};
     height: 10px;
-    border: 1px solid black;
+    background-color: #D3D3D3;
+  }
+
+  .label {
+    font-size: 1.5rem;
   }
 
   .mark {
@@ -93,4 +125,4 @@ const FactorDiv = styled.div`
 `;
 
 
-export {FactorDiv, BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
+export {RecDiv, FactorDiv, BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};

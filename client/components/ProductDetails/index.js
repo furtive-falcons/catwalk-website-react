@@ -1,8 +1,8 @@
 import React from 'react';
-import { shape } from 'prop-types';
+import { func, number, shape } from 'prop-types';
 import AddToCart from '../AddToCart';
 import ImageGallery from '../ImageGallery';
-import ProducInformation from './components/ProductInformation';
+import ProductInformation from './components/ProductInformation';
 import StyleSelector from '../StyleSelector';
 
 import DivStyles from './styles';
@@ -11,43 +11,92 @@ import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
 
-const ProductDetails = ({ product }) => (
-  <DivStyles data-test="component-details">
-    <div className="container">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="banner">
-        <Banner />
-      </div>
-      <div className="gallery">
-        <ImageGallery photos={product && product.productStyles.results[0].photos}/>
-      </div>
-      <div className="info">
-        <ProducInformation product={product} />
-      </div>
-      <div className="selector">
-        <StyleSelector />
-      </div>
-      <div className="cart">
-        <AddToCart />
-      </div>
-      <div className="slogan">
-        <Slogan />
-      </div>
-      <div className="checkList">
-        <CheckList />
-      </div>
+const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
+  const renderHeader = () => (
+    <div className="header">
+      <Header />
     </div>
-  </DivStyles>
-);
+  );
+
+  const renderBanner = () => (
+    <div className="banner">
+      <Banner />
+    </div>
+  );
+
+  const renderHGallery = () => (
+    <div className="gallery">
+      <ImageGallery
+        photos={product.productStyles.results[selectedStyle].photos}
+      />
+    </div>
+  );
+
+  const renderInfo = () => (
+    <div className="info">
+      <ProductInformation selectedStyle={selectedStyle} product={product} />
+    </div>
+  );
+
+  const renderSelector = () => (
+    <div className="selector">
+      <StyleSelector
+        styles={product.productStyles.results}
+        setSelectedStyle={setSelectedStyle}
+        selectedStyle={selectedStyle}
+      />
+    </div>
+  );
+
+  const renderCart = () => (
+    <div className="cart">
+      <AddToCart
+        styles={product.productStyles.results}
+        selectedStyle={selectedStyle}
+      />
+    </div>
+  );
+
+  const renderSlogan = () => (
+    <div className="slogan">
+      <Slogan />
+    </div>
+  );
+
+  const renderChecklist = () => (
+    <div className="checkList">
+      <CheckList />
+    </div>
+  );
+
+  if (!product) return null;
+
+  return (
+    <DivStyles data-test="component-details">
+      <div className="container">
+        {renderHeader()}
+        {renderBanner()}
+        {renderHGallery()}
+        {renderInfo()}
+        {renderSelector()}
+        {renderCart()}
+        {renderSlogan()}
+        {renderChecklist()}
+      </div>
+    </DivStyles>
+  );
+};
 
 ProductDetails.propTypes = {
   product: shape({}),
+  selectedStyle: number,
+  setSelectedStyle: func,
 };
 
 ProductDetails.defaultProps = {
   product: null,
+  selectedStyle: null,
+  setSelectedStyle: Function.prototype,
 };
 
 export default ProductDetails;

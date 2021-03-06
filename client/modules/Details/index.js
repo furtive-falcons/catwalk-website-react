@@ -7,11 +7,21 @@ const URL = 'http://localhost:3001/api/products';
 
 const DetailPage = ({ productId }) => {
   const [product, setProduct] = useState(null);
+  const [selectedStyle, setSelectedStyle] = useState(0);
+
   useEffect(() => {
-    axios.get(`${URL}/${productId}`).then((response) => setProduct(response.data.data));
+    axios
+      .get(`${URL}/${productId}`)
+      .then((response) => setProduct(response.data.data));
   }, []);
 
-  return <ProductDetails product={product} />;
+  return (
+    <ProductDetails
+      setSelectedStyle={setSelectedStyle}
+      selectedStyle={selectedStyle}
+      product={product}
+    />
+  );
 };
 
 DetailPage.propTypes = {

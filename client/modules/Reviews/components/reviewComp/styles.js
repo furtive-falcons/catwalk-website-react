@@ -15,6 +15,7 @@ const ReviewListContainer = styled.div`
   width: 95%;
   // if more than 4, the list will become scrollable
   max-height: 825px;
+  min-height: 500px;
   flex-direction: column;
   // border: 1px solid black;
   justify-content: center;
@@ -55,7 +56,7 @@ const ModalContainer = styled.div`
   padding-left: 300px;
 
   .formDiv {
-    width: 500px;
+    width: 700px;
     height: 500px;
     background-color: white;
   }

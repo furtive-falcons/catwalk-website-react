@@ -1,28 +1,43 @@
 import React from 'react';
+import {
+  arrayOf, func, number, shape,
+} from 'prop-types';
 import Paragraph from '../Paragraph';
-import Button from '../Button';
 import { fontSizeBase } from '../../ui/ui-fonts';
+import StyleIcon from './components/StyleIcon';
+import StyleWrapper from './styles';
 
-const StyleSelector = () => {
-  const styles = [1, 2, 3, 4, 5, 6, 7, 8];
-
-  const paragraph = 'Selected Style';
+const StyleSelector = ({ styles, selectedStyle, setSelectedStyle }) => {
+  const renderStyleIcon = ({ photos, style_id: styleId }, index) => (
+    <StyleIcon
+      isSelected={index === selectedStyle}
+      key={styleId}
+      thumbnail={photos[0].thumbnail_url}
+      handleOnClick={() => setSelectedStyle(index)}
+    />
+  );
   return (
     <>
       <Paragraph size={fontSizeBase}>
         <strong>Style &gt;</strong>
         {' '}
-        {paragraph}
+        {styles[selectedStyle].name}
       </Paragraph>
-      {styles.map((index) => (
-        <span key={index}>
-          <Button />
-          <i className="fas fa-check" />
-          {index % 4 === 0 ? <br /> : null}
-        </span>
-      ))}
+      <StyleWrapper>{styles.map(renderStyleIcon)}</StyleWrapper>
     </>
   );
+};
+
+StyleSelector.propTypes = {
+  selectedStyle: number,
+  setSelectedStyle: func,
+  styles: arrayOf(shape({})),
+};
+
+StyleSelector.defaultProps = {
+  selectedStyle: null,
+  setSelectedStyle: Function.prototype,
+  styles: null,
 };
 
 export default StyleSelector;

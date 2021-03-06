@@ -1,12 +1,11 @@
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import Question from './Question.jsx';
-import AnswerInfo from './AnswerInfo.jsx';
-import Answer from './Answer.jsx';
 import LoadMoreAnswers from './LoadMoreAnswers.jsx';
 import { Entry } from './styles.js';
 import Title from '../Title.jsx';
 import QuestionInfo from './QuestionInfo.jsx';
+import AnswerContainer from './AnswerContainer.jsx';
 
 const QAEntry = ({ question, searched }) => {
   const answers = Object.values(question.answers);
@@ -15,49 +14,62 @@ const QAEntry = ({ question, searched }) => {
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
-  };
-  const showSearched = (answers) => {
-    const match = answers.filter((an) => an.body.includes(searched));
-    return match;
+    setDisplay(data.slice(0, 2));
+    if (searched) {
+      const match = data.filter((an) => an.body.includes(searched));
+      if (match.length > 0) {
+        setDisplay(match);
+      } else {
+        setDisplay(ans.slice(0, 2));
+      }
+    }
   };
 
   useEffect(() => {
     sortAnswers(answers);
     setAnswers(answers);
-    setDisplay(answers.slice(0, 6));
-  }, []);
+  }, [searched]);
 
-  const handleOnClick = (e) => {
+  const loadAnswers = (e) => {
     e.preventDefault();
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
+  };
+
+  const collapseAnswers = (e) => {
+    e.preventDefault();
+    setDisplay(answers.slice(0, 2));
   };
 
   return (
     <Entry className="container">
       <div className="q">
-        <Title className="q" fontSize="1rem" title="Q:" />
+        <Title fontSize="1.7rem" title="Q:" />
       </div>
       <Question body={question.question_body} />
       <div className="a">
-        <Title fontSize="1rem" title="A:" />
+        <Title fontSize="1.7rem" title="A:" />
       </div>
-      <div className="answers">
-        {display.map((an, index) => (
-          <div key={an.id}>
-            <Answer
-              key={index}
-              answer={an}
-            />
-            <AnswerInfo
-              answer={an}
-            />
-            <br />
-          </div>
-        ))}
-      </div>
+      <AnswerContainer
+        display={display}
+        answers={ans}
+        searched={searched}
+      />
       <QuestionInfo question={question} />
-      {ans.length !== display.length ? <LoadMoreAnswers handleOnClick={handleOnClick} children="Load More Answers" size={1.2} /> : null}
-
+      {ans.length !== display.length ? (
+        <LoadMoreAnswers
+          handleOnClick={loadAnswers}
+          children="Load More Answers"
+          size={1.3}
+          href={null}
+        />
+      ) : (
+        <LoadMoreAnswers
+          handleOnClick={collapseAnswers}
+          children="Collapse Answers"
+          size={1.3}
+          href={null}
+        />
+      )}
     </Entry>
   );
 };
