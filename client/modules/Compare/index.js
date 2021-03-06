@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 // import PropTypes from 'prop-types';
 import Carousel from './components/Carousel/Carousel';
 // import CarouselContainer from './components/Carousel/styles';
@@ -54,7 +54,7 @@ class CompareCarousels extends React.Component {
     const url = 'http://localhost:3001/api/products';
     axios.get(`${url}/${productId}/related`)
       .then((res) => {
-        console.log('res', res);
+        // console.log('res', res);
         this.setState({relatedIds: res.data});
       }, (err) => {
         console.log(err);
