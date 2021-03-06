@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import Question from './Question.jsx';
-import LoadMoreAnswers from './LoadMoreAnswers.jsx';
+import LoadAndCollapse from './LoadAndCollapse.jsx';
 import { Entry } from './styles.js';
 import Title from '../Title.jsx';
 import QuestionInfo from './QuestionInfo.jsx';
@@ -56,14 +56,14 @@ const QAEntry = ({ question, searched }) => {
       />
       <QuestionInfo question={question} />
       {ans.length !== display.length ? (
-        <LoadMoreAnswers
+        <LoadAndCollapse
           handleOnClick={loadAnswers}
-          children="Load More Answers"
+          children="See More Answers"
           size={1.3}
           href={null}
         />
       ) : (
-        <LoadMoreAnswers
+        <LoadAndCollapse
           handleOnClick={collapseAnswers}
           children="Collapse Answers"
           size={1.3}

@@ -4,17 +4,19 @@ import React from 'react';
 import { fontSizeBigger, fontSizeSmaller } from '../../../../ui/ui-fonts';
 import LinkTag from '../../../LinkTag';
 import Price from '../../../Price';
-import ProductCategoryStyles from './styles';
+import { ProductCategoryStyles, ReviewsLine } from './styles';
 import ProductTitle from '../../../Title';
 import StarRating from '../../../StarRating';
 import WithMargins from '../../../../hoc/with-margins';
 
 const ProductInformation = ({ product, selectedStyle }) => product && (
 <>
-  <StarRating />
-  <WithMargins margin="1rem">
-    <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
-  </WithMargins>
+  <ReviewsLine>
+    <StarRating size={15} rating={product.ratingAverage} />
+    <WithMargins margin="1rem">
+      <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
+    </WithMargins>
+  </ReviewsLine>
   <ProductCategoryStyles>
     {product.productInformation.category}
   </ProductCategoryStyles>
@@ -22,7 +24,8 @@ const ProductInformation = ({ product, selectedStyle }) => product && (
     {product.productInformation.name}
   </ProductTitle>
   <Price
-    price={product.productStyles.results[selectedStyle].original_price * 1}
+    originalPrice={product.productStyles.results[selectedStyle].original_price * 1}
+    salePrice={product.productStyles.results[selectedStyle].sale_price}
   />
 </>
 );

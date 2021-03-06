@@ -31,6 +31,8 @@ const Entry = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.1rem;
+    max-height: 50vh;
+    overflow: scroll;
   }
 
   .helpful-1 {
