@@ -1,19 +1,24 @@
 import { number } from 'prop-types';
 import React from 'react';
 
-const Price = ({ price }) => price && (
+const Price = ({ originalPrice, salePrice }) => originalPrice && (
 <span data-test="component-price">
   $
-  {price}
+  {salePrice || originalPrice}
+  <strike>
+    {salePrice && ` $${originalPrice}`}
+  </strike>
 </span>
 );
 
 Price.propTypes = {
-  price: number,
+  originalPrice: number,
+  salePrice: number,
 };
 
 Price.defaultProps = {
-  price: null,
+  originalPrice: null,
+  salePrice: null,
 };
 
 export default Price;
