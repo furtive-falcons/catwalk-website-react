@@ -8,7 +8,7 @@ const CardContainer = styled.div`
   margin: 5px;
   padding: 10px;
   flex-direction: row;
-  max-width: 250px;
+  max-width: 230px;
   max-height: 450px;
 `;
 
