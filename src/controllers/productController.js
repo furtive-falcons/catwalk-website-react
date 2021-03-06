@@ -42,25 +42,3 @@ exports.getProductInformation = async (req, res) => {
     });
   }
 };
-
-exports.getRelatedProducts = async (req, res) => {
-  try {
-    const URL = `${process.env.API_URL}/products/${req.params.id}/related`;
-    const { data: relatedProducts } = await axios(URL, {
-      headers: {
-        Authorization: process.env.API_KEY,
-      },
-    });
-    res.status(200).json({
-      status: 'success',
-      data: {
-        relatedProducts,
-      },
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: 'fail',
-      error
-    });
-  }
-};
