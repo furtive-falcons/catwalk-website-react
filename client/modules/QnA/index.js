@@ -12,6 +12,7 @@ const QnA = () => {
   const [questions, setQuestions] = useState(data.results);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState([]);
+  const [display, setDisplay] = useState([]);
 
   const filterQuestions = (question) => {
     const questionBody = question.question_body.toLowerCase();
@@ -53,15 +54,40 @@ const QnA = () => {
     }
   };
 
+  const loadMoreQuestions = (e) => {
+    e.preventDefault();
+    setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
+  };
+
+  const collapseQuestions = (e) => {
+    e.preventDefault();
+    setDisplay(questions.slice(0, 2));
+  };
+
+  useEffect(() => {
+    setDisplay(questions.slice(0, 2));
+  }, []);
+
   return (
     <Container>
       <Title fontSize="1.6rem" title="QUESTIONS & ANSWERS" />
       <SearchBar search={handleSearch} />
       <EntryContainer
-        questions={filter.length > 0 ? filter : questions}
+        questions={filter.length > 0 ? filter : display}
         searched={search}
       />
-      <MoreQuestion />
+      {questions.length !== display.length
+        ? (
+          <MoreQuestion
+            name="MORE ANSWERED QUESTIONS"
+            handleOnClick={loadMoreQuestions}
+          />
+        ) : (
+          <MoreQuestion
+            name="COLLAPSE QUESTIONS"
+            handleOnClick={collapseQuestions}
+          />
+        )}
       <AddQuestion />
     </Container>
   );
