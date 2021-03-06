@@ -6,13 +6,28 @@ import EntryContainer from './components/EntryContainer.jsx';
 import MoreQuestion from './components/MoreQuestion.jsx';
 import AddQuestion from './components/AddQuestion.jsx';
 import { Container } from './styles.js';
-import data from './data.js';
 
-const QnA = () => {
-  const [questions, setQuestions] = useState(data.results);
+const axios = require('axios');
+
+const QnA = ({ productId }) => {
+  const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
+
+  const getQA = () => {
+    axios.get('/qa/questions', {
+      params: {
+        product_id: productId,
+      },
+    })
+      .then((res) => {
+        setQuestions(res.data.results);
+      })
+      .catch((res) => {
+        res.sendStatus(404);
+      });
+  };
 
   const filterQuestions = (question) => {
     const questionBody = question.question_body.toLowerCase();
@@ -65,8 +80,12 @@ const QnA = () => {
   };
 
   useEffect(() => {
-    setDisplay(questions.slice(0, 2));
-  }, []);
+    if (questions.length === 0) {
+      getQA();
+    } else {
+      setDisplay(questions.slice(0, 2));
+    }
+  }, [questions]);
 
   return (
     <Container>
