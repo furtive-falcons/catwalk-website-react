@@ -39,11 +39,16 @@ const ModalBackground = styled.div`
 
   .right-arrow, .left-arrow {
     position: absolute;
-    top: 50%;
-    font-size: 3rem;
+    display:flex;
+    top: 45%;
+    font-size: 5rem;
     color: #fff;
-    z-index: 10;
+    // z-index: 10;
     cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
     :hover {
       transform: scale(1.3);
     }
