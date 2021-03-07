@@ -1,8 +1,14 @@
 import React from 'react';
+import LinkTag from '../../../../components/LinkTag';
 
-const Report = () => (
+const Report = ({children, size, handleOnClick}) => (
   <div className="report">
-    Report
+    <LinkTag
+    children={children}
+    size={size}
+    handleOnClick={handleOnClick}
+    href={null}
+    />
   </div>
 );
 
