@@ -8,13 +8,19 @@ export const ImageGalleryWrapper = styled.div`
   height: 100%;
 `;
 
-export const Slide = styled.div(({ image }) => ({
+export const Slide = styled.div(({ image, position }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
   height: '100%',
   width: '100%',
   backgroundImage: `url(${image})`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
+  transition: 'all 0.3s linear',
+  transform: `translateX(${position})`,
+  opacity: position === '0' ? '1' : '0',
 }));
 
 export const Arrows = styled.div(() => ({
@@ -56,6 +62,7 @@ export const IconStylesWrapper = styled.i`
   padding: 0.2rem 1rem;
   background-color: white;
   border: 1px solid ${colorSecondary};
+  visibility : ${(props) => (props.isVisible ? 'visible' : 'hidden')};
   &:hover {
     color: ${colorWhite};
     background-color: #000;
