@@ -2,10 +2,8 @@ import React from 'react';
 import { ButtonsContainer} from './styles.js';
 import Button from '../../../../components/Button';
 import MarginsWrapper from '../../../../hoc/with-margins';
-import AddReview from './AddReview.js';
 
-
-const Buttons = ({ expand, reviewCount, dataIndex }) => (
+const Buttons = ({ openModal, expand, reviewCount, dataIndex }) => (
   <ButtonsContainer id="buttons">
     {
     reviewCount > 2 && dataIndex < reviewCount ? (
@@ -14,7 +12,7 @@ const Buttons = ({ expand, reviewCount, dataIndex }) => (
       : null
     }
     <MarginsWrapper margin={'15px'}>
-      <Button size = {15} primary = {true} name="ADD REVIEW" />
+      <Button handleOnClick={openModal} size = {15} primary = {true} name="ADD REVIEW" />
     </MarginsWrapper>
   </ButtonsContainer>
 );

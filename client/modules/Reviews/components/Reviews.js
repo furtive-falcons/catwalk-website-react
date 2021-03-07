@@ -4,8 +4,23 @@ import ReviewCount from './reviewComp/ReviewCount.js';
 import ReviewList from './reviewComp/ReviewList.js';
 import Sort from './reviewComp/Sort.js';
 import Buttons from './reviewComp/Buttons.js';
+import AddReview from './reviewComp/AddReview.js';
+import Form from './reviewComp/formComp/Form.js';
+// import Form from './reviewComp/formComp/Form.js';
 
 const Reviews = ({ data, filters }) => {
+
+  // close modal
+  const [showModal, setShow] = useState(false);
+  const closeModal =()=>{
+    setShow(false);
+  };
+
+  // open modal
+  const openModal =()=> {
+    setShow(true);
+  }
+
   // Keep track of number of tiles to show
   // default is 2
   // depends on number of reviews passed in
@@ -104,7 +119,9 @@ const Reviews = ({ data, filters }) => {
       {data.length !== 0
       && <ReviewList data={filterData(numTiles, data)} />}
       {/* buttons container */}
-      <Buttons reviewCount={data.length} dataIndex={numTiles} expand={expand} />
+      <Buttons openModal={openModal} reviewCount={data.length} dataIndex={numTiles} expand={expand} />
+        <AddReview closeModal={closeModal} showModal={showModal}/>
+        {/* <Form/> */}
     </ReviewsContainer>
   );
 };
