@@ -2,15 +2,19 @@ import React, { Fragment, useState } from 'react';
 import { TileContainer } from './styles.js';
 import {
   ResponseContainer, ReviewContainer,
-  TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful,
+  TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful, ImageContainer
 } from './tileStyles.js';
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
 
 const Tile = ({
-  body, summary, response, user, date, helpfulness, rating, recommend,
+  body, summary, response, user, date, helpfulness, rating, recommend, images
 }) => {
   const [more, showMore] = useState(false);
+
+  // render images
+  const renderImages = (data) => data.map((img, index) => <img key={index} alt="comment pics" className="img" src={img.url} />);
+
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
@@ -34,6 +38,9 @@ const Tile = ({
               </>
             )
             : body}
+        <ImageContainer>
+          {renderImages(images)}
+        </ImageContainer>
         </Body>
         {recommend
         && (

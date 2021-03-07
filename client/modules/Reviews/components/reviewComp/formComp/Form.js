@@ -3,6 +3,7 @@ import { FormView } from './styles.js';
 import SelectStars from './SelectStars.js';
 import RadioArray from './RadioArray.js';
 import Input from './Input.js';
+import Button from '../../../../../components/Button';
 
 const notes = [
   'For authentication reasons, you will not be emailed',
@@ -19,7 +20,7 @@ const labels = {
 
 };
 
-const Form = () => {
+const Form = ({closeModal}) => {
   // handle all form inputs here
   const [form, setForm] = useState({
     size: '',
@@ -56,7 +57,6 @@ const Form = () => {
       const array = [...images];
       array.push(URL.createObjectURL(e.target.files[0]));
       setImage(array);
-      console.log(array);
     }
   };
 
@@ -111,7 +111,7 @@ const Form = () => {
             <span>Upload Photo</span>
             <input onChange={uploadImg} type="file" accept="image/*" multiple />
             {images
-              && renderImages(images)}
+              && <div className="imageRow">{renderImages(images)}</div>}
           </div>
           <Input max="1000" type="textarea" label="Body" handleChange={handleChange} />
         </div>
@@ -121,7 +121,10 @@ const Form = () => {
           <Input note={notes[1]} max="60" type="text" label="Nickname" handleChange={handleChange} />
           <Input note={notes[0]} max="60" type="text" label="Email" handleChange={handleChange} />
         </div>
-        <input className="submit" type="submit" name="Submit Review" />
+        <div className="buttons">
+          <input className="button" onClick={closeModal} type="button" value="CANCEL"/>
+          <input className="button" type="submit" value="SUBMIT REVIEW" />
+        </div>
       </div>
     </FormView>
   );

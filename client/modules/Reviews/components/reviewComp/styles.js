@@ -48,16 +48,13 @@ const ModalContainer = styled.div`
   z-index:1;
   width: 100%;
   height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  // background-color: rgb(0,0,0);
+  // background-color: rgba(0,0,0,0.4);
   left: 0;
   top: 0;
-  padding-top: 200px;
-  padding-left: 300px;
+  overflow: scroll;
 
   .formDiv {
-    width: 700px;
-    height: 500px;
     background-color: white;
   }
 `;

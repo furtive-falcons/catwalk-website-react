@@ -4,13 +4,8 @@ import Tile from './Tile.js';
 import AddReview from './AddReview.js';
 
 const ReviewList = ({ data }) => {
-  const [showModal, setShow] = useState(false);
-  const close = () => {
-    setShow(false);
-  };
   return (
     <ReviewListContainer id="reviewList">
-      {showModal && <AddReview close={close} showModal={showModal} />}
       {/* render tiles two at a time */}
       {/* define a handleclick event to trigger show two more tiles */}
       {
@@ -26,6 +21,7 @@ const ReviewList = ({ data }) => {
             key={product.review_id}
             rating={product.rating}
             recommend={product.recommend}
+            images={product.photos}
           />
         ))
 
