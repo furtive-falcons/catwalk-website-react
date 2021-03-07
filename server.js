@@ -16,10 +16,8 @@ app.use('/api/products', productRouter);
 const PORT = 3001;
 
 app.use('/qa/questions', qaRouter);
-// app.get('/', (req, res) => {
-//   res.send(`test`)
-// })
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Port: ${PORT}`);
 });

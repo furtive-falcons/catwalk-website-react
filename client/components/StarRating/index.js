@@ -33,7 +33,6 @@ const StarRating = ({ rating= 5, size=17, color="black"}) => {
     }
 
     // render full empty stars
-    // sta
     for (let i = 10; i < (10 + fullEmpty); i++) {
       stars.push(<FullStar size={size} empty key={i} />);
     }

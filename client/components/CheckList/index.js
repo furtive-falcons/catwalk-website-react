@@ -1,23 +1,28 @@
+import { arrayOf, exact, string } from 'prop-types';
 import React, { Fragment } from 'react';
 import StyledList from './styles';
 
-const list = [
-  { id: 1, check: 'GMO and Pesticide-free' },
-  { id: 2, check: 'Made with 100% Genetic Modification' },
-  { id: 3, check: 'This is made up' },
-  { id: 4, check: "It doesn't matter" },
-];
-
-const CheckList = () => (
+const CheckList = ({ features }) => (
   <StyledList>
-    {list.map(({ id, check }) => (
-      <Fragment key={id}>
+    {features && features.map(({ feature, value }) => (
+      <Fragment key={feature}>
         <i className="fas fa-check" />
-        <li>{check}</li>
+        <li>{value}</li>
         <br />
       </Fragment>
     ))}
   </StyledList>
 );
+
+CheckList.propTypes = {
+  features: arrayOf(exact({
+    feature: string,
+    value: string,
+  })),
+};
+
+CheckList.defaultProps = {
+  features: null,
+};
 
 export default CheckList;

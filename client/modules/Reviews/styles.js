@@ -4,13 +4,18 @@ const Container = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: row;
-  // border: 1px solid black;
-  margin: auto;
 `
 
-const Header = styled.span`
+const Header = styled.div`
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 30px;
 `;
 
-export {Header, Container};
+const Main = styled.div`
+  max-width: 1400px;
+  margin: auto;
+  padding-bottom: 50px;
+`;
+
+export {Main, Header, Container};

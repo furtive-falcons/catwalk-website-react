@@ -8,6 +8,7 @@ import { ProductCategoryStyles, ReviewsLine } from './styles';
 import ProductTitle from '../../../Title';
 import StarRating from '../../../StarRating';
 import WithMargins from '../../../../hoc/with-margins';
+import Paragraph from '../../../Paragraph';
 
 const ProductInformation = ({ product, selectedStyle }) => product && (
 <>
@@ -24,9 +25,15 @@ const ProductInformation = ({ product, selectedStyle }) => product && (
     {product.productInformation.name}
   </ProductTitle>
   <Price
-    originalPrice={product.productStyles.results[selectedStyle].original_price * 1}
+    originalPrice={
+          product.productStyles.results[selectedStyle].original_price * 1
+        }
     salePrice={product.productStyles.results[selectedStyle].sale_price}
   />
+  <Paragraph>{product.productInformation.description}</Paragraph>
+  <i className="fab fa-facebook" />
+  <i className="fab fa-instagram" />
+  <i className="fab fa-twitter" />
 </>
 );
 

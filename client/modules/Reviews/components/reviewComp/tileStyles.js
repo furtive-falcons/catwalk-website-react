@@ -17,6 +17,20 @@ const ReviewContainer = styled.div`
   padding-top: 10px;
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  .img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-left: 5px;
+    margin-right: 5px;
+
+  }
+`;
+
 const ResponseContainer = styled.div`
   background-color: #D3D3D3;
   width: 100%;
@@ -110,4 +124,4 @@ const Helpful = styled.span`
 
 `;
 
-export {ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful };
+export {ImageContainer, ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful };
