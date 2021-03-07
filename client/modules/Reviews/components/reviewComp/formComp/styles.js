@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const FormView = styled.form`
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   width: 100%;
+  min-width: 750px;
 
   .rec {
     label {
@@ -30,10 +31,6 @@ const FormView = styled.form`
     width: 100%;
     height: 150px;
     padding: 2%;
-  }
-
-  .submit {
-    width: 50%;
   }
 
   .ratingAndRec {
@@ -72,7 +69,7 @@ const FormView = styled.form`
   }
 
   .inner {
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 95%;
     padding-bottom: 50px;
     padding-top: 50px;
@@ -86,15 +83,24 @@ const FormView = styled.form`
     margin-top: 20px;
     margin-bottom: 20px;
 
+    .imageRow {
+      display: flex;
+      flex-direction: row;
+    }
+
+
+  .upload {
+    display: flex;
+    flex-direction: column;
 
     .img {
       width: 80px;
       height: 80px;
       object-fit: cover;
-      margin-left: 5px;
-      margin-right: 5px;
+      margin: 5px;
       border: 3px solid green;
     }
+  }
   }
 
   .info {
@@ -108,10 +114,16 @@ const FormView = styled.form`
 
   }
 
-  .submit {
+  .buttons {
+    display: grid;
     grid-template-columns: 50% 50%;
     grid-row-gap: 20px;
 
+    .button {
+      height: 30px;
+      width: 30%;
+      font-size: 1.5rem;
+    }
   }
 
 `;
