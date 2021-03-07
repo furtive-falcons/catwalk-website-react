@@ -63,6 +63,7 @@ const ModalBackground = styled.div`
   }
 
   .close {
+    display: flex;
     position: absolute;
     top: 10%;
     right: 10%;

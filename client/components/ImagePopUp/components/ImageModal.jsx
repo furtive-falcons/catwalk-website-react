@@ -18,7 +18,7 @@ const ImageModal = ({
   };
 
   const closeModal = (e) => {
-    if (modalRef.current === e.target || modalRef.current.children[0] === e.target) {
+    if (modalRef.current === e.target || modalRef.current.children[0] === e.target.parentNode) {
       setModal((prev) => !prev);
       document.body.style.overflow = 'scroll';
     }
