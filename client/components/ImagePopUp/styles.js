@@ -39,7 +39,6 @@ const ModalBackground = styled.div`
 
   .right-arrow, .left-arrow {
     position: absolute;
-    display:flex;
     top: 45%;
     font-size: 5rem;
     color: #fff;
