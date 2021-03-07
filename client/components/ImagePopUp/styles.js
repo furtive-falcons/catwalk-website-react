@@ -81,6 +81,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 10;
 `;
 
 const ModalImage = styled.img`

@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ModalBackground, ModalWrapper, ModalImage } from '../styles.js';
 
 const ImageModal = ({
@@ -7,6 +7,7 @@ const ImageModal = ({
 }) => {
   const [current, setCurrent] = useState();
   const length = images.length - 1;
+  const modalRef = useRef();
 
   const nextSlide = () => {
     setCurrent((prev) => (prev === length ? 0 : prev + 1));
@@ -16,9 +17,11 @@ const ImageModal = ({
     setCurrent((prev) => (prev === 0 ? length : prev - 1));
   };
 
-  const closeModal = () => {
-    setModal((prev) => !prev);
-    document.body.style.overflow = 'scroll';
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setModal((prev) => !prev);
+      document.body.style.overflow = 'scroll';
+    }
   };
 
   useEffect(() => {
@@ -30,8 +33,8 @@ const ImageModal = ({
 
   return (
     <>
-      <ModalBackground>
-        <div onClick={closeModal}><i className="fas fa-times close" /></div>
+      <ModalBackground onClick={closeModal} ref={modalRef}>
+        <div onClick={()=>setModal(false)}><i className="fas fa-times close" /></div>
         <div className="right-arrow" onClick={nextSlide}>
           <i className="fas fa-chevron-right" />
         </div>
