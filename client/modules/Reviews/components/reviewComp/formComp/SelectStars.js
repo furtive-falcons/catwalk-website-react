@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Star from '../../../../../components/StarRating/FullStar.js';
+import {StarDiv} from './styles.js';
 
 const messages = {
   0: 'Poor',
@@ -22,15 +23,16 @@ const SelectableStars = () => {
   // 3. save the calculation in state
   // 4. upon clicking then save the result
   return (
-    <div>
+    <StarDiv>
+      <div>{index > -1 ? messages[index]: <span className='message'>Please select</span>}</div>
+      <div className='group'>
       {
       [0, 1, 2, 3, 4].map((id) => (
-
-        <Star id={id} key={id} empty={id > index? off: !off} click={() => click(id)} size={17} />
+        <Star id={id} key={id} empty={id > index? off: !off} click={() => click(id)} size={25} />
       ))
       }
-      {messages[index]}
-    </div>
+      </div>
+    </StarDiv>
   );
 };
 

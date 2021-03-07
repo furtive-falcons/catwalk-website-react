@@ -4,6 +4,7 @@ import ReviewCount from './reviewComp/ReviewCount.js';
 import ReviewList from './reviewComp/ReviewList.js';
 import Sort from './reviewComp/Sort.js';
 import Buttons from './reviewComp/Buttons.js';
+import Form from './reviewComp/formComp/Form.js';
 
 const Reviews = ({ data, filters }) => {
   // Keep track of number of tiles to show
@@ -105,6 +106,7 @@ const Reviews = ({ data, filters }) => {
       && <ReviewList data={filterData(numTiles, data)} />}
       {/* buttons container */}
       <Buttons reviewCount={data.length} dataIndex={numTiles} expand={expand} />
+        <Form/>
     </ReviewsContainer>
   );
 };

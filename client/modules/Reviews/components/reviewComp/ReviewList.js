@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ReviewListContainer } from './styles.js';
 import Tile from './Tile.js';
 import AddReview from './AddReview.js';
-import Form from './formComp/Form.js';
 
 const ReviewList = ({ data }) => {
   const [showModal, setShow] = useState(false);
@@ -11,7 +10,6 @@ const ReviewList = ({ data }) => {
   };
   return (
     <ReviewListContainer id="reviewList">
-      <Form />
       {showModal && <AddReview close={close} showModal={showModal} />}
       {/* render tiles two at a time */}
       {/* define a handleclick event to trigger show two more tiles */}
