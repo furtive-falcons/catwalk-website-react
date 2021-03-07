@@ -3,10 +3,10 @@
 import React from 'react';
 import Title from '../Title.jsx';
 import Subtitle from '../Subtitle.jsx';
-import Nickname from '../Nicknanme.jsx';
+import Nickname from '../Nickname.jsx';
 import Email from '../Email.jsx';
-import InputField from './InputField';
-import Button from '../../Button/index.js';
+import InputField from '../InputField.jsx';
+import Button from '../../../../components/Button';
 
 const AnswerForm = () => {
   const imageUpload = () => {

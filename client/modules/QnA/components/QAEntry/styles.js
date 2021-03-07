@@ -43,6 +43,8 @@ const Entry = styled.div`
   .add-answer {
     grid-column: 5 / 6;
     grid-row: 1 / 2;
+    cursor: pointer;
+    text-decoration: underline
   }
 
   .load-more-answer {
