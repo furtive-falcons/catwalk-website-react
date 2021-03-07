@@ -18,7 +18,7 @@ const ImageModal = ({
   };
 
   const closeModal = (e) => {
-    if (modalRef.current === e.target) {
+    if (modalRef.current === e.target || modalRef.current.children[0] === e.target) {
       setModal((prev) => !prev);
       document.body.style.overflow = 'scroll';
     }
@@ -34,7 +34,7 @@ const ImageModal = ({
   return (
     <>
       <ModalBackground onClick={closeModal} ref={modalRef}>
-        <div onClick={()=>setModal(false)}><i className="fas fa-times close" /></div>
+        <i className="fas fa-times close" onClick={closeModal}/>
         <div className="right-arrow" onClick={nextSlide}>
           <i className="fas fa-chevron-right" />
         </div>
