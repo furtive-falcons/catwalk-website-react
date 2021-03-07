@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Section from './components/Section/Section';
 import LeftButton from './components/LeftButton/LeftButton';
 import CardList from './components/CardList/CardList';
@@ -86,6 +87,14 @@ const Carousel = () => {
       </CarouselContainer>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  relatedIds: PropTypes.string,
+};
+
+Carousel.defaultProps = {
+  relatedIds: null,
 };
 
 export default Carousel;

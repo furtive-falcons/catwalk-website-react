@@ -85,4 +85,6 @@ const StyledSeperator = styled.div`
   margin-right: 1rem;
 `;
 
-export { Entry, StyledSeperator };
+export {
+  Entry, StyledSeperator,
+};

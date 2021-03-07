@@ -43,7 +43,7 @@ export const Container = styled.div`
   }
 `;
 export const StyledSearch = styled.input`
-  border: 1px solid black;
+  border: 1px solid ${colorGreyLight2};
   font-size: 1.2rem;
   padding: 1.4rem 1rem;
   color: ${colorGreyLight2};
