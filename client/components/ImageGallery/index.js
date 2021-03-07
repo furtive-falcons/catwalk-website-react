@@ -68,7 +68,7 @@ const ImageGallery = ({ photos }) => {
       </Arrows>
       <Pagination>{photos.map(renderThumbnails)}</Pagination>
       <ExpandWrapper>
-        <IconStylesWrapper>
+        <IconStylesWrapper isVisible>
           <IconStyles className="fas fa-expand" />
         </IconStylesWrapper>
       </ExpandWrapper>

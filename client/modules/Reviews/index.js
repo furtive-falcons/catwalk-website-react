@@ -35,7 +35,7 @@ const ReviewAndRatings = () => {
 
 
   return (
-    <Main>
+    <Main id="reviews">
       <Header>
         REVIEWS
         &
