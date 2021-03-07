@@ -15,7 +15,7 @@ const Thumbnail = styled.img`
 const ModalBackground = styled.div`
   display: flex;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 10;
+  z-index: 1;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -43,7 +43,7 @@ const ModalBackground = styled.div`
     top: 45%;
     font-size: 5rem;
     color: #fff;
-    // z-index: 10;
+    z-index: 3;
     cursor: pointer;
     width: 10rem;
     height: 10rem;
@@ -86,7 +86,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
 `;
 
 const ModalImage = styled.img`
