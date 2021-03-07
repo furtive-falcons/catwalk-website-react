@@ -39,7 +39,7 @@ const Tile = ({
             )
             : body}
         <ImageContainer>
-          {renderImages(images)}
+          {images && renderImages(images)}
         </ImageContainer>
         </Body>
         {recommend
