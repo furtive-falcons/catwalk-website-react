@@ -68,7 +68,7 @@ const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
 
   const renderChecklist = () => (
     <div className="checkList">
-      <CheckList />
+      <CheckList features={product.productInformation.features} />
     </div>
   );
 
