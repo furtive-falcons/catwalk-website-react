@@ -4,7 +4,7 @@ import Reviews from './components/Reviews.js';
 import Ratings from './components/Ratings.js';
 import dummy from './dummy.js';
 import dummy2 from './dummy2.js';
-import { Header, Container } from './styles.js';
+import { Main, Header, Container } from './styles.js';
 
 const ReviewAndRatings = () => {
 
@@ -35,7 +35,7 @@ const ReviewAndRatings = () => {
 
 
   return (
-    <>
+    <Main>
       <Header>
         REVIEWS
         &
@@ -46,7 +46,7 @@ const ReviewAndRatings = () => {
         <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={dummy2} data={dummy.results} id="ratings" />
         <Reviews filters={filters} data={dummy.results} id="reviews" />
       </Container>
-    </>
+    </Main>
   );
 };
 

@@ -12,7 +12,7 @@ const App = () => (
     <Details productId={PRODUCT_ID} />
     <Compare productId={PRODUCT_ID} />
     <QnA productId={PRODUCT_ID} />
-    <Reviews />
+    <Reviews productId={PRODUCT_ID}/>
   </div>
 );
 
