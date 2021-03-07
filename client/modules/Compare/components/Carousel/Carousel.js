@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Section from './components/Section/Section';
-import LeftButton from './components/LeftButton/LeftButton';
+// import LeftButton from './components/LeftButton/LeftButton';
 import CardList from './components/CardList/CardList';
-import RightButton from './components/RightButton/RightButton';
+// import RightButton from './components/RightButton/RightButton';
 import CarouselContainer from './styles';
 
 const relatedDummyData = [
@@ -62,7 +62,7 @@ const relatedDummyData = [
     rating: [],
   },
   {
-    id: 14807,
+    id: 14808,
     name: 'Emmalee Dress',
     category: 'Dress',
     default_price: '386.00',
@@ -74,19 +74,34 @@ const relatedDummyData = [
   },
 ];
 
-const Carousel = () => {
-  const [currentCard, setCard] = React.useState(0);
-  const { length } = relatedDummyData;
-  return (
-    <div data-test="component-carousel">
-      <CarouselContainer>
-        <Section />
-        <LeftButton />
-        <CardList relatedDummyData={relatedDummyData} />
-        <RightButton />
-      </CarouselContainer>
-    </div>
-  );
+class Carousel extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cardList: []
+    }
+  }
+
+  componentDidMount() {
+    this.setState({cardList: [...relatedDummyData]})
+  }
+
+  render() {
+    
+    // console.log('length', length)
+    // var shortData = relatedDummyData.slice(0, 3);
+    // console.log('this.state.cardList', this.state.cardList)
+
+
+    return (
+      <div data-test="component-carousel">
+        <CarouselContainer>
+          <Section />
+          <CardList cardList={this.state.cardList} />
+        </CarouselContainer>
+      </div>
+    );
+  }
 };
 
 Carousel.propTypes = {
