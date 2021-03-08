@@ -1,31 +1,55 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState, useEffect, useRef, useContext,
+} from 'react';
 import Title from '../../../../components/Title';
 import InputField from '../InputField.jsx';
 import InputArea from '../InputArea.jsx';
 import Button from '../../../../components/Button';
 import { ModalForm, ModalWrapper } from './styles.js';
 import Paragraph from '../../../../components/Paragraph';
+import { ProductContext } from '../../index.js';
 
 const axios = require('axios');
 
-const AnswerForm = ({ question, setForm }) => {
+const PopupForm = ({ question, setForm, formType }) => {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
+  const [photos, setPhotos] = useState([]);
+  const productId = Number(useContext(ProductContext));
   const modalRef = useRef();
 
   const getInput = (e) => {
     const targetName = e.target.name;
     const targetValue = e.target.value;
-    targetName === "nickname" ? setNickname(targetValue) : null;
-    targetName === "email" ? setEmail(targetValue) : null;
-    targetName === "body" ? setBody(targetValue) : null;
+    targetName === 'nickname' ? setNickname(targetValue) : null;
+    targetName === 'email' ? setEmail(targetValue) : null;
+    targetName === 'body' ? setBody(targetValue) : null;
   };
 
+  const content = () => (formType === 'answer' ? ({
+    body,
+    name: nickname,
+    email,
+    photos,
+  }) : ({
+    body,
+    name: nickname,
+    email,
+    product_id: productId,
+  })
+  );
+
   const postRequest = () => {
-    axios.post();
+    let url = 'qa/questions';
+    if (formType === 'answer') {
+      url += `/${question.question_id}/answers`;
+    }
+    axios.post(url, content())
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
   };
 
   const imageUpload = () => {
@@ -34,6 +58,7 @@ const AnswerForm = ({ question, setForm }) => {
 
   const submit = (e) => {
     e.preventDefault();
+    postRequest();
   };
 
   const closeModal = (e) => {
@@ -56,13 +81,13 @@ const AnswerForm = ({ question, setForm }) => {
         <div className="title">
           <Title
             size={2}
-            children="Submit Your Answer"
+            children={formType === 'answer' ? 'Submit Your Answer' : 'Ask Your Question'}
           />
         </div>
         <div className="subtitle">
           <Title
             size={1.5}
-            children={`Product name: ${question.question_body}`}
+            children={`Product name ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
           />
         </div>
         <div className="nickname">
@@ -94,20 +119,22 @@ const AnswerForm = ({ question, setForm }) => {
             name="body"
             width={50}
             height={10}
-            label="Your Answer"
+            label={formType === 'answer' ? 'Your Answer' : 'Your Question'}
             placeholder="Your answer help others learn about this product"
             getInput={getInput}
           />
         </div>
-        <div className="upload">
-          <Button
-            className="upload"
-            name="Image Upload"
-            handleOnClick={imageUpload}
-            size={15}
-            secondary
-          />
-        </div>
+        {formType === 'answer' ? (
+          <div className="upload">
+            <Button
+              className="upload"
+              name="Image Upload"
+              handleOnClick={imageUpload}
+              size={15}
+              secondary
+            />
+          </div>
+        ) : null}
         <div className="submit">
           <Button
             className="submit"
@@ -123,4 +150,4 @@ const AnswerForm = ({ question, setForm }) => {
   );
 };
 
-export default AnswerForm;
+export default PopupForm;

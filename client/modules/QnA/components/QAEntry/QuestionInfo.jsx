@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Helpful from '../../../../components/Helpful';
 import AddAnswer from './AddAnswer.jsx';
 import { StyledSeperator } from './styles.js';
-import AnswerForm from '../AnswerForm/AnswerForm.jsx';
+import PopupForm from '../PopupForm/PopupForm.jsx';
 
 const QuestionInfo = ({ question }) => {
   const count = question.question_helpfulness;

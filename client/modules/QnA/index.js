@@ -9,6 +9,8 @@ import Title from '../../components/Title';
 
 const axios = require('axios');
 
+const ProductContext = React.createContext();
+
 const QnA = ({ productId }) => {
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
@@ -93,28 +95,30 @@ const QnA = ({ productId }) => {
   }, [questions, search]);
 
   return (
-    <Container>
-      <Title size={1.7} children="QUESTIONS & ANSWERS" />
-      <SearchBar search={handleSearch} />
-      <EntryContainer
-        questions={filter.length > 0 ? filter : display}
-        searched={search}
-      />
-      {questions.length !== display.length
-        ? (
-          <MoreQuestion
-            name="MORE ANSWERED QUESTIONS"
-            handleOnClick={loadMoreQuestions}
-          />
-        ) : (
-          <MoreQuestion
-            name="COLLAPSE QUESTIONS"
-            handleOnClick={collapseQuestions}
-          />
-        )}
-      <AddQuestion />
-    </Container>
+    <ProductContext.Provider value={productId}>
+      <Container>
+        <Title size={1.7} children="QUESTIONS & ANSWERS" />
+        <SearchBar search={handleSearch} />
+        <EntryContainer
+          questions={filter.length > 0 ? filter : display}
+          searched={search}
+        />
+        {questions.length !== display.length
+          ? (
+            <MoreQuestion
+              name="MORE ANSWERED QUESTIONS"
+              handleOnClick={loadMoreQuestions}
+            />
+          ) : (
+            <MoreQuestion
+              name="COLLAPSE QUESTIONS"
+              handleOnClick={collapseQuestions}
+            />
+          )}
+        <AddQuestion />
+      </Container>
+    </ProductContext.Provider>
   );
 };
 
-export default QnA;
+export { QnA, ProductContext };

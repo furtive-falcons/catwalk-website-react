@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import { FormTextArea } from './AnswerForm/styles.js';
+import { FormTextArea } from './PopupForm/styles.js';
 
 const InputArea = ({
   width, height, label, placeholder, name, getInput,

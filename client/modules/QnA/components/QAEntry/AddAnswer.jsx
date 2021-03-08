@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import LinkTag from '../../../../components/LinkTag';
-import AnswerForm from '../AnswerForm/AnswerForm.jsx';
+import PopupForm from '../PopupForm/PopupForm.jsx';
 
 const AddAnswer = ({ question }) => {
   const [showForm, setForm] = useState(false);
@@ -16,7 +16,7 @@ const AddAnswer = ({ question }) => {
           size={1}
           href={null}
         />
-        {showForm ? <AnswerForm question={question} setForm={setForm} /> : null}
+        {showForm ? <PopupForm question={question} setForm={setForm} formType="answer" /> : null}
       </div>
   );
 };

@@ -6,7 +6,7 @@ const MoreQuestion = ({ name, handleOnClick }) => (
     <Button
       name={name}
       handleOnClick={handleOnClick}
-      primary
+      secondary
       size={25}
     />
   </div>
