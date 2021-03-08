@@ -68,10 +68,10 @@ const ReviewAndRatings = ({ productId }) => {
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
           :
         // some kind of placeholder component to show before the actual component is loaded
-          null}
+          <Ratings placeholder/>}
         {allReviews && meta
           ? <Reviews metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
-          : null}
+          : <Reviews placeholder/>}
       </Container>
     </Main>
   );

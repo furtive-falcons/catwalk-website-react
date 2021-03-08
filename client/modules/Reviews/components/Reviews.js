@@ -8,18 +8,19 @@ import AddReview from './reviewComp/AddReview.js';
 import Form from './reviewComp/formComp/Form.js';
 // import Form from './reviewComp/formComp/Form.js';
 
-const Reviews = ({ data, filters, metaData }) => {
-
+const Reviews = ({
+  data, filters, metaData, placeholder,
+}) => {
   // close modal
   const [showModal, setShow] = useState(false);
-  const closeModal =()=>{
+  const closeModal = () => {
     setShow(false);
   };
 
   // open modal
-  const openModal =()=> {
+  const openModal = () => {
     setShow(true);
-  }
+  };
 
   // Keep track of number of tiles to show
   // default is 2
@@ -109,19 +110,24 @@ const Reviews = ({ data, filters, metaData }) => {
   return (
     <ReviewsContainer>
       {/* review count + sort container */}
-      <TopContainer>
-        <ReviewCount count={data.length} />
-        ,
-        sorted by
-        <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
-      </TopContainer>
-      {/* review list container */}
-      {data.length !== 0
+      {placeholder ? <h4>Loading</h4>
+        : (
+          <>
+            <TopContainer>
+              <ReviewCount count={data.length} />
+              ,
+              sorted by
+              <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
+            </TopContainer>
+            {/* review list container */}
+            {data.length !== 0
       && <ReviewList data={filterData(numTiles, data)} />}
-      {/* buttons container */}
-      <Buttons openModal={openModal} reviewCount={data.length} dataIndex={numTiles} expand={expand} />
-        <AddReview metaData={metaData} closeModal={closeModal} showModal={showModal}/>
-        {/* <Form/> */}
+            {/* buttons container */}
+            <Buttons openModal={openModal} reviewCount={data.length} dataIndex={numTiles} expand={expand} />
+            <AddReview metaData={metaData} closeModal={closeModal} showModal={showModal} />
+            {/* <Form/> */}
+          </>
+        )}
     </ReviewsContainer>
   );
 };
