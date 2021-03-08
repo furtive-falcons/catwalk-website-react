@@ -2,13 +2,14 @@ import React, { Fragment, useState } from 'react';
 import { TileContainer } from './styles.js';
 import {
   ResponseContainer, ReviewContainer,
-  TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful, ImageContainer
+  TopRow, Stars, UserAndDate, Summary, Body, Recommend, ImageContainer
 } from './tileStyles.js';
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
+import Helpful from './Helpful.js';
 
 const Tile = ({
-  body, summary, response, user, date, helpfulness, rating, recommend, images
+  body, summary, response, user, date, helpfulness, rating, recommend, images, review_id
 }) => {
   const [more, showMore] = useState(false);
 
@@ -53,21 +54,7 @@ const Tile = ({
           <span>Response: </span>
           <p>{response}</p>
         </ResponseContainer>
-        <Helpful>
-          Was this helpful?
-          {' '}
-          <span>Yes</span>
-          {' '}
-          (
-          {helpfulness}
-          )
-          {' '}
-          {' '}
-          |
-          {' '}
-          {' '}
-          <span>Report</span>
-        </Helpful>
+        <Helpful review_id={review_id} count={helpfulness}/>
       </ReviewContainer>
     </TileContainer>
   );

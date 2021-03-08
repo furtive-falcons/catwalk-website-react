@@ -7,7 +7,7 @@ const RadioArray = ({ labelList, checked, onChange,name }) => (
       labelList
         && labelList.map((label, index) => (
          <div key={index} className='container'>
-          <input className='radio' value={label} onChange={onChange} checked={checked === label} type="radio" name={name} />
+          <input value={index+1} className='radio' value={label} onChange={onChange} checked={checked === label} type="radio" name={name} />
           <div>{index % 2 === 0 ?label: <br/>}</div>
           </div>
         ))

@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv');
 const productRouter = require('./src/routes/productRoutes');
 const qaRouter = require('./src/routes/qaRoutes');
+const reviewRouer = require('./src/routes/reviewRoutes')
 
 dotenv.config({
   path: './config.env',
@@ -16,6 +17,7 @@ app.use('/api/products', productRouter);
 const PORT = 3001;
 
 app.use('/qa/questions', qaRouter);
+app.use('/api/reviews', reviewRouer);
 // app.get('/', (req, res) => {
 //   res.send(`test`)
 // })

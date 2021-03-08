@@ -78,7 +78,7 @@ const Summary = styled.h4`
 
 `;
 
-const Body = styled.p`
+const Body = styled.div`
   margin-top: 5px;
   // border: 1px solid black;
   font-size: 12px;
@@ -110,7 +110,7 @@ const Recommend = styled.span`
 
 `;
 
-const Helpful = styled.span`
+const HelpfulDiv = styled.span`
   margin-top: 5px;
   // border: 1px solid black;
   font-size: 12px;
@@ -122,6 +122,15 @@ const Helpful = styled.span`
     text-decoration: underline;
   }
 
+  span: hover {
+    cursor: pointer;
+  }
+
+  .reported {
+    cursor: auto,
+    text-decoration: none;
+  }
+
 `;
 
-export {ImageContainer, ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, Helpful };
+export {ImageContainer, ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, HelpfulDiv };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { FormView } from './styles.js';
 import SelectStars from './SelectStars.js';
 import RadioArray from './RadioArray.js';
@@ -7,8 +8,8 @@ import Button from '../../../../../components/Button';
 
 const notes = [
   'For authentication reasons, you will not be emailed',
-  'For privacy reasons, do not use your full name or email address'
-]
+  'For privacy reasons, do not use your full name or email address',
+];
 
 const labels = {
   size: ['Too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'Too big'],
@@ -17,29 +18,63 @@ const labels = {
   quality: ['Poor', 'Below Average', 'Expected', 'Pretty great', 'Perfect'],
   length: ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
   fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long'],
-
 };
 
-const Form = ({closeModal}) => {
+const Form = ({ closeModal, metaData }) => {
   // handle all form inputs here
   const [form, setForm] = useState({
+    rating: 0,
     size: '',
     width: '',
+    length: '',
     comfort: '',
     quality: '',
     recommend: '',
-    Summary: '',
-    Body: '',
-    Nickname: '',
-    Email: '',
+    summary: '',
+    body: '',
+    name: '',
+    email: '',
   });
 
   const [images, setImage] = useState([]);
-  const [checked, setChecked] = useState(null);
+
+  // returns an object containing characteristic Ids and the score for that id
+  // from form data
+  const transformCharactersitics = (formData, metaData) => {
+    // use meta data from get request
+    const refData = metaData.characteristics;
+    const obj = {};
+    // iterate the form data and find all matching keys in both form and meta data
+    for (const factor in formData) {
+      // if key exists then set the key to be the id and value to be the score from user input
+      const metaFactor = factor[0].toUpperCase().concat(factor.slice(1));
+      if (refData[metaFactor]) {
+        // this line can be optimized
+        obj[refData[metaFactor].id] = labels[factor].indexOf(formData[factor]) + 1;
+      }
+    }
+    return obj;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  // submit the content through POST request
+    // construct the object to submit
+    const recommend = form.recommend === 'true';
+    const submitObj = {
+      // photos: images,
+      rating: form.rating,
+      recommend, summary: form.summary,
+      body: form.body,
+      name: form.name,
+      email: form.email,
+      product_id: parseInt(metaData.product_id),
+      characteristics: transformCharactersitics(form, metaData),
+    };
+    console.log(submitObj);
+    // submit the content through POST request
+    axios.post('/api/reviews/post', submitObj)
+      .then((result) => console.log('sucess post!'))
+      .catch((err) => console.log(err));
   // close the page
   };
 
@@ -65,7 +100,7 @@ const Form = ({closeModal}) => {
   // map out all radio components
   const renderRadio = (data, form) => Object.keys(data).map((label, index) => (
     <div key={index} className={label}>
-      <span>{label[0].toUpperCase().concat(label.slice(1))}</span>
+      <span>{label}</span>
       <div>{form[label] ? <span className="selected">{form[label]}</span> : <span className="message">Please select</span>}</div>
       <RadioArray
         onChange={handleChange}
@@ -75,6 +110,14 @@ const Form = ({closeModal}) => {
       />
     </div>
   ));
+
+  // get the rating from stars
+  const getRating = (rating) => {
+    setForm({
+      ...form,
+      rating,
+    });
+  };
 
   return (
     <FormView onSubmit={handleSubmit}>
@@ -87,16 +130,16 @@ const Form = ({closeModal}) => {
         <div className="ratingAndRec">
           <div className="rating">
             <span>Your Overall Rating</span>
-            <SelectStars />
+            <SelectStars getRating={getRating} />
           </div>
           <div className="rec">
             <div className="label">
               Do you recommend this product?
             </div>
-            <label className='answer'>Yes</label>
-            <input name="recommend" onChange={handleChange} value="Yes" checked={form.recommend === 'Yes'} type="radio" />
-            <label className='answer'>No</label>
-            <input name="recommend" onChange={handleChange} value="No" checked={form.recommend === 'No'} type="radio" />
+            <label className="answer">Yes</label>
+            <input name="recommend" onChange={handleChange} value="true" checked={form.recommend === 'true'} type="radio" />
+            <label className="answer">No</label>
+            <input name="recommend" onChange={handleChange} value="false" checked={form.recommend === 'false'} type="radio" />
           </div>
         </div>
 
@@ -106,23 +149,23 @@ const Form = ({closeModal}) => {
 
         <h3>Your Comment</h3>
         <div className="comment">
-          <Input max="60" type="text" label="Summary" handleChange={handleChange} />
+          <Input max="60" type="text" label="summary" handleChange={handleChange} />
           <div className="upload">
             <span>Upload Photo</span>
             <input onChange={uploadImg} type="file" accept="image/*" multiple />
             {images
               && <div className="imageRow">{renderImages(images)}</div>}
           </div>
-          <Input max="1000" type="textarea" label="Body" handleChange={handleChange} />
+          <Input max="1000" type="textarea" label="body" handleChange={handleChange} />
         </div>
 
         <h3>Personal Info</h3>
         <div className="info">
-          <Input note={notes[1]} max="60" type="text" label="Nickname" handleChange={handleChange} />
-          <Input note={notes[0]} max="60" type="text" label="Email" handleChange={handleChange} />
+          <Input note={notes[1]} max="60" type="text" label="name" handleChange={handleChange} />
+          <Input note={notes[0]} max="60" type="text" label="email" handleChange={handleChange} />
         </div>
         <div className="buttons">
-          <input className="button" onClick={closeModal} type="button" value="CANCEL"/>
+          <input className="button" onClick={closeModal} type="button" value="CANCEL" />
           <input className="button" type="submit" value="SUBMIT REVIEW" />
         </div>
       </div>
