@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import Helpful from '../../../../components/Helpful';
 import AddAnswer from './AddAnswer.jsx';
 import { StyledSeperator } from './styles.js';
+import PopupForm from '../PopupForm/PopupForm.jsx';
 
 const QuestionInfo = ({ question }) => {
   const count = question.question_helpfulness;
   const [yesCount, setYesCount] = useState(count);
   const [yes, setYes] = useState(false);
+
   const handleOnClick = (e) => {
     e.preventDefault();
     if (!yes) {
@@ -25,7 +27,7 @@ const QuestionInfo = ({ question }) => {
         />
       </div>
       <StyledSeperator />
-      <AddAnswer />
+      <AddAnswer question={question} />
     </>
   );
 };

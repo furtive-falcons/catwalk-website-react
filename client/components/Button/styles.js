@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colorPrimary, colorGreen, colorWhite } from '../../ui/ui-colors';
 
 export const ButtonStyles = styled.button`
   text-decoration: solid;
@@ -11,4 +12,18 @@ export const ButtonStyles = styled.button`
 export const Primary = styled(ButtonStyles)`
   width: ${(props) => props.size}rem;
   border-radius: 0;
+`;
+
+export const Secondary = styled(ButtonStyles)`
+  width: ${(props) => props.size}rem;
+  border-radius: 1rem;
+  border: none;
+  color: ${colorWhite};
+  background: ${colorPrimary};
+  :hover {
+    background: ${colorGreen};
+  }
+  :active {
+    transform: scale(0.95);
+  }
 `;

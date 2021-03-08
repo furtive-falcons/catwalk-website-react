@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorGreyLight2 } from '../../ui/ui-colors';
+import { colorGreyLight2, colorWhite } from '../../ui/ui-colors';
 
 const Thumbnail = styled.img`
   width: 10rem;
@@ -66,7 +66,7 @@ const ModalBackground = styled.div`
     position: absolute;
     top: 10%;
     right: 10%;
-    color: #fff;
+    color: ${colorWhite};
     cursor: pointer;
     width: 3rem;
     height: 3rem;
