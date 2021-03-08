@@ -10,12 +10,13 @@ const messages = {
   4: 'Great'
 };
 
-const SelectableStars = () => {
+const SelectableStars = ({getRating}) => {
   const [off, setOff] = useState(true);
   const [index, setIndex] = useState(-1);
 
   const click = (id) => {
     // get the index
+    getRating(id+1);
     setIndex(id);
   };
   // 1. have all stars empty

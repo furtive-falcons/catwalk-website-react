@@ -7,6 +7,7 @@ const FormView = styled.form`
   align-items: center;
   font-size: 1.5rem;
   width: 100%;
+  height: 100%;
   min-width: 750px;
 
   .rec {
