@@ -11,11 +11,11 @@ const AddToCart = ({ styles, selectedStyle }) => {
 
   const handleSizeChange = (e) => {
     const selected = Object.values(selectedSizes).find(
-      (el) => el.size === e.target.value,
+      (el) => el.size === e.target.value
     );
 
     setQuantityOptions(
-      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1),
+      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1)
     );
   };
 
@@ -23,11 +23,10 @@ const AddToCart = ({ styles, selectedStyle }) => {
     <>
       <DropDown
         handleOnChange={handleSizeChange}
-        size={60.66 / 100}
+        size={60}
         options={['SELECT SIZE', ...sizes]}
       />
-      <DropDown size={30.33 / 100} options={quantityOptions} />
-      <br />
+      <DropDown size={30} options={quantityOptions} />
       <Button size={25} icon="plus" primary name="Add To Bag" />
       <Button primary icon="star" />
     </>

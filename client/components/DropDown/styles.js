@@ -6,7 +6,7 @@ const StyledSelect = styled.select`
   margin: 0.5rem;
   border: 0.5rem;
   padding: 1rem;
-  height: 50px;
+  height: 5rem;
   background-color: ${colorWhite};
 `;
 

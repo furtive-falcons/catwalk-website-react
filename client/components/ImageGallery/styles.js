@@ -5,7 +5,7 @@ import { fontSizeLarge, fontSizeLargePlus } from '../../ui/ui-fonts';
 export const ImageGalleryWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  height: 70vh;
+  height: 80vh;
 `;
 
 export const Slide = styled.div(({ image, position }) => ({
