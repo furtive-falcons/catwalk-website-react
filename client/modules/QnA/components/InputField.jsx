@@ -1,35 +1,26 @@
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React from 'react';
 import { FormInputField } from './AnswerForm/styles.js';
 
 const InputField = ({
-  type, width, height, label, placeholder,
-}) => {
-  const [input, setInput] = useState('');
-
-  const handleChange = (event) => {
-    event.preventDefault();
-    setInput(event.target.value);
-  };
-
-  return (
-    <>
-      <label htmlFor={label}>
-        {label}
-        <span> *</span>
-      </label>
-      <FormInputField
-        type={type}
-        value={input}
-        onChange={(event) => handleChange(event)}
-        width={width}
-        height={height}
-        placeholder={placeholder}
-        maxLength="60"
-        required
-      />
-    </>
-  );
-};
+  type, width, height, label, placeholder, getInput, name,
+}) => (
+  <>
+    <label htmlFor={label}>
+      {label}
+      <span> *</span>
+    </label>
+    <FormInputField
+      type={type}
+      name={name}
+      onChange={getInput}
+      width={width}
+      height={height}
+      placeholder={placeholder}
+      maxLength="60"
+      required
+    />
+  </>
+);
 
 export default InputField;

@@ -23,4 +23,7 @@ export const Secondary = styled(ButtonStyles)`
   :hover {
     background: ${colorGreen};
   }
+  :active {
+    transform: scale(0.95);
+  }
 `;

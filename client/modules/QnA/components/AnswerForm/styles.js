@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { colorWhite, colorGreyLight2, colorGreyLight1 } from '../../../../ui/ui-colors';
+import { colorWhite, colorGreyLight2, } from '../../../../ui/ui-colors';
 
 const ModalForm = styled.div`
   position: fixed;
   display: flex;
   background-color: rgba(0, 0, 0, 0.9);
-  z-infex: 1;
+  z-index: 2;
   height: 100%
   width: 100%;
   left: 0;
@@ -26,7 +26,6 @@ const ModalWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 5rem auto repeat(2, 10rem) 3fr 1fr;
   grid-gap: 0.5rem;
-  z-index: 2;
   background-color: ${colorWhite};
   color: ${colorGreyLight2};
   align-items: center;
@@ -116,6 +115,7 @@ font-size: 1.5rem;
 border-radius: 5px;
 padding: 1rem;
 border: none;
+resize: none;
 ::placeholder{
   font-size: 1.2rem;
   color: #c9;
