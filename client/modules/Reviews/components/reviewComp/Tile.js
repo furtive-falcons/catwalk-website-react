@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { TileContainer } from './styles.js';
 import {
   ResponseContainer, ReviewContainer,
-  TopRow, Stars, UserAndDate, Summary, Body, Recommend, ImageContainer
+  TopRow, Stars, UserAndDate, Summary, Body, Recommend, ImageContainer,
 } from './tileStyles.js';
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
@@ -10,14 +10,10 @@ import Helpful from './Helpful.js';
 import ImageModal from '../../../../components/ImagePopUp';
 
 const Tile = ({
-  body, summary, response, user, date, helpfulness, rating, recommend, images, review_id
+  body, summary, response, user, date, helpfulness, rating, recommend, images, review_id,
 }) => {
   const [more, showMore] = useState(false);
-  const imageUrls = (images) => {
-    return images.map(image=>
-      image.url
-    );
-  };
+  const imageUrls = (images) => images.map((image) => image.url);
 
   // render images
   // const renderImages = (data) => data.map((img, index) => <img key={index} alt="comment pics" className="img" src={img.url} />);
@@ -45,10 +41,11 @@ const Tile = ({
               </>
             )
             : body}
-        <ImageContainer>
-          {/* {images && renderImages(images)} */}
-          <ImageModal images={imageUrls(images)}/>
-        </ImageContainer>
+          <ImageContainer>
+            {/* {images && renderImages(images)} */}
+            {images
+          && <ImageModal images={imageUrls(images)} />}
+          </ImageContainer>
         </Body>
         {recommend
         && (
@@ -61,7 +58,7 @@ const Tile = ({
           <span>Response: </span>
           <p>{response}</p>
         </ResponseContainer>
-        <Helpful review_id={review_id} count={helpfulness}/>
+        <Helpful review_id={review_id} count={helpfulness} />
       </ReviewContainer>
     </TileContainer>
   );
