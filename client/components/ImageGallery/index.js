@@ -12,7 +12,7 @@ import {
   IconStylesWrapper,
 } from './styles';
 
-const ImageGallery = ({ photos }) => {
+const ImageGallery = ({ photos, setToggle, toggle }) => {
   const [index, setIndex] = React.useState(0);
 
   const renderThumbnails = (item, i) => (
@@ -33,6 +33,11 @@ const ImageGallery = ({ photos }) => {
     }
   }, [index]);
 
+  const handleOnClick = () => {
+    console.log('test');
+    setToggle(!toggle);
+  };
+
   return (
     <ImageGalleryWrapper>
       {photos.map((photo, personIndex) => {
@@ -43,8 +48,8 @@ const ImageGallery = ({ photos }) => {
           position = '0';
         }
         if (
-          personIndex === index - 1
-          || (index === 0 && personIndex === photos.length - 1)
+          personIndex === index - 1 ||
+          (index === 0 && personIndex === photos.length - 1)
         ) {
           position = '-100%';
         }
@@ -68,7 +73,7 @@ const ImageGallery = ({ photos }) => {
       </Arrows>
       <Pagination>{photos.map(renderThumbnails)}</Pagination>
       <ExpandWrapper>
-        <IconStylesWrapper isVisible>
+        <IconStylesWrapper onClick={handleOnClick} isVisible>
           <IconStyles className="fas fa-expand" />
         </IconStylesWrapper>
       </ExpandWrapper>

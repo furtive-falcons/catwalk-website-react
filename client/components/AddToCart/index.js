@@ -23,10 +23,10 @@ const AddToCart = ({ styles, selectedStyle }) => {
     <>
       <DropDown
         handleOnChange={handleSizeChange}
-        size="60.66%"
+        size={60.66 / 100}
         options={['SELECT SIZE', ...sizes]}
       />
-      <DropDown size="30.33%" options={quantityOptions} />
+      <DropDown size={30.33 / 100} options={quantityOptions} />
       <br />
       <Button size={25} icon="plus" primary name="Add To Bag" />
       <Button primary icon="star" />
