@@ -4,8 +4,9 @@ const usedReviewIdsUpvote = {};
 const usedReviewIdsReport ={};
 
 exports.getReviews = (req, res) => {
-  const url = `${process.env.API_URL}`;
+  const url = `${process.env.API_URL}/reviews`;
   axios(url, {
+    method: 'get',
     headers: {
       Authorization: process.env.API_KEY,
     },
@@ -23,8 +24,9 @@ exports.getReviews = (req, res) => {
 };
 
 exports.getMeta = (req, res) => {
-  const url = `${process.env.API_URL}/meta`;
+  const url = `${process.env.API_URL}/reviews/meta`;
   axios(url, {
+    method: 'get',
     headers: {
       Authorization: process.env.API_KEY,
     },
@@ -39,7 +41,7 @@ exports.getMeta = (req, res) => {
 };
 
 exports.post= (req, res) => {
-  const url = `${process.env.API_URL}`;
+  const url = `${process.env.API_URL}/reviews`;
   axios(url, {
     method: 'post',
     headers: {
@@ -67,7 +69,7 @@ exports.upVote = (req, res) => {
   // check if id already exist, if not then make the call
   if (!usedReviewIdsUpvote.hasOwnProperty(req.body.review_id)) {
     usedReviewIdsUpvote[req.body.review_id] = true;
-    const url = `${process.env.API_URL}/${req.body.review_id}/helpful`;
+    const url = `${process.env.API_URL}/reviews/${req.body.review_id}/helpful`;
     axios(url, {
       method: 'put',
       headers: {
@@ -88,7 +90,7 @@ exports.report = (req, res) => {
   // check if id already exist, if not then make the call
   if (!usedReviewIdsReport.hasOwnProperty(req.body.review_id)) {
     usedReviewIdsReport[req.body.review_id] = true;
-    const url = `${process.env.API_URL}/${req.body.review_id}/report`;
+    const url = `${process.env.API_URL}/reviews/${req.body.review_id}/report`;
     axios(url, {
       method: 'put',
       headers: {
