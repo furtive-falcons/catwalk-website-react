@@ -35,10 +35,10 @@ const ReviewAndRatings = ({ productId }) => {
   };
 
   // get all reviews
-  const getAllReviews = (productId) => axios.get(`/api/reviews?product_id=${productId}`);
+  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}`);
 
   // get meta data
-  const getMeta = (productId) => axios.get(`/api/reviews/meta?product_id=${productId}`);
+  const getMeta = (productId) => axios.get(`/reviews/meta?product_id=${productId}`);
 
   useEffect(() => {
     // first get all reviews
@@ -59,16 +59,14 @@ const ReviewAndRatings = ({ productId }) => {
     <Main id="reviews">
       <Header>REVIEWS & RATINGS</Header>
       <Container id="mainWrapper">
-        {/* {allReviews && meta
+        {allReviews && meta
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
           :
         // some kind of placeholder component to show before the actual component is loaded
           <Ratings placeholder/>}
         {allReviews && meta
           ? <Reviews metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
-          : <Reviews placeholder/>} */}
-          <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={dummy2} data={dummy.results} id="ratings" />
-          <Reviews metaData={dummy2} filters={filters} data={dummy.results} id="reviews" />
+          : <Reviews placeholder/>}
       </Container>
     </Main>
   );

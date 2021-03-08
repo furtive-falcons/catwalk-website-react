@@ -1,14 +1,16 @@
 import React from 'react';
 import { InputDiv } from './styles.js';
 
-const Input = ({note, max, label, type, handleChange, value}) => (
+const Input = ({
+  note, max, label, type, handleChange, value, regex, placeholder
+}) => (
   <InputDiv>
     {
     type === 'text'
     && (
     <div>
-      <input maxLength={max} className='input' placeholder={label} name={label} onChange={handleChange} value={value} type="text" />
-      <div className='note'>{note}</div >
+      <input pattern = {regex} maxLength={max} className="input" placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" required />
+      <div className="note">{note}</div>
     </div>
     )
 }
@@ -16,9 +18,10 @@ const Input = ({note, max, label, type, handleChange, value}) => (
     type === 'textarea'
     && (
     <div>
-      <textarea maxLength={max} placeholder={label} name={label} onChange={handleChange} value={value} type="text" />
+      <textarea maxLength={max} placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" />
     </div>
-    )}
+    )
+}
   </InputDiv>
 );
 

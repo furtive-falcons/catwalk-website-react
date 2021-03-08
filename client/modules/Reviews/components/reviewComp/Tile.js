@@ -7,14 +7,20 @@ import {
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
 import Helpful from './Helpful.js';
+import ImageModal from '../../../../components/ImagePopUp';
 
 const Tile = ({
   body, summary, response, user, date, helpfulness, rating, recommend, images, review_id
 }) => {
   const [more, showMore] = useState(false);
+  const imageUrls = (images) => {
+    return images.map(image=>
+      image.url
+    );
+  };
 
   // render images
-  const renderImages = (data) => data.map((img, index) => <img key={index} alt="comment pics" className="img" src={img.url} />);
+  // const renderImages = (data) => data.map((img, index) => <img key={index} alt="comment pics" className="img" src={img.url} />);
 
   return (
     <TileContainer id="tile">
@@ -40,7 +46,8 @@ const Tile = ({
             )
             : body}
         <ImageContainer>
-          {images && renderImages(images)}
+          {/* {images && renderImages(images)} */}
+          <ImageModal images={imageUrls(images)}/>
         </ImageContainer>
         </Body>
         {recommend

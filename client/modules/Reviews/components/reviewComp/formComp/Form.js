@@ -70,12 +70,10 @@ const Form = ({ closeModal, metaData }) => {
       product_id: parseInt(metaData.product_id),
       characteristics: transformCharactersitics(form, metaData),
     };
-    console.log(submitObj);
-    // submit the content through POST request
-    axios.post('/api/reviews/post', submitObj)
-      .then((result) => console.log('sucess post!'))
+    // submit the content through POST request and close the page upon success post
+    axios.post('reviews/post', submitObj)
+      .then((result) => closeModal())
       .catch((err) => console.log(err));
-  // close the page
   };
 
   const handleChange = (e) => {
@@ -100,7 +98,7 @@ const Form = ({ closeModal, metaData }) => {
   // map out all radio components
   const renderRadio = (data, form) => Object.keys(data).map((label, index) => (
     <div key={index} className={label}>
-      <span>{label}</span>
+      <span>{label[0].toUpperCase().concat(label.slice(1))}</span>
       <div>{form[label] ? <span className="selected">{form[label]}</span> : <span className="message">Please select</span>}</div>
       <RadioArray
         onChange={handleChange}
@@ -137,9 +135,9 @@ const Form = ({ closeModal, metaData }) => {
               Do you recommend this product?
             </div>
             <label className="answer">Yes</label>
-            <input name="recommend" onChange={handleChange} value="true" checked={form.recommend === 'true'} type="radio" />
+            <input name="recommend" onChange={handleChange} value="true" checked={form.recommend === 'true'} type="radio" required/>
             <label className="answer">No</label>
-            <input name="recommend" onChange={handleChange} value="false" checked={form.recommend === 'false'} type="radio" />
+            <input name="recommend" onChange={handleChange} value="false" checked={form.recommend === 'false'} type="radio"  required/>
           </div>
         </div>
 
@@ -149,20 +147,20 @@ const Form = ({ closeModal, metaData }) => {
 
         <h3>Your Comment</h3>
         <div className="comment">
-          <Input max="60" type="text" label="summary" handleChange={handleChange} />
+          <Input placeholder='Best pants ever!' max="60" type="text" label="summary" handleChange={handleChange} />
           <div className="upload">
             <span>Upload Photo</span>
             <input onChange={uploadImg} type="file" accept="image/*" multiple />
             {images
               && <div className="imageRow">{renderImages(images)}</div>}
           </div>
-          <Input max="1000" type="textarea" label="body" handleChange={handleChange} />
+          <Input placeholder='Why did you like this product' max="1000" type="textarea" label="body" handleChange={handleChange} />
         </div>
 
         <h3>Personal Info</h3>
         <div className="info">
-          <Input note={notes[1]} max="60" type="text" label="name" handleChange={handleChange} />
-          <Input note={notes[0]} max="60" type="text" label="email" handleChange={handleChange} />
+          <Input placeholder ='Example: jack123' note={notes[1]} max="60" type="text" label="name" handleChange={handleChange} />
+          <Input placeholder ='Example: abc@email.com'  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" note={notes[0]} max="60" type="text" label="email" handleChange={handleChange} />
         </div>
         <div className="buttons">
           <input className="button" onClick={closeModal} type="button" value="CANCEL" />

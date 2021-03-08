@@ -13,13 +13,13 @@ const Helpful = ({ count, review_id }) => {
   const [statusCodeReport, setStatusReport] = useState(null);
 
   const upVote = (review_id) => {
-    axios.post('/api/reviews/upvote', { review_id })
+    axios.post('reviews/upvote', { review_id })
       .then((result) => setStatusUpvote(result.status))
       .catch((err) => console.log(err));
   };
 
   const report = (review_id) => {
-    axios.post('/api/reviews/report', { review_id })
+    axios.post('reviews/report', { review_id })
       .then((result) => setStatusReport(result.status))
       .catch((err) => console.log(err));
   };

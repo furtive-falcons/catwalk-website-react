@@ -26,7 +26,13 @@ const FormView = styled.form`
     width: 95%;
     height: 35px;
     font-size: 1.3rem;
+    padding: 2%;
+
   }
+
+  // .input: invalid {
+  //   border: 2px solid red;
+  // }
 
   textarea {
     width: 100%;
