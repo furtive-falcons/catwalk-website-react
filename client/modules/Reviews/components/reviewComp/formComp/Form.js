@@ -98,7 +98,7 @@ const Form = ({ closeModal, metaData }) => {
   // map out all radio components
   const renderRadio = (data, form) => Object.keys(data).map((label, index) => (
     <div key={index} className={label}>
-      <span>{label[0].toUpperCase().concat(label.slice(1))}</span>
+      <span>{label}</span>
       <div>{form[label] ? <span className="selected">{form[label]}</span> : <span className="message">Please select</span>}</div>
       <RadioArray
         onChange={handleChange}
