@@ -23,7 +23,7 @@ const ReviewAndRatings = ({ productId }) => {
         return filters;
       });
     } else {
-    // if not then set the filter to true
+      // if not then set the filter to true
       target[filter] = true;
     }
     setFilter((filters) => Object.assign(target, filters));
@@ -56,13 +56,8 @@ const ReviewAndRatings = ({ productId }) => {
   }, [productId]);
 
   return (
-    <Main>
-      <Header>
-        REVIEWS
-        &
-        {' '}
-        RATINGS
-      </Header>
+    <Main id="reviews">
+      <Header>REVIEWS & RATINGS</Header>
       <Container id="mainWrapper">
         {allReviews && meta
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />

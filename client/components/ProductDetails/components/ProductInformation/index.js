@@ -15,7 +15,7 @@ const ProductInformation = ({ product, selectedStyle }) => product && (
   <ReviewsLine>
     <StarRating size={15} rating={product.ratingAverage} />
     <WithMargins margin="1rem">
-      <LinkTag size={fontSizeSmaller}>Read all reviews</LinkTag>
+      <LinkTag href="#reviews" size={fontSizeSmaller}>Read all reviews</LinkTag>
     </WithMargins>
   </ReviewsLine>
   <ProductCategoryStyles>

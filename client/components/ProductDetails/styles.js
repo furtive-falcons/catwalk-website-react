@@ -15,7 +15,7 @@ const DivStyles = styled.div`
       1fr [full-end];
   }
   .header {
-    grid-column: full-start/ full-end;
+    grid-column: full-start / full-end;
     grid-row: 1 / 2;
   }
   .banner {
@@ -25,28 +25,34 @@ const DivStyles = styled.div`
     grid-row: 2 / 3;
   }
   .gallery {
-    grid-column: center-start / col-end 8;
-    grid-row: 3 / 9;
+    grid-column: full-start /
+      ${(props) => (props.toggle ? 'full-end' : 'col-end 7')};
+    grid-row: 3 / ${(props) => (props.toggle ? -1 : 9)};
   }
   .info {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / full-end;
     grid-row: 3 / 5;
+    padding: 2rem;
   }
   .selector {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / full-end;
     grid-row: 5 / 7;
+    padding: 2rem;
   }
   .cart {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / full-end;
     grid-row: 7 / 9;
+    padding: 2rem;
   }
   .slogan {
-    grid-column: center-start / col-end 8;
+    grid-column: center-start / col-end 7;
     grid-row: 9 / -1;
+    padding: 2rem;
   }
   .checkList {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / full-end;
     grid-row: 9 / -1;
+    padding: 2rem;
   }
 `;
 

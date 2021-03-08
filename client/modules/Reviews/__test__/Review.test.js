@@ -25,7 +25,7 @@ test('Reviews component exists', () => {
   expect (wrapper).toBeTruthy()
   // expect(appComponent.length).toBe(1);
 
-});
+// });
 
 // Expect Ratings component exists
 test('Ratings component exists', () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { func, number, shape } from 'prop-types';
 import AddToCart from '../AddToCart';
 import ImageGallery from '../ImageGallery';
@@ -11,7 +11,13 @@ import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
 
-const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
+const ProductDetails = ({
+  product,
+  setSelectedStyle,
+  selectedStyle,
+}) => {
+  const [toggle, setToggle] = useState(false);
+
   const renderHeader = () => (
     <div className="header">
       <Header />
@@ -27,6 +33,8 @@ const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
   const renderHGallery = () => (
     <div className="gallery">
       <ImageGallery
+        toggle={toggle}
+        setToggle={setToggle}
         photos={product.productStyles.results[selectedStyle].photos}
       />
     </div>
@@ -75,7 +83,7 @@ const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
   if (!product) return null;
 
   return (
-    <DivStyles data-test="component-details">
+    <DivStyles toggle={toggle} data-test="component-details">
       <div className="container">
         {renderHeader()}
         {renderBanner()}
