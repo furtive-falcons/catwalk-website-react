@@ -51,3 +51,18 @@ exports.postAnswer = (req, res) => {
     .then(() => res.sendStatus(201))
     .catch((err) => res.status(403).send(err));
 };
+
+exports.putQuestionHelpful = (req, res) => {
+  const url = `${process.env.API_URL}/qa/questions/${req.params.question_id}/helpful`;
+  axios(url, {
+    method: 'put',
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+    data: {
+      question_helpfulness: req.body.question_helpfulness,
+    },
+  })
+    .then(() => res.sendStatus(204))
+    .catch((err) => res.status(403).send(err));
+};

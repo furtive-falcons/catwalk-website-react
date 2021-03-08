@@ -9,4 +9,6 @@ router.post('/', qaController.postQuestion);
 
 router.post('/:question_id/answers', qaController.postAnswer);
 
+router.put('/:question_id/helpful', qaController.putQuestionHelpful);
+
 module.exports = router;
