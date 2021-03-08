@@ -25,9 +25,16 @@ exports.getRelatedProducts = async (req, res) => {
         headers: {
           Authorization: process.env.API_KEY,
         },
-      }); 
+      });
+      
+      const filteredStyles = relatedStyles.results.filter(relatedStyle => {
+        return relatedStyle["default?"]
+      })
+
+      console.log('filteredStyles', filteredStyles)
          
-      relatedProduct.defaultStyle = relatedStyles.results[0];
+      // relatedProduct.defaultStyle = relatedStyles.results[0];
+      relatedProduct.defaultStyle = filteredStyles;
 
       const allRelatedRating = `${process.env.API_URL}`;
       const { data: relatedRatingAverage } = await axios(`${allRelatedRating}/reviews/meta?product_id=${relatedProductsArray[i]}`, {

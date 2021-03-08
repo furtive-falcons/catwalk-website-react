@@ -7,14 +7,15 @@ import AvgRating from './components/AvgRating/AvgRating';
 // import ProductCategory from '../../../../../../../../components/ProductCategory';
 // import Price from '../../../../../../../../components/Price';
 // import ProductTitle from '../../../../../../../../components/ProductTitle';
-// import StarRating from '../../../../../../../../components/StarRating';
+import StarRating from '../../../../../../../../components/StarRating';
 
 const CardDetails = ({ card }) => (
   <div>
     <Category card={card.category} />
     <ProductName card={card.name} />
     <Price card={`$${card.default_price}`} />
-    <AvgRating />
+    {/* <AvgRating /> */}
+    <StarRating rating={card.ratingAverage}/>
   </div>
 );
 

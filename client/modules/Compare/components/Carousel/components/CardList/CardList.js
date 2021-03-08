@@ -9,12 +9,12 @@ import Button from '../../../../../../components/Button'
 // map over all cards in related products
 const CardList = ({ cardList }) => {
   const [index, setIndex] = useState(0);
-  
-  if (!Array.isArray(cardList) || cardList.length <= 0 ) {
+  console.log('cardList1', cardList.data)
+  if (!Array.isArray(cardList.data) || cardList.data.length <= 0 ) {
     return null;
   } 
   
-  const length = cardList.length;
+  const length = cardList.data.length;
 
   const canGoLeft = index > 0
   
@@ -32,9 +32,8 @@ const CardList = ({ cardList }) => {
     }
   }
 
-  // let cardListArr = [1, 2, 3, 4, 5];
-  // let index = 0;
-  let cardListPage = cardList.slice(index, index + 5);
+  console.log('cardList2', cardList.data)
+  let cardListPage = cardList.data.slice(index, index + 5);
 
   return (
     <CardListContainer>
@@ -52,14 +51,12 @@ const CardList = ({ cardList }) => {
         {canGoRight ? <Button className="right-prev-button" handleOnClick={goRight} primary icon="chevron-right">
         </Button> : null} */}
       </ButtonContainer>
-      {cardListPage.map((card) => {
+      {cardListPage.map(card => {
         return (
-          <div className="card">
-              <CardContainer key={card.id}>
-                <CardAssets card={card} key={`assets_${card.id}`} />
-                <CardDetails card={card} key={`details_${card.id}`} />
-              </CardContainer>
-          </div>
+          <CardContainer key={`container_${card.id}`}>
+              <CardAssets card={card} key={`assets_${card.id}`} />
+              {/* <CardDetails card={card} key={`details_${card.id}`} /> */}
+          </CardContainer>
         )
       })}
     </CardListContainer>
@@ -70,125 +67,9 @@ export default CardList;
 
 /* 
 
-this works mostly
-import React, { useState } from 'react';
-import CardAssets from './components/CardAssets/CardAssets';
-import CardDetails from './components/CardDetails/CardDetails';
-import { CardListContainer, CardContainer, ButtonContainer} from './styles';
-// import LeftButton from '../LeftButton/LeftButton';
-// import RightButton from '../RightButton/RightButton';
-
-// map over all cards in related products
-const CardList = ({ cardList }) => {
-  const [x, setX] = useState(0);
-  const length = cardList.length;
-  
-  const goLeft = () => {
-    (x === 0) ? setX( -100 * (cardList.length - 1)) : setX(x + 100);
-  }
-
-  const goRight  = () => {
-    (x === -100 * (cardList.length - 1)) ? setX(0) : setX(x - 100);
-  }
-
-  if (!Array.isArray(cardList) || cardList.length <= 0 ) {
-    return null;
-  } 
-
-  // let cardListArr = [1, 2, 3, 4, 5];
-
-  return (
-    <CardListContainer>
-      <ButtonContainer>
-
-        <button className="left-prev-button" type="button" label="left" onClick={goLeft}>
-          <i className="fas fa-chevron-left" />
-        </button>
-        <button className="right-prev-button" type="button" lable="right" onClick={goRight}>
-          <i className="fas fa-chevron-right" />
-        </button>
-      </ButtonContainer>
-      {cardList.map((card, index) => {
-        return (
-          <div className="card" style={{ transform: `translateX(${x}%)`}}>
-              <CardContainer key={card.id}>
-                <CardAssets card={card} key={`assets_${card.id}`} />
-                <CardDetails card={card} key={`details_${card.id}`} />
-              </CardContainer>
-          </div>
-        )
-      })}
-    </CardListContainer>
-  )
-};
-
-export default CardList;
-*/
-
-
-
-
-
-// let settings = {
-//   infinite: false,
-//   speed: 1000,
-//   arrows: true,
-//   slidesToShow: 5,
-//   slidesToScroll: 4,
-// }
-/* import React, { useState } from 'react';
-import CardAssets from './components/CardAssets/CardAssets';
-import CardDetails from './components/CardDetails/CardDetails';
-import { CardListContainer, CardContainer, ButtonContainer} from './styles';
-// import LeftButton from '../LeftButton/LeftButton';
-// import RightButton from '../RightButton/RightButton';
-
-// map over all cards in related products
-const CardList = ({ cardList }) => {
-  const [current, setCurrent] = useState(0);
-  const length = cardList.length;
-
-  const nextCard  = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
-  }
-
-  const prevCard  = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1)
-  }
-
-
-  if (!Array.isArray(cardList) || cardList.length <= 0 ) {
-    return null;
-  } 
-
-  let cardListArr = [1, 2, 3, 4, 5];
-
-  return (
-    <CardListContainer>
-      <ButtonContainer>
-        <button className="left-prev-button" type="button" label="left" onClick={prevCard}>
-          <i className="fas fa-chevron-left" />
-        </button>
-        <button className="right-prev-button" type="button" lable="right" onClick={nextCard}>
-          <i className="fas fa-chevron-right" />
-        </button>
-      </ButtonContainer>
-      {cardList.map((card, index) => {
-        return (
-          <div className={index === current ? 'card active' : 'card'} key={`className_${card.id}`}>
-            {index === current && (
-              <CardContainer key={card.id}>
-                <CardAssets card={card} key={`assets_${card.id}`} />
-                <CardDetails card={card} key={`details_${card.id}`} />
-              </CardContainer>
-            )}
-          </div>
-        )
-      })}
-    </CardListContainer>
-  )
-};
-
-export default CardList;
-
+<>
+  {hasImage ? <CardContainer key={`container_${card.id}`}>
+    <CardAssets card={card} key={`assets_${card.id}`} />
+    </CardContainer> : null}
+</>
 */
