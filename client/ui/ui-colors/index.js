@@ -7,3 +7,5 @@ export const colorGreyLight1 = '#363A40';
 export const colorGreyLight2 = '#262626';
 
 export const colorWhite = '#F2F2F2';
+
+export const colorGreen = '#43a64b';

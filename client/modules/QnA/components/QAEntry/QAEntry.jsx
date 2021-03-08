@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Question from './Question.jsx';
 import LoadAndCollapse from './LoadAndCollapse.jsx';
 import { Entry } from './styles.js';
-import Title from '../Title.jsx';
 import QuestionInfo from './QuestionInfo.jsx';
 import AnswerContainer from './AnswerContainer.jsx';
+import Title from '../../../../components/Title';
 
 const QAEntry = ({ question, searched }) => {
   const answers = Object.values(question.answers);
@@ -42,11 +42,11 @@ const QAEntry = ({ question, searched }) => {
   return (
     <Entry className="container">
       <div className="q">
-        <Title fontSize="1.7rem" title="Q:" />
+        <Title size={1.7} children="Q:" />
       </div>
       <Question body={question.question_body} />
       <div className="a">
-        <Title fontSize="1.7rem" title="A:" />
+        <Title size={1.7} children="A:" />
       </div>
       <AnswerContainer
         display={display}
@@ -54,7 +54,7 @@ const QAEntry = ({ question, searched }) => {
         searched={searched}
       />
       <QuestionInfo question={question} />
-      { ans.length === 2 ? null
+      { ans.length < 3 ? null
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}

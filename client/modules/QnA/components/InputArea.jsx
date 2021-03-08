@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import { FormInputField } from './AnswerForm/styles.js';
+import { FormTextArea } from './AnswerForm/styles.js';
 
-const InputField = ({
-  type, width, height, label, placeholder,
+const InputArea = ({
+  width, height, label, placeholder,
 }) => {
   const [input, setInput] = useState('');
 
@@ -18,18 +18,17 @@ const InputField = ({
         {label}
         <span> *</span>
       </label>
-      <FormInputField
-        type={type}
+      <FormTextArea
         value={input}
         onChange={(event) => handleChange(event)}
         width={width}
         height={height}
         placeholder={placeholder}
-        maxLength="60"
+        maxLength="1000"
         required
       />
     </>
   );
 };
 
-export default InputField;
+export default InputArea;

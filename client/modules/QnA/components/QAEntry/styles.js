@@ -5,9 +5,10 @@ import { colorGreyLight2 } from '../../../../ui/ui-colors/index.js';
 const Entry = styled.div`
 
     display: grid;
-    grid-template-columns: 2rem auto 8rem 1rem 8rem;
-    grid-template-rows: minmax(min-content, 10rem) auto repeat(2 minmax(min-content, 10rem))
+    grid-template-columns: 3rem auto 8rem 1rem 8rem;
+    grid-template-rows: minmax(1.5rem, 10rem) auto repeat(2 minmax(min-content, 10rem))
     grid-auto-rows: minmax(min-content, 5rem);
+    grid-gap: 0.5rem;
     align-items: center;
 
   .question {
@@ -45,6 +46,7 @@ const Entry = styled.div`
     grid-row: 1 / 2;
     cursor: pointer;
     text-decoration: underline
+    width: 5rem;
   }
 
   .load-more-answer {
@@ -53,6 +55,7 @@ const Entry = styled.div`
     font-weight: 700;
     cursor: pointer;
     margin-bottom: 1rem;
+    width: 12rem;
   }
 
   .q {

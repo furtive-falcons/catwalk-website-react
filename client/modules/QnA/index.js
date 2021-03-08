@@ -1,11 +1,11 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar.jsx';
-import Title from './components/Title.jsx';
 import EntryContainer from './components/EntryContainer.jsx';
 import MoreQuestion from './components/MoreQuestion.jsx';
 import AddQuestion from './components/AddQuestion.jsx';
 import { Container } from './styles.js';
+import Title from '../../components/Title';
 
 const axios = require('axios');
 
@@ -94,7 +94,7 @@ const QnA = ({ productId }) => {
 
   return (
     <Container>
-      <Title fontSize="1.6rem" title="QUESTIONS & ANSWERS" />
+      <Title size={1.7} children="QUESTIONS & ANSWERS" />
       <SearchBar search={handleSearch} />
       <EntryContainer
         questions={filter.length > 0 ? filter : display}
