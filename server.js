@@ -23,5 +23,6 @@ app.use('/api/reviews', reviewRouer);
 // })
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Port: ${PORT}`);
 });

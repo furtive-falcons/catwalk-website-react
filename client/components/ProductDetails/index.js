@@ -59,13 +59,16 @@ const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
 
   const renderSlogan = () => (
     <div className="slogan">
-      <Slogan />
+      <Slogan
+        slogan={product.productInformation.slogan}
+        description={product.productInformation.description}
+      />
     </div>
   );
 
   const renderChecklist = () => (
     <div className="checkList">
-      <CheckList />
+      <CheckList features={product.productInformation.features} />
     </div>
   );
 
