@@ -12,7 +12,7 @@ const Buttons = ({ openModal, expand, reviewCount, dataIndex }) => (
       : null
     }
     <MarginsWrapper margin={'15px'}>
-      <Button handleOnClick={openModal} size = {15} primary = {true} name="ADD REVIEW" />
+      <Button icon='plus' handleOnClick={openModal} size = {15} primary = {true} name="ADD REVIEW" />
     </MarginsWrapper>
   </ButtonsContainer>
 );
