@@ -59,14 +59,16 @@ const ReviewAndRatings = ({ productId }) => {
     <Main id="reviews">
       <Header>REVIEWS & RATINGS</Header>
       <Container id="mainWrapper">
-        {allReviews && meta
+        {/* {allReviews && meta
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
           :
         // some kind of placeholder component to show before the actual component is loaded
           <Ratings placeholder/>}
         {allReviews && meta
           ? <Reviews metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
-          : <Reviews placeholder/>}
+          : <Reviews placeholder/>} */}
+          <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={dummy2} data={dummy.results} id="ratings" />
+          <Reviews metaData={dummy2} filters={filters} data={dummy.results} id="reviews" />
       </Container>
     </Main>
   );
