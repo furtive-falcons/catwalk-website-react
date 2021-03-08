@@ -6,6 +6,7 @@ import GlobalStyles from './GlobalStyles';
 import Details from './modules/Details';
 
 const PRODUCT_ID = '14037';
+
 const App = () => (
   <div data-test="component-app">
     <GlobalStyles />

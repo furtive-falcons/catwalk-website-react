@@ -6,9 +6,8 @@ import Breakdown from './ratingsComp/Breakdown.js';
 import Recommend from './ratingsComp/Recommend.js';
 
 const Ratings = ({
-  data, metaData, getFilter, filters, removeFilters,
+  data, metaData, getFilter, filters, removeFilters, placeholder,
 }) => {
-
   // finds average rating
   const average = (data) => {
     let score = 0;
@@ -33,13 +32,13 @@ const Ratings = ({
   };
 
   // render filters being used
-  const renderFilters = (data) => {
-    return Object.keys(data).map((filter,index)=>{
-      return (
-        <FilterBox onClick={()=>getFilter(filter[0])} key={index}>{filter[0]} stars</FilterBox >
-      )
-    });
-  };
+  const renderFilters = (data) => Object.keys(data).map((filter, index) => (
+    <FilterBox onClick={() => getFilter(filter[0])} key={index}>
+      {filter[0]}
+      {' '}
+      stars
+    </FilterBox>
+  ));
 
   useEffect(() => {
     if (data) {
@@ -60,23 +59,27 @@ const Ratings = ({
   return (
     <RatingsContainer>
       {/* score */}
-      <Score total={data.length} score={average(data)} />
-      {Object.keys(filters).length !== 0
+      {placeholder ? <h4>Loading</h4>
+        : (
+          <>
+            <Score total={data.length} score={average(data)} />
+            {Object.keys(filters).length !== 0
         && (
-          <div className='editFilter'>
+          <div className="editFilter">
             <div>
               Comments with:
               {renderFilters(filters)}
             </div>
-            <span className='remove' onClick={removeFilters}>Remove Filters</span>
+            <span className="remove" onClick={removeFilters}>Remove Filters</span>
           </div>
-        )
-        }
+        )}
 
-      {/* filter */}
-      <Filter getFilter={getFilter} total={data.length} data={reduceData(data)} />
-      {/* breakdown */}
-      <Breakdown recommend={metaData.recommended} data={metaData.characteristics} />
+            {/* filter */}
+            <Filter getFilter={getFilter} total={data.length} data={reduceData(data)} />
+            {/* breakdown */}
+            <Breakdown recommend={metaData.recommended} data={metaData.characteristics} />
+          </>
+        )}
     </RatingsContainer>
   );
 };
