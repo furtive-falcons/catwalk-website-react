@@ -5,7 +5,7 @@ const ImageContainer = styled.div`
     align-items: center;
     object-fit: cover;
     border: 2px solid black;
-    width: 230px;
+    width: 210px;
     height: 330px;
   }
 `;

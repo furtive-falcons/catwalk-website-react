@@ -1,11 +1,11 @@
 import React from 'react';
 
 const LeftButton = () => {
-  const handleOnClick = () => {
+  const previousCard = () => {
     console.log('Left button was clicked');
   };
   return (
-    <button className="left-prev-button" type="button" label="left" onClick={handleOnClick}><i className="fas fa-chevron-left" /></button>
+    <button className="left-prev-button" type="button" label="left" onClick={previousCard}><i className="fas fa-chevron-left" /></button>
   );
 };
 
