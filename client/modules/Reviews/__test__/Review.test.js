@@ -19,13 +19,13 @@ test('Reviews and Ratings main wrapper component exists', () => {
 });
 
 // Expect Reviews component exists
-test('Reviews component exists', () => {
-  const wrapper = shallow(<ReviewsAndRatings/>);
-  const appComponent = wrapper.find('#reviews');
-  expect (wrapper).toBeTruthy()
-  expect(appComponent.length).toBe(1);
+// test('Reviews component exists', () => {
+//   const wrapper = shallow(<ReviewsAndRatings/>);
+//   const appComponent = wrapper.find('#reviews');
+//   expect (wrapper).toBeTruthy()
+//   expect(appComponent.length).toBe(1);
 
-});
+// });
 
 // Expect Ratings component exists
 test('Ratings component exists', () => {
