@@ -20,35 +20,21 @@ class CompareCarousels extends React.Component {
   }
 
   getRelatedProducts(productId) {
-    const url = 'http://localhost:3001/api/products';
+    const url = '/api/products';
     axios.get(`${url}/${productId}/related`)
       .then((res) => {
-        // console.log('res', res.data);
         this.setState({relatedProducts: res.data});
       }, (err) => {
-        console.log(err);
+        console.log('err', err);
       });
   }
 
-  // relatedDetails() {
-  //   // for every element in related ids array
-  //   // make call to api for every element
-  //   // GET /products/:product_id
-  //   // GET /products/:product_id/styles
-  //   let requests =  relatedIds.map(id => {
-  //     return new Promise((resolve, reject) => {
-  //       request({
-
-  //       })
-  //     })
-  //   })
-  // }
-
   render() {
+    console.log('this.state.relatedProducts', this.state.relatedProducts)
     return (
       <div data-test="component-compare">
-        <Carousel />
-        <Carousel />
+        <Carousel relatedProducts={this.state.relatedProducts}/>
+        {/* <Carousel relatedProducts={this.state.relatedProducts}/> */}
       </div>
     );
   }

@@ -35,7 +35,7 @@ export const ButtonContainer = styled.div`
   .right-prev-button{
     position: absolute;
     top: 40%;
-    right: 5%;
+    right: 3%;
     transform: translateY(-50%);
     background-color: white;
     z-index: 1;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Section = () => (
-  <h3> Section Title </h3>
+  <h2> RELATED PRODUCTS </h2>
 );
 
 export default Section;
