@@ -12,18 +12,18 @@ const renderButtonContent = (icon, name) => (
 );
 
 const Button = ({
-  size, name, primary, icon, handleOnClick, secondary,
+  size, name, primary, icon, handleOnClick, secondary, type
 }) => {
   if (primary) {
     return (
-      <Primary size={size} data-test="component-button" onClick={handleOnClick}>
+      <Primary type={type} size={size} data-test="component-button" onClick={handleOnClick}>
         {renderButtonContent(icon, name)}
       </Primary>
     );
   }
   if (secondary) {
     return (
-      <Secondary size={size} data-test="component-button" onClick={handleOnClick}>{renderButtonContent(icon, name)}</Secondary>
+      <Secondary type={type} size={size} data-test="component-button" onClick={handleOnClick}>{renderButtonContent(icon, name)}</Secondary>
     );
   }
 

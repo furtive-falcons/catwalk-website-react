@@ -8,6 +8,7 @@ import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
 import Helpful from './Helpful.js';
 import ImageModal from '../../../../components/ImagePopUp';
+import Paragraph from '../../../../components/Paragraph';
 
 const Tile = ({
   body, summary, response, user, date, helpfulness, rating, recommend, images, review_id,
@@ -35,12 +36,12 @@ const Tile = ({
           {body
             && body.length > 250 && !more
             ? (
-              <>
+              <Paragraph size={1.3}>
                 {body.slice(0, 250)}
                 <span onClick={() => showMore(true)} className="showMore"> Show More</span>
-              </>
+              </Paragraph>
             )
-            : body}
+            : <Paragraph size={1.3}>{body}</Paragraph>}
           <ImageContainer>
             {/* {images && renderImages(images)} */}
             {images
