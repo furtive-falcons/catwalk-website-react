@@ -4,9 +4,9 @@ const ImageContainer = styled.div`
   .default-thumbnail{
     align-items: center;
     object-fit: cover;
-    border: 2px solid black;
-    width: 210px;
-    height: 330px;
+    // border: 2px solid black;
+    width: 226px;
+    height: 226px;
   }
 `;
 export default ImageContainer;
