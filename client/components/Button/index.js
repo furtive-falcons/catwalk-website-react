@@ -12,11 +12,11 @@ const renderButtonContent = (icon, name) => (
 );
 
 const Button = ({
-  size, name, primary, icon, handleOnClick, secondary, type
+  size, name, primary, icon, handleOnClick, isContentCentered, secondary, type,
 }) => {
   if (primary) {
     return (
-      <Primary type={type} size={size} data-test="component-button" onClick={handleOnClick}>
+      <Primary isContentCentered={isContentCentered} type={type} size={size} data-test="component-button" onClick={handleOnClick}>
         {renderButtonContent(icon, name)}
       </Primary>
     );
