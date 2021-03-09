@@ -25,7 +25,6 @@ const AnswerInfo = ({ answer }) => {
     const url = `qa/answers/${answer.id}/report`;
     const data = { reported: true };
     axios.put(url, data)
-      .then((result) => console.log(result))
       .catch((err) => console.log(err));
   };
 

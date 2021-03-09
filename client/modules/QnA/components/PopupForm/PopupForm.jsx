@@ -10,6 +10,7 @@ import Button from '../../../../components/Button';
 import { ModalForm, ModalWrapper } from './styles.js';
 import Paragraph from '../../../../components/Paragraph';
 import { ProductContext } from '../../index.js';
+import ImageThumbnail from '../../../../components/ImagePopUp';
 
 const axios = require('axios');
 
@@ -18,6 +19,7 @@ const PopupForm = ({ question, setForm, formType }) => {
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [upload, setUpload] = useState(false);
   const productId = Number(useContext(ProductContext));
   const modalRef = useRef();
 
@@ -125,15 +127,20 @@ const PopupForm = ({ question, setForm, formType }) => {
           />
         </div>
         {formType === 'answer' ? (
-          <div className="upload">
-            <Button
-              className="upload"
-              name="Image Upload"
-              handleOnClick={imageUpload}
-              size={15}
-              secondary
-            />
-          </div>
+          <>
+            <div className="upload">
+              <Button
+                className="upload"
+                name="Upload Images"
+                handleOnClick={() => setUpload(true)}
+                size={15}
+                secondary
+              />
+            </div>
+            <div className="thumbnail">
+              <ImageThumbnail images={photos} />
+            </div>
+          </>
         ) : null}
         <div className="submit">
           <Button

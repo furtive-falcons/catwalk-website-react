@@ -19,12 +19,12 @@ const ModalForm = styled.div`
 
 const ModalWrapper = styled.div`
   width: 600px;
-  height: 600px;
+  min-height: 600px;
   border-radius: 1rem;
   display: grid;
   position: fixed;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 5rem auto repeat(2, 10rem) 3fr 1fr;
+  grid-template-rows: 5rem auto repeat(2, 10rem) 3fr auto 1fr;
   grid-gap: 0.5rem;
   background-color: ${colorWhite};
   color: ${colorGreyLight2};
@@ -71,14 +71,19 @@ const ModalWrapper = styled.div`
 
   .upload {
     grid-column: 1 / 2;
-    grid-row: 6 / 7;
+    grid-row: 7 / 8;
   }
 
   .submit {
     grid-column: 3 / 4;
-    grid-row: 6 / 7;
+    grid-row: 7 / 8;
     display:flex;
     justify-content: flex-end;
+  }
+
+  .thumbnail {
+    grid-column: 1 / 4;
+    grid-row: 6 / 7;
   }
 
   .close {
