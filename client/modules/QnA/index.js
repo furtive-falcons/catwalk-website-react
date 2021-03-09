@@ -16,26 +16,32 @@ const QnA = ({ productId }) => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const removeQuestionWihoutAnswer = (data) => {
-    const validResult = data.filter((question) => {
-      const keys = Object.keys(question.answers);
-      return keys.length > 0;
-    });
-    setQuestions(validResult);
-  };
+  // const removeQuestionWihoutAnswer = (data) => {
+  //   const validResult = data.filter((question) => {
+  //     const keys = Object.keys(question.answers);
+  //     return keys.length > 0;
+  //   });
+  //   setQuestions(validResult);
+  // };
 
   const getQA = () => {
     axios.get('/qa/questions', {
       params: {
         product_id: productId,
+        page,
       },
     })
       .then((res) => {
-        removeQuestionWihoutAnswer(res.data.results);
+        // removeQuestionWihoutAnswer(res.data.results);
+        setQuestions(res.data.results);
+        // if (page === 1) {
+        //   setDisplay(res.data.results.slice(0, 2));
+        // }
       })
-      .catch((res) => {
-        res.sendStatus(404);
+      .catch((err) => {
+        throw err;
       });
   };
 
@@ -52,6 +58,8 @@ const QnA = ({ productId }) => {
 
   const loadMoreQuestions = () => {
     setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
+    // setPage((prev) => prev + 1);
+    // getQA();
   };
 
   const collapseQuestions = () => {
