@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-
+//delete during clean up if still unused
 const Image = ({ card }) => (
   <div>
     <img

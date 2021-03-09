@@ -1,4 +1,5 @@
 import React from 'react';
+//delete during clean up if still unused
 
 const AvgRating = () => (
   <>

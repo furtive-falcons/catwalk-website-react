@@ -8,7 +8,7 @@ const CarouselContainer = styled.div`
   min-width: 375px;
   max-height: 520px;
   margin: 0 auto;
-  padding: 10px 50px 10px 50px;
+  padding: 10px 0px 10px 0px;
   position: relative;
   overflow: hidden;
 `;

@@ -124,6 +124,8 @@ const HelpfulDiv = styled.span`
 
   span: hover {
     cursor: pointer;
+    background-color: black;
+    color: white;
   }
 
   .reported {

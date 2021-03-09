@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {colorPrimary, colorSecondary } from '../../../../ui/ui-colors';
 
 const RecDiv = styled.div`
 font-size: 1.5rem;
@@ -9,18 +10,25 @@ span {
 `;
 
 const ScoreDiv = styled.div`
-  width: 85%;
+  width: 100%;
   flex: 1.5;
-  // border: 1px solid black;
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+
+  span {
+    font-weight: bold;
+  }
 
   .innerContainer {
-    // border: 1px solid black;
+    padding: 3%;
     display: flex;
     flex-direction: row;
-    width: 75%;
+    width: 65%;
     justify-content: center;
+    background-color: ${colorPrimary}
   }
 
   .stars {
@@ -32,6 +40,7 @@ const ScoreDiv = styled.div`
 
   h1 {
     font-size: 4rem;
+
   }
 
   .total {
@@ -46,16 +55,15 @@ const BarDiv = styled.div`
   width: 70%;
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
 
   .dark {
     flex: ${props=>props.rating};
-    background-color: grey;
+    background-color: ${colorPrimary};
   }
 
   .light {
     flex: ${props=>props.total};
-    background-color: white;
+    background-color: ${colorSecondary};
   }
 `;
 
@@ -111,7 +119,7 @@ const FactorDiv = styled.div`
   .bar {
     width: ${props=>props.width};
     height: 10px;
-    background-color: #D3D3D3;
+    background-color: #cbd6cc;
   }
 
   .labels {

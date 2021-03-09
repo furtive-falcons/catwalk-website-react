@@ -4,6 +4,7 @@ const Container = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: row;
+
 `
 
 const Header = styled.div`
