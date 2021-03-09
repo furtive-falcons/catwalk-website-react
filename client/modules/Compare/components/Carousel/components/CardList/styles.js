@@ -18,8 +18,10 @@ export const ButtonContainer = styled.div`
   .left-prev-button{
     position: absolute;
     top: 40%;
+    left: 2%;
     transform: translateY(-50%);
-    background-color: white;
+    background-color: #3BBF4F;
+    color: white;
     border: 1px solid black;
     cursor: pointer;
     z-index: 1;
@@ -30,14 +32,15 @@ export const ButtonContainer = styled.div`
   }
   .left-prev-button:hover{
     background-color: black;
-    color: white;
+    color: #3BBF4F;
   }
   .right-prev-button{
     position: absolute;
     top: 40%;
-    right: 4%;
+    right: 2%;
     transform: translateY(-50%);
-    background-color: white;
+    background-color: #3BBF4F;
+    color: white;
     border: 1px solid black;
     cursor: pointer;
     z-index: 1;
@@ -48,7 +51,7 @@ export const ButtonContainer = styled.div`
   }
   .right-prev-button:hover{
     background-color: black;
-    color: white;
+    color: #3BBF4F;
   }
 `
 
@@ -58,13 +61,12 @@ export const CardContainer = styled.div`
   flex-direction: row;
   display: inline-block;
   // border: 1px solid black;
-  background-color: #fff;
+  // background-color: #fff;
   width: auto;
   margin: 5px;
   // padding: 10px;
   max-width: 230px;
   max-height: 450px;
-
 `;
 
 // export default CardContainer;

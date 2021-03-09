@@ -8,6 +8,25 @@ const ImageContainer = styled.div`
     width: 226px;
     height: 226px;
   }
+  .fav-icon{
+    position: absolute;
+    // top: 0;
+    // right: 0;
+    margin: 10px;
+    padding: 4px;
+    color: #fff;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid #3BBF4F;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .fav-icon:hover{
+    color: #3BBF4F;
+    // background-color: #000;
+    // border: #000;
+    border: none;
+  }
 `;
 export default ImageContainer;
 
