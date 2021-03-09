@@ -15,6 +15,7 @@ export const IconStyleWrapper = styled.div(() => ({
   // flex: '1 0 21%'
   width: '21%',
   position: 'relative',
+  // zIndex : '-999'
 }));
 
 export const IconWrapper = styled.div`
@@ -25,6 +26,6 @@ export const IconWrapper = styled.div`
   width: 1.5rem;
   height: 1.5rem;
   z-index: 9999;
-  right: 0.9rem;
+  left: 3.6rem;
   text-align: center;
 `;
