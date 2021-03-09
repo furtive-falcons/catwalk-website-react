@@ -1,26 +1,25 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import { FormInputField } from './PopupForm/styles.js';
+import { FormTextArea } from './PopupForm/styles.js';
 
-const InputField = ({
-  type, width, height, label, placeholder, getInput, name,
+const InputArea = ({
+  width, height, label, placeholder, name, getInput,
 }) => (
   <>
     <label htmlFor={label}>
       {label}
       <span> *</span>
     </label>
-    <FormInputField
-      type={type}
+    <FormTextArea
       name={name}
       onChange={getInput}
       width={width}
       height={height}
       placeholder={placeholder}
-      maxLength="60"
+      maxLength="1000"
       required
     />
   </>
 );
 
-export default InputField;
+export default InputArea;

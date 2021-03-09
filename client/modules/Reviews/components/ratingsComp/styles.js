@@ -106,7 +106,7 @@ const BreakdownDiv = styled.div`
 `;
 
 const FactorDiv = styled.div`
-  margin-top: 5px;
+  margin-top: 10px;
 
   .bar {
     width: ${props=>props.width};
@@ -114,9 +114,21 @@ const FactorDiv = styled.div`
     background-color: #D3D3D3;
   }
 
+  .labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-Top: 10px;
+  }
+
   .label {
+    flex: 1;
+  }
+
+  .labelTop {
     font-size: 1.5rem;
   }
+
 
   .mark {
     margin-left: ${props=>props.margin-10}px;

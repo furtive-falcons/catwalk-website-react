@@ -2,7 +2,7 @@ import {
   bool, func, number, string,
 } from 'prop-types';
 import React from 'react';
-import { ButtonStyles, Primary } from './styles';
+import { ButtonStyles, Primary, Secondary } from './styles';
 
 const renderButtonContent = (icon, name) => (
   <>
@@ -12,13 +12,18 @@ const renderButtonContent = (icon, name) => (
 );
 
 const Button = ({
-  size, name, primary, icon, handleOnClick,
+  size, name, primary, icon, handleOnClick, secondary,
 }) => {
   if (primary) {
     return (
       <Primary size={size} data-test="component-button" onClick={handleOnClick}>
         {renderButtonContent(icon, name)}
       </Primary>
+    );
+  }
+  if (secondary) {
+    return (
+      <Secondary size={size} data-test="component-button" onClick={handleOnClick}>{renderButtonContent(icon, name)}</Secondary>
     );
   }
 
