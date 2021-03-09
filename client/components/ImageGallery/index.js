@@ -34,7 +34,6 @@ const ImageGallery = ({ photos, setToggle, toggle }) => {
   }, [index]);
 
   const handleOnClick = () => {
-    console.log('test');
     setToggle(!toggle);
   };
 

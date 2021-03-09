@@ -4,8 +4,10 @@ import {
 import React from 'react';
 import StyledSelect from './styles';
 
-const DropDown = ({ size, options, handleOnChange }) => (
-  <StyledSelect onChange={handleOnChange} selectSize={size}>
+const DropDown = ({
+  size, options, selectedOption, handleOnChange,
+}) => (
+  <StyledSelect onChange={handleOnChange} value={selectedOption} selectSize={size}>
     {options.map((option) => (
       <option key={`${option}-${Math.random()}`} value={option}>
         {option}
