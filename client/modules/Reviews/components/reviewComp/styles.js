@@ -8,6 +8,11 @@ const DropdownContainer = styled.div`
     font-size: 14px;
   }
   margin-left: 5px;
+
+  select:hover {
+    background-color: black;
+    color: white;
+  }
 `;
 
 const ReviewListContainer = styled.div`

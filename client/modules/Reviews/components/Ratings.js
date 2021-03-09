@@ -3,18 +3,22 @@ import { RatingsContainer, FilterBox } from './styles.js';
 import Score from './ratingsComp/Score.js';
 import Filter from './ratingsComp/Filter.js';
 import Breakdown from './ratingsComp/Breakdown.js';
-import Recommend from './ratingsComp/Recommend.js';
 
 const Ratings = ({
   data, metaData, getFilter, filters, removeFilters, placeholder,
 }) => {
   // finds average rating
-  const average = (data) => {
-    let score = 0;
-    for (const review of data) {
-      score += review.rating;
+  const average = (metaData, data) => {
+    let totalScore = 0;
+    for (const score in metaData) {
+      totalScore += parseInt(metaData[score])*parseInt(score);
     }
-    return (score / data.length).toFixed(1);
+
+    let totalReviews = 0;
+    for (const score in metaData) {
+      totalReviews += parseInt(metaData[score]);
+    }
+    return (totalScore/ totalReviews).toFixed(1);
   };
 
   // sort data by ratings
@@ -62,7 +66,7 @@ const Ratings = ({
       {placeholder ? <h4>Loading</h4>
         : (
           <>
-            <Score total={data.length} score={average(data)} />
+            <Score total={data.length} score={ average(metaData.ratings, data) } />
             {Object.keys(filters).length !== 0
         && (
           <div className="editFilter">

@@ -163,8 +163,10 @@ const Form = ({ closeModal, metaData }) => {
           <Input placeholder ='Example: abc@email.com'  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" note={notes[0]} max="60" type="text" label="email" handleChange={handleChange} />
         </div>
         <div className="buttons">
-          <input className="button" onClick={closeModal} type="button" value="CANCEL" />
-          <input className="button" type="submit" value="SUBMIT REVIEW" />
+          <Button className="button" size = {15} secondary handleOnClick={closeModal} name="CANCEL"/>
+          <Button className="button" size = {15} secondary name="SUBMIT REVIEW"/>
+          {/* <input className="button" onClick={closeModal} type="button" value="CANCEL" />
+          <input className="button" type="submit" value="SUBMIT REVIEW" /> */}
         </div>
       </div>
     </FormView>
