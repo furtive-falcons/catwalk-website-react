@@ -66,3 +66,33 @@ exports.putQuestionHelpful = (req, res) => {
     .then(() => res.sendStatus(204))
     .catch((err) => res.status(403).send(err));
 };
+
+exports.putAnswerHelpful = (req, res) => {
+  const url = `${process.env.API_URL}/qa/answers/${req.params.answer_id}/helpful`;
+  axios(url, {
+    method: 'put',
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+    data: {
+      answer_helpfulness: req.body.helpfulness,
+    },
+  })
+    .then(() => res.sendStatus(204))
+    .catch((err) => res.status(403).send(err));
+};
+
+exports.putAnswerReport = (req, res) => {
+  const url = `${process.env.API_URL}/qa/answers/${req.params.answer_id}/report`;
+  axios(url, {
+    method: 'put',
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+    data: {
+      reported: req.body.reported,
+    },
+  })
+    .then(() => res.sendStatus(204))
+    .catch((err) => res.status(403).send(err));
+};

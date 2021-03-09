@@ -12,10 +12,9 @@ const QuestionInfo = ({ question }) => {
   const [yes, setYes] = useState(false);
 
   const putRequest = () => {
-    const url = `qa/questions/${question.question_id}/helpful`;
-    const data = { question_helpfulness: yesCount };
+    const url = `/qa/questions/${question.question_id}/helpful`;
+    const data = { question_helpfulness: yesCount + 1 };
     axios.put(url, data)
-      .then((result) => console.log(result))
       .catch((err) => console.log(err));
   };
 
