@@ -1,6 +1,7 @@
 import React from 'react';
 import { FactorDiv } from './styles.js';
 import Mark from './Mark.js';
+import {colorGreen} from '../../../../ui/ui-colors';
 
 const labels = {
   Size: ['Too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'Too big'],
@@ -30,7 +31,7 @@ const Factor = ({ label, rating, width }) => {
     <FactorDiv width={width} margin={rating / 5 * width}>
       <span className="labelTop">{label}</span>
       <div className="bar">
-        <div className="mark"><Mark /></div>
+        <div className="mark"><Mark color={colorGreen}/></div>
       </div>
       <div className="labels">{renderLabels(labels, label)}</div>
     </FactorDiv>

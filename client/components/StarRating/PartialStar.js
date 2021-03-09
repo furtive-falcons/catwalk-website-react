@@ -1,13 +1,13 @@
 import React from 'react';
 
-const PartialStar = ({ percentage, size, color}) => (
+const PartialStar = ({ percentage, size, color, background}) => (
   <svg height={size} viewBox="0 0 24 24" width={size}>
     <defs>
       <linearGradient id="grad2">
         <stop offset="0%" stopColor={color} />
-        <stop offset={percentage} stopColor={color} />
-        <stop offset={percentage} stopColor="white" />
-        <stop offset="100%" stopColor="white" />
+        <stop offset={percentage} stopColor={color}/>
+        <stop offset={percentage} stopColor={background}/>
+        <stop offset="100%" stopColor={background}/>
       </linearGradient>
     </defs>
     <path d="M0 0h24v24H0z" fill="none" />

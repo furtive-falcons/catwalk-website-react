@@ -4,7 +4,7 @@ const RatingsContainer = styled.div`
   font-size: 1.2rem;
   flex: 3.5;
   // border: 1px solid black;
-  height: 400px;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

@@ -6,6 +6,8 @@ const AddReview = ({ showModal, closeModal, metaData={metaData} }) => {
   useEffect(()=>{
     if (showModal) {
       document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'scroll';
     }
   }, [showModal]);
 

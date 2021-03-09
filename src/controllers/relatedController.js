@@ -10,6 +10,9 @@ exports.getRelatedProducts = async (req, res) => {
     });
 
     let relatedProducts = {};
+    // i can probably refactor this for loop into a map function and promise.all
+    // and i can still use await if i really wanted to
+    // worry about this later #tech debt
     for (let i = 0; i < relatedProductsArray.length; i++) {
       const allID = `${process.env.API_URL}/products/${relatedProductsArray[i]}`;
       const { data: relatedProduct} = await axios(allID, {
@@ -25,9 +28,14 @@ exports.getRelatedProducts = async (req, res) => {
         headers: {
           Authorization: process.env.API_KEY,
         },
-      }); 
-         
-      relatedProduct.defaultStyle = relatedStyles.results[0];
+      });
+
+      relatedProduct.firstStyles = relatedStyles.results[0];
+      
+      // const filteredStyles = relatedStyles.results.filter(relatedStyle => {
+      //   return (relatedStyle["default?"] && relatedStyle.photos[0].thumbnail_url)
+      // })
+      // relatedProduct.defaultPhotoStyle = filteredStyles;
 
       const allRelatedRating = `${process.env.API_URL}`;
       const { data: relatedRatingAverage } = await axios(`${allRelatedRating}/reviews/meta?product_id=${relatedProductsArray[i]}`, {
@@ -45,7 +53,6 @@ exports.getRelatedProducts = async (req, res) => {
 
       relatedProduct.ratingAverage = ratingAverage;
     }
-
     res.status(200).json({
       status: 'success',
       data: Object.values(relatedProducts),

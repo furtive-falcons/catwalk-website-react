@@ -7,12 +7,12 @@ const Buttons = ({ openModal, expand, reviewCount, dataIndex }) => (
   <ButtonsContainer id="buttons">
     {
     reviewCount > 2 && dataIndex < reviewCount ? (
-      <Button size = {15} primary = {true} handleOnClick={expand} name="MORE REVIEWS"/>
+      <Button size = {15} secondary handleOnClick={expand} name="MORE REVIEWS"/>
     )
       : null
     }
     <MarginsWrapper margin={'15px'}>
-      <Button icon='plus' handleOnClick={openModal} size = {15} primary = {true} name="ADD REVIEW" />
+      <Button icon='plus' handleOnClick={openModal} size = {15} secondary name="ADD REVIEW" />
     </MarginsWrapper>
   </ButtonsContainer>
 );
