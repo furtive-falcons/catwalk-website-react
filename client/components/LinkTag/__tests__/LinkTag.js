@@ -2,11 +2,11 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
-import Button from '..';
+import LinkTag from '..';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const setup = () => shallow(<Button />);
+const setup = () => shallow(<LinkTag />);
 const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
 
 test('renders button without problems', () => {
