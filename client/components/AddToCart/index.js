@@ -31,11 +31,14 @@ const AddToCart = ({ styles, selectedStyle }) => {
         handleOnChange={handleSizeChange}
         selectedOption={selectedSize}
         size={63}
-        options={[DEFAULT_SIZE, ...sizes]}
+        options={sizes.length > 0 ? [DEFAULT_SIZE, ...sizes] : ['OUT OF STOCK']}
       />
       <DropDown size={32} options={quantityOptions} />
       <AddToBagWrapper>
-        <Button size="82%" icon="plus" primary name="Add To Bag" />
+        {
+        sizes.length > 0
+        && (<Button size="82%" icon="plus" primary name="Add To Bag" />)
+        }
         <Button size="5rem" isContentCentered primary icon="star" />
       </AddToBagWrapper>
     </>
