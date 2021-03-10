@@ -7,7 +7,7 @@ import ProductName from '../ProductName.js';
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 
-test('It render price', () => {
+test('It render product name', () => {
   const wrapper = shallow(<ProductName />);
   const appComponent = wrapper.find("[data-test='component-name']");
   expect(wrapper).toBeTruthy();

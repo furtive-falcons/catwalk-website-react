@@ -1,5 +1,15 @@
 import React from 'react';
+import {CategoryStyles} from './styles';
 
-const Category = ({ card }) => <div data-test="component-category">{card}</div>;
+const Category = ({ card }) => {
+  if(!card) {
+    return null;
+  }
+  return (
+      <CategoryStyles>
+        {card}
+      </CategoryStyles>
+  )
+}
 
 export default Category;
