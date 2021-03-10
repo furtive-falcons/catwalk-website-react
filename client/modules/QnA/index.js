@@ -18,14 +18,6 @@ const QnA = ({ productId }) => {
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
 
-  // const removeQuestionWihoutAnswer = (data) => {
-  //   const validResult = data.filter((question) => {
-  //     const keys = Object.keys(question.answers);
-  //     return keys.length > 0;
-  //   });
-  //   setQuestions(validResult);
-  // };
-
   const getQA = (page) => {
     const data = new Promise((resolve, reject) => {
       axios.get('/qa/questions', {
@@ -43,17 +35,15 @@ const QnA = ({ productId }) => {
   const getAllQA = () => {
     const data = [];
     let page = 1;
-    while (page < 4) {
+    while (page < 3) {
       const promise = getQA(page);
       data.push(promise);
       page += 1;
     }
-    // console.log(data);
     Promise.all(data)
       .then((results) => results.forEach((result) => {
         setQuestions((prev) => [...prev, ...result.data.results]);
       }));
-    // setQuestions(data);
   };
 
   const removeDuplicate = (data) => {
@@ -68,6 +58,7 @@ const QnA = ({ productId }) => {
   };
 
   const loadMoreQuestions = () => {
+    setFilter([]);
     setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
   };
 
@@ -109,7 +100,7 @@ const QnA = ({ productId }) => {
     } else {
       setDisplay(questions.slice(0, 2));
     }
-  }, [questions, search]);
+  }, [questions]);
 
   return (
     <ProductContext.Provider value={productId}>

@@ -12,7 +12,7 @@ const App = () => (
     <GlobalStyles />
     <Details productId={PRODUCT_ID} />
     <Compare productId={PRODUCT_ID} />
-    <QnA productId={PRODUCT_ID} />
+    <QnA productId={'14036'} />
     <Reviews productId={PRODUCT_ID} />
   </div>
 );
