@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorSecondary } from '../../../../ui/ui-colors';
+import { colorBlack, colorSecondary } from '../../../../ui/ui-colors';
 
 export const IconStyle = styled.div(({ icon }) => ({
   height: '6rem',
@@ -8,14 +8,16 @@ export const IconStyle = styled.div(({ icon }) => ({
   borderRadius: '50%',
   cursor: 'pointer',
   backgroundSize: 'cover',
-  border: `1px solid ${colorSecondary}`,
+  border: `1px solid ${colorBlack}`,
+  ':hover': {
+    boxShadow: `0 0 0 0.5pt ${colorBlack}`,
+  },
 }));
 
 export const IconStyleWrapper = styled.div(() => ({
-  // flex: '1 0 21%'
   width: '21%',
   position: 'relative',
-  zIndex : '0'
+  zIndex: '0',
 }));
 
 export const IconWrapper = styled.div`
