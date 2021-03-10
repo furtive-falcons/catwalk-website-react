@@ -11,11 +11,7 @@ import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
 
-const ProductDetails = ({
-  product,
-  setSelectedStyle,
-  selectedStyle,
-}) => {
+const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
   const [toggle, setToggle] = useState(false);
 
   const renderHeader = () => (
@@ -83,7 +79,7 @@ const ProductDetails = ({
   if (!product) return null;
 
   return (
-    <DivStyles toggle={toggle} data-test="component-details">
+    <DivStyles toggle={toggle}>
       <div className="container">
         {renderHeader()}
         {renderBanner()}

@@ -1,5 +1,5 @@
 import {
-  bool, func, number, string,
+  bool, func, number, oneOfType, string,
 } from 'prop-types';
 import React from 'react';
 import { ButtonStyles, Primary, Secondary } from './styles';
@@ -12,11 +12,11 @@ const renderButtonContent = (icon, name) => (
 );
 
 const Button = ({
-  size, name, primary, icon, handleOnClick, secondary, type
+  size, name, primary, icon, handleOnClick, isContentCentered, secondary, type,
 }) => {
   if (primary) {
     return (
-      <Primary type={type} size={size} data-test="component-button" onClick={handleOnClick}>
+      <Primary isContentCentered={isContentCentered} type={type} size={size} data-test="component-button" onClick={handleOnClick}>
         {renderButtonContent(icon, name)}
       </Primary>
     );
@@ -39,7 +39,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  size: number,
+  size: oneOfType([string, number]),
   primary: bool,
   name: string,
   handleOnClick: func,

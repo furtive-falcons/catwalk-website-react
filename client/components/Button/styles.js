@@ -10,8 +10,19 @@ export const ButtonStyles = styled.button`
 `;
 
 export const Primary = styled(ButtonStyles)`
-  width: ${(props) => props.size}rem;
+  width: ${(props) => props.size};
   border-radius: 0;
+  display: inline-flex;
+  justify-content: ${(props) => (props.isContentCentered ? 'center' : 'space-between')};
+  padding: 5px 1rem;
+  align-items: center;
+  height: 50px;
+  height: 50px;
+  border: 0;
+  background: #000;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 `;
 
 export const Secondary = styled(ButtonStyles)`

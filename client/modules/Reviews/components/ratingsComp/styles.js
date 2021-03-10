@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import {colorPrimary, colorSecondary } from '../../../../ui/ui-colors';
+import styled from 'styled-components';
+import { colorPrimary, colorSecondary } from '../../../../ui/ui-colors';
 
 const RecDiv = styled.div`
 font-size: 1.5rem;
@@ -10,11 +10,9 @@ span {
 `;
 
 const ScoreDiv = styled.div`
-  width: 100%;
+  width: 77%;
   flex: 1.5;
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 2%;
   margin-top: 2%;
 
@@ -23,10 +21,10 @@ const ScoreDiv = styled.div`
   }
 
   .innerContainer {
+    width: 100%;
     padding: 3%;
     display: flex;
     flex-direction: row;
-    width: 65%;
     justify-content: center;
     background-color: ${colorPrimary}
   }
@@ -47,7 +45,7 @@ const ScoreDiv = styled.div`
     margin-top: 5px;
     font-size: 1.5rem;
   }
-`
+`;
 const BarDiv = styled.div`
   display: flex;
   flex-direction: row;
@@ -57,12 +55,12 @@ const BarDiv = styled.div`
   flex-direction: row;
 
   .dark {
-    flex: ${props=>props.rating};
+    flex: ${(props) => props.rating};
     background-color: ${colorPrimary};
   }
 
   .light {
-    flex: ${props=>props.total};
+    flex: ${(props) => props.total};
     background-color: ${colorSecondary};
   }
 `;
@@ -99,10 +97,10 @@ const FilterDiv = styled.div`
     flex-direction: row;
     align-items:center;
   }
-`
+`;
 
 const BreakdownDiv = styled.div`
-  width: 85%;
+  width: 90%;
   flex: 3;
   // border: 1px solid black;
   margin-top: 10px;
@@ -117,7 +115,7 @@ const FactorDiv = styled.div`
   margin-top: 10px;
 
   .bar {
-    width: ${props=>props.width};
+    width: ${(props) => props.width};
     height: 10px;
     background-color: #cbd6cc;
   }
@@ -139,10 +137,11 @@ const FactorDiv = styled.div`
 
 
   .mark {
-    margin-left: ${props=>props.margin-10}px;
+    margin-left: ${(props) => props.margin - 10}px;
   }
 
 `;
 
-
-export {RecDiv, FactorDiv, BarDiv, ScoreDiv,FilterDiv, BreakdownDiv};
+export {
+  RecDiv, FactorDiv, BarDiv, ScoreDiv, FilterDiv, BreakdownDiv,
+};

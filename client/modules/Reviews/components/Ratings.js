@@ -8,7 +8,7 @@ const Ratings = ({
   data, metaData, getFilter, filters, removeFilters, placeholder,
 }) => {
   // finds average rating
-  const average = (metaData, data) => {
+  const average = (metaData) => {
     let totalScore = 0;
     for (const score in metaData) {
       totalScore += parseInt(metaData[score])*parseInt(score);
@@ -65,7 +65,7 @@ const Ratings = ({
       {/* score */}
       {placeholder ? <h4>Loading</h4>
         : (
-          <>
+          <div className='innerContainer'>
             <Score total={data.length} score={ average(metaData.ratings, data) } />
             {Object.keys(filters).length !== 0
         && (
@@ -82,7 +82,7 @@ const Ratings = ({
             <Filter getFilter={getFilter} total={data.length} data={reduceData(data)} />
             {/* breakdown */}
             <Breakdown recommend={metaData.recommended} data={metaData.characteristics} />
-          </>
+          </div>
         )}
     </RatingsContainer>
   );

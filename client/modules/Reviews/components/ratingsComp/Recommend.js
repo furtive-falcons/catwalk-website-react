@@ -1,11 +1,22 @@
 import React from 'react';
 import { RecDiv } from './styles.js';
 
-const Recommend = ({ recommend }) => (
-  <RecDiv>
-    <span>{recommend && (parseInt(recommend.true) / (parseInt(recommend.true) + parseInt(recommend.false))).toFixed(0) * 100}% </span>
-    of reviews recommend this product
-  </RecDiv>
-);
+const Recommend = ({ recommend }) => {
+  const numRec = recommend && parseInt(recommend.true, 10);
+  const numNotRec = recommend && (recommend.false ? parseInt(recommend.false, 10) : 0);
+  const recPercent = numRec ? (numRec / (numNotRec + numRec)).toFixed(2) * 100 : 0;
+
+  return (
+    <RecDiv id='rec'>
+      <span>
+        {recPercent}
+        %
+      </span>
+      {' '}
+      <br />
+      of reviews recommend this product
+    </RecDiv>
+  );
+};
 
 export default Recommend;

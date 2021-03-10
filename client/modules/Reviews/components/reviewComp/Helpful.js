@@ -15,17 +15,17 @@ const Helpful = ({ count, review_id }) => {
   const upVote = (review_id) => {
     axios.post('reviews/upvote', { review_id })
       .then((result) => setStatusUpvote(result.status))
-      .catch((err) => console.log(err));
+      .catch((err) => { throw err; });
   };
 
   const report = (review_id) => {
     axios.post('reviews/report', { review_id })
       .then((result) => setStatusReport(result.status))
-      .catch((err) => console.log(err));
+      .catch((err) => { throw err; });
   };
 
   return (
-    <HelpfulDiv>
+    <HelpfulDiv id='helpful'>
       Was this helpful?
       {' '}
       <span onClick={() => upVote(review_id)}>Yes</span>
@@ -39,7 +39,7 @@ const Helpful = ({ count, review_id }) => {
       {' '}
       {' '}
       {statusCodeReport === 204
-        ? <span className='reported'>Reported</span>
+        ? <span className="reported">Reported</span>
         : <span onClick={() => report(review_id)}>Report</span>}
     </HelpfulDiv>
   );

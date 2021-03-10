@@ -6,9 +6,10 @@ const CheckList = ({ features }) => (
   <StyledList>
     {features && features.map(({ feature, value }) => (
       <Fragment key={feature}>
-        <i className="fas fa-check" />
-        <li>{value}</li>
-        <br />
+        <li>
+          <i className="fas fa-check" />
+          <span>{value}</span>
+        </li>
       </Fragment>
     ))}
   </StyledList>

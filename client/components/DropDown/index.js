@@ -1,11 +1,13 @@
 import {
-  arrayOf, func, number, oneOfType, string,
+  arrayOf, bool, func, number, oneOfType, string,
 } from 'prop-types';
 import React from 'react';
 import StyledSelect from './styles';
 
-const DropDown = ({ size, options, handleOnChange }) => (
-  <StyledSelect onChange={handleOnChange} selectSize={size}>
+const DropDown = ({
+  size, options, selectedOption, handleOnChange,hasMargins
+}) => (
+  <StyledSelect hasMargins={hasMargins} onChange={handleOnChange} value={selectedOption} selectSize={size}>
     {options.map((option) => (
       <option key={`${option}-${Math.random()}`} value={option}>
         {option}
@@ -18,11 +20,13 @@ DropDown.propTypes = {
   size: number,
   options: arrayOf(oneOfType([number, string])),
   handleOnChange: func,
+  hasMargins:bool,
 };
 
 DropDown.defaultProps = {
   size: 20,
   options: [],
   handleOnChange: Function.prototype,
+  hasMargins: false,
 };
 export default DropDown;

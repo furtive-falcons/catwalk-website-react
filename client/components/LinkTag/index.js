@@ -1,4 +1,6 @@
-import { func, node, number, string } from 'prop-types';
+import {
+  func, node, number, string,
+} from 'prop-types';
 import React from 'react';
 
 import { fontSizeSmall } from '../../ui/ui-fonts';
@@ -7,7 +9,7 @@ import LinkTagStyles from './styles';
 const LinkTag = ({
   children, size, handleOnClick, href,
 }) => (
-  <LinkTagStyles onClick={handleOnClick} size={size} href={href}>
+  <LinkTagStyles data-test="component-link" onClick={handleOnClick} size={size} href={href}>
     {children}
   </LinkTagStyles>
 );
