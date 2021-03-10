@@ -5,7 +5,12 @@ import { fontSizeLarge, fontSizeLargePlus } from '../../ui/ui-fonts';
 export const ImageGalleryWrapper = styled.div`
   position: relative;
   overflow: hidden;
+  background-color: ${colorWhite};
   height: 100%;
+  z-index: 1;
+  &:hover .thumbnail{ 
+      width: 5rem;
+  }
 `;
 
 export const Slide = styled.div(({ image, position }) => ({
@@ -21,23 +26,24 @@ export const Slide = styled.div(({ image, position }) => ({
   transition: 'all 0.3s linear',
   transform: `translateX(${position})`,
   opacity: position === '0' ? '1' : '0',
+
 }));
 
 export const Arrows = styled.div(() => ({
   position: 'absolute',
   top: '50%',
   display: 'flex',
-  width: '91%',
+  width: '89%',
   justifyContent: 'space-between',
   fontSize: `${fontSizeLargePlus}rem`,
-  left: '8%',
+  left: '10%',
 }));
 
-export const Pagination = styled.div(() => ({
-  position: 'absolute',
-  top: '1.5rem',
-  left: '0.5rem',
-}));
+export const Pagination = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  left: 0.8rem;
+`;
 
 export const ExpandWrapper = styled.div(() => ({
   position: 'absolute',
@@ -46,14 +52,17 @@ export const ExpandWrapper = styled.div(() => ({
   fontSize: `${fontSizeLarge}rem`,
 }));
 
-export const Thumbnail = styled.div(({ icon }) => ({
+export const Thumbnail = styled.div(({ icon , isActive }) => ({
   height: '5rem',
-  width: '5rem',
+  width: '0',
   backgroundImage: `url(${icon})`,
   cursor: 'pointer',
   backgroundSize: 'cover',
-  border: `1px solid ${colorSecondary}`,
+  borderLeftColor: '#000',
+  borderLeftStyle: 'solid',
+  borderLeftWidth: isActive ? 'thick' : '2px',
   marginTop: 5,
+  transition: 'all .21s linear',
 }));
 
 export const IconStyles = styled.i``;
@@ -62,7 +71,7 @@ export const IconStylesWrapper = styled.i`
   padding: 0.2rem 1rem;
   background-color: white;
   border: 1px solid ${colorSecondary};
-  visibility : ${(props) => (props.isVisible ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
   &:hover {
     color: ${colorWhite};
     background-color: #000;

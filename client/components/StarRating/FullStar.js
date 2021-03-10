@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FullStar = ({click, empty=false, size=17, color}) => (
-  <svg onClick={click} height={size} viewBox="0 0 24 24" width={size} >
+  <svg onClick={click} height={size} viewBox="0 0 24 24" width={size} id='fullstar'>
     <path d="M0 0h24v24H0z" fill="none" />
     <path
       fill={empty ? 'white' : color}

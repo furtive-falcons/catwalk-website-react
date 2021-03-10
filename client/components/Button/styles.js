@@ -13,8 +13,8 @@ export const Primary = styled(ButtonStyles)`
   width: ${(props) => props.size};
   border-radius: 0;
   display: inline-flex;
-  justify-content: ${(props) => (props.isContentCentered ? 'center' : 'space-around')};
-  padding: 5px;
+  justify-content: ${(props) => (props.isContentCentered ? 'center' : 'space-between')};
+  padding: 5px 1rem;
   align-items: center;
   height: 50px;
   height: 50px;

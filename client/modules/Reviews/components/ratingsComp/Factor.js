@@ -21,8 +21,9 @@ const Factor = ({ label, rating, width }) => {
     }
   });
 
+
   return (
-    <FactorDiv width={width} margin={rating / 5 * width}>
+    <FactorDiv id='factor' width={width} margin={rating / 5 * width}>
       <span className="labelTop">{label}</span>
       <div className="bar">
         <div className="mark"><Mark color={colorGreen}/></div>

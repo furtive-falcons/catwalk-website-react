@@ -35,7 +35,7 @@ const DivStyles = styled.div`
   .info {
     grid-column: col-end 7 / center-end;
     grid-row: 3 / 5;
-    padding: ${padding};
+    padding: ${padding} ${padding} 0 ${padding};
   }
   .selector {
     grid-column: col-end 7 / center-end;
