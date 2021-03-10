@@ -1,7 +1,11 @@
 import { number, shape } from 'prop-types';
 import React from 'react';
 
-import { fontSizeBigger, fontSizeSmaller } from '../../../../ui/ui-fonts';
+import {
+  fontSizeBigger,
+  fontSizeLarge,
+  fontSizeSmaller,
+} from '../../../../ui/ui-fonts';
 import LinkTag from '../../../LinkTag';
 import Price from '../../../Price';
 import { ProductCategoryStyles, ReviewsLine, SocialWrapper } from './styles';
@@ -13,14 +17,16 @@ import Paragraph from '../../../Paragraph';
 const ProductInformation = ({ product, selectedStyle }) =>
   product && (
     <>
-      <ReviewsLine>
-        <StarRating size={15} rating={product.ratingAverage} />
-        <WithMargins margin="1rem">
-          <LinkTag href="#reviews" size={fontSizeSmaller}>
-            Read all reviews
-          </LinkTag>
-        </WithMargins>
-      </ReviewsLine>
+      {product.ratingAverage > 0 && (
+        <ReviewsLine>
+          <StarRating size={15} rating={product.ratingAverage} />
+          <WithMargins margin="1rem">
+            <LinkTag href="#reviews" size={fontSizeSmaller}>
+              Read all {product.numberOfReviews} reviews
+            </LinkTag>
+          </WithMargins>
+        </ReviewsLine>
+      )}
       <ProductCategoryStyles>
         {product.productInformation.category}
       </ProductCategoryStyles>
@@ -33,14 +39,23 @@ const ProductInformation = ({ product, selectedStyle }) =>
         }
         salePrice={product.productStyles.results[selectedStyle].sale_price}
       />
-      <Paragraph>{product.productInformation.description}</Paragraph>
-      {/* <Button size={5} isContentCentered primary icon="star" />
-  <Button size={5} isContentCentered primary icon="star" />
-  <Button size={5} isContentCentered primary icon="star" /> */}
-      <SocialWrapper>
-        <SocialWrapper className="fab fa-facebook" />
+
+      {product.productInformation.description && (
+        <Paragraph size={fontSizeLarge}>
+          {product.productInformation.description}
+        </Paragraph>
+      )}
+
+      <SocialWrapper target="_blank" href="https://www.facebook.com">
+        <i className="fab fa-facebook" />
+      </SocialWrapper>
+
+      <SocialWrapper target="_blank" href="https://www.instagram.com">
         <i className="fab fa-instagram" />
-        <i className="fab fa-twitter" />
+      </SocialWrapper>
+
+      <SocialWrapper target="_blank" href="https://www.pinterest.com">
+        <i className="fab fa-pinterest" />
       </SocialWrapper>
     </>
   );

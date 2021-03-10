@@ -1,19 +1,20 @@
-import { number } from 'prop-types';
+import { number, oneOfType, string } from 'prop-types';
 import React from 'react';
+import { StyledPrice, StyledPriceWrapper } from './styles';
 
-const Price = ({ originalPrice, salePrice }) => originalPrice && (
-<span data-test="component-price">
-  $
-  {salePrice || originalPrice}
-  <strike>
-    {salePrice && ` $${originalPrice}`}
-  </strike>
-</span>
-);
+const Price = ({ originalPrice, salePrice }) =>
+  originalPrice && (
+    <StyledPriceWrapper data-test="component-price">
+      <StyledPrice isOnSale={salePrice}>
+        ${salePrice || originalPrice}
+      </StyledPrice>
+      <strike>{salePrice && ` $${originalPrice}`}</strike>
+    </StyledPriceWrapper>
+  );
 
 Price.propTypes = {
-  originalPrice: number,
-  salePrice: number,
+  originalPrice: oneOfType([string, number]),
+  salePrice: oneOfType([string, number]),
 };
 
 Price.defaultProps = {

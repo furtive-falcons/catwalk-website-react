@@ -27,14 +27,15 @@ const AddToCart = ({ styles, selectedStyle }) => {
   return (
     <>
       <DropDown
+        hasMargins
         handleOnChange={handleSizeChange}
         selectedOption={selectedSize}
-        size={61}
+        size={63}
         options={[DEFAULT_SIZE, ...sizes]}
       />
-      <DropDown size={34} options={quantityOptions} />
+      <DropDown size={32} options={quantityOptions} />
       <AddToBagWrapper>
-        <Button size="74%" icon="plus" primary name="Add To Bag" />
+        <Button size="82%" icon="plus" primary name="Add To Bag" />
         <Button size="5rem" isContentCentered primary icon="star" />
       </AddToBagWrapper>
     </>

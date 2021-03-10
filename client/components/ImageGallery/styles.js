@@ -5,7 +5,9 @@ import { fontSizeLarge, fontSizeLargePlus } from '../../ui/ui-fonts';
 export const ImageGalleryWrapper = styled.div`
   position: relative;
   overflow: hidden;
+  background-color: ${colorWhite};
   height: 100%;
+  z-index: 1;
 `;
 
 export const Slide = styled.div(({ image, position }) => ({
@@ -31,12 +33,14 @@ export const Arrows = styled.div(() => ({
   justifyContent: 'space-between',
   fontSize: `${fontSizeLargePlus}rem`,
   left: '8%',
+  // zIndex: 2,
 }));
 
 export const Pagination = styled.div(() => ({
   position: 'absolute',
   top: '1.5rem',
   left: '0.5rem',
+  // zIndex: 2,
 }));
 
 export const ExpandWrapper = styled.div(() => ({
@@ -44,6 +48,7 @@ export const ExpandWrapper = styled.div(() => ({
   top: '10px',
   right: '15px',
   fontSize: `${fontSizeLarge}rem`,
+  // zIndex: 2,
 }));
 
 export const Thumbnail = styled.div(({ icon }) => ({

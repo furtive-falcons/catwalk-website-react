@@ -1,5 +1,5 @@
 import {
-  bool, func, number, string,
+  bool, func, number, oneOfType, string,
 } from 'prop-types';
 import React from 'react';
 import { ButtonStyles, Primary, Secondary } from './styles';
@@ -39,7 +39,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  size: number,
+  size: oneOfType([string, number]),
   primary: bool,
   name: string,
   handleOnClick: func,

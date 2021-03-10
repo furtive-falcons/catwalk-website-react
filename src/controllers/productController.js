@@ -28,9 +28,9 @@ exports.getProductInformation = async (req, res) => {
 
     const values = Object.values(ratings);
     const keys = Object.keys(ratings);
-
+    const numberOfReviews = values.reduce((acc, item) => item * 1 + acc, 0)
     const ratingAverage = values.reduce((acc, item, i) => item * keys[i] + acc, 0)
-      / values.reduce((acc, item) => item * 1 + acc, 0);
+      / numberOfReviews;
 
     res.status(200).json({
       status: 'success',
@@ -38,6 +38,7 @@ exports.getProductInformation = async (req, res) => {
         productStyles,
         productInformation,
         ratingAverage,
+        numberOfReviews,
       },
     });
   } catch (error) {
