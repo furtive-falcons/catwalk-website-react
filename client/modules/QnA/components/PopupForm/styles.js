@@ -19,12 +19,12 @@ const ModalForm = styled.div`
 
 const ModalWrapper = styled.div`
   width: 600px;
-  height: 600px;
+  min-height: 600px;
   border-radius: 1rem;
   display: grid;
   position: fixed;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 5rem auto repeat(2, 10rem) 3fr 1fr;
+  grid-template-rows: 5rem auto auto;
   grid-gap: 0.5rem;
   background-color: ${colorWhite};
   color: ${colorGreyLight2};
@@ -42,43 +42,9 @@ const ModalWrapper = styled.div`
     grid-row: 2 / 3;
   }
 
-  .nickname {
+  form {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
-  }
-
-  .email {
-    grid-column: 1 / 4;
-    grid-row: 4 / 5;
-  }
-
-  .body {
-    grid-column: 1 / 4;
-    grid-row: 5 / 6;
-  }
-
-  label {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: ${colorGreyLight2};
-    margin-bottom: 0.5rem;
-  }
-
-  span, p {
-    color: #f00;
-  }
-
-  .upload {
-    grid-column: 1 / 2;
-    grid-row: 6 / 7;
-  }
-
-  .submit {
-    grid-column: 3 / 4;
-    grid-row: 6 / 7;
-    display:flex;
-    justify-content: flex-end;
   }
 
   .close {
@@ -122,6 +88,64 @@ resize: none;
 }
 `;
 
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 10rem) 3fr auto auto 1fr;
+  grid-gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+
+  .nickname {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+
+  .email {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .body {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+  }
+
+  label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: ${colorGreyLight2};
+    margin-bottom: 0.5rem;
+  }
+
+  span, p {
+    color: #f00;
+  }
+
+  .upload {
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+  }
+
+  .submit {
+    grid-column: 3 / 4;
+    grid-row: 6 / 7;
+    display:flex;
+    justify-content: flex-end;
+  }
+
+  .validation {
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+  }
+
+  .thumbnail {
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+  }
+`;
+
 export {
-  ModalForm, ModalWrapper, FormInputField, FormTextArea,
+  ModalForm, ModalWrapper, FormInputField, FormTextArea, Form,
 };
