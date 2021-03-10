@@ -17,6 +17,7 @@ const DetailPage = ({ productId }) => {
 
   return (
     <ProductDetails
+      data-test="component-detail"
       setSelectedStyle={setSelectedStyle}
       selectedStyle={selectedStyle}
       product={product}

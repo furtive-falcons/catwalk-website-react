@@ -4,7 +4,7 @@ import { fontSizeBase } from '../../ui/ui-fonts';
 import StyledTitle from './styles';
 
 const Title = ({ children, size }) => (
-  <StyledTitle size={size}>{children}</StyledTitle>
+  <StyledTitle data-test="component-title" size={size}>{children}</StyledTitle>
 );
 
 Title.propTypes = {

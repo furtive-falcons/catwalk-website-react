@@ -1,4 +1,6 @@
-import { func, node, number, string } from 'prop-types';
+import {
+  func, node, number, string,
+} from 'prop-types';
 import React from 'react';
 
 import { fontSizeSmall } from '../../ui/ui-fonts';

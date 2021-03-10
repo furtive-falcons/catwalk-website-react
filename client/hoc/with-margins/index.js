@@ -2,8 +2,8 @@ import { node, string } from 'prop-types';
 import React from 'react';
 import MarginsWrapper from './styles';
 
-const WithMargins = ({ margin , children }) => (
-  <MarginsWrapper margin={margin}>{children}</MarginsWrapper>
+const WithMargins = ({ margin, children }) => (
+  <MarginsWrapper data-test="component-margins" margin={margin}>{children}</MarginsWrapper>
 );
 
 WithMargins.propTypes = {
@@ -12,8 +12,8 @@ WithMargins.propTypes = {
 };
 
 WithMargins.defaultProps = {
- children : null,
- margin: '1rem'
+  children: null,
+  margin: '1rem',
 };
 
 export default WithMargins;
