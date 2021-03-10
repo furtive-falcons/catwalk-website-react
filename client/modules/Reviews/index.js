@@ -35,24 +35,27 @@ const ReviewAndRatings = ({ productId }) => {
   };
 
   // get all reviews
-  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}`);
+  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}&page=1`);
 
   // get meta data
   const getMeta = (productId) => axios.get(`/reviews/meta?product_id=${productId}`);
 
-  useEffect(() => {
-    // first get all reviews
+  // refresh page
+  const refresh = () => {
     getAllReviews(productId)
       .then((result) => {
         setReviews(result.data);
-        console.log(result.data)
         // then get the meta data
         return getMeta(productId);
       })
       .then((meta) => {
         setMeta(meta.data);
       })
-      .catch((err) => console.log(`error in getting initial data${err}`));
+      .catch((err) => { throw err; });
+  };
+
+  useEffect(() => {
+    refresh();
   }, [productId]);
 
   return (
@@ -63,10 +66,10 @@ const ReviewAndRatings = ({ productId }) => {
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
           :
         // some kind of placeholder component to show before the actual component is loaded
-          <Ratings placeholder/>}
+          <Ratings placeholder />}
         {allReviews && meta
-          ? <Reviews metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
-          : <Reviews placeholder/>}
+          ? <Reviews refresh={refresh} metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
+          : <Reviews placeholder />}
       </Container>
     </Main>
   );

@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 const RatingsContainer = styled.div`
   font-size: 1.2rem;
-  flex: 3.5;
+  flex: 2.5;
   // border: 1px solid black;
   height: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 
   .remove {
     text-decoration: underline;
@@ -43,18 +46,19 @@ const ReviewsContainer = styled.div`
   // border: 1px solid red;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
+
 `;
 
 const TopContainer = styled.div`
   font-size: 1.2rem;
   flex: 1;
   width: 95%;
-  // border: 1px solid black;
   font-weight: bold;
   display: flex;
   flex-direction: row;
   font-size: 1.4rem;
+  padding: 10px;
 `;
 
 export { FilterBox, TopContainer,RatingsContainer, ReviewsContainer };
