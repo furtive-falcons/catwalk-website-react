@@ -1,5 +1,5 @@
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Thumbnail } from './styles.js';
 import ImageModal from './components/ImageModal.jsx';
 
@@ -18,6 +18,7 @@ const ImageThumbnail = ({ images }) => {
           src={image}
           onClick={handleOnClick}
           data-index={index}
+          data-test="component-thumbnail"
         />
       ))}
       {showModal ? (
@@ -33,3 +34,11 @@ const ImageThumbnail = ({ images }) => {
 };
 
 export default ImageThumbnail;
+
+ImageThumbnail.propTypes = {
+  images: PropTypes.array,
+};
+
+ImageThumbnail.defaultProps = {
+  images: [],
+};

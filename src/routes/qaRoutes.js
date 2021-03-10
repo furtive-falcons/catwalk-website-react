@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/questions', qaController.getQA);
 
+router.get('/questions/:question_id/answers', qaController.getAnswers);
+
 router.post('/questions', qaController.postQuestion);
 
 router.post('/questions/:question_id/answers', qaController.postAnswer);

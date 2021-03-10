@@ -57,8 +57,6 @@ const PopupForm = ({ question, setForm, formType }) => {
     }
     axios.post(url, content())
       .then(() => setSuccess(true))
-      // .then(() => setForm(false))
-      // .then(() => document.body.style.overflow = 'auto')
       .catch((err) => { throw err; });
   };
 

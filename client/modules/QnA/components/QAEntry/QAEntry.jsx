@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
+import { object, string, number } from 'prop-types';
 import Question from './Question.jsx';
 import LoadAndCollapse from './LoadAndCollapse.jsx';
 import { Entry } from './styles.js';
@@ -8,10 +9,13 @@ import QuestionInfo from './QuestionInfo.jsx';
 import AnswerContainer from './AnswerContainer.jsx';
 import Title from '../../../../components/Title';
 
-const QAEntry = ({ question, searched }) => {
-  const answers = Object.values(question.answers);
+const axios = require('axios');
+
+const QAEntry = ({ question, id, searched }) => {
   const [ans, setAnswers] = useState([]);
   const [display, setDisplay] = useState([]);
+  const [success, setSuccess] = useState(false);
+
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
@@ -26,10 +30,53 @@ const QAEntry = ({ question, searched }) => {
     }
   };
 
+  const removeDuplicate = (answers) => {
+    const result = {};
+    answers.forEach((answer) => {
+      const answerId = answer.answer_id;
+      if (!result[answerId]) {
+        result[answerId] = answer;
+      }
+    });
+    return Object.values(result);
+  };
+  const getAnswers = (page) => {
+    const data = new Promise((resolve, reject) => {
+      axios.get(`qa/questions/${id}/answers`, {
+        params: {
+          question_id: id,
+          page,
+        },
+      })
+        .then((result) => resolve(result))
+        .catch((err) => reject(err));
+    });
+    return data;
+  };
+
+  const getAllAnswers = () => {
+    const data = [];
+    let page = 1;
+    while (page < 3) {
+      const promise = getAnswers(page);
+      data.push(promise);
+      page += 1;
+    }
+    Promise.all(data)
+      .then((results) => results.forEach((result) => {
+        setAnswers((prev) => [...prev, ...result.data.results]);
+      }));
+  };
+
   useEffect(() => {
-    sortAnswers(answers);
-    setAnswers(answers);
-  }, [searched]);
+    if (!success) {
+      getAllAnswers();
+      setSuccess(true);
+    } else {
+      sortAnswers(removeDuplicate(ans));
+      setDisplay(ans.slice(0, 2));
+    }
+  }, [ans]);
 
   const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
@@ -50,8 +97,6 @@ const QAEntry = ({ question, searched }) => {
       </div>
       <AnswerContainer
         display={display}
-        answers={ans}
-        searched={searched}
       />
       <QuestionInfo question={question} />
       { ans.length < 3 ? null
@@ -75,3 +120,13 @@ const QAEntry = ({ question, searched }) => {
 };
 
 export default QAEntry;
+
+QAEntry.propTypes = {
+  question: object.isRequired,
+  searched: string,
+  id: number.isRequired,
+};
+
+QAEntry.defaultProps = {
+  searched: '',
+};

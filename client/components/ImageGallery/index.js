@@ -17,6 +17,8 @@ const ImageGallery = ({ photos, setToggle, toggle }) => {
 
   const renderThumbnails = (item, i) => (
     <Thumbnail
+      isActive={index === i}
+      className="thumbnail"
       key={item.url}
       onClick={() => setIndex(i)}
       icon={item.thumbnail_url}

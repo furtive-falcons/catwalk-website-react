@@ -28,7 +28,7 @@ exports.getProductInformation = async (req, res) => {
 
     const values = Object.values(ratings);
     const keys = Object.keys(ratings);
-    const numberOfReviews = values.reduce((acc, item) => item * 1 + acc, 0)
+    const numberOfReviews = values.reduce((acc, item) => item * 1 + acc, 0);
     const ratingAverage = values.reduce((acc, item, i) => item * keys[i] + acc, 0)
       / numberOfReviews;
 

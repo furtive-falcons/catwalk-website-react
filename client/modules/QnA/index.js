@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
+import { string } from 'prop-types';
 import SearchBar from './components/SearchBar.jsx';
 import EntryContainer from './components/EntryContainer.jsx';
 import MoreQuestion from './components/MoreQuestion.jsx';
@@ -16,33 +17,33 @@ const QnA = ({ productId }) => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
-  const [page, setPage] = useState(1);
 
-  // const removeQuestionWihoutAnswer = (data) => {
-  //   const validResult = data.filter((question) => {
-  //     const keys = Object.keys(question.answers);
-  //     return keys.length > 0;
-  //   });
-  //   setQuestions(validResult);
-  // };
-
-  const getQA = () => {
-    axios.get('/qa/questions', {
-      params: {
-        product_id: productId,
-        page,
-      },
-    })
-      .then((res) => {
-        // removeQuestionWihoutAnswer(res.data.results);
-        setQuestions(res.data.results);
-        // if (page === 1) {
-        //   setDisplay(res.data.results.slice(0, 2));
-        // }
+  const getQA = (page) => {
+    const data = new Promise((resolve, reject) => {
+      axios.get('/qa/questions', {
+        params: {
+          product_id: productId,
+          page,
+        },
       })
-      .catch((err) => {
-        throw err;
-      });
+        .then((result) => resolve(result))
+        .catch((err) => reject(err));
+    });
+    return data;
+  };
+
+  const getAllQA = () => {
+    const data = [];
+    let page = 1;
+    while (page < 3) {
+      const promise = getQA(page);
+      data.push(promise);
+      page += 1;
+    }
+    Promise.all(data)
+      .then((results) => results.forEach((result) => {
+        setQuestions((prev) => [...prev, ...result.data.results]);
+      }));
   };
 
   const removeDuplicate = (data) => {
@@ -57,9 +58,8 @@ const QnA = ({ productId }) => {
   };
 
   const loadMoreQuestions = () => {
+    setFilter([]);
     setDisplay((preDisplay) => questions.slice(0, preDisplay.length + 2));
-    // setPage((prev) => prev + 1);
-    // getQA();
   };
 
   const collapseQuestions = () => {
@@ -96,11 +96,11 @@ const QnA = ({ productId }) => {
   };
   useEffect(() => {
     if (questions.length === 0) {
-      getQA();
+      getAllQA();
     } else {
       setDisplay(questions.slice(0, 2));
     }
-  }, [questions, search]);
+  }, [questions]);
 
   return (
     <ProductContext.Provider value={productId}>
@@ -130,3 +130,11 @@ const QnA = ({ productId }) => {
 };
 
 export { QnA, ProductContext };
+
+QnA.propTypes = {
+  productId: string,
+};
+
+QnA.defaultProps = {
+  productId: '14036',
+};

@@ -12,6 +12,7 @@ const Helpful = ({
       children="Yes"
       size={size}
       handleOnClick={handleOnClick}
+      data-test="component-helpful"
     />
     {' '}
     (

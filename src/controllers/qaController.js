@@ -17,6 +17,23 @@ exports.getQA = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
+exports.getAnswers = (req, res) => {
+  const url = `${process.env.API_URL}/qa/questions/${req.params.question_id}/answers`;
+  axios(url, {
+    method: 'get',
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+    params: {
+      page: req.query.page,
+    },
+  })
+    .then((result) => {
+      res.status(200).json(result.data);
+    })
+    .catch((err) => console.log(err));
+};
+
 exports.postQuestion = (req, res) => {
   const url = `${process.env.API_URL}/qa/questions`;
   axios(url, {
@@ -50,7 +67,7 @@ exports.postAnswer = (req, res) => {
     },
   })
     .then(() => res.sendStatus(201))
-    .catch((err) => res.status(403).send(err));
+    .catch((err) => console.log(3));
 };
 
 exports.putQuestionHelpful = (req, res) => {
