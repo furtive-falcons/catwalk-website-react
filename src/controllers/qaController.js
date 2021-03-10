@@ -8,6 +8,7 @@ exports.getQA = (req, res) => {
     },
     params: {
       product_id: req.query.product_id,
+      page: req.query.page,
     },
   })
     .then((result) => {
