@@ -66,4 +66,6 @@ const ModalContainer = styled.div`
   }
 `;
 
-export {ModalContainer, DropdownContainer, ReviewListContainer, ButtonsContainer, TileContainer };
+export {
+  ModalContainer, DropdownContainer, ReviewListContainer, ButtonsContainer, TileContainer,
+};

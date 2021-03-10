@@ -1,11 +1,16 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: row;
 
-`
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+`;
 
 const Header = styled.div`
   font-size: 16px;
@@ -19,4 +24,4 @@ const Main = styled.div`
   padding-bottom: 50px;
 `;
 
-export {Main, Header, Container};
+export { Main, Header, Container };

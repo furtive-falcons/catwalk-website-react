@@ -8,7 +8,7 @@ const Ratings = ({
   data, metaData, getFilter, filters, removeFilters, placeholder,
 }) => {
   // finds average rating
-  const average = (metaData, data) => {
+  const average = (metaData) => {
     let totalScore = 0;
     for (const score in metaData) {
       totalScore += parseInt(metaData[score])*parseInt(score);

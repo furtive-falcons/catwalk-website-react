@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const usedReviewIdsUpvote = {};
-const usedReviewIdsReport ={};
+const usedReviewIdsReport = {};
 
 exports.getReviews = (req, res) => {
   const url = `${process.env.API_URL}/reviews`;
@@ -14,7 +14,7 @@ exports.getReviews = (req, res) => {
       product_id: req.query.product_id,
       sort: req.query.sort,
       count: req.query.count,
-      page: req.query.page
+      page: req.query.page,
     },
   })
     .then((result) => {
@@ -40,7 +40,7 @@ exports.getMeta = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-exports.post= (req, res) => {
+exports.post = (req, res) => {
   const url = `${process.env.API_URL}/reviews`;
   axios(url, {
     method: 'post',
@@ -56,7 +56,7 @@ exports.post= (req, res) => {
       name: req.body.name,
       email: req.body.email,
       photos: req.body.photos,
-      characteristics: req.body.characteristics
+      characteristics: req.body.characteristics,
     },
   })
     .then((result) => {
@@ -77,12 +77,12 @@ exports.upVote = (req, res) => {
       },
     })
       .then((result) => {
-        res.status(204).json("upvoted!");
+        res.status(204).json('upvoted!');
       })
       .catch((err) => res.status(500).send(err));
   } else {
     // if already exist return with status 500
-    res.status(500).send('already upvoted before')
+    res.status(500).send('already upvoted before');
   }
 };
 
@@ -98,12 +98,11 @@ exports.report = (req, res) => {
       },
     })
       .then((result) => {
-        res.status(204).json("reported!");
+        res.status(204).json('reported!');
       })
       .catch((err) => res.status(500).send(err));
   } else {
     // if already exist return with status 500
-    console.log(usedReviewIdsReport)
-    res.status(500).send('already reported before')
+    res.status(500).send('already reported before');
   }
 };

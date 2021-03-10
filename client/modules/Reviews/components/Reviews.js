@@ -9,7 +9,7 @@ import Form from './reviewComp/formComp/Form.js';
 // import Form from './reviewComp/formComp/Form.js';
 
 const Reviews = ({
-  data, filters, metaData, placeholder,
+  data, filters, metaData, placeholder, refresh
 }) => {
   // close modal
   const [showModal, setShow] = useState(false);
@@ -124,7 +124,7 @@ const Reviews = ({
       && <ReviewList data={filterData(numTiles, data)} />}
             {/* buttons container */}
             <Buttons openModal={openModal} reviewCount={data.length} dataIndex={numTiles} expand={expand} />
-            <AddReview metaData={metaData} closeModal={closeModal} showModal={showModal} />
+            <AddReview refresh={refresh} metaData={metaData} closeModal={closeModal} showModal={showModal} />
             {/* <Form/> */}
           </>
         )}
