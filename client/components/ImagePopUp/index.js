@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Thumbnail } from './styles.js';
 import ImageModal from './components/ImageModal.jsx';
 
-const ImageThumbnail = ({ images }) => {
+const ImageThumbnail = ({ images, productName }) => {
   const [showModal, setModal] = useState(false);
   const [current, setCurrent] = useState(0);
   const handleOnClick = (e) => {
@@ -19,6 +19,7 @@ const ImageThumbnail = ({ images }) => {
           onClick={handleOnClick}
           data-index={index}
           loading="lazy"
+          alt={productName}
           data-test="component-thumbnail"
         />
       ))}
@@ -38,8 +39,10 @@ export default ImageThumbnail;
 
 ImageThumbnail.propTypes = {
   images: PropTypes.array,
+  productName: PropTypes.string,
 };
 
 ImageThumbnail.defaultProps = {
   images: [],
+  productName: 'patagucci',
 };
