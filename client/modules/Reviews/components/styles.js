@@ -8,10 +8,12 @@ const RatingsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  @media (max-width: 300px) {
-    width: 100%;
+  .innerContainer {
+    width: 95%;
   }
+
 
   .remove {
     text-decoration: underline;

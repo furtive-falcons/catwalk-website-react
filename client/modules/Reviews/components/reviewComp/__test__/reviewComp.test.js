@@ -6,6 +6,8 @@ import Buttons from '../Buttons.js';
 import ReviewCount from '../ReviewCount.js';
 import Tile from '../Tile.js';
 import ReviewList from '../ReviewList.js';
+import Helpful from '../Helpful.js';
+import Sort from '../Sort.js';
 
 // set up enzyme's react adapter
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -36,6 +38,20 @@ test('"Add Review" and "More Reviews" buttons exists', () => {
 test('Tiles exists', () => {
   const wrapper = shallow(<Tile />);
   const appComponent = wrapper.find('#tile');
+  expect(wrapper).toBeTruthy();
+  expect(appComponent.length).toBe(1);
+});
+
+test('Helpful exists', () => {
+  const wrapper = shallow(<Helpful />);
+  const appComponent = wrapper.find('#helpful');
+  expect(wrapper).toBeTruthy();
+  expect(appComponent.length).toBe(1);
+});
+
+test('Sort exists', () => {
+  const wrapper = shallow(<Sort />);
+  const appComponent = wrapper.find('#dropdown');
   expect(wrapper).toBeTruthy();
   expect(appComponent.length).toBe(1);
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { DropdownContainer } from './styles.js';
 
 const Sort = ({ getSortMethod, sortValue }) => (
-  <DropdownContainer>
+  <DropdownContainer id='dropdown'>
     <select value={sortValue} onChange={getSortMethod} name="sort" className="dropdown">
       <option value="relevance">Relevance</option>
       <option value="helpfulness">Helpfulness</option>
