@@ -1,13 +1,21 @@
-import {
-  arrayOf, bool, func, number, oneOfType, string,
-} from 'prop-types';
+import { arrayOf, bool, func, number, oneOfType, string } from 'prop-types';
 import React from 'react';
 import StyledSelect from './styles';
 
 const DropDown = ({
-  size, options, selectedOption, handleOnChange,hasMargins
+  size,
+  options,
+  selectedOption,
+  handleOnChange,
+  hasMargins,
 }) => (
-  <StyledSelect hasMargins={hasMargins} onChange={handleOnChange} value={selectedOption} selectSize={size}>
+  <StyledSelect
+    disabled={options.length < 2}
+    hasMargins={hasMargins}
+    onChange={handleOnChange}
+    value={selectedOption}
+    selectSize={size}
+  >
     {options.map((option) => (
       <option key={`${option}-${Math.random()}`} value={option}>
         {option}
@@ -20,7 +28,7 @@ DropDown.propTypes = {
   size: number,
   options: arrayOf(oneOfType([number, string])),
   handleOnChange: func,
-  hasMargins:bool,
+  hasMargins: bool,
 };
 
 DropDown.defaultProps = {
