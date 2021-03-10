@@ -14,7 +14,7 @@ const DivStyles = styled.div`
   white-space: nowrap;
   padding-left: 100%;
   display: inline-block;
-  animation: slide-left 10s linear infinite;
+  animation: slide-left 20s linear infinite;
   a,
   span,
   strong {

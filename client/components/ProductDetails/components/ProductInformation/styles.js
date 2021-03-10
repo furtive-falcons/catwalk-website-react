@@ -11,3 +11,10 @@ export const ProductCategoryStyles = styled(Paragraph)`
 export const ReviewsLine = styled.div`
   display: flex;
 `;
+
+export const SocialWrapper = styled.i`
+  i {
+    width: 5rem;
+    height: 5rem;
+  }
+`;

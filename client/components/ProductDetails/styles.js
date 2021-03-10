@@ -29,31 +29,31 @@ const DivStyles = styled.div`
   }
   .gallery {
     grid-column: center-start /
-      ${(props) => (props.toggle ? 'center-end' : 'col-end 8')};
+      ${(props) => (props.toggle ? 'center-end' : 'col-end 7')};
     grid-row: 3 / ${(props) => (props.toggle ? -1 : 9)};
   }
   .info {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 3 / 5;
     padding: ${padding};
   }
   .selector {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 5 / 7;
     padding: ${padding};
   }
   .cart {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 7 / 9;
     padding: ${padding};
   }
   .slogan {
-    grid-column: center-start / col-end 8;
+    grid-column: center-start / col-end 7;
     grid-row: 9 / -1;
     padding: ${padding};
   }
   .checkList {
-    grid-column: col-end 8 / center-end;
+    grid-column: col-end 7 / center-end;
     grid-row: 9 / -1;
     padding: ${padding};
   }
