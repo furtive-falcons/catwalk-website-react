@@ -1,8 +1,15 @@
 import styled from 'styled-components';
+import { colorWhite, colorBlack } from '../../ui/ui-colors';
 
-const AddToBagWrapper = styled.div`
-    display : flex;
-    gap: 1.5rem;
+export const AddToBagWrapper = styled.div`
+  display: flex;
+  gap: 1.5rem;
 `;
-
-export default AddToBagWrapper;
+export const HeartStyles = styled.div`
+  button {
+    background-color: ${colorWhite};
+    color: ${colorBlack};
+    border: 1px solid ${colorBlack};
+    outline: none;
+  }
+`;
