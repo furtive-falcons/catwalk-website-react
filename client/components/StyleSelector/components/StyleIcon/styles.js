@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { colorSecondary } from '../../../../ui/ui-colors';
 
 export const IconStyle = styled.div(({ icon }) => ({
-  height: '5rem',
-  width: '5rem',
+  height: '6rem',
+  width: '6rem',
   backgroundImage: `url(${icon})`,
   borderRadius: '50%',
   cursor: 'pointer',
