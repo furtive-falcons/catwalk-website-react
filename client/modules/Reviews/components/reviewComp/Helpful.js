@@ -25,7 +25,7 @@ const Helpful = ({ count, review_id }) => {
   };
 
   return (
-    <HelpfulDiv>
+    <HelpfulDiv id='helpful'>
       Was this helpful?
       {' '}
       <span onClick={() => upVote(review_id)}>Yes</span>
