@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorWhite, colorGreyLight2, } from '../../../../ui/ui-colors';
+import { colorWhite, colorGreyLight2, colorPrimary, } from '../../../../ui/ui-colors';
 
 const ModalForm = styled.div`
   position: fixed;
@@ -146,6 +146,28 @@ const Form = styled.form`
   }
 `;
 
+const SuccessModal = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: ${colorWhite};
+  align-items: center;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+
+  .success {
+    font-size: 20rem;
+    color: ${colorPrimary};
+    margin-bottom: 2rem;
+  }
+
+  p {
+    color: ${colorGreyLight2};
+    font-weight: 500;
+  }
+`;
+
 export {
-  ModalForm, ModalWrapper, FormInputField, FormTextArea, Form,
+  ModalForm, ModalWrapper, FormInputField, FormTextArea, Form, SuccessModal,
 };
