@@ -5,7 +5,6 @@ import ImageContainer from './components/styles';
 
 const CardAssets = ({ card }) => {
   const hasImg = Boolean(card.firstStyles.photos[0].thumbnail_url)
-  console.log('hasImg', hasImg)
   return (
     <ImageContainer>
       <FavIcon />

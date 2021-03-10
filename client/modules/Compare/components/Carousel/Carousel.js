@@ -5,7 +5,6 @@ import CardList from './components/CardList/CardList';
 import CarouselContainer from './styles';
 
 const Carousel = ({ relatedProducts }) => {
-  console.log('relatedProducts', relatedProducts)
     return (
       <div data-test="component-carousel">
         <CarouselContainer>
