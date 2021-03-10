@@ -18,6 +18,7 @@ const ImageThumbnail = ({ images }) => {
           src={image}
           onClick={handleOnClick}
           data-index={index}
+          loading="lazy"
           data-test="component-thumbnail"
         />
       ))}
