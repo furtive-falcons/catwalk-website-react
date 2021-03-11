@@ -9,53 +9,58 @@ exports.getRelatedProducts = async (req, res) => {
       },
     });
 
-    let relatedProducts = {};
-    // i can probably refactor this for loop into a map function and promise.all
-    // and i can still use await if i really wanted to
-    // worry about this later #tech debt
-    for (let i = 0; i < relatedProductsArray.length; i++) {
-      const allID = `${process.env.API_URL}/products/${relatedProductsArray[i]}`;
-      const { data: relatedProduct} = await axios(allID, {
+      const relatedProductsPromisesArray = relatedProductsArray.map(async relatedProductId => {
+
+      const relatedProductResponse = {}
+
+      const allID = `${process.env.API_URL}/products/${relatedProductId}`;
+      const { data: fullRelatedProduct } = await axios(allID, {
         headers: {
           Authorization: process.env.API_KEY,
         },
       });
 
-      relatedProducts[relatedProductsArray[i]] = relatedProduct;
-
-      const allStyles = `${process.env.API_URL}/products/${relatedProductsArray[i]}`;
-      const { data: relatedStyles } = await axios(`${allStyles}/styles`, {
-        headers: {
-          Authorization: process.env.API_KEY,
-        },
-      });
-
-      relatedProduct.firstStyles = relatedStyles.results[0];
-      
-      // const filteredStyles = relatedStyles.results.filter(relatedStyle => {
-      //   return (relatedStyle["default?"] && relatedStyle.photos[0].thumbnail_url)
-      // })
-      // relatedProduct.defaultPhotoStyle = filteredStyles;
+      relatedProductResponse.id = fullRelatedProduct.id
+      relatedProductResponse.name = fullRelatedProduct.name
+      relatedProductResponse.category = fullRelatedProduct.category
+      relatedProductResponse.features = fullRelatedProduct.features
 
       const allRelatedRating = `${process.env.API_URL}`;
-      const { data: relatedRatingAverage } = await axios(`${allRelatedRating}/reviews/meta?product_id=${relatedProductsArray[i]}`, {
+      const { data: relatedRatingAverage } = await axios(`${allRelatedRating}/reviews/meta?product_id=${relatedProductId}`, {
         headers: {
           Authorization: process.env.API_KEY,
         },
       });
-  
-      const { ratings } = relatedRatingAverage;  
+
+      const { ratings } = relatedRatingAverage;
       const numberOfPeopleGivingStars = Object.values(ratings);
       const numberOfStarsGivenByPeople = Object.keys(ratings);
       const totalNumberOfGivenStars = numberOfPeopleGivingStars.reduce((acc, num) => (num * 1) + acc, 0)
       const sumOfAllStarsGiven = numberOfStarsGivenByPeople.reduce((acc, item, index) => (item * numberOfPeopleGivingStars[index]) + acc, 0)
       const ratingAverage =  sumOfAllStarsGiven / totalNumberOfGivenStars;
 
-      relatedProduct.ratingAverage = ratingAverage;
-    }
+      relatedProductResponse.ratingAverage = ratingAverage;
+
+      const allStyles = `${process.env.API_URL}/products/${relatedProductId}`;
+      const { data: relatedStyles } = await axios(`${allStyles}/styles`, {
+        headers: {
+          Authorization: process.env.API_KEY,
+        },
+      });
+
+      relatedProductResponse.original_price = relatedStyles.results[0].original_price
+      relatedProductResponse.sale_price = relatedStyles.results[0].sale_price;
+      relatedProductResponse.thumbnail_url = relatedStyles.results[0].photos[0].thumbnail_url
+
+      return relatedProductResponse;
+
+    })
+
+    const fullRelatedProducts = await Promise.all(relatedProductsPromisesArray)
+
     res.status(200).json({
       status: 'success',
-      data: Object.values(relatedProducts),
+      data: fullRelatedProducts,
     });
   } catch (error) {
     res.status(500).json({
