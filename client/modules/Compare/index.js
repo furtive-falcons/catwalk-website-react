@@ -3,7 +3,6 @@ import axios from 'axios';
 // import PropTypes from 'prop-types';
 import Carousel from './components/Carousel/Carousel';
 // import CarouselContainer from './components/Carousel/styles';
-// client/modules/Compare/components/Carousel/styles.js
 
 class CompareCarousels extends React.Component {
   constructor(props) {
@@ -30,7 +29,6 @@ class CompareCarousels extends React.Component {
   }
 
   render() {
-    console.log('this.state.relatedProducts', this.state.relatedProducts)
     return (
       <div data-test="component-compare">
         <Carousel relatedProducts={this.state.relatedProducts}/>

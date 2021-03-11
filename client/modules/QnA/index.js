@@ -124,7 +124,7 @@ const QnA = ({ productId }) => {
               name="MORE ANSWERED QUESTIONS"
               handleOnClick={loadMoreQuestions}
             />
-          ) : (
+          ) : questions.length === 2 ? null : (
             <MoreQuestion
               name="COLLAPSE QUESTIONS"
               handleOnClick={collapseQuestions}

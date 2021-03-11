@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import limit from '../../helpers/limit';
 import Button from '../Button';
 import DropDown from '../DropDown';
-import AddToBagWrapper from './styles';
+import { AddToBagWrapper, HeartStyles } from './styles';
 
 const DEFAULT_SIZE = 'SELECT SIZE';
 
@@ -15,11 +15,11 @@ const AddToCart = ({ styles, selectedStyle }) => {
 
   const handleSizeChange = (e) => {
     const selected = Object.values(selectedSizes).find(
-      (el) => el.size === e.target.value,
+      (el) => el.size === e.target.value
     );
 
     setQuantityOptions(
-      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1),
+      Array.from({ length: limit(selected.quantity) }, (_, i) => i + 1)
     );
     setSelectedSize(selected.size);
   };
@@ -27,15 +27,20 @@ const AddToCart = ({ styles, selectedStyle }) => {
   return (
     <>
       <DropDown
+        hasMargins
         handleOnChange={handleSizeChange}
         selectedOption={selectedSize}
-        size={61}
-        options={[DEFAULT_SIZE, ...sizes]}
+        size={63}
+        options={sizes.length > 0 ? [DEFAULT_SIZE, ...sizes] : ['OUT OF STOCK']}
       />
-      <DropDown size={34} options={quantityOptions} />
+      <DropDown size={32} options={quantityOptions} />
       <AddToBagWrapper>
-        <Button size="74%" icon="plus" primary name="Add To Bag" />
-        <Button size="5rem" isContentCentered primary icon="star" />
+        {sizes.length > 0 && (
+          <Button size="82%" icon="plus" primary name="Add To Bag" />
+        )}
+        <HeartStyles>
+          <Button size="5rem" isContentCentered primary icon="star" />
+        </HeartStyles>
       </AddToBagWrapper>
     </>
   );

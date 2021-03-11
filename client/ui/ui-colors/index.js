@@ -6,6 +6,8 @@ export const colorSecondary = '#597E89';
 export const colorGreyLight1 = '#363A40';
 export const colorGreyLight2 = '#262626';
 
-export const colorWhite = '#F2F2F2';
+export const colorWhite = '#FFF';
+
+export const colorBlack = '#000';
 
 export const colorGreen = '#43a64b';

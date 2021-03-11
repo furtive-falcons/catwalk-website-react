@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PartialStar = ({ percentage, size, color, background}) => (
-  <svg height={size} viewBox="0 0 24 24" width={size}>
+  <svg height={size} viewBox="0 0 24 24" width={size} id = 'partialstar'>
     <defs>
       <linearGradient id="grad2">
         <stop offset="0%" stopColor={color} />

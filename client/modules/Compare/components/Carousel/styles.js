@@ -11,6 +11,11 @@ const CarouselContainer = styled.div`
   padding: 10px 0px 10px 0px;
   position: relative;
   overflow: hidden;
+  flex-direction: column;
+  .section-header{
+    padding: 12px;
+    margin: 5px;
+  }
 `;
 
 export default CarouselContainer;

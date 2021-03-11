@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Section = () => (
-  <h2> RELATED PRODUCTS </h2>
+  <div className="section-header">
+    <h1> RELATED PRODUCTS </h1>
+  </div>
 );
 
 export default Section;
