@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { StyledSearch } from '../styles.js';
 
-const SearchBar = ({search}) => {
+const SearchBar = ({ search }) => {
   const [input, setInput] = useState('');
 
   const handleChange = (event) => {
@@ -12,9 +12,10 @@ const SearchBar = ({search}) => {
 
   return (
     <StyledSearch
-      className="search"
+      id="search"
+      aria-label="search"
       data-test="component-searchBar"
-      type="text"
+      type="search"
       value={input}
       placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
       onChange={handleChange}

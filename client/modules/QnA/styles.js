@@ -25,7 +25,7 @@ export const Container = styled.div`
     grid-row: 1 / 2;
   }
 
-  .search{
+  #search{
     grid-column: span 6;
     grid-row: 2 / 3;
   }
