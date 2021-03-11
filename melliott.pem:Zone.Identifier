@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2
+HostUrl=https://us-east-2.console.aws.amazon.com/ec2/v2/downloadKeyPair
