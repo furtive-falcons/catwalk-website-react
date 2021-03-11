@@ -1,6 +1,4 @@
-import {
-  bool, func, number, oneOfType, string,
-} from 'prop-types';
+import { bool, func, number, oneOfType, string } from 'prop-types';
 import React from 'react';
 import { ButtonStyles, Primary, Secondary } from './styles';
 
@@ -12,18 +10,41 @@ const renderButtonContent = (icon, name) => (
 );
 
 const Button = ({
-  size, name, primary, icon, handleOnClick, isContentCentered, secondary, type,
+  size,
+  name,
+  label,
+  primary,
+  icon,
+  handleOnClick,
+  isContentCentered,
+  secondary,
+  type,
 }) => {
   if (primary) {
     return (
-      <Primary isContentCentered={isContentCentered} type={type} size={size} data-test="component-button" onClick={handleOnClick}>
+      <Primary
+        aria-label={label}
+        isContentCentered={isContentCentered}
+        type={type}
+        size={size}
+        data-test="component-button"
+        onClick={handleOnClick}
+      >
         {renderButtonContent(icon, name)}
       </Primary>
     );
   }
   if (secondary) {
     return (
-      <Secondary type={type} size={size} data-test="component-button" onClick={handleOnClick}>{renderButtonContent(icon, name)}</Secondary>
+      <Secondary
+        aria-label={label}
+        type={type}
+        size={size}
+        data-test="component-button"
+        onClick={handleOnClick}
+      >
+        {renderButtonContent(icon, name)}
+      </Secondary>
     );
   }
 
@@ -44,6 +65,7 @@ Button.propTypes = {
   name: string,
   handleOnClick: func,
   icon: string,
+  label: string,
 };
 
 Button.defaultProps = {
@@ -52,6 +74,7 @@ Button.defaultProps = {
   name: '',
   handleOnClick: Function.prototype,
   icon: null,
+  label: 'button',
 };
 
 export default Button;
