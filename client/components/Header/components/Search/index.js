@@ -3,7 +3,7 @@ import { SearchStyles, SearchWrapper, StyledIcon } from './styles';
 
 const Search = () => (
   <SearchWrapper data-test="component-search">
-    <SearchStyles />
+    <SearchStyles aria-label="Search input" />
     <StyledIcon className="fas fa-search" />
   </SearchWrapper>
 );
