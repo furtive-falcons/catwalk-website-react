@@ -17,7 +17,8 @@ export const Container = styled.div`
     flex-direction: column;
     grid-column: span 6;
     max-height: 100vh;
-    overflow: scroll;
+    overflow: auto;
+    margin-top: 2rem;
   }
 
   .title {
@@ -37,8 +38,10 @@ export const Container = styled.div`
   }
 
   .add-question {
+    display: flex;
     grid-column: 2 / 3;
     grid-row: 4 / 5;
+    justify-content: center;
     align-self: center;
   }
 `;

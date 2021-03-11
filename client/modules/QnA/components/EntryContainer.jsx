@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
-import { string, array } from 'prop-types';
+import { string, shape, number } from 'prop-types';
 import QAEntry from './QAEntry/QAEntry.jsx';
 
 const EntryContainer = ({ questions, searched }) => {

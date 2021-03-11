@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorWhite, colorGreyLight2, colorPrimary, } from '../../../../ui/ui-colors';
+import { colorWhite, colorGreyLight2, colorPrimary } from '../../../../ui/ui-colors';
 
 const ModalForm = styled.div`
   position: fixed;
@@ -26,7 +26,7 @@ const ModalWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 5rem auto auto;
   grid-gap: 0.5rem;
-  background-color: ${colorWhite};
+  background-color: #f5f5f5;
   color: ${colorGreyLight2};
   align-items: center;
   padding: 5rem;

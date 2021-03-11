@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import { string, number, func } from 'prop-types';
-import { FormInputField } from './PopupForm/styles.js';
+import { FormInputField } from './styles.js';
 
 const InputField = ({
   type, width, height, label, placeholder, getInput, name,

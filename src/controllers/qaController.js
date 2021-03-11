@@ -31,7 +31,7 @@ exports.getAnswers = (req, res) => {
     .then((result) => {
       res.status(200).json(result.data);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => res.status(500).send(err));
 };
 
 exports.postQuestion = (req, res) => {
@@ -49,7 +49,7 @@ exports.postQuestion = (req, res) => {
     },
   })
     .then(() => res.sendStatus(201))
-    .catch((err) => res.status(403).send(err));
+    .catch((err) => res.status(500).send(err));
 };
 
 exports.postAnswer = (req, res) => {
@@ -67,7 +67,7 @@ exports.postAnswer = (req, res) => {
     },
   })
     .then(() => res.sendStatus(201))
-    .catch((err) => console.log(3));
+    .catch((err) => res.status(500).send(err));
 };
 
 exports.putQuestionHelpful = (req, res) => {
@@ -94,6 +94,21 @@ exports.putAnswerHelpful = (req, res) => {
     },
     data: {
       answer_helpfulness: req.body.helpfulness,
+    },
+  })
+    .then(() => res.sendStatus(204))
+    .catch((err) => res.status(403).send(err));
+};
+
+exports.putQuestionReport = (req, res) => {
+  const url = `${process.env.API_URL}/qa/questions/${req.params.question_id}/report`;
+  axios(url, {
+    method: 'put',
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+    data: {
+      reported: req.body.reported,
     },
   })
     .then(() => res.sendStatus(204))

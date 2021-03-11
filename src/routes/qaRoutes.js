@@ -13,6 +13,8 @@ router.post('/questions/:question_id/answers', qaController.postAnswer);
 
 router.put('/questions/:question_id/helpful', qaController.putQuestionHelpful);
 
+router.put('/questions/:question_id/report', qaController.putQuestionReport);
+
 router.put('/answers/:answer_id/helpful', qaController.putAnswerHelpful);
 
 router.put('/answers/:answer_id/report', qaController.putAnswerReport);

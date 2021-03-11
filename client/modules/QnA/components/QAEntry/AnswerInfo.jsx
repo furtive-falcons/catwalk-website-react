@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { number, string, shape } from 'prop-types';
 import NameDate from '../../../../components/NameDate';
 import Helpful from '../../../../components/Helpful';
 import Report from './Report.jsx';
@@ -14,18 +15,18 @@ const AnswerInfo = ({ answer }) => {
   const [report, setReport] = useState(false);
 
   const putRequest = () => {
-    const url = `qa/answers/${answer.id}/helpful`;
+    const url = `qa/answers/${answer.answer_id}/helpful`;
     const data = { answer_helpfulness: yesCount };
     axios.put(url, data)
-      .catch((err) => console.log(err));
+      .catch((err) => { throw err; });
   };
 
   const reported = () => {
     setReport(true);
-    const url = `qa/answers/${answer.id}/report`;
+    const url = `qa/answers/${answer.answer_id}/report`;
     const data = { reported: true };
     axios.put(url, data)
-      .catch((err) => console.log(err));
+      .catch((err) => { throw err; });
   };
 
   const handleOnClick = (e) => {
@@ -37,28 +38,39 @@ const AnswerInfo = ({ answer }) => {
     }
   };
   return (
-    <div className="info">
+    <div className="answer-info">
       <NameDate
         name={answer.answerer_name}
         date={answer.date}
         string="By"
       />
-      <StyledSeperator />
+      <StyledSeperator className="seperator" />
       <div className="helpful-2">
         <Helpful
+          size={1.2}
           helpfulness={yesCount}
-          size={1.1}
           handleOnClick={handleOnClick}
         />
       </div>
-      <StyledSeperator />
+      <StyledSeperator className="seperator" />
       <Report
-        children={report ? 'Reported' : 'Report'}
+        className="report"
         handleOnClick={reported}
-        size={1.1}
-      />
+      >
+        {report ? 'Reported' : 'Report'}
+      </Report>
     </div>
   );
 };
 
 export default AnswerInfo;
+
+AnswerInfo.propTypes = {
+  answer: shape({
+    answer_id: number,
+    body: string,
+    date: string,
+    answerer_name: string,
+    helpfulness: number,
+  }).isRequired,
+};
