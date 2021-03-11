@@ -26,12 +26,12 @@ export default Helpful;
 
 Helpful.propTypes = {
   string: string,
-  helpfulness: number.isRequired,
+  helpfulness: number,
   size: number,
-  handleOnClick: func.isRequired,
 };
 
 Helpful.defaultProps = {
   string: '',
   size: 1,
+  helpfulness: 0,
 };

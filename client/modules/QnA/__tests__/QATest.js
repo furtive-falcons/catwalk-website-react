@@ -15,15 +15,15 @@ test('Search Bar component exists', () => {
   expect(appComponent.length).toBe(1);
 })
 
-describe('<QnA />', () => {
-  it('It has a title', () => {
-    const wrapper = mount(<QnA/>);
-    const title = wrapper.find("[data-test='component-title']");
-    expect(title.text()).toBe('QUESTIONS & ANSWERS');
-  });
+// describe('<QnA />', () => {
+//   it('It has a title', () => {
+//     const wrapper = mount(<QnA/>);
+//     const title = wrapper.find("[data-test='component-title']");
+//     expect(title.text()).toBe('QUESTIONS & ANSWERS');
+//   });
 
-  it('It has a searchbar', () => {
-    const wrapper = mount(<QnA />);
-    const searchBar = wrapper.find()
-  })
-})
+//   it('It has a searchbar', () => {
+//     const wrapper = mount(<QnA />);
+//     const searchBar = wrapper.find()
+//   })
+// })
