@@ -1,6 +1,8 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import {array} from 'prop-types';
+import {
+  arrayOf, string, number, shape,
+} from 'prop-types';
 import Answer from './Answer.jsx';
 import AnswerInfo from './AnswerInfo.jsx';
 
@@ -10,7 +12,8 @@ const AnswerContainer = ({ display }) => (
       <div key={index}>
         <Answer
           key={an.answer_id}
-          answer={an}
+          body={an.body}
+          photos={an.photos}
         />
         <AnswerInfo
           key={index}
@@ -24,5 +27,10 @@ const AnswerContainer = ({ display }) => (
 export default AnswerContainer;
 
 AnswerContainer.propTypes = {
-  display: array.isRequired,
+  display: arrayOf(shape({
+    answer_id: number,
+    body: string,
+    answerer_name: string,
+    helpfulness: number,
+  })).isRequired,
 };

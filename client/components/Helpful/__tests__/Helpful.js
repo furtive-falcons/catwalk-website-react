@@ -9,8 +9,9 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 const setup = () => shallow(<Helpful />);
 const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
 
-test('It shoulds do update Yes count when click', () => {
-  const wrapper = setup();
-  const appComponent = findByTestAttr(wrapper, 'component-helpful');
-  appComponent.simulate('click');
-})
+describe('<Helpful />', () => {
+  it('simulate click event', () => {
+    const wrapper = shallow(<Helpful />)
+    wrapper.find("[data-test='component-helpful']").simulate('click');
+  })
+});

@@ -4,8 +4,8 @@ import React, {
   useState, useEffect, useRef, useContext,
 } from 'react';
 import Title from '../../../../components/Title';
-import InputField from '../InputField.jsx';
-import InputArea from '../InputArea.jsx';
+import InputField from './InputField.jsx';
+import InputArea from './InputArea.jsx';
 import Button from '../../../../components/Button';
 import {
   ModalForm, ModalWrapper, Form, SuccessModal,
@@ -23,7 +23,8 @@ const PopupForm = ({ question, setForm, formType }) => {
   const [photos, setPhotos] = useState([]);
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
-  const productId = Number(useContext(ProductContext));
+  const productId = Number(useContext(ProductContext).productId);
+  const { productName } = useContext(ProductContext);
   const modalRef = useRef();
   const uploadRef = useRef();
 
@@ -108,7 +109,7 @@ const PopupForm = ({ question, setForm, formType }) => {
             <div className="subtitle">
               <Title
                 size={1.5}
-                children={`Product name ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
+                children={`${productName} ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
               />
             </div>
             <Form>

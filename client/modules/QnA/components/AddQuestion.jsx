@@ -12,10 +12,9 @@ const AddQuestion = () => {
   return (
     <div className="add-question">
       <Button
-        name="Add A QUESTION "
+        name="ADD A QUESTION "
         handleOnClick={handleOnClick}
         secondary
-        icon="plus"
         size={20}
       />
       {showForm ? <PopupForm setForm={setForm} formType="question" /> : null}
