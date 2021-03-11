@@ -1,24 +1,28 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import DetailsContainer from './styles'
 import Category from './components/Category/Category';
-import ProductName from './components/ProductName/ProductName';
+import ProductTitle from '../../../../../../../../components/Title';
 import Price from '../../../../../../../../components/Price';
 import StarRating from '../../../../../../../../components/StarRating';
-import DetailsContainer from './styles'
-// import Price from './components/Price/Price';
 // import AvgRating from './components/AvgRating/AvgRating';
 // import ProductCategory from '../../../../../../../../components/ProductCategory';
-// import ProductTitle from '../../../../../../../../components/ProductTitle';
+import {
+  fontSizeBigger,
+  fontSizeLarge,
+  fontSizeSmaller,
+  fontSizeBase,
+} from '../../../../../../../../ui/ui-fonts';
 
 const CardDetails = ({ card }) => {
-  const price = Number(card.firstStyles.original_price)
-  // const salesPrice = Number(card.firstStyles.sale_price)
+  console.log('card details', card)
+  const price = card.firstStyles.original_price * 1
+  const salesPrice = card.firstStyles.sale_price * 1
   return (
   <DetailsContainer>
     <Category card={card.category} />
-    <ProductName card={card.name} />
-    <Price card={`$${card.default_price}`} />
-    {/* <Price originalPrice={price} salePrice={salesPrice} /> */}
+    <ProductTitle size={fontSizeBase}>{card.name}</ProductTitle>
+    {salesPrice <= 0 ? <Price originalPrice={price}/> : <Price originalPrice={price} salePrice={salesPrice} />}
     <StarRating rating={card.ratingAverage} />
   </DetailsContainer>)
 };

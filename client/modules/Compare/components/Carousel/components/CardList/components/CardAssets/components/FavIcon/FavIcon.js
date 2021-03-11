@@ -1,4 +1,5 @@
 import React from 'react';
+// import Button from '../../../../../components/Button'
 
 const FavIcon = () => {
   const modalClick = () => {
@@ -6,6 +7,7 @@ const FavIcon = () => {
   };
   return (
     <button className="fav-icon" type="button" label="modal" onClick={modalClick}><i className="fas fa-star" /></button>
+    // <Button primary></Button>
   );
 };
 

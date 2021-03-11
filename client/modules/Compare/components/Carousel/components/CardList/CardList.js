@@ -1,10 +1,10 @@
-import React, { useState , Suspense } from 'react';
-import CardAssets from './components/CardAssets/CardAssets';
-import CardDetails from './components/CardDetails/CardDetails';
+import React, { useState , lazy, Suspense } from 'react';
+// import CardAssets from './components/CardAssets/CardAssets';
+// import CardDetails from './components/CardDetails/CardDetails';
 import { CardListContainer, CardContainer, ButtonContainer} from './styles';
 // import Button from '../../../../../../components/Button'
-// const CardAssets = React.lazy(() => import('./components/CardAssets/CardAssets')
-// const CardDetails = React.lazy(() => import('./components/CardDetails/CardDetails')
+const CardAssets = lazy(() => import('./components/CardAssets/CardAssets'))
+const CardDetails = lazy(() => import('./components/CardDetails/CardDetails'))
 
 const CardList = ({ cardList }) => {
   const [index, setIndex] = useState(0);
@@ -32,10 +32,10 @@ const CardList = ({ cardList }) => {
 
 
   let cardListPage = cardList.data.slice(index, index + 5);
-
+  // const hasImg = Boolean(card.firstStyles.photos[0].thumbnail_url)
   return (
     <CardListContainer>
-      {/* <Suspense fallback={<div>Loading..</div>}> */}
+      <Suspense fallback={<div>Loading...</div>}>
       <ButtonContainer>
         {canGoLeft ? <button className="left-prev-button" type="button" label="left" onClick={goLeft}>
           <i className="fas fa-chevron-left" />
@@ -50,15 +50,19 @@ const CardList = ({ cardList }) => {
         {canGoRight ? <Button className="right-prev-button" handleOnClick={goRight} primary icon="chevron-right">
         </Button> : null} */}
       </ButtonContainer>
-      {cardListPage.map(card => {
-        return (
-          <CardContainer key={`container_${card.id}`}>
-              <CardAssets card={card} key={`assets_${card.id}`} />
-              <CardDetails card={card} key={`details_${card.id}`} />
-          </CardContainer>
-        )
-      })}
-      {/* </Suspense> */}
+      {!cardListPage
+        ? <div>Loading...</div>
+        : <div>
+          {cardListPage.map(card => {
+            return (
+              <CardContainer key={`container_${card.id}`}>
+                  <CardAssets card={card} key={`assets_${card.id}`} />
+                  <CardDetails card={card} key={`details_${card.id}`} />
+              </CardContainer>
+            )
+          })}
+        </div>}
+      </Suspense>
     </CardListContainer>
   )
 };

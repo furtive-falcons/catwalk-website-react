@@ -12,4 +12,5 @@ const Category = ({ card }) => {
   )
 }
 
+
 export default Category;
