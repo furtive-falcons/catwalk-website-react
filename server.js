@@ -14,7 +14,7 @@ app.use(express.json());
 app.use('/', express.static(`${__dirname}/dist`));
 app.use('/', express.static(`${__dirname}/public`));
 app.use('/api/products', productRouter);
-const PORT = 3001;
+const PORT = 3000;
 
 app.use('/qa', qaRouter);
 app.use('/reviews', reviewRouter);
