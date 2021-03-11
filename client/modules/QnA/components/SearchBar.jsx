@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { func } from 'prop-types';
 import { StyledSearch } from '../styles.js';
 
 const SearchBar = ({ search }) => {
@@ -24,3 +25,7 @@ const SearchBar = ({ search }) => {
 };
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  search: func.isRequired,
+};

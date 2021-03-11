@@ -62,7 +62,8 @@ const PopupForm = ({ question, setForm, formType }) => {
   };
 
   const imageUpload = (e) => {
-    setPhotos([...photos, URL.createObjectURL(e.target.files[0])]);
+    const id = e.target.value.slice(12, 16);
+    setPhotos([...photos, `https://picsum.photos/id/${id}/800/500`]);
   };
 
   const submit = (e) => {
@@ -150,7 +151,10 @@ const PopupForm = ({ question, setForm, formType }) => {
                 <br />
               </div>
               {!submited || validation() ? null : <span>PLEASE FILL UP ALL AREAS</span>}
-              {formType === 'answer' ? (
+              <div className="thumbnail">
+                <ImageThumbnail images={photos} />
+              </div>
+              {formType === 'answer' && photos.length < 5 ? (
                 <>
                   <div className="upload">
                     <input
@@ -168,9 +172,7 @@ const PopupForm = ({ question, setForm, formType }) => {
                       secondary
                     />
                   </div>
-                  <div className="thumbnail">
-                    <ImageThumbnail images={photos} />
-                  </div>
+
                 </>
               ) : null}
               <div className="submit">

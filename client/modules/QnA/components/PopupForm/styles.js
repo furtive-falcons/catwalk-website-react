@@ -151,7 +151,7 @@ const SuccessModal = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: ${colorWhite};
+  background-color: #f5f5f5;
   align-items: center;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
