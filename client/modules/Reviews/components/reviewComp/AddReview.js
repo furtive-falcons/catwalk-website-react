@@ -15,7 +15,7 @@ const AddReview = ({
 
   return (showModal ? (
     <ModalContainer onClick={close}>
-      <div onClick={(e) => e.stopPropagation()} className="formDiv">
+      <div className="formDiv">
         <Form refresh={refresh} metaData={metaData} closeModal={closeModal} />
       </div>
     </ModalContainer>

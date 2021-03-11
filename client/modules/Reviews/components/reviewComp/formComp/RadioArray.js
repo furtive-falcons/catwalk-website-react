@@ -1,14 +1,16 @@
 import React from 'react';
 import { Radio } from './styles.js';
 
-const RadioArray = ({ labelList, checked, onChange,name }) => (
+const RadioArray = ({
+  labelList, checked, onChange, name,
+}) => (
   <Radio>
     {
       labelList
         && labelList.map((label, index) => (
-         <div key={index} className='container'>
-          <input value={index+1} className='radio' value={label} onChange={onChange} checked={checked === label} type="radio" name={name} required/>
-          <div>{index % 2 === 0 ?label: <br/>}</div>
+          <div key={label} className="container">
+            <input className="radio" value={label} onChange={onChange} checked={checked === label} type="radio" name={name} required />
+            <div>{index % 2 === 0 ? label : <br />}</div>
           </div>
         ))
       }

@@ -18,7 +18,6 @@ const DropdownContainer = styled.div`
 const ReviewListContainer = styled.div`
   flex: 7;
   width: 95%;
-  // if more than 4, the list will become scrollable
   max-height: 825px;
   min-height: 500px;
   flex-direction: column;

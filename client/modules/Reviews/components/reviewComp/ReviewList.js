@@ -5,8 +5,6 @@ import AddReview from './AddReview.js';
 
 const ReviewList = ({ data }) => (
   <ReviewListContainer id="reviewList">
-    {/* render tiles two at a time */}
-    {/* define a handleclick event to trigger show two more tiles */}
     {
        data
         && data.map((product) => (

@@ -5,11 +5,9 @@ import ReviewList from './reviewComp/ReviewList.js';
 import Sort from './reviewComp/Sort.js';
 import Buttons from './reviewComp/Buttons.js';
 import AddReview from './reviewComp/AddReview.js';
-import Form from './reviewComp/formComp/Form.js';
-// import Form from './reviewComp/formComp/Form.js';
 
 const Reviews = ({
-  data, filters, metaData, placeholder, refresh
+  data, filters, metaData, placeholder, refresh,
 }) => {
   // close modal
   const [showModal, setShow] = useState(false);
@@ -24,7 +22,6 @@ const Reviews = ({
 
   // Keep track of number of tiles to show
   // default is 2
-  // depends on number of reviews passed in
   const [numTiles, changeNumTiles] = useState(2);
 
   // filter list based on filter passed in
@@ -108,7 +105,7 @@ const Reviews = ({
   };
 
   return (
-    <ReviewsContainer id ='#reviews'>
+    <ReviewsContainer id="#reviews">
       {/* review count + sort container */}
       {placeholder ? <h4>Loading</h4>
         : (
@@ -116,15 +113,24 @@ const Reviews = ({
             <TopContainer>
               <ReviewCount count={data && data.length} />
               ,
-              sorted by
               <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
             </TopContainer>
             {/* review list container */}
             {data && data.length !== 0
       && <ReviewList data={filterData(numTiles, data)} />}
             {/* buttons container */}
-            <Buttons openModal={openModal} reviewCount={data && data.length} dataIndex={numTiles} expand={expand} />
-            <AddReview refresh={refresh} metaData={metaData} closeModal={closeModal} showModal={showModal} />
+            <Buttons
+              openModal={openModal}
+              reviewCount={data && data.length}
+              dataIndex={numTiles}
+              expand={expand}
+            />
+            <AddReview
+              refresh={refresh}
+              metaData={metaData}
+              closeModal={closeModal}
+              showModal={showModal}
+            />
             {/* <Form/> */}
           </>
         )}

@@ -71,10 +71,11 @@ const UserAndDate = styled.div`
   color: #808080;
 `;
 
-const Summary = styled.h4`
+const Summary = styled.div`
   // border: 1px solid black;
   margin:0px;
   font-size: 1.5rem;
+  font-weight
 
 `;
 

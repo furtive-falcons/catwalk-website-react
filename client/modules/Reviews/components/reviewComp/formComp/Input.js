@@ -2,14 +2,14 @@ import React from 'react';
 import { InputDiv } from './styles.js';
 
 const Input = ({
-  note, max, label, type, handleChange, value, regex, placeholder
+  note, max, label, type, handleChange, value, regex, placeholder,
 }) => (
   <InputDiv>
     {
     type === 'text'
     && (
     <div>
-      <input pattern = {regex} maxLength={max} className="input" placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" required />
+      <input pattern={regex} maxLength={max} className="input" placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" required />
       <div className="note">{note}</div>
     </div>
     )
