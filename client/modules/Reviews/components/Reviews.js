@@ -108,22 +108,22 @@ const Reviews = ({
   };
 
   return (
-    <ReviewsContainer>
+    <ReviewsContainer id ='#reviews'>
       {/* review count + sort container */}
       {placeholder ? <h4>Loading</h4>
         : (
           <>
             <TopContainer>
-              <ReviewCount count={data.length} />
+              <ReviewCount count={data && data.length} />
               ,
               sorted by
               <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
             </TopContainer>
             {/* review list container */}
-            {data.length !== 0
+            {data && data.length !== 0
       && <ReviewList data={filterData(numTiles, data)} />}
             {/* buttons container */}
-            <Buttons openModal={openModal} reviewCount={data.length} dataIndex={numTiles} expand={expand} />
+            <Buttons openModal={openModal} reviewCount={data && data.length} dataIndex={numTiles} expand={expand} />
             <AddReview refresh={refresh} metaData={metaData} closeModal={closeModal} showModal={showModal} />
             {/* <Form/> */}
           </>

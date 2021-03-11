@@ -3,15 +3,15 @@ import { ReviewListContainer } from './styles.js';
 import Tile from './Tile.js';
 import AddReview from './AddReview.js';
 
-const ReviewList = ({ data }) => {
-  return (
-    <ReviewListContainer id="reviewList">
-      {/* render tiles two at a time */}
-      {/* define a handleclick event to trigger show two more tiles */}
-      {
+const ReviewList = ({ data }) => (
+  <ReviewListContainer id="reviewList">
+    {/* render tiles two at a time */}
+    {/* define a handleclick event to trigger show two more tiles */}
+    {
        data
         && data.map((product) => (
           <Tile
+            id="reviews"
             helpfulness={product.helpfulness}
             date={product.date}
             user={product.reviewer_name}
@@ -27,8 +27,7 @@ const ReviewList = ({ data }) => {
         ))
 
     }
-    </ReviewListContainer>
-  );
-};
+  </ReviewListContainer>
+);
 
 export default ReviewList;

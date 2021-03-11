@@ -7,7 +7,7 @@ const Buttons = ({ openModal, expand, reviewCount, dataIndex }) => (
   <ButtonsContainer id="buttons">
     {
     reviewCount > 2 && dataIndex < reviewCount ? (
-      <Button size = {15} secondary handleOnClick={expand} name="MORE REVIEWS"/>
+      <Button id='add' size = {15} secondary handleOnClick={expand} name="MORE REVIEWS"/>
     )
       : null
     }
