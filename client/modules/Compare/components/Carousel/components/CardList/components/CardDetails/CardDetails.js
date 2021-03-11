@@ -15,7 +15,6 @@ import {
 } from '../../../../../../../../ui/ui-fonts';
 
 const CardDetails = ({ card }) => {
-  console.log('card details', card)
   const price = card.firstStyles.original_price * 1
   const salesPrice = card.firstStyles.sale_price * 1
   return (

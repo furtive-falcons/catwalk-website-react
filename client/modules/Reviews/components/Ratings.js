@@ -10,15 +10,15 @@ const Ratings = ({
   // finds average rating
   const average = (metaData) => {
     let totalScore = 0;
-    for (const score in metaData) {
-      totalScore += parseInt(metaData[score])*parseInt(score);
+    const metaDataArray = Object.keys(metaData);
+    for (let i = 0; i < metaDataArray.length; i += 1) {
+      totalScore += parseInt(metaData[metaDataArray[i]], 10) * parseInt(metaDataArray[i], 10);
     }
-
     let totalReviews = 0;
-    for (const score in metaData) {
-      totalReviews += parseInt(metaData[score]);
+    for (let i = 0; i < metaDataArray.length; i += 1) {
+      totalReviews += parseInt(metaData[metaDataArray[i]], 10);
     }
-    return (totalScore/ totalReviews).toFixed(1);
+    return (totalScore / totalReviews).toFixed(1);
   };
 
   // sort data by ratings
@@ -36,8 +36,8 @@ const Ratings = ({
   };
 
   // render filters being used
-  const renderFilters = (data) => Object.keys(data).map((filter, index) => (
-    <FilterBox onClick={() => getFilter(filter[0])} key={index}>
+  const renderFilters = (data) => Object.keys(data).map((filter) => (
+    <FilterBox onClick={() => getFilter(filter[0])} key={filter[0]}>
       {filter[0]}
       {' '}
       stars
@@ -55,18 +55,17 @@ const Ratings = ({
     const obj = {
       5: 0, 4: 0, 3: 0, 2: 0, 1: 0,
     };
-    for (const comment of data) {
-      obj[comment.rating] += 1;
+    for (let i = 0; i < data.length; i++) {
+      obj[data[i].rating] += 1;
     }
     return obj;
   };
   return (
     <RatingsContainer>
-      {/* score */}
       {placeholder ? <h4>Loading</h4>
         : (
-          <div className='innerContainer'>
-            <Score total={data.length} score={ average(metaData.ratings, data) } />
+          <div className="innerContainer">
+            <Score total={data.length} score={average(metaData.ratings, data)} />
             {Object.keys(filters).length !== 0
         && (
           <div className="editFilter">
@@ -78,9 +77,7 @@ const Ratings = ({
           </div>
         )}
 
-            {/* filter */}
             <Filter getFilter={getFilter} total={data.length} data={reduceData(data)} />
-            {/* breakdown */}
             <Breakdown recommend={metaData.recommended} data={metaData.characteristics} />
           </div>
         )}

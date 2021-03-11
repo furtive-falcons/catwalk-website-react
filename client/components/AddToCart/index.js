@@ -36,10 +36,10 @@ const AddToCart = ({ styles, selectedStyle }) => {
       <DropDown size={32} options={quantityOptions} />
       <AddToBagWrapper>
         {sizes.length > 0 && (
-          <Button size="82%" icon="plus" primary name="Add To Bag" />
+          <Button label="Add to cart" size="82%" icon="plus" primary name="Add To Bag" />
         )}
         <HeartStyles>
-          <Button size="5rem" isContentCentered primary icon="star" />
+          <Button label="Star icon" size="5rem" isContentCentered primary icon="star" />
         </HeartStyles>
       </AddToBagWrapper>
     </>

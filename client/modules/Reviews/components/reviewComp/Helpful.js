@@ -3,12 +3,6 @@ import axios from 'axios';
 import { HelpfulDiv } from './tileStyles.js';
 
 const Helpful = ({ count, review_id }) => {
-  // make api call upon clicking yes or report
-  // 1. if click yes
-  // marked as clicked once and cannot click anymore
-  // send put request to api
-  // put request responds with 204 No content
-  // update the current count
   const [statusCodeUpvote, setStatusUpvote] = useState(null);
   const [statusCodeReport, setStatusReport] = useState(null);
 

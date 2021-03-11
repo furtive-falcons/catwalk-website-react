@@ -7,7 +7,7 @@ const Recommend = ({ recommend }) => {
   const recPercent = numRec ? (numRec / (numNotRec + numRec)).toFixed(2) * 100 : 0;
 
   return (
-    <RecDiv id='rec'>
+    <RecDiv id="rec">
       <span>
         {recPercent}
         %
