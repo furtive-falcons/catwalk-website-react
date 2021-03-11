@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Reviews from './components/Reviews.js';
 import Ratings from './components/Ratings.js';
-// import dummy from './dummy.js';
-// import dummy2 from './dummy2.js';
 import { Main, Header, Container } from './styles.js';
 
 const ReviewAndRatings = ({ productId }) => {
@@ -45,7 +43,6 @@ const ReviewAndRatings = ({ productId }) => {
     getAllReviews(productId)
       .then((result) => {
         setReviews(result.data);
-        // then get the meta data
         return getMeta(productId);
       })
       .then((meta) => {
