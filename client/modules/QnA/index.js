@@ -112,7 +112,7 @@ const QnA = ({ productId }) => {
   return (
     <ProductContext.Provider value={{ productId, productName }}>
       <Container>
-        <Title size={1.7} children="QUESTIONS & ANSWERS" />
+        <Title size={1.7} data-test="component-title">QUESTIONS & ANSWERS</Title>
         <SearchBar search={handleSearch} />
         <EntryContainer
           questions={filter.length > 0 ? filter : display}

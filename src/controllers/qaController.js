@@ -67,7 +67,7 @@ exports.postAnswer = (req, res) => {
     },
   })
     .then(() => res.sendStatus(201))
-    .catch((err) => console.log(3));
+    .catch((err) => res.status(500).send(err));
 };
 
 exports.putQuestionHelpful = (req, res) => {

@@ -38,7 +38,7 @@ const ImageThumbnail = ({ images, productName }) => {
 export default ImageThumbnail;
 
 ImageThumbnail.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.oneOf([]),
   productName: PropTypes.string,
 };
 

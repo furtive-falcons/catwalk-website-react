@@ -4,8 +4,8 @@ import React, {
   useState, useEffect, useRef, useContext,
 } from 'react';
 import Title from '../../../../components/Title';
-import InputField from '../InputField.jsx';
-import InputArea from '../InputArea.jsx';
+import InputField from './InputField.jsx';
+import InputArea from './InputArea.jsx';
 import Button from '../../../../components/Button';
 import {
   ModalForm, ModalWrapper, Form, SuccessModal,
