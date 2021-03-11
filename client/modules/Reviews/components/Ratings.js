@@ -7,6 +7,7 @@ import Breakdown from './ratingsComp/Breakdown.js';
 const Ratings = ({
   data, metaData, getFilter, filters, removeFilters, placeholder,
 }) => {
+
   // finds average rating
   const average = (metaData) => {
     let totalScore = 0;

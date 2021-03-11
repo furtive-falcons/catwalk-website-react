@@ -15,8 +15,8 @@ const ReviewAndRatings = ({ productId }) => {
   // get filter from the ratings/filter component
   const getFilter = (filter) => {
     const target = {};
-    // check if the filter already exist
-    // if it already exist then toggle it on/off
+    // Check if the filter already exist
+    // If it already exist then toggle it on/off
     if (filters.hasOwnProperty(filter)) {
       setFilter((filters) => {
         delete filters[filter];
