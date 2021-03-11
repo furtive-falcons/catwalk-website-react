@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import ProductDetails from '../../components/ProductDetails';
 
-const URL = 'http://localhost:3000/api/products';
+const URL = '/api/products';
 
 const DetailPage = ({ productId }) => {
   const [product, setProduct] = useState(null);

@@ -15,10 +15,6 @@ const Tile = ({
 }) => {
   const [more, showMore] = useState(false);
   const imageUrls = (images) => images.map((image) => image.url);
-
-  // render images
-  // const renderImages = (data) => data.map((img, index) => <img key={index} alt="comment pics" className="img" src={img.url} />);
-
   return (
     <TileContainer id="tile">
       {/* container for the top part */}
