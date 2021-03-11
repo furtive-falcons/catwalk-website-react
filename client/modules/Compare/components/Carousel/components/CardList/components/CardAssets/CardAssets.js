@@ -4,14 +4,14 @@ import FavIcon from './components/FavIcon/FavIcon';
 import ImageContainer from './components/styles';
 
 const CardAssets = ({ card }) => {
-  const hasImg = Boolean(card.firstStyles.photos[0].thumbnail_url)
+  const hasImg = Boolean(card.thumbnail_url)
   return (
     <ImageContainer>
       <FavIcon />
       <>
         {hasImg ? <img
           className="default-thumbnail"
-          src={card.firstStyles.photos[0].thumbnail_url}
+          src={card.thumbnail_url}
           alt={card.name}
         /> : <img
           className="default-thumbnail"
