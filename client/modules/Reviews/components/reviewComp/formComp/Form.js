@@ -62,7 +62,7 @@ const Form = ({ closeModal, metaData, refresh }) => {
       email: form.email,
       product_id: parseInt(metaData.product_id),
       characteristics: transformCharactersitics(form, metaData),
-      photos: images,
+      photos: ['https://picsum.photos/seed/1/200/300','https://picsum.photos/seed/2/200/300'],
     };
     // submit the content through POST request and close the page upon success post
     axios.post('reviews/post', submitObj)

@@ -33,7 +33,7 @@ const ReviewAndRatings = ({ productId }) => {
   };
 
   // get all reviews
-  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}&page=1`);
+  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}&page=1&sort=relevant`);
 
   // get meta data
   const getMeta = (productId) => axios.get(`/reviews/meta?product_id=${productId}`);
@@ -64,8 +64,8 @@ const ReviewAndRatings = ({ productId }) => {
           :
         // some kind of placeholder component to show before the actual component is loaded
           <Ratings placeholder />}
-        {allReviews && meta
-          ? <Reviews refresh={refresh} metaData={meta} filters={filters} data={allReviews.results} id="reviews" />
+        {meta && allReviews
+          ? <Reviews refresh={refresh} productId={productId} data={allReviews.results} refresh={refresh} metaData={meta} filters={filters} id="reviews" />
           : <Reviews placeholder />}
       </Container>
     </Main>

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
+import {fadeIn} from '../animationStyles.js'
 
 
 const TopRow = styled.div`
   width: 100%;
-  // border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 
 const ReviewContainer = styled.div`
-  // border: 1px solid black;
   margin-top: 5px;
   width: 100%;
   margin-top: 5px;
@@ -61,21 +60,17 @@ const ResponseContainer = styled.div`
 `;
 
 const Stars = styled.div`
-  // border: 1px solid black;
   font-size: 12px;
 `;
 
 const UserAndDate = styled.div`
-  // border: 1px solid black;
   font-size: 12px;
-  color: #808080;
 `;
 
 const Summary = styled.div`
-  // border: 1px solid black;
   margin:0px;
-  font-size: 1.5rem;
-  font-weight
+  font-size: 2rem;
+  font-weight: 700;
 
 `;
 
@@ -99,7 +94,6 @@ const Body = styled.div`
 
 const Recommend = styled.span`
   margin-top: 5px;
-  // border: 1px solid black;
   font-size: 12px;
   margin: 0px;
   padding: 3px;
@@ -113,10 +107,8 @@ const Recommend = styled.span`
 
 const HelpfulDiv = styled.span`
   margin-top: 5px;
-  // border: 1px solid black;
   font-size: 12px;
   margin: 0px;
-  color: #808080;
   padding-top: 10px;
 
   span {
@@ -124,6 +116,7 @@ const HelpfulDiv = styled.span`
   }
 
   span: hover {
+    animation: ${fadeIn} 0.5s;
     cursor: pointer;
     background-color: black;
     color: white;

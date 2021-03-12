@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ReviewListContainer } from './styles.js';
 import Tile from './Tile.js';
-import AddReview from './AddReview.js';
 
 const ReviewList = ({ data }) => (
-  <ReviewListContainer id="reviewList">
+  <ReviewListContainer expand = {data && data.length > 2} id="reviewList">
     {
        data
         && data.map((product) => (
