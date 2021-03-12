@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Compare from './modules/Compare';
 import { QnA } from './modules/QnA';
 import Reviews from './modules/Reviews';
@@ -7,7 +7,6 @@ import Details from './modules/Details';
 import linksList from './data';
 
 const App = () => {
-  const [links, setLinks] = useState(linksList);
   const [productId, setProductId] = useState(linksList[0].productId);
 
   return (
