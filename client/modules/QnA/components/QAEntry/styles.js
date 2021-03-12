@@ -57,14 +57,14 @@ const Entry = styled.div`
   .q {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     align-self: start;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .question-info {

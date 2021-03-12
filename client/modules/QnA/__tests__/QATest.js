@@ -21,7 +21,7 @@ describe('<QnA />', () => {
 
   it('It has a title', () => {
     const title = wrapper.find("#title");
-    expect(title.text()).toBe('<Title />');
+    expect(title.text()).toBe('QUESTIONS & ANSWERS');
   });
 
   it('It has a search bar', () => {

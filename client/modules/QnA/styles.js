@@ -21,9 +21,10 @@ export const Container = styled.div`
     margin-top: 2rem;
   }
 
-  .title {
+  #title {
     grid-column: span 6;
     grid-row: 1 / 2;
+    font-size: 2rem;
   }
 
   #search{

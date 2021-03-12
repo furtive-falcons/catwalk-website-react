@@ -91,13 +91,9 @@ const QAEntry = ({ question, id, searched }) => {
 
   return (
     <Entry className="container">
-      <div className="q">
-        <Title size={1.7}>Q:</Title>
-      </div>
+      <h2 className="q">Q:</h2>
       <Question id="question" body={question.question_body} />
-      <div className="a">
-        <Title size={1.7}>A:</Title>
-      </div>
+      <h2 className="a">A:</h2>
       <AnswerContainer
         id="answer-container"
         display={filter.length > 0 ? filter : display}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorPrimary, colorGreen, colorWhite } from '../../ui/ui-colors';
+import { colorPrimary, colorGreen, colorGreyLight2 } from '../../ui/ui-colors';
 
 export const ButtonStyles = styled.button`
   text-decoration: solid;
@@ -29,7 +29,8 @@ export const Secondary = styled(ButtonStyles)`
   width: ${(props) => props.size}rem;
   border-radius: 1rem;
   border: none;
-  color: ${colorWhite};
+  color: ${colorGreyLight2};
+  font-weight: 700;
   background: ${colorPrimary};
   :hover {
     background: ${colorGreen};
