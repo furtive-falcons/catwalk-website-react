@@ -1,12 +1,11 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
-import { string } from 'prop-types';
+import { number } from 'prop-types';
 import SearchBar from './components/SearchBar.jsx';
 import EntryContainer from './components/EntryContainer.jsx';
 import MoreQuestion from './components/MoreQuestion.jsx';
 import AddQuestion from './components/AddQuestion.jsx';
 import { Container } from './styles.js';
-import Title from '../../components/Title';
 
 const axios = require('axios');
 
@@ -47,9 +46,16 @@ const QnA = ({ productId }) => {
       page += 1;
     }
     Promise.all(data)
-      .then((results) => results.forEach((result) => {
-        setQuestions((prev) => [...prev, ...result.data.results]);
-      }));
+      .then((results) => {
+        results.forEach((result) => {
+          setQuestions((prev) => [...prev, ...result.data.results]);
+        });
+        return results;
+      })
+      .then((results) => {
+        const firstPage = results[0].data.results;
+        setDisplay(firstPage.slice(0, 2));
+      });
   };
 
   const removeDuplicate = (data) => {
@@ -101,13 +107,10 @@ const QnA = ({ productId }) => {
     }
   };
   useEffect(() => {
-    if (questions.length === 0) {
-      getAllQA();
-      getProductName();
-    } else {
-      setDisplay(questions.slice(0, 2));
-    }
-  }, [questions]);
+    getAllQA();
+    getProductName();
+    setQuestions([]);
+  }, [productId]);
 
   return (
     <ProductContext.Provider value={{ productId, productName }}>
@@ -140,9 +143,9 @@ const QnA = ({ productId }) => {
 export { QnA, ProductContext };
 
 QnA.propTypes = {
-  productId: string,
+  productId: number,
 };
 
 QnA.defaultProps = {
-  productId: '14036',
+  productId: 14036,
 };
