@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number, func } from 'prop-types';
 import LinkTag from '../../../../components/LinkTag';
 
 const LoadAndCollapse = ({
@@ -16,3 +17,17 @@ const LoadAndCollapse = ({
 );
 
 export default LoadAndCollapse;
+
+LoadAndCollapse.propTypes = {
+  children: string,
+  handleOnClick: func,
+  size: number,
+  href: string,
+};
+
+LoadAndCollapse.defaultProps = {
+  children: '',
+  handleOnClick: () => {},
+  size: null,
+  href: null,
+};

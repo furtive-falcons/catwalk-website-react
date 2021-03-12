@@ -1,14 +1,12 @@
-/* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import { number } from 'prop-types';
-import SearchBar from './components/SearchBar.jsx';
-import EntryContainer from './components/EntryContainer.jsx';
-import MoreQuestion from './components/MoreQuestion.jsx';
-import AddQuestion from './components/AddQuestion.jsx';
-import { Container } from './styles.js';
+import SearchBar from './components/SearchBar';
+import EntryContainer from './components/EntryContainer';
+import MoreQuestion from './components/MoreQuestion';
+import AddQuestion from './components/AddQuestion';
+import { Container } from './styles';
 
 const axios = require('axios');
-
 const ProductContext = React.createContext();
 
 const QnA = ({ productId }) => {

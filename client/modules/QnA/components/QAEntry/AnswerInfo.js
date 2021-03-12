@@ -1,10 +1,9 @@
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import { number, string, shape } from 'prop-types';
 import NameDate from '../../../../components/NameDate';
 import Helpful from '../../../../components/Helpful';
-import Report from './Report.jsx';
-import { StyledSeperator } from './styles.js';
+import Report from './Report';
+import { StyledSeperator } from './styles';
 
 const axios = require('axios');
 

@@ -1,6 +1,5 @@
-/* eslint-disable import/extensions */
 import styled from 'styled-components';
-import { colorGreyLight2 } from '../../../../ui/ui-colors/index.js';
+import { colorGreyLight2 } from '../../../../ui/ui-colors/index';
 
 const Entry = styled.div`
 

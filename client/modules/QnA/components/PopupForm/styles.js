@@ -107,7 +107,7 @@ resize: none;
 const Form = styled.form`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 10rem) 3fr auto auto 1fr;
+  grid-template-rows: repeat(2, 10rem) 3fr auto 1fr;
   grid-gap: 0.5rem;
   width: 100%;
   height: 100%;
@@ -143,24 +143,19 @@ const Form = styled.form`
 
   .upload {
     grid-column: 1 / 2;
-    grid-row: 6 / 7;
+    grid-row: 5 / 6;
   }
 
   .submit {
     grid-column: 3 / 4;
-    grid-row: 6 / 7;
+    grid-row: 5 / 6;
     display:flex;
     justify-content: flex-end;
   }
 
-  .validation {
-    grid-column: 1 / 4;
-    grid-row: 5 / 6;
-  }
-
   .thumbnail {
     grid-column: 1 / 4;
-    grid-row: 5 / 6;
+    grid-row: 4 / 5;
   }
 `;
 

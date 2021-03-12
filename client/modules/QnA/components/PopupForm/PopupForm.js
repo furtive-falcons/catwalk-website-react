@@ -1,55 +1,40 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import React, {
   useState, useEffect, useRef, useContext,
 } from 'react';
+import {
+  shape, func, string, number,
+} from 'prop-types';
 import Title from '../../../../components/Title';
-import InputField from './InputField.jsx';
-import InputArea from './InputArea.jsx';
+import InputField from './InputField';
+import InputArea from './InputArea';
 import Button from '../../../../components/Button';
 import {
   ModalForm, ModalWrapper, Form, SuccessModal,
-} from './styles.js';
+} from './styles';
 import Paragraph from '../../../../components/Paragraph';
-import { ProductContext } from '../../index.js';
 import ImageThumbnail from '../../../../components/ImagePopUp';
+import { ProductContext } from '../..';
 
 const axios = require('axios');
 
 const PopupForm = ({ question, setForm, formType }) => {
-  const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
-  const [body, setBody] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [response, setResponse] = useState({});
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
-  const productId = Number(useContext(ProductContext).productId);
-  const { productName } = useContext(ProductContext);
+  const { productName, productId } = useContext(ProductContext);
   const modalRef = useRef();
   const uploadRef = useRef();
 
   const getInput = (e) => {
     const targetName = e.target.name;
     const targetValue = e.target.value;
-    targetName === 'nickname' ? setNickname(targetValue) : null;
-    targetName === 'email' ? setEmail(targetValue) : null;
-    targetName === 'body' ? setBody(targetValue) : null;
+    setResponse({ ...response, [targetName]: targetValue });
   };
 
-  const content = () => (formType === 'answer' ? ({
-    body,
-    name: nickname,
-    email,
-    photos,
-  }) : ({
-    body,
-    name: nickname,
-    email,
-    product_id: productId,
-  })
-  );
+  const content = () => (formType === 'answer' ? ({ ...response, photos }) : { ...response, product_id: productId });
 
-  const validation = () => (nickname && email && body);
+  const validation = () => (response.name && response.email && response.body);
 
   const postRequest = () => {
     let url = 'qa/questions';
@@ -64,7 +49,8 @@ const PopupForm = ({ question, setForm, formType }) => {
   const imageUpload = (e) => {
     const seperator = e.target.value.indexOf('-');
     const id = e.target.value.slice(12, seperator);
-    setPhotos([...photos, `https://picsum.photos/id/${id}/600/400`]);
+    const url = `https://picsum.photos/id/${id}/600/400`;
+    setPhotos([...photos, url]);
   };
 
   const submit = (e) => {
@@ -95,36 +81,25 @@ const PopupForm = ({ question, setForm, formType }) => {
         {success ? (
           <SuccessModal>
             <i className="fas fa-check-circle success" />
-            <Paragraph
-              size={3}
-            >
-              THANK YOU !
-            </Paragraph>
+            <Paragraph size={3}>THANK YOU !</Paragraph>
           </SuccessModal>
         ) : (
           <>
             <div className="title">
-              <Title
-                size={2}
-              >
+              <Title size={2}>
                 {formType === 'answer' ? 'Submit Your Answer' : 'Ask Your Question'}
               </Title>
             </div>
             <div className="subtitle">
-              <Title
-                size={1.5}
-              >
+              <Title size={1.5}>
                 {`${productName} ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
               </Title>
             </div>
             <Form>
               <div className="nickname">
                 <InputField
-                  className="nickname"
-                  name="nickname"
+                  name="name"
                   type="text"
-                  width={30}
-                  height={4}
                   label="Nickname"
                   placeholder="Example: patagucci"
                   getInput={getInput}
@@ -135,8 +110,6 @@ const PopupForm = ({ question, setForm, formType }) => {
                 <InputField
                   name="email"
                   type="email"
-                  width={30}
-                  height={4}
                   label="Email"
                   placeholder="Example: patagucci@email.com"
                   getInput={getInput}
@@ -146,42 +119,38 @@ const PopupForm = ({ question, setForm, formType }) => {
               <div className="body">
                 <InputArea
                   name="body"
-                  width={50}
-                  height={10}
                   label={formType === 'answer' ? 'Your Answer' : 'Your Question'}
                   placeholder="Your answer help others learn about this product"
                   getInput={getInput}
                 />
                 <br />
+                {!submited || validation() ? null : <span>PLEASE FILL UP ALL AREAS</span>}
               </div>
-              {!submited || validation() ? null : <span>PLEASE FILL UP ALL AREAS</span>}
               <div className="thumbnail">
                 <ImageThumbnail images={photos} />
               </div>
               {formType === 'answer' && photos.length < 5 ? (
-                <>
-                  <div className="upload">
-                    <input
-                      style={{ display: 'none' }}
-                      type="file"
-                      onChange={imageUpload}
-                      accept="image/*"
-                      ref={uploadRef}
-                    />
-                    <Button
-                      className="upload"
-                      name="Upload Images"
-                      handleOnClick={(e) => { uploadRef.current.click(); e.preventDefault(); }}
-                      size={15}
-                      secondary
-                    />
-                  </div>
-
-                </>
+                <div className="upload">
+                  <input
+                    style={{ display: 'none' }}
+                    type="file"
+                    onChange={imageUpload}
+                    accept="image/*"
+                    ref={uploadRef}
+                  />
+                  <Button
+                    name="Upload Images"
+                    handleOnClick={(e) => {
+                      uploadRef.current.click();
+                      e.preventDefault();
+                    }}
+                    size={15}
+                    secondary
+                  />
+                </div>
               ) : null}
               <div className="submit">
                 <Button
-                  className="submit"
                   name="Submit"
                   handleOnClick={submit}
                   size={10}
@@ -191,11 +160,18 @@ const PopupForm = ({ question, setForm, formType }) => {
             </Form>
           </>
         )}
-
       </ModalWrapper>
     </ModalForm>
-
   );
 };
 
 export default PopupForm;
+
+PopupForm.propTypes = {
+  setForm: func.isRequired,
+  formType: string.isRequired,
+  question: shape({
+    question_id: number,
+    question_body: string,
+  }).isRequired,
+};

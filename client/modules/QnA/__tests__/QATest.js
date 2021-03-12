@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme, {shallow, mount} from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
-import MoreQuestion from '../components/MoreQuestion.jsx';
-import {QnA} from '../index.js';
-import AddQuestion from '../components/AddQuestion.jsx';
+import MoreQuestion from '../components/MoreQuestion';
+import {QnA} from '../index';
+import AddQuestion from '../components/AddQuestion';
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
