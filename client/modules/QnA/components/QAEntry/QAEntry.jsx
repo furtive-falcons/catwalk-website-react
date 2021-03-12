@@ -1,7 +1,9 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
-import { object, string, number } from 'prop-types';
+import {
+  shape, string, number, bool,
+} from 'prop-types';
 import Question from './Question.jsx';
 import LoadAndCollapse from './LoadAndCollapse.jsx';
 import { Entry } from './styles.js';
@@ -14,6 +16,7 @@ const axios = require('axios');
 const QAEntry = ({ question, id, searched }) => {
   const [ans, setAnswers] = useState([]);
   const [display, setDisplay] = useState([]);
+  const [filter, setFilter] = useState([]);
   const [success, setSuccess] = useState(false);
 
   const sortAnswers = (data) => {
@@ -23,7 +26,7 @@ const QAEntry = ({ question, id, searched }) => {
     if (searched) {
       const match = data.filter((an) => an.body.includes(searched));
       if (match.length > 0) {
-        setDisplay(match);
+        setFilter(match);
       } else {
         setDisplay(ans.slice(0, 2));
       }
@@ -89,31 +92,33 @@ const QAEntry = ({ question, id, searched }) => {
   return (
     <Entry className="container">
       <div className="q">
-        <Title size={1.7} children="Q:" />
+        <Title size={1.7}>Q:</Title>
       </div>
       <Question body={question.question_body} />
       <div className="a">
-        <Title size={1.7} children="A:" />
+        <Title size={1.7}>A:</Title>
       </div>
       <AnswerContainer
-        display={display}
+        display={filter.length > 0 ? filter : display}
       />
       <QuestionInfo question={question} />
-      { ans.length < 3 ? null
+      { ans.length < 3 || filter.length > 0 ? null
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}
-            children="Collapse Answers"
             size={1.3}
             href={null}
-          />
+          >
+            Collapse Answers
+          </LoadAndCollapse>
         ) : (
           <LoadAndCollapse
             handleOnClick={loadAnswers}
-            children="See More Answers"
             size={1.3}
             href={null}
-          />
+          >
+            See More Answers
+          </LoadAndCollapse>
         )}
     </Entry>
   );
@@ -122,7 +127,13 @@ const QAEntry = ({ question, id, searched }) => {
 export default QAEntry;
 
 QAEntry.propTypes = {
-  question: object.isRequired,
+  question: shape({
+    question_id: number,
+    question_body: string,
+    asker_name: string,
+    question_helpfulness: number,
+    reported: bool,
+  }).isRequired,
   searched: string,
   id: number.isRequired,
 };

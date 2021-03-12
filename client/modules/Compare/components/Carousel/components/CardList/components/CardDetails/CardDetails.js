@@ -11,13 +11,13 @@ import DetailsContainer from './styles'
 // import ProductTitle from '../../../../../../../../components/ProductTitle';
 
 const CardDetails = ({ card }) => {
-  const price = Number(card.firstStyles.original_price)
-  // const salesPrice = Number(card.firstStyles.sale_price)
+  const price = Number(card.original_price)
+  // const salesPrice = Number(card.sale_price)
   return (
   <DetailsContainer>
     <Category card={card.category} />
     <ProductName card={card.name} />
-    <Price card={`$${card.default_price}`} />
+    <Price card={`$${card.original_price}`} />
     {/* <Price originalPrice={price} salePrice={salesPrice} /> */}
     <StarRating rating={card.ratingAverage} />
   </DetailsContainer>)

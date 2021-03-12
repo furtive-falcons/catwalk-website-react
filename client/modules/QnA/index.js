@@ -17,6 +17,12 @@ const QnA = ({ productId }) => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState([]);
   const [display, setDisplay] = useState([]);
+  const [productName, setProductName] = useState('');
+
+  const getProductName = () => {
+    axios.get(`/api/products/${productId}`)
+      .then((result) => setProductName(result.data.data.productInformation.name));
+  };
 
   const getQA = (page) => {
     const data = new Promise((resolve, reject) => {
@@ -97,15 +103,16 @@ const QnA = ({ productId }) => {
   useEffect(() => {
     if (questions.length === 0) {
       getAllQA();
+      getProductName();
     } else {
       setDisplay(questions.slice(0, 2));
     }
   }, [questions]);
 
   return (
-    <ProductContext.Provider value={productId}>
+    <ProductContext.Provider value={{ productId, productName }}>
       <Container>
-        <Title size={1.7} children="QUESTIONS & ANSWERS" />
+        <Title size={1.7} data-test="component-title">QUESTIONS & ANSWERS</Title>
         <SearchBar search={handleSearch} />
         <EntryContainer
           questions={filter.length > 0 ? filter : display}
@@ -117,7 +124,7 @@ const QnA = ({ productId }) => {
               name="MORE ANSWERED QUESTIONS"
               handleOnClick={loadMoreQuestions}
             />
-          ) : (
+          ) : questions.length === 2 ? null : (
             <MoreQuestion
               name="COLLAPSE QUESTIONS"
               handleOnClick={collapseQuestions}
