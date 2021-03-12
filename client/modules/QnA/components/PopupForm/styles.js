@@ -4,7 +4,7 @@ import { colorGreyLight2, colorPrimary } from '../../../../ui/ui-colors';
 const ModalForm = styled.div`
   position: fixed;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
   height: 100%
   width: 100%;
@@ -31,6 +31,18 @@ const ModalWrapper = styled.div`
   align-items: center;
   padding: 5rem;
   cursor: auto;
+  animation: slideUp .6s ease-in;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5),
+              -8px -8px 25px rgba(0, 0, 0, 0.5);
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%)
+    }
+    100% {
+      transform: tanslateY(-100%)
+    }
+  }
 
   .title {
     grid-column: 1 / 4;
@@ -66,11 +78,13 @@ const FormInputField = styled.input`
   width: ${(props) => props.width}rem;
   height: ${(props) => props.height}rem;
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: 2rem;
   padding: 1rem;
   border: none;
+
   ::placeholder{
     font-size: 1.2rem;
+    padding-left: 1rem;
     color: #c9;
   }
 `;
@@ -79,12 +93,13 @@ const FormTextArea = styled.textarea`
 width: ${(props) => props.width}rem;
 height: ${(props) => props.height}rem;
 font-size: 1.5rem;
-border-radius: 5px;
+border-radius: 2rem;
 padding: 1rem;
 border: none;
 resize: none;
 ::placeholder{
   font-size: 1.2rem;
+  padding-left: 1rem;
   color: #c9;
 }
 `;
@@ -158,6 +173,15 @@ const SuccessModal = styled.div`
   align-items: center;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  animation: success .8s ease-in;
+  @keyframes success {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
   .success {
     font-size: 20rem;

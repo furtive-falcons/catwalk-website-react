@@ -89,7 +89,7 @@ const PopupForm = ({ question, setForm, formType }) => {
   });
 
   return (
-    <ModalForm ref={modalRef} onClick={closeModal}>
+    <ModalForm ref={modalRef} onClick={closeModal} className="modal-active">
       <ModalWrapper>
         <i className="fas fa-times close" onClick={closeModal} />
         {success ? (
