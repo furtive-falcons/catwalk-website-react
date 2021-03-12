@@ -15,7 +15,6 @@ const SearchBar = ({ search }) => {
     <StyledSearch
       id="search"
       aria-label="search"
-      data-test="component-searchBar"
       type="search"
       value={input}
       placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
@@ -27,5 +26,9 @@ const SearchBar = ({ search }) => {
 export default SearchBar;
 
 SearchBar.propTypes = {
-  search: func.isRequired,
+  search: func,
+};
+
+SearchBar.defaultProps = {
+  search: null,
 };

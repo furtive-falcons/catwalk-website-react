@@ -112,9 +112,10 @@ const QnA = ({ productId }) => {
   return (
     <ProductContext.Provider value={{ productId, productName }}>
       <Container>
-        <Title size={1.7} data-test="component-title">QUESTIONS & ANSWERS</Title>
-        <SearchBar search={handleSearch} />
+        <Title size={1.7} id="title">QUESTIONS & ANSWERS</Title>
+        <SearchBar search={handleSearch} id="search-bar" />
         <EntryContainer
+          id="entry-container"
           questions={filter.length > 0 ? filter : display}
           searched={search}
         />
@@ -130,7 +131,7 @@ const QnA = ({ productId }) => {
               handleOnClick={collapseQuestions}
             />
           )}
-        <AddQuestion />
+        <AddQuestion id="add-question" />
       </Container>
     </ProductContext.Provider>
   );

@@ -12,6 +12,7 @@ const AddQuestion = () => {
   return (
     <div className="add-question">
       <Button
+        id="add-question"
         name="ADD A QUESTION "
         handleOnClick={handleOnClick}
         secondary

@@ -62,8 +62,9 @@ const PopupForm = ({ question, setForm, formType }) => {
   };
 
   const imageUpload = (e) => {
-    const id = e.target.value.slice(12, 16);
-    setPhotos([...photos, `https://picsum.photos/id/${id}/800/500`]);
+    const seperator = e.target.value.indexOf('-');
+    const id = e.target.value.slice(12, seperator);
+    setPhotos([...photos, `https://picsum.photos/id/${id}/600/400`]);
   };
 
   const submit = (e) => {
