@@ -6,7 +6,7 @@ const FavIcon = () => {
     console.log('Modal button was clicked');
   };
   return (
-    <button className="fav-icon" type="button" label="modal" onClick={modalClick}><i className="fas fa-star" /></button>
+    <button className="fav-icon" type="button" name="modal" label="modal" onClick={modalClick}><i className="fas fa-star" /></button>
     // <Button primary></Button>
   );
 };
