@@ -94,14 +94,15 @@ const QAEntry = ({ question, id, searched }) => {
       <div className="q">
         <Title size={1.7}>Q:</Title>
       </div>
-      <Question body={question.question_body} />
+      <Question id="question" body={question.question_body} />
       <div className="a">
         <Title size={1.7}>A:</Title>
       </div>
       <AnswerContainer
+        id="answer-container"
         display={filter.length > 0 ? filter : display}
       />
-      <QuestionInfo question={question} />
+      <QuestionInfo id="question-info" question={question} />
       { ans.length < 3 || filter.length > 0 ? null
         : ans.length === display.length ? (
           <LoadAndCollapse
