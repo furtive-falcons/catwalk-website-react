@@ -11,12 +11,17 @@ import Header from '../Header';
 import Slogan from '../Slogan';
 import CheckList from '../CheckList';
 
-const ProductDetails = ({ product, setSelectedStyle, selectedStyle }) => {
+const ProductDetails = ({
+  setProductId,
+  product,
+  setSelectedStyle,
+  selectedStyle,
+}) => {
   const [toggle, setToggle] = useState(false);
 
   const renderHeader = () => (
     <div className="header">
-      <Header />
+      <Header setProductId={setProductId} />
     </div>
   );
 
@@ -98,12 +103,14 @@ ProductDetails.propTypes = {
   product: shape({}),
   selectedStyle: number,
   setSelectedStyle: func,
+  setProductId : func,
 };
 
 ProductDetails.defaultProps = {
   product: null,
   selectedStyle: null,
   setSelectedStyle: Function.prototype,
+  setProductId: Function.prototype,
 };
 
 export default ProductDetails;

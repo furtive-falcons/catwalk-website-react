@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { colorGreyLight1 } from '../../ui/ui-colors';
 
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   align-items: center;
   border-bottom: 1px solid ${colorGreyLight1};
   color: ${colorGreyLight1};
@@ -11,4 +11,13 @@ const HeaderWrapper = styled.div`
   padding: 1.5rem 3rem;
 `;
 
-export default HeaderWrapper;
+export const LinksContainerStyles = styled.ul`
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  text-transform: uppercase;
+  li:hover{
+    font-weight: bold;
+    cursor: pointer;
+  }
+`;
