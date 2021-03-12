@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorWhite, colorGreyLight2, colorPrimary } from '../../../../ui/ui-colors';
+import { colorGreyLight2, colorPrimary } from '../../../../ui/ui-colors';
 
 const ModalForm = styled.div`
   position: fixed;
