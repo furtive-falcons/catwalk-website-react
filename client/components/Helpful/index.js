@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number, func } from 'prop-types';
+import { string, number } from 'prop-types';
 import LinkTag from '../LinkTag';
 
 const Helpful = ({
@@ -25,7 +25,7 @@ const Helpful = ({
 export default Helpful;
 
 Helpful.propTypes = {
-  string: string,
+  string,
   helpfulness: number,
   size: number,
 };

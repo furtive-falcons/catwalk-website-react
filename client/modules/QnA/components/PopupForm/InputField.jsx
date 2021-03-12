@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
+import { string, number, func } from 'prop-types';
 import { FormInputField } from './styles.js';
 
 const InputField = ({
@@ -24,3 +25,23 @@ const InputField = ({
 );
 
 export default InputField;
+
+InputField.propTypes = {
+  type: string,
+  name: string,
+  width: number,
+  height: number,
+  label: string,
+  placeholder: string,
+  getInput: func,
+};
+
+InputField.defaultProps = {
+  type: null,
+  name: null,
+  width: null,
+  height: null,
+  placeholder: null,
+  label: null,
+  getInput: null,
+};

@@ -1,8 +1,9 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { func } from 'prop-types';
 import { StyledSearch } from '../styles.js';
 
-const SearchBar = ({search}) => {
+const SearchBar = ({ search }) => {
   const [input, setInput] = useState('');
 
   const handleChange = (event) => {
@@ -12,9 +13,9 @@ const SearchBar = ({search}) => {
 
   return (
     <StyledSearch
-      className="search"
-      data-test="component-searchBar"
-      type="text"
+      id="search"
+      aria-label="search"
+      type="search"
       value={input}
       placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
       onChange={handleChange}
@@ -23,3 +24,11 @@ const SearchBar = ({search}) => {
 };
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  search: func,
+};
+
+SearchBar.defaultProps = {
+  search: null,
+};
