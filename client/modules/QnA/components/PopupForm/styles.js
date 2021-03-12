@@ -30,6 +30,7 @@ const ModalWrapper = styled.div`
   color: ${colorGreyLight2};
   align-items: center;
   padding: 5rem;
+  cursor: auto;
 
   .title {
     grid-column: 1 / 4;
@@ -53,7 +54,7 @@ const ModalWrapper = styled.div`
     right: 5%;
     color: ${colorGreyLight2};
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2.5rem;
     :hover {
       animation:spin 0.5s linear 1;
     }
@@ -99,11 +100,13 @@ const Form = styled.form`
   .nickname {
       grid-column: 1 / 4;
       grid-row: 1 / 2;
+      width: min-content;
     }
 
   .email {
     grid-column: 1 / 4;
     grid-row: 2 / 3;
+    width: min-content;
   }
 
   .body {

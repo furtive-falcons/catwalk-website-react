@@ -96,23 +96,26 @@ const PopupForm = ({ question, setForm, formType }) => {
           <SuccessModal>
             <i className="fas fa-check-circle success" />
             <Paragraph
-              children="THANK YOU !"
               size={3}
-            />
+            >
+              THANK YOU !
+            </Paragraph>
           </SuccessModal>
         ) : (
           <>
             <div className="title">
               <Title
                 size={2}
-                children={formType === 'answer' ? 'Submit Your Answer' : 'Ask Your Question'}
-              />
+              >
+                {formType === 'answer' ? 'Submit Your Answer' : 'Ask Your Question'}
+              </Title>
             </div>
             <div className="subtitle">
               <Title
                 size={1.5}
-                children={`${productName} ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
-              />
+              >
+                {`${productName} ${formType === 'answer' ? `: ${question.question_body}` : ''}`}
+              </Title>
             </div>
             <Form>
               <div className="nickname">
@@ -126,7 +129,7 @@ const PopupForm = ({ question, setForm, formType }) => {
                   placeholder="Example: patagucci"
                   getInput={getInput}
                 />
-                <Paragraph children="For privacy reasons, do not use your full name or email address" />
+                <Paragraph>For privacy reasons, do not use your full name or email</Paragraph>
               </div>
               <div className="email">
                 <InputField
@@ -138,7 +141,7 @@ const PopupForm = ({ question, setForm, formType }) => {
                   placeholder="Example: patagucci@email.com"
                   getInput={getInput}
                 />
-                <Paragraph children="For authentication reasons, you will not be emailed" />
+                <Paragraph>For authentication reasons, you will not be emailed</Paragraph>
               </div>
               <div className="body">
                 <InputArea
