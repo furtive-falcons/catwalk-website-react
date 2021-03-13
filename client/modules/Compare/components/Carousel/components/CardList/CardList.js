@@ -33,12 +33,12 @@ const CardList = ({ cardList }) => {
       <Suspense fallback={<div>Loading...</div>}>
         <ButtonContainer>
           {index > 0 ? (
-            <button className="left-prev-button" type="button" label="left" onClick={goLeft}>
+            <button className="left-prev-button" type="button" label="left" onClick={goLeft} aria-label="left-previous-button">
               <i className="fas fa-chevron-left" />
             </button>
           ) : null}
           {index < length - 5 ? (
-            <button className="right-prev-button" type="button" lable="right" onClick={goRight}>
+            <button className="right-prev-button" type="button" lable="right" onClick={goRight} aria-label="right-previous-button">
               <i className="fas fa-chevron-right" />
             </button>
           ) : null}
