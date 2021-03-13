@@ -19,12 +19,19 @@ const DropdownContainer = styled.div`
 const ReviewListContainer = styled.div`
   flex: 7;
   width: 95%;
-  min-height: 500px;
+  min-height: 550px;
   max-height: 825px;
+  padding-bottom: 20px;
+  padding-left: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 
   .blank {
     display: flex;
@@ -54,7 +61,7 @@ const TileContainer = styled.div`
   margin-top: 15px;
   padding: 20px;
   animation: ${fadeIn} 1.3s ease-out;
-  filter: drop-shadow(0 0 0.5rem #d3d3d3)
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
 const ModalContainer = styled.div`
