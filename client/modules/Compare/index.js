@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { string } from 'prop-types';
+import { number } from 'prop-types';
 import Carousel from './components/Carousel/Carousel';
 
 class CompareCarousels extends React.Component {
@@ -22,8 +22,6 @@ class CompareCarousels extends React.Component {
     axios.get(`${url}/${productId}/related`)
       .then((res) => {
         this.setState({ relatedProducts: res.data.data });
-      }, (err) => {
-        console.log('Error getting related products in related products list', err);
       });
   }
 
@@ -39,7 +37,7 @@ class CompareCarousels extends React.Component {
 }
 
 CompareCarousels.propTypes = {
-  productId: string,
+  productId: number,
 };
 
 CompareCarousels.defaultProps = {

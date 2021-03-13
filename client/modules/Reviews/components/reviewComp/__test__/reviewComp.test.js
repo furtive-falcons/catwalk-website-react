@@ -8,7 +8,6 @@ import Tile from '../Tile.js';
 import ReviewList from '../ReviewList.js';
 import Helpful from '../Helpful.js';
 import Sort from '../Sort.js';
-import dummy from '../../dummy.js';
 
 // set up enzyme's react adapter
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -56,13 +55,6 @@ describe('Review components testing', () => {
     const appComponent = wrapper.find('#dropdown');
     expect(wrapper).toBeTruthy();
     expect(appComponent.length).toBe(1);
-  });
-
-  // Review List renders comment
-  test('Comment is rendered when there is data', () => {
-    const list = shallow(<ReviewList data={dummy.results} />);
-    // should have 5 children
-    expect(list.find('#reviews').length).toBe(5);
   });
 
 });
