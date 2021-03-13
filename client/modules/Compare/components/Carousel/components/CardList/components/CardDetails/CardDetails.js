@@ -1,32 +1,29 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { shape } from 'prop-types';
+import DetailsContainer from './styles';
 import Category from './components/Category/Category';
-import ProductName from './components/ProductName/ProductName';
+import ProductTitle from '../../../../../../../../components/Title';
 import Price from '../../../../../../../../components/Price';
 import StarRating from '../../../../../../../../components/StarRating';
-import DetailsContainer from './styles'
-// import Price from './components/Price/Price';
-// import AvgRating from './components/AvgRating/AvgRating';
-// import ProductCategory from '../../../../../../../../components/ProductCategory';
-// import ProductTitle from '../../../../../../../../components/ProductTitle';
+import { fontSizeBase } from '../../../../../../../../ui/ui-fonts';
 
-const CardDetails = ({ card }) => {
-  const price = Number(card.original_price)
-  // const salesPrice = Number(card.sale_price)
-  return (
-  <DetailsContainer>
+const CardDetails = ({ card }) => (
+  <DetailsContainer data-test="component-details">
     <Category card={card.category} />
-    <ProductName card={card.name} />
-    <Price card={`$${card.original_price}`} />
-    {/* <Price originalPrice={price} salePrice={salesPrice} /> */}
+    <ProductTitle size={fontSizeBase}>{card.name}</ProductTitle>
+    {card.sale_price * 1 <= 0
+      ? <Price originalPrice={card.original_price} />
+      : <Price originalPrice={card.original_price * 1} salePrice={card.sale_price * 1} />}
     <StarRating rating={card.ratingAverage} />
-  </DetailsContainer>)
+  </DetailsContainer>
+);
+
+CardDetails.propTypes = {
+  card: shape({}),
 };
 
-// CardDetails.propTypes = {
-//   default_price: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   category: PropTypes.string.isRequired,
-// };
+CardDetails.defaultProps = {
+  card: {},
+};
 
 export default CardDetails;

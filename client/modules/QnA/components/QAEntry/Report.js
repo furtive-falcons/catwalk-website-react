@@ -1,10 +1,10 @@
 import React from 'react';
+import { string, func } from 'prop-types';
 import LinkTag from '../../../../components/LinkTag';
 
-const Report = ({ children, size, handleOnClick }) => (
+const Report = ({ children, handleOnClick }) => (
   <div className="report">
     <LinkTag
-      size={size}
       handleOnClick={handleOnClick}
       href={null}
     >
@@ -14,3 +14,13 @@ const Report = ({ children, size, handleOnClick }) => (
 );
 
 export default Report;
+
+Report.propTypes = {
+  children: string,
+  handleOnClick: func,
+};
+
+Report.defaultProps = {
+  children: '',
+  handleOnClick: () => {},
+};

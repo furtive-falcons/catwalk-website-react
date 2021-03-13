@@ -28,6 +28,7 @@ const Helpful = ({ count, review_id }) => {
       {statusCodeUpvote === 204 ? count + 1 : count}
       )
       {' '}
+      <span>No (0)</span>
       {' '}
       |
       {' '}

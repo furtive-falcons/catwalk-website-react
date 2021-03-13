@@ -1,7 +1,8 @@
-/* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
-import { string, array } from 'prop-types';
-import QAEntry from './QAEntry/QAEntry.jsx';
+import {
+  string, shape, number, arrayOf,
+} from 'prop-types';
+import QAEntry from './QAEntry/QAEntry';
 
 const EntryContainer = ({ questions, searched }) => {
   const [qns, setQuestions] = useState([]);
@@ -32,7 +33,12 @@ const EntryContainer = ({ questions, searched }) => {
 export default EntryContainer;
 
 EntryContainer.propTypes = {
-  questions: array,
+  questions: arrayOf(shape({
+    question_id: number,
+    question_body: string,
+    asker_name: string,
+    question_helpfulness: number,
+  })),
   searched: string,
 };
 

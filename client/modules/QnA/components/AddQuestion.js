@@ -1,8 +1,6 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import Button from '../../../components/Button';
-import PopupForm from './PopupForm/PopupForm.jsx';
+import PopupForm from './PopupForm/PopupForm';
 
 const AddQuestion = () => {
   const [showForm, setForm] = useState(false);
@@ -12,6 +10,7 @@ const AddQuestion = () => {
   return (
     <div className="add-question">
       <Button
+        id="add-question"
         name="ADD A QUESTION "
         handleOnClick={handleOnClick}
         secondary

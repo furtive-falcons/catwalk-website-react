@@ -11,11 +11,10 @@ const messages = {
 };
 
 const SelectableStars = ({ getRating }) => {
-  const [off, setOff] = useState(true);
   const [index, setIndex] = useState(-1);
 
   const click = (id) => {
-    // get the index
+    // get the index for form submission
     getRating(id + 1);
     setIndex(id);
   };
@@ -25,7 +24,7 @@ const SelectableStars = ({ getRating }) => {
       <div className="group">
         {
       [0, 1, 2, 3, 4].map((id) => (
-        <Star id={id} key={id} empty={id > index ? off : !off} click={() => click(id)} size={25} />
+        <Star id={id} key={id} empty={id > index} click={() => click(id)} size={25} />
       ))
       }
       </div>

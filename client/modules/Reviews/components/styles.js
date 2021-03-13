@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { fadeIn, expand } from './animationStyles.js';
 
 const RatingsContainer = styled.div`
   font-size: 1.2rem;
   flex: 2.5;
-  // border: 1px solid black;
   height: 75%;
   display: flex;
   flex-direction: column;
@@ -20,14 +20,24 @@ const RatingsContainer = styled.div`
   }
 
   .remove: hover {
+    animation: ${fadeIn} 0.5s;
     cursor: pointer;
     color: white;
     background-color: black;
+    padding: 3px;
   }
 
-  .editFilter {
-    height:40px;
+  h2 {
+    border-top: 1px solid grey;
+    width: 75%;
+    margin-top: 15px;
+    padding-top: 15px;
   }
+
+`;
+
+const EditFilters = styled.div`
+  animation: ${expand} 0.3s;
 `;
 
 const FilterBox = styled.span`
@@ -35,9 +45,11 @@ const FilterBox = styled.span`
   padding: 5px;
 
   :hover {
+    animation: ${fadeIn} 0.5s;
     cursor: pointer;
     color: white;
     background-color: black;
+    padding: 3px;
   }
 `;
 
@@ -45,7 +57,6 @@ const ReviewsContainer = styled.div`
   font-size: 1.2rem;
   flex: 7;
   display: flex;
-  // border: 1px solid red;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -63,4 +74,6 @@ const TopContainer = styled.div`
   padding: 10px;
 `;
 
-export { FilterBox, TopContainer,RatingsContainer, ReviewsContainer };
+export {
+  FilterBox, EditFilters, TopContainer, RatingsContainer, ReviewsContainer,
+};

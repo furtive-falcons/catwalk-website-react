@@ -1,15 +1,14 @@
-/* eslint-disable import/extensions */
 import styled from 'styled-components';
-import { colorGreyLight2 } from '../../../../ui/ui-colors/index.js';
+import { colorGreyLight2 } from '../../../../ui/ui-colors/index';
 
 const Entry = styled.div`
-
     display: grid;
-    grid-template-columns: 3rem auto 25rem;
+    grid-template-columns: 3rem auto 30rem;
     grid-template-rows: minmax(2rem, 10rem) auto repeat(2 minmax(min-content, 10rem))
     grid-auto-rows: minmax(min-content, 5rem);
     grid-gap: 0.5rem;
     align-items: center;
+    color: ${colorGreyLight2};
 
   .question {
     grid-column: 2 / 3;
@@ -19,7 +18,6 @@ const Entry = styled.div`
   .question p {
     font-weight: 700;
     font-size: 2rem;
-    color: ${colorGreyLight2};
   }
 
   .answers p {
@@ -37,12 +35,20 @@ const Entry = styled.div`
     overflow: auto;
   }
 
-
   .add-answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-column: 5 / 6;
     grid-row: 1 / 2;
     cursor: pointer;
     text-decoration: underline;
+    width: 9rem;
+    height: 2.5rem;
+    :hover {
+      background-color: #eaeaea;
+      border-radius: 1rem;
+    }
   }
 
   .load-more-answer {
@@ -51,31 +57,36 @@ const Entry = styled.div`
     font-weight: 700;
     cursor: pointer;
     margin-bottom: 1rem;
-    width: 12rem;
+    width: max-content;
+    :hover {
+      opacity: 0.6;
+    }
   }
 
   .q {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     align-self: start;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .question-info {
     display: flex;
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .answer-info {
     display:flex;
+    align-items: center;
     grid-column: 2 / 3;
     grid-row: 3 / 4;
   }
@@ -84,7 +95,30 @@ const Entry = styled.div`
   }
 
   .report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    width: 6rem;
+    height: 2.5rem;
+    text-decoration: underline;
+    :hover {
+      background-color: #eaeaea;
+      border-radius: 1rem;
+    }
+  }
+
+  .helpful {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 11rem;
+    height: 2.5rem;
+    :hover {
+      background-color: #eaeaea;
+      border-radius: 1rem;
+    }
   }
 
   .answer-info, .question-info, .helpful {

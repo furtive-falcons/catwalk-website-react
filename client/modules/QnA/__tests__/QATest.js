@@ -2,28 +2,66 @@ import React from 'react';
 import Enzyme, {shallow, mount} from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
-import SearchBar from '../components/SearchBar.jsx';
-import {QnA} from '../index.js';
-
+import MoreQuestion from '../components/MoreQuestion';
+import QnA from '../index';
+import AddQuestion from '../components/AddQuestion';
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
-test('Search Bar component exists', () => {
-  const wrapper = shallow(<SearchBar/>);
-  const appComponent = wrapper.find("[data-test='component-searchBar']");
-  expect(wrapper).toBeTruthy();
-  expect(appComponent.length).toBe(1);
+
+describe('<QnA />', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<QnA />)
+  })
+
+  it('It render without exploding', () => {
+    expect(wrapper.length).toEqual(1);
+  })
+
+  it('It has a title', () => {
+    const title = wrapper.find("#title");
+    expect(title.text()).toBe('QUESTIONS & ANSWERS');
+  });
+
+  it('It has a search bar', () => {
+    const searchBar = wrapper.find('#search-bar');
+    expect(searchBar.text()).toBe('<SearchBar />');
+  })
+
+  it('It has a entry container', () => {
+    const entryContainer = wrapper.find('#entry-container');
+    expect(entryContainer.text()).toBe('<EntryContainer />')
+  })
+
+  it('It has a add question button', () => {
+    const addQuestion = wrapper.find('#add-question');
+    expect(addQuestion.text()).toBe('<AddQuestion />');
+  })
 })
 
-// describe('<QnA />', () => {
-//   it('It has a title', () => {
-//     const wrapper = mount(<QnA/>);
-//     const title = wrapper.find("[data-test='component-title']");
-//     expect(title.text()).toBe('QUESTIONS & ANSWERS');
-//   });
+describe('<MoreQuestion />', () => {
+  let wrapper;
 
-//   it('It has a searchbar', () => {
-//     const wrapper = mount(<QnA />);
-//     const searchBar = wrapper.find()
-//   })
-// })
+  beforeEach(() => {
+    wrapper = shallow(<MoreQuestion />);
+  });
+
+  it('When you click it load more questions', () => {
+    const moreQuestion = wrapper.find('#more-question');
+    moreQuestion.simulate('click');
+  })
+})
+
+describe('<AddQuestion />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<AddQuestion />);
+  });
+
+  it('When you click question modal pop up', () => {
+    const addQuestion = wrapper.find('#add-question');
+    addQuestion.simulate('click');
+  })
+})

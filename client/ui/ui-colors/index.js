@@ -10,4 +10,4 @@ export const colorWhite = '#FFF';
 
 export const colorBlack = '#000';
 
-export const colorGreen = '#43a64b';
+export const colorGreen = '#1DB954';

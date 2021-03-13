@@ -1,15 +1,13 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import {
   shape, string, number, bool,
 } from 'prop-types';
-import Question from './Question.jsx';
-import LoadAndCollapse from './LoadAndCollapse.jsx';
-import { Entry } from './styles.js';
-import QuestionInfo from './QuestionInfo.jsx';
-import AnswerContainer from './AnswerContainer.jsx';
-import Title from '../../../../components/Title';
+import Question from './Question';
+import LoadAndCollapse from './LoadAndCollapse';
+import { Entry } from './styles';
+import QuestionInfo from './QuestionInfo';
+import AnswerContainer from './AnswerContainer';
 
 const axios = require('axios');
 
@@ -24,7 +22,7 @@ const QAEntry = ({ question, id, searched }) => {
     data.sort((a, b) => b[method] - a[method]);
     setDisplay(data.slice(0, 2));
     if (searched) {
-      const match = data.filter((an) => an.body.includes(searched));
+      const match = data.filter((an) => an.body.toLowerCase().includes(searched));
       if (match.length > 0) {
         setFilter(match);
       } else {
@@ -66,9 +64,16 @@ const QAEntry = ({ question, id, searched }) => {
       page += 1;
     }
     Promise.all(data)
-      .then((results) => results.forEach((result) => {
-        setAnswers((prev) => [...prev, ...result.data.results]);
-      }));
+      .then((results) => {
+        results.forEach((result) => {
+          setAnswers((prev) => [...prev, ...result.data.results]);
+        });
+        return results;
+      })
+      .then((results) => {
+        const firstPage = results[0].data.results;
+        setDisplay(firstPage.slice(0, 2));
+      });
   };
 
   useEffect(() => {
@@ -76,10 +81,11 @@ const QAEntry = ({ question, id, searched }) => {
       getAllAnswers();
       setSuccess(true);
     } else {
+      setFilter([]);
       sortAnswers(removeDuplicate(ans));
       setDisplay(ans.slice(0, 2));
     }
-  }, [ans]);
+  }, [ans, searched]);
 
   const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
@@ -91,22 +97,19 @@ const QAEntry = ({ question, id, searched }) => {
 
   return (
     <Entry className="container">
-      <div className="q">
-        <Title size={1.7}>Q:</Title>
-      </div>
-      <Question body={question.question_body} />
-      <div className="a">
-        <Title size={1.7}>A:</Title>
-      </div>
+      <h2 className="q">Q:</h2>
+      <Question id="question" body={question.question_body} />
+      <h2 className="a">A:</h2>
       <AnswerContainer
+        id="answer-container"
         display={filter.length > 0 ? filter : display}
       />
-      <QuestionInfo question={question} />
-      { ans.length < 3 || filter.length > 0 ? null
+      <QuestionInfo id="question-info" question={question} />
+      {ans.length < 3 || filter.length > 0 ? null
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             Collapse Answers
@@ -114,7 +117,7 @@ const QAEntry = ({ question, id, searched }) => {
         ) : (
           <LoadAndCollapse
             handleOnClick={loadAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             See More Answers
