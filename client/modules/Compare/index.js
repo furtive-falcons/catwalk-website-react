@@ -13,8 +13,8 @@ class CompareCarousels extends React.Component {
   }
 
   componentDidMount() {
-    const { productId } = this.props;
-    this.getRelatedProducts(productId);
+    // const { productId } = this.props;
+    this.getRelatedProducts(14040);
   }
 
   getRelatedProducts(productId) {
