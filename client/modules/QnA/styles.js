@@ -1,7 +1,5 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable import/extensions */
 import styled from 'styled-components';
-import { colorGreyLight2 } from '../../ui/ui-colors/index.js';
+import { colorGreyLight2 } from '../../ui/ui-colors/index';
 
 export const Container = styled.div`
   font-size: 1rem;
@@ -21,9 +19,10 @@ export const Container = styled.div`
     margin-top: 2rem;
   }
 
-  .title {
+  #title {
     grid-column: span 6;
     grid-row: 1 / 2;
+    font-size: 2rem;
   }
 
   #search{

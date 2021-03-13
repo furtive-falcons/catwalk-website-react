@@ -1,6 +1,5 @@
-/* eslint-disable import/extensions */
 import styled from 'styled-components';
-import { colorGreyLight2 } from '../../../../ui/ui-colors/index.js';
+import { colorGreyLight2 } from '../../../../ui/ui-colors/index';
 
 const Entry = styled.div`
 
@@ -57,14 +56,14 @@ const Entry = styled.div`
   .q {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     align-self: start;
-    margin-top: 8px;
+    font-size: 1.7rem;
   }
 
   .question-info {

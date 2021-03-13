@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
+import { string, func } from 'prop-types';
 import { FormTextArea } from './styles.js';
 
 const InputArea = ({
-  width, height, label, placeholder, name, getInput,
+  label, placeholder, name, getInput,
 }) => (
   <>
     <label htmlFor={label}>
@@ -13,8 +14,8 @@ const InputArea = ({
     <FormTextArea
       name={name}
       onChange={getInput}
-      width={width}
-      height={height}
+      width={50}
+      height={10}
       placeholder={placeholder}
       maxLength="1000"
       required
@@ -23,3 +24,10 @@ const InputArea = ({
 );
 
 export default InputArea;
+
+InputArea.propTypes = {
+  label: string.isRequired,
+  placeholder: string.isRequired,
+  name: string.isRequired,
+  getInput: func.isRequired,
+};

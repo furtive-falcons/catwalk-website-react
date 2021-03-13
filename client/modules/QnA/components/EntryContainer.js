@@ -1,9 +1,8 @@
-/* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import {
   string, shape, number, arrayOf,
 } from 'prop-types';
-import QAEntry from './QAEntry/QAEntry.jsx';
+import QAEntry from './QAEntry/QAEntry';
 
 const EntryContainer = ({ questions, searched }) => {
   const [qns, setQuestions] = useState([]);

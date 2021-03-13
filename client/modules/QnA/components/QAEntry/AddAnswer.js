@@ -1,8 +1,7 @@
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import { shape, number } from 'prop-types';
 import LinkTag from '../../../../components/LinkTag';
-import PopupForm from '../PopupForm/PopupForm.jsx';
+import PopupForm from '../PopupForm/PopupForm';
 
 const AddAnswer = ({ question }) => {
   const [showForm, setForm] = useState(false);

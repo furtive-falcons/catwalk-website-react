@@ -1,15 +1,13 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import {
   shape, string, number, bool,
 } from 'prop-types';
-import Question from './Question.jsx';
-import LoadAndCollapse from './LoadAndCollapse.jsx';
-import { Entry } from './styles.js';
-import QuestionInfo from './QuestionInfo.jsx';
-import AnswerContainer from './AnswerContainer.jsx';
-import Title from '../../../../components/Title';
+import Question from './Question';
+import LoadAndCollapse from './LoadAndCollapse';
+import { Entry } from './styles';
+import QuestionInfo from './QuestionInfo';
+import AnswerContainer from './AnswerContainer';
 
 const axios = require('axios');
 
@@ -91,19 +89,15 @@ const QAEntry = ({ question, id, searched }) => {
 
   return (
     <Entry className="container">
-      <div className="q">
-        <Title size={1.7}>Q:</Title>
-      </div>
+      <h2 className="q">Q:</h2>
       <Question id="question" body={question.question_body} />
-      <div className="a">
-        <Title size={1.7}>A:</Title>
-      </div>
+      <h2 className="a">A:</h2>
       <AnswerContainer
         id="answer-container"
         display={filter.length > 0 ? filter : display}
       />
       <QuestionInfo id="question-info" question={question} />
-      { ans.length < 3 || filter.length > 0 ? null
+      {ans.length < 3 || filter.length > 0 ? null
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}

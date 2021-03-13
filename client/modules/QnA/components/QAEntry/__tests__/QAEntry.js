@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, {shallow, mount} from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
-import QAEntry from '../QAEntry.jsx';
+import QAEntry from '../QAEntry';
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 

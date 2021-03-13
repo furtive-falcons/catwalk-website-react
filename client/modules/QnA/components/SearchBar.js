@@ -1,7 +1,6 @@
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import { func } from 'prop-types';
-import { StyledSearch } from '../styles.js';
+import { StyledSearch } from '../styles';
 
 const SearchBar = ({ search }) => {
   const [input, setInput] = useState('');
