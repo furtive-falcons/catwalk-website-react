@@ -19,8 +19,6 @@ const Entry = styled.div`
       background: transparent;
     }
 
-
-
   .question {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -44,6 +42,10 @@ const Entry = styled.div`
     font-size: 1.3rem;
     max-height: 50vh;
     overflow: auto;
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
   }
 
   .add-answer {
