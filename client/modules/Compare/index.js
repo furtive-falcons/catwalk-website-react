@@ -23,7 +23,7 @@ class CompareCarousels extends React.Component {
       .then((res) => {
         this.setState({ relatedProducts: res.data.data });
       }, (err) => {
-        console.log('err', err);
+        console.log('Error getting related products in related products list', err);
       });
   }
 
