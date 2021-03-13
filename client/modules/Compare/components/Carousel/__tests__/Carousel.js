@@ -6,7 +6,7 @@ import Carousel from '../Carousel.js'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('renders without problems', () => {
+test('renders CardListContainer without problems', () => {
     const wrapper = shallow(<Carousel />);
     const appComponent = wrapper.find("[data-test='component-carousel']");
     expect(wrapper).toBeTruthy();
