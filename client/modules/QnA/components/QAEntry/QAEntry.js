@@ -109,7 +109,7 @@ const QAEntry = ({ question, id, searched }) => {
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             Collapse Answers
@@ -117,7 +117,7 @@ const QAEntry = ({ question, id, searched }) => {
         ) : (
           <LoadAndCollapse
             handleOnClick={loadAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             See More Answers
