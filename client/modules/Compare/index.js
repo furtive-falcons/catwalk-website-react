@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { string } from 'prop-types';
+import { number } from 'prop-types';
 import Carousel from './components/Carousel/Carousel';
 
 class CompareCarousels extends React.Component {
@@ -39,7 +39,7 @@ class CompareCarousels extends React.Component {
 }
 
 CompareCarousels.propTypes = {
-  productId: string,
+  productId: number,
 };
 
 CompareCarousels.defaultProps = {

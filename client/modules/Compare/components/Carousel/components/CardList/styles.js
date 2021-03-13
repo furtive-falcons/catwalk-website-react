@@ -2,12 +2,9 @@ import styled from 'styled-components';
 
 export const CardListContainer = styled.div`
   flex: 5;
-  // display: inline-block;
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
-  // border: none;
-  // border: 1px solid blue;
   min-width: 375px;
   width: auto;
   margin: 5px;
@@ -56,7 +53,6 @@ export const ButtonContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  .cardContainer{
     flex: 3.5;
     flex-direction: row;
     display: inline-block;
@@ -64,8 +60,8 @@ export const CardContainer = styled.div`
     margin: 5px;
     max-width: 230px;
     max-height: 450px;
-  }
-  .cardContainer{
-    border: 1px solid black;
-  }
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  // #cardContainer:hover{
+  //   border: 1px solid black;
+  // }
 `;
