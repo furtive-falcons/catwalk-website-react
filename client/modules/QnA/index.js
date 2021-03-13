@@ -6,7 +6,7 @@ import EntryContainer from './components/EntryContainer';
 import MoreQuestion from './components/MoreQuestion';
 import AddQuestion from './components/AddQuestion';
 import { Container } from './styles';
-import { Provider } from './context';
+import { Provider } from './components/QuestionContext';
 
 const axios = require('axios');
 
@@ -113,7 +113,7 @@ const QnA = ({ productId }) => {
   }, [productId]);
 
   return (
-    <Provider value={{ productId, productName }}>
+    <Provider value={{ productId, productName, getAllQA, setQuestions }}>
       <Container>
         <h1 id="title">QUESTIONS & ANSWERS</h1>
         <SearchBar search={handleSearch} id="search-bar" />
@@ -140,8 +140,8 @@ const QnA = ({ productId }) => {
   );
 };
 
-// export { QnA, ProductContext };
 export default QnA;
+
 QnA.propTypes = {
   productId: number,
 };

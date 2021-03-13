@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, {
   useState, useEffect, useRef, useContext,
 } from 'react';
@@ -13,7 +14,8 @@ import {
 } from './styles';
 import Paragraph from '../../../../components/Paragraph';
 import ImageThumbnail from '../../../../components/ImagePopUp';
-import { Context } from '../../context';
+import { QuestionContext } from '../QuestionContext';
+import { AnswerContext } from '../AnswerContext';
 
 const axios = require('axios');
 
@@ -22,7 +24,10 @@ const PopupForm = ({ question, setForm, formType }) => {
   const [response, setResponse] = useState({});
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
-  const { productName, productId } = useContext(Context);
+  const context = formType === 'answer' ? AnswerContext : QuestionContext;
+  const {
+    productName, productId, getAllQA, getAllAnswers, setAnswers, setQuestions
+  } = useContext(context);
   const modalRef = useRef();
   const uploadRef = useRef();
 
@@ -43,6 +48,15 @@ const PopupForm = ({ question, setForm, formType }) => {
     }
     axios.post(url, content())
       .then(() => setSuccess(true))
+      .then(() => {
+        if (formType === 'answer') {
+          setAnswers([]);
+          getAllAnswers();
+        } else {
+          setQuestions([]);
+          getAllQA();
+        }
+      })
       .catch((err) => { throw err; });
   };
 
