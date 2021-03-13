@@ -9,6 +9,17 @@ const Entry = styled.div`
     grid-gap: 0.5rem;
     align-items: center;
     color: ${colorGreyLight2};
+    border-radius: 0.8rem;
+    border: 1px solid #ececec;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+
 
   .question {
     grid-column: 2 / 3;
