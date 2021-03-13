@@ -2,6 +2,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import FavIcon from './components/FavIcon/FavIcon';
 import ImageContainer from './components/styles';
+import Placeholder from '../../../../../../../../ui/ui-pictures/photo-1553830591-d8632a99e6ff.jpeg';
 
 const CardAssets = ({ card }) => {
   const hasImg = Boolean(card.thumbnail_url);
@@ -18,7 +19,7 @@ const CardAssets = ({ card }) => {
         ) : (
           <img
             className="default-thumbnail"
-            src="https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            src={Placeholder}
             alt="placeholder"
           />
         )}
