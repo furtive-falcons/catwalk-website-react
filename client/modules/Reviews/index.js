@@ -60,8 +60,7 @@ const ReviewAndRatings = ({ productId }) => {
       <Container id="mainWrapper">
         {allReviews && meta
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
-          :
-          <Ratings placeholder />}
+          : <Ratings placeholder />}
         {meta && allReviews
           ? <Reviews refresh={refresh} productId={productId} data={allReviews.results} metaData={meta} filters={filters} id="reviews" />
           : <Reviews placeholder />}

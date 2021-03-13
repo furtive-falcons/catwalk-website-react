@@ -14,7 +14,7 @@ const Buttons = ({
       : null
     }
     <MarginsWrapper margin="15px">
-      <Button icon="plus" handleOnClick={openModal} size={15} secondary name="ADD REVIEW" />
+      <Button handleOnClick={openModal} size={15} secondary name="ADD REVIEW" />
     </MarginsWrapper>
   </ButtonsContainer>
 );

@@ -33,7 +33,6 @@ const Form = ({ closeModal, metaData, refresh }) => {
   // returns an object containing characteristic Ids and the score for that id
   // from form data
   const transformCharactersitics = (formData, metaData) => {
-    // use meta data from get request
     const refData = metaData.characteristics;
     const obj = {};
     // iterate the form data and find all matching keys in both form and meta data
@@ -60,13 +59,13 @@ const Form = ({ closeModal, metaData, refresh }) => {
       body: form.body,
       name: form.name,
       email: form.email,
-      product_id: parseInt(metaData.product_id),
+      product_id: parseInt(metaData.product_id, 10),
       characteristics: transformCharactersitics(form, metaData),
       photos: ['https://picsum.photos/seed/1/200/300','https://picsum.photos/seed/2/200/300'],
     };
     // submit the content through POST request and close the page upon success post
     post('reviews/post', submitObj)
-      .then((result) => {
+      .then(() => {
         refresh();
         closeModal();
       })
@@ -90,11 +89,11 @@ const Form = ({ closeModal, metaData, refresh }) => {
     }
   };
 
-  const renderImages = (data) => data.map((img, index) => <img key={index} alt="uploaded pic" className="img" src={img} />);
+  const renderImages = (data) => data.map((img) => <img key={img} alt="uploaded pic" className="img" src={img} />);
 
   // map out all radio components
-  const renderRadio = (data, form) => Object.keys(data).map((label, index) => (
-    <div key={index} className={label}>
+  const renderRadio = (data, form) => Object.keys(data).map((label) => (
+    <div key={label} className={label}>
       <span>{label[0].toUpperCase().concat(label.slice(1))}</span>
       <div>{form[label] ? <span className="selected">{form[label]}</span> : <span className="message">Please select</span>}</div>
       <RadioArray

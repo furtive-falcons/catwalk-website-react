@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import { TileContainer } from './styles';
 import {
   ResponseContainer, ReviewContainer,

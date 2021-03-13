@@ -7,20 +7,17 @@ const Input = ({
   <InputDiv>
     {
     type === 'text'
-    && (
-    <div>
-      <input pattern={regex} maxLength={max} className="input" placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" required />
-      <div className="note">{note}</div>
-    </div>
-    )
-}
-    {
-    type === 'textarea'
-    && (
-    <div>
-      <textarea maxLength={max} placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" />
-    </div>
-    )
+      ? (
+        <div>
+          <input pattern={regex} maxLength={max} className="input" placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" required />
+          <div className="note">{note}</div>
+        </div>
+      )
+      : (
+        <div>
+          <textarea maxLength={max} placeholder={placeholder} name={label} onChange={handleChange} value={value} type="text" />
+        </div>
+      )
 }
   </InputDiv>
 );

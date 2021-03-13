@@ -4,7 +4,9 @@ import { DropdownContainer } from './styles';
 const Sort = ({ getSortMethod, sortValue }) => (
   <DropdownContainer id="dropdown">
     <label htmlFor="sort">
-      Sort By {' '}
+      Sort By
+      {' '}
+      {' '}
       <select id="sort" value={sortValue} onChange={getSortMethod} name="sort" className="dropdown">
         <option value="relevant">Relevance</option>
         <option value="helpful">Helpfulness</option>

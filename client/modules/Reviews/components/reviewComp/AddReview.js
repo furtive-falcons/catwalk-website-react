@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { ModalContainer } from './styles.js';
-import Form from './formComp/Form.js';
+import { ModalContainer } from './styles';
+import Form from './formComp/Form';
 
 const AddReview = ({
   showModal, closeModal, metaData, refresh,
