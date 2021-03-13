@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScoreDiv } from './styles.js';
+import { ScoreDiv } from './styles';
 import StarRating from '../../../../components/StarRating';
 import { colorPrimary } from '../../../../ui/ui-colors';
 

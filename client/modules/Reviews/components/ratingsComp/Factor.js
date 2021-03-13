@@ -1,8 +1,8 @@
 import React from 'react';
-import { FactorDiv } from './styles.js';
-import Mark from './Mark.js';
-import {colorGreen} from '../../../../ui/ui-colors';
-import labels from '../../labels.js';
+import { FactorDiv } from './styles';
+import Mark from './Mark';
+import { colorGreen } from '../../../../ui/ui-colors';
+import labels from '../../labels';
 
 const Factor = ({ label, rating, width }) => {
   const loweredCased = label[0].toLowerCase().concat(label.slice(1));

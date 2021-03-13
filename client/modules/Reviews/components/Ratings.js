@@ -1,8 +1,8 @@
 import React from 'react';
-import { RatingsContainer, FilterBox, EditFilters } from './styles.js';
-import Score from './ratingsComp/Score.js';
-import Filter from './ratingsComp/Filter.js';
-import Breakdown from './ratingsComp/Breakdown.js';
+import { RatingsContainer, FilterBox, EditFilters } from './styles';
+import Score from './ratingsComp/Score';
+import Filter from './ratingsComp/Filter';
+import Breakdown from './ratingsComp/Breakdown';
 
 const Ratings = ({
   data, metaData, getFilter, filters, removeFilters, placeholder,

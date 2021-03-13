@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReviewListContainer } from './styles.js';
-import Tile from './Tile.js';
+import { ReviewListContainer } from './styles';
+import Tile from './Tile';
 
 const ReviewList = ({ data }) => (
   <ReviewListContainer expand={data && data.length > 2} id="reviewList">

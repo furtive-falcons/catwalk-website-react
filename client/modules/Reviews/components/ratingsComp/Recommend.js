@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecDiv } from './styles.js';
+import { RecDiv } from './styles';
 
 const Recommend = ({ recommend }) => {
   const numRec = recommend && parseInt(recommend.true, 10);

@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { HelpfulDiv } from './tileStyles.js';
+import { post } from 'axios';
+import { HelpfulDiv } from './tileStyles';
 
 const Helpful = ({ count, review_id }) => {
   const [statusCodeUpvote, setStatusUpvote] = useState(null);
   const [statusCodeReport, setStatusReport] = useState(null);
 
   const upVote = (review_id) => {
-    axios.post('reviews/upvote', { review_id })
+    post('reviews/upvote', { review_id })
       .then((result) => setStatusUpvote(result.status))
       .catch((err) => { throw err; });
   };
 
   const report = (review_id) => {
-    axios.post('reviews/report', { review_id })
+    post('reviews/report', { review_id })
       .then((result) => setStatusReport(result.status))
       .catch((err) => { throw err; });
   };
 
   return (
-    <HelpfulDiv id='helpful'>
+    <HelpfulDiv id="helpful">
       Was this helpful?
       {' '}
       <span onClick={() => upVote(review_id)}>Yes</span>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { FilterDiv } from './styles.js';
-import Bar from './Bar.js';
+import { FilterDiv } from './styles';
+import Bar from './Bar';
 
 const Filter = ({ data, total, getFilter }) => (
   <FilterDiv id="filter">
     {
       data
-      && Object.entries(data).map((ratings, index) => (
-        <div className="barContainer" key={index}>
+      && Object.entries(data).map((ratings) => (
+        <div className="barContainer" key={ratings}>
           {data[ratings[0]] > 0
             ? (
               <span className="clickable" onClick={() => getFilter(ratings[0])}>
