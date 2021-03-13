@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownContainer } from './styles.js';
+import { DropdownContainer } from './styles';
 
 const Sort = ({ getSortMethod, sortValue }) => (
   <DropdownContainer id="dropdown">

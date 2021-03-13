@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from './styles.js';
+import { Radio } from './styles';
 
 const RadioArray = ({
   labelList, checked, onChange, name,

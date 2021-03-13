@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import {fadeIn, slideUp} from '../animationStyles.js';
-
+import { fadeIn, slideUp } from '../animationStyles';
 
 const DropdownContainer = styled.div`
   select {
@@ -47,14 +46,15 @@ const ButtonsContainer = styled.div`
 `;
 
 const TileContainer = styled.div`
-  padding: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
   width: 95%;
-  border-bottom: 0.5px solid grey;
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #ececec;
+  margin-top: 15px;
+  padding: 20px;
   animation: ${fadeIn} 1.3s ease-out;
+  filter: drop-shadow(0 0 0.5rem #d3d3d3)
 `;
 
 const ModalContainer = styled.div`

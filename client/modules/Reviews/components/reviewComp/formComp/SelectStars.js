@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Star from '../../../../../components/StarRating/FullStar.js';
+import Star from '../../../../../components/StarRating/FullStar';
 import { StarDiv } from './styles.js';
 
 const messages = {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { FormView } from './styles.js';
-import SelectStars from './SelectStars.js';
-import RadioArray from './RadioArray.js';
-import Input from './Input.js';
+import { post } from 'axios';
+import { FormView } from './styles';
+import SelectStars from './SelectStars';
+import RadioArray from './RadioArray';
+import Input from './Input';
 import Button from '../../../../../components/Button';
-import labels from '../../../labels.js';
+import labels from '../../../labels';
 
 const notes = [
   'For authentication reasons, you will not be emailed',
@@ -65,7 +65,7 @@ const Form = ({ closeModal, metaData, refresh }) => {
       photos: ['https://picsum.photos/seed/1/200/300','https://picsum.photos/seed/2/200/300'],
     };
     // submit the content through POST request and close the page upon success post
-    axios.post('reviews/post', submitObj)
+    post('reviews/post', submitObj)
       .then((result) => {
         refresh();
         closeModal();

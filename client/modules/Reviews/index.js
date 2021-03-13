@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Reviews from './components/Reviews.js';
-import Ratings from './components/Ratings.js';
-import { Main, Header, Container } from './styles.js';
+import { get } from 'axios';
+import Reviews from './components/Reviews';
+import Ratings from './components/Ratings';
+import { Main, Header, Container } from './styles';
 
 const ReviewAndRatings = ({ productId }) => {
   // filter to pass to list
@@ -14,7 +14,7 @@ const ReviewAndRatings = ({ productId }) => {
   const getFilter = (filter) => {
     const target = {};
     // Check if the filter already exist
-    if (filters.hasOwnProperty(filter)) {
+    if (filters[filter]) {
       setFilter((filters) => {
         delete filters[filter];
         return filters;
@@ -32,10 +32,10 @@ const ReviewAndRatings = ({ productId }) => {
   };
 
   // get all reviews
-  const getAllReviews = (productId) => axios.get(`/reviews?product_id=${productId}&page=1&sort=relevant`);
+  const getAllReviews = (productId) => get(`/reviews?product_id=${productId}&page=1&sort=relevant`);
 
   // get meta data
-  const getMeta = (productId) => axios.get(`/reviews/meta?product_id=${productId}`);
+  const getMeta = (productId) => get(`/reviews/meta?product_id=${productId}`);
 
   // refresh page
   const refresh = () => {
@@ -63,7 +63,7 @@ const ReviewAndRatings = ({ productId }) => {
           :
           <Ratings placeholder />}
         {meta && allReviews
-          ? <Reviews refresh={refresh} productId={productId} data={allReviews.results} refresh={refresh} metaData={meta} filters={filters} id="reviews" />
+          ? <Reviews refresh={refresh} productId={productId} data={allReviews.results} metaData={meta} filters={filters} id="reviews" />
           : <Reviews placeholder />}
       </Container>
     </Main>

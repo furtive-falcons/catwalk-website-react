@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {fadeIn} from '../../animationStyles.js'
+import { fadeIn  } from '../../animationStyles';
 
 const FormView = styled.form`
   display: flex;
@@ -10,6 +10,7 @@ const FormView = styled.form`
   min-width: 750px;
   background-color: #f5f5f5;
   border: none;
+  height: 100%;
 
   .rec {
     label {

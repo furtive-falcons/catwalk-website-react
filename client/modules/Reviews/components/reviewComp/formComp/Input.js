@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputDiv } from './styles.js';
+import { InputDiv } from './styles';
 
 const Input = ({
   note, max, label, type, handleChange, value, regex, placeholder,

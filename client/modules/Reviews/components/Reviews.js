@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { get } from 'axios';
 
-import { ReviewsContainer, TopContainer } from './styles.js';
-import ReviewCount from './reviewComp/ReviewCount.js';
-import ReviewList from './reviewComp/ReviewList.js';
-import Sort from './reviewComp/Sort.js';
-import Buttons from './reviewComp/Buttons.js';
-import AddReview from './reviewComp/AddReview.js';
+import { ReviewsContainer, TopContainer } from './styles';
+import ReviewCount from './reviewComp/ReviewCount';
+import ReviewList from './reviewComp/ReviewList';
+import Sort from './reviewComp/Sort';
+import Buttons from './reviewComp/Buttons';
+import AddReview from './reviewComp/AddReview';
 
 const Reviews = ({
   data, filters, metaData, placeholder, refresh, productId,
@@ -24,7 +24,7 @@ const Reviews = ({
   const [numTiles, changeNumTiles] = useState(2);
 
   // Get all reviews with a specific product id and sorting method
-  const getAllReviews = (productId, sortValue = 'newest') => axios.get(`/reviews?product_id=${productId}&page=1&sort=${sortValue}`);
+  const getAllReviews = (productId, sortValue = 'newest') => get(`/reviews?product_id=${productId}&page=1&sort=${sortValue}`);
 
   const closeModal = () => {
     setShow(false);
@@ -57,12 +57,12 @@ const Reviews = ({
   };
 
   return (
-    <ReviewsContainer>
+    <ReviewsContainer id="reviews">
       {placeholder ? <h4>Loading</h4>
         : (
           <>
             <TopContainer>
-              <ReviewCount count={data.length} />
+              <ReviewCount count={data && data.length} />
               ,
               <Sort getSortMethod={getSortMethod} sortValue={sortValue} />
             </TopContainer>

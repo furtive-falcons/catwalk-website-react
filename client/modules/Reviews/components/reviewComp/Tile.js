@@ -1,12 +1,12 @@
 import React, {useState } from 'react';
-import { TileContainer } from './styles.js';
+import { TileContainer } from './styles';
 import {
   ResponseContainer, ReviewContainer,
   TopRow, Stars, UserAndDate, Summary, Body, Recommend, ImageContainer,
-} from './tileStyles.js';
+} from './tileStyles';
 import StarRating from '../../../../components/StarRating';
 import NameDate from '../../../../components/NameDate';
-import Helpful from './Helpful.js';
+import Helpful from './Helpful';
 import ImageModal from '../../../../components/ImagePopUp';
 import Paragraph from '../../../../components/Paragraph';
 

@@ -11,7 +11,7 @@ const NameDate = ({
   return (
     <div className="name-date">
       {icon
-      && <i className="fas fa-check-circle" />}
+      && <i color="green" className="fas fa-check-circle" />}
       {string}
       {' '}
       {name}
