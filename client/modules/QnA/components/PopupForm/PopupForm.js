@@ -13,7 +13,7 @@ import {
 } from './styles';
 import Paragraph from '../../../../components/Paragraph';
 import ImageThumbnail from '../../../../components/ImagePopUp';
-import { ProductContext } from '../..';
+import { Context } from '../../context';
 
 const axios = require('axios');
 
@@ -22,7 +22,7 @@ const PopupForm = ({ question, setForm, formType }) => {
   const [response, setResponse] = useState({});
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
-  const { productName, productId } = useContext(ProductContext);
+  const { productName, productId } = useContext(Context);
   const modalRef = useRef();
   const uploadRef = useRef();
 
@@ -168,10 +168,15 @@ const PopupForm = ({ question, setForm, formType }) => {
 export default PopupForm;
 
 PopupForm.propTypes = {
-  setForm: func.isRequired,
+  setForm: func,
   formType: string.isRequired,
   question: shape({
     question_id: number,
     question_body: string,
-  }).isRequired,
+  }),
+};
+
+PopupForm.defaultProps = {
+  question: null,
+  setForm: () => {},
 };

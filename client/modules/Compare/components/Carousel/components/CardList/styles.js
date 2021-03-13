@@ -53,8 +53,7 @@ export const ButtonContainer = styled.div`
     background-color: black;
     color: #3BBF4F;
   }
-`
-
+`;
 
 export const CardContainer = styled.div`
   flex: 3.5;
@@ -68,8 +67,3 @@ export const CardContainer = styled.div`
   max-width: 230px;
   max-height: 450px;
 `;
-
-// export default CardContainer;
-
-// max-width: 250px;
-// max-height: 350px;

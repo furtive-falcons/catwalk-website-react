@@ -19,12 +19,3 @@ const CarouselContainer = styled.div`
 `;
 
 export default CarouselContainer;
-// position: absolute;
-// left: 200px;
-// top: 670px;
-// z-index: 1;
-
-// position: absolute;
-// left: 1390px;
-// top: 670px;
-// z-index: 1;
