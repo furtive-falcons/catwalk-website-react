@@ -14,7 +14,7 @@ export const CardListContainer = styled.div`
 export const ButtonContainer = styled.div`
   .left-prev-button{
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 2%;
     transform: translateY(-50%);
     background-color: #3BBF4F;
@@ -33,7 +33,7 @@ export const ButtonContainer = styled.div`
   }
   .right-prev-button{
     position: absolute;
-    top: 40%;
+    top: 50%;
     right: 2%;
     transform: translateY(-50%);
     background-color: #3BBF4F;
@@ -53,6 +53,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
+  .cardContainer{
     flex: 3.5;
     flex-direction: row;
     display: inline-block;
@@ -60,8 +61,10 @@ export const CardContainer = styled.div`
     margin: 5px;
     max-width: 230px;
     max-height: 450px;
+    padding: 0px 0px 5px 0px;
+  }
+  .cardContainer:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  // #cardContainer:hover{
-  //   border: 1px solid black;
-  // }
+    border-radius: 8px;
+  }
 `;

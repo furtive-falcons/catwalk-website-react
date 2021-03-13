@@ -43,9 +43,11 @@ const CardList = ({ cardList }) => {
         ) : null}
       </ButtonContainer>
       {cardListPage.map((card) => (
-        <CardContainer key={`container_${card.id}`} id="cardContainer">
-          <CardAssets card={card} key={`assets_${card.id}`} />
-          <CardDetails card={card} key={`details_${card.id}`} />
+        <CardContainer key={`container_${card.id}`}>
+          <div className="cardContainer">
+            <CardAssets card={card} key={`assets_${card.id}`} />
+            <CardDetails card={card} key={`details_${card.id}`} />
+          </div>
         </CardContainer>
       ))}
     </CardListContainer>
