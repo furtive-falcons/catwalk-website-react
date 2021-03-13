@@ -21,8 +21,7 @@ class CompareCarousels extends React.Component {
     const url = '/api/products';
     axios.get(`${url}/${productId}/related`)
       .then((res) => {
-        console.log(res.data);
-        this.setState({ relatedProducts: res.data });
+        this.setState({ relatedProducts: res.data.data });
       }, (err) => {
         console.log('err', err);
       });
