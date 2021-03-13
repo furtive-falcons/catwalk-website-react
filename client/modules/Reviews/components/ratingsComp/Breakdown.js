@@ -20,7 +20,14 @@ const Breakdown = ({ data, recommend }) => {
   const renderFactors = (data, parentWidth) => {
     const rendered = [];
     for (const factor in data) {
-      rendered.push(<Factor width={parentWidth} key={factor} label={factor} rating={data[factor].value} />);
+      rendered.push(
+        <Factor
+          width={parentWidth}
+          key={factor}
+          label={factor}
+          rating={data[factor].value}
+        />,
+      );
     }
     return rendered;
   };

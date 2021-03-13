@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, {useState } from 'react';
 import { TileContainer } from './styles.js';
 import {
   ResponseContainer, ReviewContainer,
@@ -21,7 +21,7 @@ const Tile = ({
       <TopRow>
         <Stars><StarRating rating={rating} /></Stars>
         <UserAndDate>
-          <NameDate name={user} date={date} />
+          <NameDate icon name={user} date={date} />
         </UserAndDate>
       </TopRow>
       <ReviewContainer>
@@ -52,7 +52,7 @@ const Tile = ({
         </Recommend>
         )}
         <ResponseContainer>
-          <span>Response: </span>
+          <span>Response From Seller: </span>
           <p>{response}</p>
         </ResponseContainer>
         <Helpful review_id={review_id} count={helpfulness} />

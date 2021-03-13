@@ -1,10 +1,9 @@
-/* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import {} from 'prop-types';
+import { shape, bool, number } from 'prop-types';
 import Helpful from '../../../../components/Helpful';
-import Report from './Report.jsx';
-import AddAnswer from './AddAnswer.jsx';
-import { StyledSeperator } from './styles.js';
+import Report from './Report';
+import AddAnswer from './AddAnswer';
+import { StyledSeperator } from './styles';
 
 const axios = require('axios');
 
@@ -58,3 +57,11 @@ const QuestionInfo = ({ question }) => {
 };
 
 export default QuestionInfo;
+
+QuestionInfo.propTypes = {
+  question: shape({
+    question_id: number,
+    question_helpfulness: number,
+    reported: bool,
+  }).isRequired,
+};

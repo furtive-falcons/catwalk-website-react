@@ -1,43 +1,45 @@
 import styled from 'styled-components';
+import {fadeIn} from '../../animationStyles.js'
 
 const FormView = styled.form`
-  // border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   width: 100%;
-  height: 100%;
   min-width: 750px;
+  background-color: #f5f5f5;
+  border: none;
 
   .rec {
     label {
       font-size: 1.3rem;
     }
 
-    input {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-
   }
+  input {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
 
   .input {
     width: 95%;
     height: 35px;
     font-size: 1.3rem;
     padding: 2%;
-
+    border: 0.5px solid #d3d3d3;
+    border-radius: 5px;
   }
-
-  // .input: invalid {
-  //   border: 2px solid red;
-  // }
 
   textarea {
     width: 100%;
     height: 150px;
     padding: 2%;
+    border: none;
+    border: 0.5px solid #d3d3d3;
+    border-radius: 5px;
+
   }
 
   .ratingAndRec {
@@ -76,7 +78,6 @@ const FormView = styled.form`
   }
 
   .inner {
-    // border: 1px solid black;
     width: 95%;
     padding-bottom: 50px;
     padding-top: 50px;
@@ -106,6 +107,8 @@ const FormView = styled.form`
       object-fit: cover;
       margin: 5px;
       border: 3px solid green;
+      animation: ${fadeIn} 0.5s;
+
     }
   }
   }
@@ -137,6 +140,8 @@ const FormView = styled.form`
 
 const InputDiv = styled.div`
   font-size: 1.5rem;
+  animation: ${fadeIn} 1s;
+
 
   .note {
     font-size: 1rem;
@@ -148,9 +153,12 @@ const Radio = styled.div`
   display: flex;
   flex-direciton: row;
   font-size: 1.3rem;
+  animation: ${fadeIn} 1s;
+
 
   .radio {
-    width: 40px;
+    width: 82px;
+    height:20px;
   }
 
   .container {
@@ -167,6 +175,8 @@ const Radio = styled.div`
 const StarDiv = styled.div`
   display: flex;
   flex-direction: column;
+  animation: ${fadeIn} 1s;
+
   .group {
     display: flex;
     flex-direction: row;

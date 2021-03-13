@@ -21,6 +21,8 @@ const ImageThumbnail = ({ images, productName }) => {
           loading="lazy"
           alt={productName}
           data-test="component-thumbnail"
+          width="10rem"
+          height="10rem"
         />
       ))}
       {showModal ? (

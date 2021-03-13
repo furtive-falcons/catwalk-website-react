@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
+import { string, func } from 'prop-types';
 import { FormInputField } from './styles.js';
 
 const InputField = ({
-  type, width, height, label, placeholder, getInput, name,
+  type, label, placeholder, getInput, name,
 }) => (
   <>
     <label htmlFor={label}>
@@ -14,8 +15,8 @@ const InputField = ({
       type={type}
       name={name}
       onChange={getInput}
-      width={width}
-      height={height}
+      width={30}
+      height={4}
       placeholder={placeholder}
       maxLength="60"
       required
@@ -24,3 +25,11 @@ const InputField = ({
 );
 
 export default InputField;
+
+InputField.propTypes = {
+  type: string.isRequired,
+  name: string.isRequired,
+  label: string.isRequired,
+  placeholder: string.isRequired,
+  getInput: func.isRequired,
+};
