@@ -22,7 +22,7 @@ const QAEntry = ({ question, id, searched }) => {
     data.sort((a, b) => b[method] - a[method]);
     setDisplay(data.slice(0, 2));
     if (searched) {
-      const match = data.filter((an) => an.body.includes(searched));
+      const match = data.filter((an) => an.body.toLowerCase().includes(searched));
       if (match.length > 0) {
         setFilter(match);
       } else {
@@ -64,9 +64,16 @@ const QAEntry = ({ question, id, searched }) => {
       page += 1;
     }
     Promise.all(data)
-      .then((results) => results.forEach((result) => {
-        setAnswers((prev) => [...prev, ...result.data.results]);
-      }));
+      .then((results) => {
+        results.forEach((result) => {
+          setAnswers((prev) => [...prev, ...result.data.results]);
+        });
+        return results;
+      })
+      .then((results) => {
+        const firstPage = results[0].data.results;
+        setDisplay(firstPage.slice(0, 2));
+      });
   };
 
   useEffect(() => {
@@ -74,10 +81,11 @@ const QAEntry = ({ question, id, searched }) => {
       getAllAnswers();
       setSuccess(true);
     } else {
+      setFilter([]);
       sortAnswers(removeDuplicate(ans));
       setDisplay(ans.slice(0, 2));
     }
-  }, [ans]);
+  }, [ans, searched]);
 
   const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
@@ -101,7 +109,7 @@ const QAEntry = ({ question, id, searched }) => {
         : ans.length === display.length ? (
           <LoadAndCollapse
             handleOnClick={collapseAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             Collapse Answers
@@ -109,7 +117,7 @@ const QAEntry = ({ question, id, searched }) => {
         ) : (
           <LoadAndCollapse
             handleOnClick={loadAnswers}
-            size={1.3}
+            size={1.5}
             href={null}
           >
             See More Answers

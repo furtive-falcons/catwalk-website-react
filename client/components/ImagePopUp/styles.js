@@ -7,6 +7,7 @@ const Thumbnail = styled.img`
   object-fit: cover;
   margin-right: 1rem;
   margin-top: 1rem;
+  cursor: pointer;
   :hover {
     opacity: 0.6;
   }
