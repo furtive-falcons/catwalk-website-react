@@ -6,9 +6,9 @@ const Sort = ({ getSortMethod, sortValue }) => (
     <label htmlFor="sort">
       Sort By {' '}
       <select id="sort" value={sortValue} onChange={getSortMethod} name="sort" className="dropdown">
-        <option value="relevance">Relevance</option>
-        <option value="helpfulness">Helpfulness</option>
-        <option value="date">Newest</option>
+        <option value="relevant">Relevance</option>
+        <option value="helpful">Helpfulness</option>
+        <option value="newest">Newest</option>
       </select>
     </label>
   </DropdownContainer>

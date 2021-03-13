@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colorPrimary, colorSecondary } from '../../../../ui/ui-colors';
+import {fadeIn} from '../animationStyles.js'
 
 const RecDiv = styled.div`
 font-size: 1.5rem;
@@ -31,7 +32,6 @@ const ScoreDiv = styled.div`
 
   .stars {
     margin-left: 8px;
-    // border: 1px solid black;
     padding-top: 6px;
 
   }
@@ -45,6 +45,8 @@ const ScoreDiv = styled.div`
     margin-top: 5px;
     font-size: 1.5rem;
   }
+
+
 `;
 const BarDiv = styled.div`
   display: flex;
@@ -68,7 +70,6 @@ const BarDiv = styled.div`
 const FilterDiv = styled.div`
   width: 85%;
   flex: 3;
-  // border: 1px solid black;
 
   .clickable {
     text-decoration: underline;
@@ -80,6 +81,7 @@ const FilterDiv = styled.div`
     background-color: black;
     color: white;
     cursor: pointer;
+    animation: ${fadeIn} 0.5s;
   }
 
   .notClickable {
@@ -102,11 +104,9 @@ const FilterDiv = styled.div`
 const BreakdownDiv = styled.div`
   width: 90%;
   flex: 3;
-  // border: 1px solid black;
   margin-top: 10px;
 
   .factors {
-    // border: 1px solid red;
     width: 80%;
   }
 `;
@@ -133,6 +133,7 @@ const FactorDiv = styled.div`
 
   .labelTop {
     font-size: 1.5rem;
+    font-weight: 700;
   }
 
 

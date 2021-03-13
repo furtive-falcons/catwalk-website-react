@@ -4,7 +4,6 @@ import Mark from './Mark.js';
 import {colorGreen} from '../../../../ui/ui-colors';
 import labels from '../../labels.js';
 
-
 const Factor = ({ label, rating, width }) => {
   const loweredCased = label[0].toLowerCase().concat(label.slice(1));
   const renderLabels = (labels, label) => labels[loweredCased].map((description, index) => {
