@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colorPrimary, colorSecondary } from '../../../../ui/ui-colors';
-import {fadeIn} from '../animationStyles.js'
+import { fadeIn } from '../animationStyles.js'
 
 const RecDiv = styled.div`
 font-size: 1.5rem;

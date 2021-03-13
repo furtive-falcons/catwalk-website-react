@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fadeIn } from '../animationStyles.js';
+import { fadeIn } from '../animationStyles';
 
 const TopRow = styled.div`
   width: 100%;

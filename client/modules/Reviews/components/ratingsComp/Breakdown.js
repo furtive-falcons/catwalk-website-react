@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { BreakdownDiv } from './styles.js';
-import Factor from './Factor.js';
-import Recommend from './Recommend.js';
+import { BreakdownDiv } from './styles';
+import Factor from './Factor';
+import Recommend from './Recommend';
 
 const Breakdown = ({ data, recommend }) => {
   const parentRef = useRef(null);

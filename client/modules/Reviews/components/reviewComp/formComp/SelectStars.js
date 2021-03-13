@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Star from '../../../../../components/StarRating/FullStar.js';
-import { StarDiv } from './styles.js';
+import Star from '../../../../../components/StarRating/FullStar';
+import { StarDiv } from './styles';
 
 const messages = {
   0: 'Poor',

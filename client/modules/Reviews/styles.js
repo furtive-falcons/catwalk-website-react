@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -21,10 +21,10 @@ const Container = styled.div`
   }
 `;
 
-const Header = styled.div`
-  font-size: 16px;
+const Header = styled.h1`
   font-weight: 600;
   margin-bottom: 30px;
+  font-size: 2rem;
 `;
 
 const Main = styled.div`
@@ -35,4 +35,6 @@ const Main = styled.div`
 
 `;
 
-export { Main, Header, Container, fadeIn };
+export {
+  Main, Header, Container, fadeIn,
+};
