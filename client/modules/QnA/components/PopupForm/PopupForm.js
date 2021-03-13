@@ -168,10 +168,15 @@ const PopupForm = ({ question, setForm, formType }) => {
 export default PopupForm;
 
 PopupForm.propTypes = {
-  setForm: func.isRequired,
+  setForm: func,
   formType: string.isRequired,
   question: shape({
     question_id: number,
     question_body: string,
-  }).isRequired,
+  }),
+};
+
+PopupForm.defaultProps = {
+  question: null,
+  setForm: () => {},
 };

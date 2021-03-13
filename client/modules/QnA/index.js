@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { number } from 'prop-types';
 import SearchBar from './components/SearchBar';
@@ -7,6 +8,7 @@ import AddQuestion from './components/AddQuestion';
 import { Container } from './styles';
 
 const axios = require('axios');
+
 const ProductContext = React.createContext();
 
 const QnA = ({ productId }) => {

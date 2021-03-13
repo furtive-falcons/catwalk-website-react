@@ -22,7 +22,7 @@ const QAEntry = ({ question, id, searched }) => {
     data.sort((a, b) => b[method] - a[method]);
     setDisplay(data.slice(0, 2));
     if (searched) {
-      const match = data.filter((an) => an.body.includes(searched));
+      const match = data.filter((an) => an.body.toLowerCase().includes(searched));
       if (match.length > 0) {
         setFilter(match);
       } else {
@@ -74,10 +74,11 @@ const QAEntry = ({ question, id, searched }) => {
       getAllAnswers();
       setSuccess(true);
     } else {
+      setFilter([]);
       sortAnswers(removeDuplicate(ans));
       setDisplay(ans.slice(0, 2));
     }
-  }, [ans]);
+  }, [ans, searched]);
 
   const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));
