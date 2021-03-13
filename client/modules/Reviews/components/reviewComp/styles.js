@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {fadeIn, slideUp} from '../animationStyles.js';
+
 
 const DropdownContainer = styled.div`
   select {
@@ -18,13 +20,21 @@ const DropdownContainer = styled.div`
 const ReviewListContainer = styled.div`
   flex: 7;
   width: 95%;
-  max-height: 825px;
   min-height: 500px;
+  max-height: 825px;
   flex-direction: column;
-  // border: 1px solid black;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll
+  overflow-y: scroll;
+
+  .blank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -44,6 +54,7 @@ const TileContainer = styled.div`
   border-bottom: 0.5px solid grey;
   display: flex;
   flex-direction: column;
+  animation: ${fadeIn} 1.3s ease-out;
 `;
 
 const ModalContainer = styled.div`
@@ -55,10 +66,8 @@ const ModalContainer = styled.div`
   background-color: white;
   left: 0;
   top: 0;
-  bottom: 0;
-  right: 0;
   overflow: scroll;
-  border: 1px solid black;
+  animation: ${slideUp} 0.5s;
 
   .formDiv {
     background-color: white;

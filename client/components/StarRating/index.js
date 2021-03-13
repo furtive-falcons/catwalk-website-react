@@ -5,16 +5,16 @@ import PartialStar from './PartialStar.js';
 import StarContainer from './styles.js';
 
 // inputs: Number rating, Number size, String color
-const StarRating = ({ rating= 5, size=17, color="black", background="white"}) => {
-
+const StarRating = ({
+  rating = 5, size = 17, color = 'black', background = 'white',
+}) => {
   // convert the rating to the nearest lowest quarter precision with 2 decimal place
   const convertedRating = (Math.floor(rating / 0.25) * 0.25).toFixed(2);
   // function to render stars
   const renderStars = (rating) => {
     const string = rating.toString();
     // get the number of full stars
-    const fullFilled = parseInt(string[0]);
-
+    const fullFilled = parseInt(string[0], 10);
     const fullEmpty = Math.floor(5 - convertedRating);
 
     // get the partial star's percentage
@@ -28,11 +28,19 @@ const StarRating = ({ rating= 5, size=17, color="black", background="white"}) =>
 
     // render partial stars if percentage doesnt start with 0
     if (partial[0] !== '0') {
-      stars.push(<PartialStar background={background} color={color} size={size} key={stars.length} percentage={partial} />);
+      stars.push(
+        <PartialStar
+          background={background}
+          color={color}
+          size={size}
+          key={stars.length}
+          percentage={partial}
+        />,
+      );
     }
 
     // render full empty stars
-    for (let i = 10; i < (10 + fullEmpty); i++) {
+    for (let i = 10; i < (10 + fullEmpty); i += 1) {
       stars.push(<FullStar size={size} empty key={i} />);
     }
 
