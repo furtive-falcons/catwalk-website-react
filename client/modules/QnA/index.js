@@ -6,9 +6,9 @@ import EntryContainer from './components/EntryContainer';
 import MoreQuestion from './components/MoreQuestion';
 import AddQuestion from './components/AddQuestion';
 import { Container } from './styles';
+import { Provider } from './context';
 
 const axios = require('axios');
-const ProductContext = React.createContext();
 
 const QnA = ({ productId }) => {
   const [questions, setQuestions] = useState([]);
@@ -86,6 +86,7 @@ const QnA = ({ productId }) => {
     if (match.length > 0) {
       return question;
     }
+    return null;
   };
 
   const filterQuestions = (question) => {
@@ -106,13 +107,13 @@ const QnA = ({ productId }) => {
     }
   };
   useEffect(() => {
+    setQuestions([]);
     getAllQA();
     getProductName();
-    setQuestions([]);
   }, [productId]);
 
   return (
-    <ProductContext.Provider value={{ productId, productName }}>
+    <Provider value={{ productId, productName }}>
       <Container>
         <h1 id="title">QUESTIONS & ANSWERS</h1>
         <SearchBar search={handleSearch} id="search-bar" />
@@ -135,12 +136,12 @@ const QnA = ({ productId }) => {
           )}
         <AddQuestion id="add-question" />
       </Container>
-    </ProductContext.Provider>
+    </Provider>
   );
 };
 
-export { QnA, ProductContext };
-
+// export { QnA, ProductContext };
+export default QnA;
 QnA.propTypes = {
   productId: number,
 };

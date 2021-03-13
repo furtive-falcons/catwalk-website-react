@@ -13,7 +13,7 @@ import {
 } from './styles';
 import Paragraph from '../../../../components/Paragraph';
 import ImageThumbnail from '../../../../components/ImagePopUp';
-import { ProductContext } from '../..';
+import { Context } from '../../context';
 
 const axios = require('axios');
 
@@ -22,7 +22,7 @@ const PopupForm = ({ question, setForm, formType }) => {
   const [response, setResponse] = useState({});
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
-  const { productName, productId } = useContext(ProductContext);
+  const { productName, productId } = useContext(Context);
   const modalRef = useRef();
   const uploadRef = useRef();
 
