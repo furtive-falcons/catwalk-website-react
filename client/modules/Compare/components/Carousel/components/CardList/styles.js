@@ -56,14 +56,16 @@ export const ButtonContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  flex: 3.5;
-  flex-direction: row;
-  display: inline-block;
-  // border: 1px solid black;
-  // background-color: #fff;
-  width: auto;
-  margin: 5px;
-  // padding: 10px;
-  max-width: 230px;
-  max-height: 450px;
+  .cardContainer{
+    flex: 3.5;
+    flex-direction: row;
+    display: inline-block;
+    width: auto;
+    margin: 5px;
+    max-width: 230px;
+    max-height: 450px;
+  }
+  .cardContainer{
+    border: 1px solid black;
+  }
 `;
