@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Thumbnail } from './styles.js';
-import ImageModal from './components/ImageModal.jsx';
+import { Thumbnail } from './styles';
+import ImageModal from './components/ImageModal';
 
 const ImageThumbnail = ({ images, productName }) => {
   const [showModal, setModal] = useState(false);

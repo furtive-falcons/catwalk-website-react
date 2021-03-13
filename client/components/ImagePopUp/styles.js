@@ -75,7 +75,6 @@ const ModalBackground = styled.div`
       background-color: #fff;
       color: ${colorGreyLight2};
       border-radius: 50%;
-      transform: scale(1.05);
     }
   }
 `;
