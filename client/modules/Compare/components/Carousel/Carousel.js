@@ -1,5 +1,7 @@
 import React from 'react';
-import { arrayOf, oneOfType, object } from 'prop-types';
+import {
+  arrayOf, string, number, exact,
+} from 'prop-types';
 import Section from './components/Section/Section';
 import CardList from './components/CardList/CardList';
 import CarouselContainer from './styles';
@@ -14,11 +16,23 @@ const Carousel = ({ relatedProducts }) => (
 );
 
 Carousel.propTypes = {
-  relatedProducts: arrayOf(oneOfType([object])),
+  relatedProducts: arrayOf(exact({
+    id: number,
+    name: string,
+    category: string,
+    features: arrayOf(exact({
+      feature: string,
+      value: string,
+    })),
+    original_price: string,
+    sale_price: string,
+    thumbnail_url: string,
+    ratingAverage: number,
+  })),
 };
 
 Carousel.defaultProps = {
-  relatedProducts: [],
+  relatedProducts: {},
 };
 
 export default Carousel;
