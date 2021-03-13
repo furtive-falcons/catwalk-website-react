@@ -4,7 +4,7 @@ const app = express();
 const dotenv = require('dotenv');
 const productRouter = require('./src/routes/productRoutes');
 const qaRouter = require('./src/routes/qaRoutes');
-const reviewRouter = require('./src/routes/reviewRoutes')
+const reviewRouter = require('./src/routes/reviewRoutes');
 
 dotenv.config({
   path: './config.env',
@@ -13,14 +13,11 @@ dotenv.config({
 app.use(express.json());
 app.use('/', express.static(`${__dirname}/dist`));
 app.use('/', express.static(`${__dirname}/public`));
-app.use('/api/products', productRouter);
 const PORT = 3000;
 
+app.use('/api/products', productRouter);
 app.use('/qa', qaRouter);
 app.use('/reviews', reviewRouter);
-// app.get('/', (req, res) => {
-//   res.send(`test`)
-// })
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

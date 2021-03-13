@@ -8,6 +8,7 @@ import LoadAndCollapse from './LoadAndCollapse';
 import { Entry } from './styles';
 import QuestionInfo from './QuestionInfo';
 import AnswerContainer from './AnswerContainer';
+import { Provider } from '../AnswerContext';
 
 const axios = require('axios');
 
@@ -96,34 +97,36 @@ const QAEntry = ({ question, id, searched }) => {
   };
 
   return (
-    <Entry className="container">
-      <h2 className="q">Q:</h2>
-      <Question id="question" body={question.question_body} />
-      <h2 className="a">A:</h2>
-      <AnswerContainer
-        id="answer-container"
-        display={filter.length > 0 ? filter : display}
-      />
-      <QuestionInfo id="question-info" question={question} />
-      {ans.length < 3 || filter.length > 0 ? null
-        : ans.length === display.length ? (
-          <LoadAndCollapse
-            handleOnClick={collapseAnswers}
-            size={1.5}
-            href={null}
-          >
-            Collapse Answers
-          </LoadAndCollapse>
-        ) : (
-          <LoadAndCollapse
-            handleOnClick={loadAnswers}
-            size={1.5}
-            href={null}
-          >
-            See More Answers
-          </LoadAndCollapse>
-        )}
-    </Entry>
+    <Provider value={{ getAllAnswers, setAnswers }}>
+      <Entry className="container">
+        <h2 className="q">Q:</h2>
+        <Question id="question" body={question.question_body} />
+        <h2 className="a">A:</h2>
+        <AnswerContainer
+          id="answer-container"
+          display={filter.length > 0 ? filter : display}
+        />
+        <QuestionInfo id="question-info" question={question} />
+        {ans.length < 3 || filter.length > 0 ? null
+          : ans.length === display.length ? (
+            <LoadAndCollapse
+              handleOnClick={collapseAnswers}
+              size={1.5}
+              href={null}
+            >
+              Collapse Answers
+            </LoadAndCollapse>
+          ) : (
+            <LoadAndCollapse
+              handleOnClick={loadAnswers}
+              size={1.5}
+              href={null}
+            >
+              See More Answers
+            </LoadAndCollapse>
+          )}
+      </Entry>
+    </Provider>
   );
 };
 
