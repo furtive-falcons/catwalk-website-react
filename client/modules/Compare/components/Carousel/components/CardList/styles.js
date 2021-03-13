@@ -6,9 +6,10 @@ export const CardListContainer = styled.div`
   flex-direction: row;
   overflow-x: hidden;
   min-width: 375px;
+  justify-content: center;
   width: auto;
   margin: 5px;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
 `;
 
 export const ButtonContainer = styled.div`
@@ -26,6 +27,10 @@ export const ButtonContainer = styled.div`
     padding: 14px 20px 14px 20px;
     scroll-behavior: smooth;
     user-select: none;
+    transition: all 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
   }
   .left-prev-button:hover{
     background-color: black;
@@ -45,6 +50,10 @@ export const ButtonContainer = styled.div`
     padding: 14px 20px 14px 20px;
     scroll-behavior: smooth;
     user-select: none;
+    transition: all 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
   }
   .right-prev-button:hover{
     background-color: black;
