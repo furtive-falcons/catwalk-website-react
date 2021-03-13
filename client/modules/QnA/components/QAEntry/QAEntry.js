@@ -20,27 +20,26 @@ const QAEntry = ({ question, id, searched }) => {
   const sortAnswers = (data) => {
     const method = 'helpfulness';
     data.sort((a, b) => b[method] - a[method]);
-    setDisplay(data.slice(0, 2));
-    if (searched) {
-      const match = data.filter((an) => an.body.toLowerCase().includes(searched));
-      if (match.length > 0) {
-        setFilter(match);
-      } else {
-        setDisplay(ans.slice(0, 2));
-      }
+    // if (searched) {
+    const match = data.filter((an) => an.body.toLowerCase().includes(searched));
+    if (match.length > 0) {
+      setFilter(match);
+    } else {
+      setDisplay(ans.slice(0, 2));
     }
+    // }
   };
 
-  const removeDuplicate = (answers) => {
-    const result = {};
-    answers.forEach((answer) => {
-      const answerId = answer.answer_id;
-      if (!result[answerId]) {
-        result[answerId] = answer;
-      }
-    });
-    return Object.values(result);
-  };
+  // const removeDuplicate = (answers) => {
+  //   const result = {};
+  //   answers.forEach((answer) => {
+  //     const answerId = answer.answer_id;
+  //     if (!result[answerId]) {
+  //       result[answerId] = answer;
+  //     }
+  //   });
+  //   return Object.values(result);
+  // };
   const getAnswers = (page) => {
     const data = new Promise((resolve, reject) => {
       axios.get(`qa/questions/${id}/answers`, {
@@ -64,21 +63,30 @@ const QAEntry = ({ question, id, searched }) => {
       page += 1;
     }
     Promise.all(data)
-      .then((results) => results.forEach((result) => {
-        setAnswers((prev) => [...prev, ...result.data.results]);
-      }));
+      .then((results) => {
+        results.forEach((result) => {
+          setAnswers((prev) => [...prev, ...result.data.results]);
+        });
+        return results;
+      })
+      .then((results) => {
+        const firstPage = results[0].data.results;
+        setDisplay(firstPage.slice(0, 2));
+      });
   };
 
   useEffect(() => {
     if (!success) {
       getAllAnswers();
       setSuccess(true);
-    } else {
-      setFilter([]);
-      sortAnswers(removeDuplicate(ans));
-      setDisplay(ans.slice(0, 2));
     }
-  }, [ans, searched]);
+    if (searched) {
+      sortAnswers(ans);
+    }
+    // else {
+    //   sortAnswers(ans);
+    // }
+  }, [searched]);
 
   const loadAnswers = () => {
     setDisplay((preDisplay) => ans.slice(0, preDisplay.length + 2));

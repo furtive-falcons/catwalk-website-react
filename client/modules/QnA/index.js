@@ -8,7 +8,6 @@ import AddQuestion from './components/AddQuestion';
 import { Container } from './styles';
 
 const axios = require('axios');
-
 const ProductContext = React.createContext();
 
 const QnA = ({ productId }) => {
