@@ -2,13 +2,13 @@ import React from 'react';
 import Enzyme,{ shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
-import CompareCarousels from '../index.js'
+import Section from '../Section.js'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('renders CompareCarousels without problems', () => {
-    const wrapper = shallow(<CompareCarousels />);
-    const appComponent = wrapper.find("[data-test='component-compare']");
+test('renders section without problems', () => {
+    const wrapper = shallow(<Section />);
+    const appComponent = wrapper.find("[data-test='component-section']");
     expect(wrapper).toBeTruthy();
     expect(appComponent.length).toBe(1);
 });

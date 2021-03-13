@@ -29,8 +29,3 @@ const ImageContainer = styled.div`
   }
 `;
 export default ImageContainer;
-
-// width: 280px;
-// height: 360px;
-// width: 230px;
-// height: 330px;
