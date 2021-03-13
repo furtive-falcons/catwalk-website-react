@@ -5,7 +5,7 @@ import Tile from './Tile.js';
 const ReviewList = ({ data }) => (
   <ReviewListContainer expand={data && data.length > 2} id="reviewList">
     {
-       data.length !== 0
+       data && data.length !== 0
          ? data.map((product) => (
            <Tile
              id="reviews"
