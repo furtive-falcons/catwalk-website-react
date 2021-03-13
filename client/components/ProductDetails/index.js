@@ -103,7 +103,7 @@ ProductDetails.propTypes = {
   product: shape({}),
   selectedStyle: number,
   setSelectedStyle: func,
-  setProductId : func,
+  setProductId: func,
 };
 
 ProductDetails.defaultProps = {
