@@ -45,6 +45,8 @@ const ScoreDiv = styled.div`
     margin-top: 5px;
     font-size: 1.5rem;
   }
+
+
 `;
 const BarDiv = styled.div`
   display: flex;
@@ -131,6 +133,7 @@ const FactorDiv = styled.div`
 
   .labelTop {
     font-size: 1.5rem;
+    font-weight: 700;
   }
 
 

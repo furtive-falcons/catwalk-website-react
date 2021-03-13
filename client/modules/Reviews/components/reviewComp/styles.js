@@ -27,6 +27,14 @@ const ReviewListContainer = styled.div`
   align-items: center;
   overflow-y: scroll;
 
+  .blank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+  }
 `;
 
 const ButtonsContainer = styled.div`

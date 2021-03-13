@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ModalContainer } from './styles.js';
 import Form from './formComp/Form.js';
 
@@ -14,7 +14,7 @@ const AddReview = ({
   }, [showModal]);
 
   return (showModal ? (
-    <ModalContainer onClick={close}>
+    <ModalContainer>
       <div className="formDiv">
         <Form refresh={refresh} metaData={metaData} closeModal={closeModal} />
       </div>

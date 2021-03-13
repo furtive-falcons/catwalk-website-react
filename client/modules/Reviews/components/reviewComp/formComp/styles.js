@@ -38,6 +38,7 @@ const FormView = styled.form`
     padding: 2%;
     border: none;
     border: 0.5px solid #d3d3d3;
+    border-radius: 5px;
 
   }
 

@@ -14,7 +14,6 @@ const ReviewAndRatings = ({ productId }) => {
   const getFilter = (filter) => {
     const target = {};
     // Check if the filter already exist
-    // If it already exist then toggle it on/off
     if (filters.hasOwnProperty(filter)) {
       setFilter((filters) => {
         delete filters[filter];
@@ -62,7 +61,6 @@ const ReviewAndRatings = ({ productId }) => {
         {allReviews && meta
           ? <Ratings removeFilters={removeFilters} filters={filters} getFilter={getFilter} metaData={meta} data={allReviews.results} id="ratings" />
           :
-        // some kind of placeholder component to show before the actual component is loaded
           <Ratings placeholder />}
         {meta && allReviews
           ? <Reviews refresh={refresh} productId={productId} data={allReviews.results} refresh={refresh} metaData={meta} filters={filters} id="reviews" />

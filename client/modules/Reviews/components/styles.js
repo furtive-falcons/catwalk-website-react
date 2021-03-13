@@ -27,6 +27,13 @@ const RatingsContainer = styled.div`
     padding: 3px;
   }
 
+  h2 {
+    border-top: 1px solid grey;
+    width: 75%;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
 `;
 
 const EditFilters = styled.div`

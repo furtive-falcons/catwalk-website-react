@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import {fadeIn} from '../animationStyles.js'
-
+import { fadeIn } from '../animationStyles.js';
 
 const TopRow = styled.div`
   width: 100%;
@@ -129,4 +128,8 @@ const HelpfulDiv = styled.span`
 
 `;
 
-export {ImageContainer, ResponseContainer, ReviewContainer,TopRow, Stars, UserAndDate, Summary, Body, Recommend, HelpfulDiv };
+export {
+  ImageContainer,
+  ResponseContainer,
+  ReviewContainer, TopRow, Stars, UserAndDate, Summary, Body, Recommend, HelpfulDiv,
+};
