@@ -13,8 +13,8 @@ class CompareCarousels extends React.Component {
   }
 
   componentDidMount() {
-    // const { productId } = this.props;
-    this.getRelatedProducts(14040);
+    const { productId } = this.props;
+    this.getRelatedProducts(productId);
   }
 
   getRelatedProducts(productId) {
@@ -30,7 +30,6 @@ class CompareCarousels extends React.Component {
     return (
       <div data-test="component-compare">
         <Carousel relatedProducts={relatedProducts} />
-        {/* <Carousel relatedProducts={this.state.relatedProducts}/> */}
       </div>
     );
   }

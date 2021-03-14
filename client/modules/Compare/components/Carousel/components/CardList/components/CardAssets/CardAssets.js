@@ -15,12 +15,16 @@ const CardAssets = ({ card }) => {
             className="default-thumbnail"
             src={card.thumbnail_url}
             alt={card.name}
+            height="226px"
+            width="226px"
           />
         ) : (
           <img
             className="default-thumbnail"
             src={Placeholder}
             alt="placeholder"
+            height="226px"
+            width="226px"
           />
         )}
       </>
