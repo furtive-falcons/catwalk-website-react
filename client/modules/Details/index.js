@@ -12,7 +12,9 @@ const DetailPage = ({ productId, setProductId }) => {
   useEffect(() => {
     axios
       .get(`${URL}/${productId}`)
-      .then((response) => setProduct(response.data.data));
+      .then((response) => {
+        setProduct(response.data.data);
+      });
   }, [productId]);
 
   return (

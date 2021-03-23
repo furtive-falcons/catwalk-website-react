@@ -1,15 +1,18 @@
 const axios = require('axios');
 
+// API Local
+const URLLOCALHOST = 'http://127.0.0.1:8394';
+
 exports.getProductInformation = async (req, res) => {
   try {
-    const URL = `${process.env.API_URL}/products/${req.params.id}`;
+    const URL = `${URLLOCALHOST}/products/${req.params.id}`;
     const { data: productInformation } = await axios(URL, {
       headers: {
         Authorization: process.env.API_KEY,
       },
     });
 
-    const { data: productStyles } = await axios(`${URL}/styles`, {
+    const { data: productStyles } = await axios(`${URLLOCALHOST}/styles/${req.params.id}`, {
       headers: {
         Authorization: process.env.API_KEY,
       },
